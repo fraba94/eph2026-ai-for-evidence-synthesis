@@ -27,11 +27,11 @@ COPIES = [
     ("activity/data/papers.csv", "data/papers.csv"),
     ("activity/answers/extraction_gold.csv", "data/extraction_gold.csv"),
     ("assets/eupha-dhai-logo.png", "assets/eupha-dhai-logo.png"),
-    ("assets/banner.svg", "assets/banner.svg"),
-    ("assets/workflow.svg", "assets/workflow.svg"),
-    ("assets/in-the-loop.svg", "assets/in-the-loop.svg"),
-    ("assets/two-tracks.svg", "assets/two-tracks.svg"),
 ]
+# the figures (built by assets/figures/build_figures.py) and the organisers' logos, every file in the folder
+COPIES += [(f"assets/figures/{p.name}", f"assets/figures/{p.name}") for p in sorted((ROOT / "assets/figures").glob("*.svg"))]
+COPIES += [(f"assets/logos/{p.name}", f"assets/logos/{p.name}") for p in sorted((ROOT / "assets/logos").glob("*.png"))
+           if p.name != "organisers-strip.png"]
 
 
 def main():

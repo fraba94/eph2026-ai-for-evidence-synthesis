@@ -13,24 +13,24 @@ A step-by-step, copy-paste walkthrough of the workshop exercise for people who o
 
 ## What you will do (about 30 minutes)
 
+The steps follow the slides in the room: **screening (10 min) → extraction (12 min) → score and compare (8 min) → discussion (10 min)**.
+
 | Step | What | Time |
 |:-:|---|:-:|
-| 0 | Get ready | 2 min |
-| 1 | Read the question and the criteria | 3 min |
-| 2 | Screen 20 abstracts with your assistant | 7 min |
-| 3 | Check what came back | 5 min |
-| 4 | Run it again in a new chat | 5 min |
-| 5 | Score against the reference review | 5 min |
-| 6 | Extract data from one paper, with quotes (optional if you are short of time; recommended) | 12 min |
-| 7 | Talk about it | in the room |
+| 0–4 | Get ready, read the criteria, screen 20 abstracts, check what came back (and, with a spare minute, run it again in a new chat) | 10 min |
+| 5 | Extract data from one paper, with quotes (optional if screening ran late) | 12 min |
+| 6 | Score and compare with the reference review | 8 min |
+| 7 | Talk about it | 10 min, all together |
 
 **The question** is deliberately simple, so you can focus on the AI and not on the topic: *are hand hygiene interventions effective in preventing healthcare-associated infections (HAI)?*
 
 | P | I | C | O |
 |---|---|---|---|
-| Healthcare settings (patients, healthcare workers) | Hand hygiene interventions or promotion | Usual care or the period before the intervention | HAI incidence |
+| Patients and healthcare workers in acute care hospitals | Multimodal hand hygiene intervention, hospital-wide or across more than one ward | Pre-intervention period, standard practice, or a contemporaneous comparator group | Clinical healthcare-associated infection outcomes |
 
-The **reference review** is a systematic review on this question conducted **without AI**; its decisions are the answers you compare with. Its full reference, and why it was chosen, are in [`activity/data/README.md`](../activity/data/README.md) (the only page that names it).
+Study design: quasi-experimental (interrupted time series, controlled or uncontrolled before-after). The full criteria C1–C6 are in [`activity/README.md`](../activity/README.md).
+
+The **reference review** is a systematic review on this question conducted **without AI**; its decisions are the answers you compare with. Its full reference, and why it was chosen, are in [`activity/data/README.md`](../activity/data/README.md); open it after the exercise, not before.
 
 ---
 
@@ -130,16 +130,7 @@ Before trusting anything, check it. This is the most important step.
 
 For records where the two runs disagree, **you** decide: write your own decision in a third file, `my_decisions.csv` (same columns). Keep the AI files as they are.
 
-## Step 5. Score against the reference review
-
-Only now look at the answers.
-
-- **Online scorer** (nothing leaves your browser): open the workshop website's scorer, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>, and load `screening_run1.csv`, `screening_run2.csv` or `my_decisions.csv`.
-- **With Python** (if you have it): `python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` (use `--help` to see the options).
-
-Then look at each disagreement with the reference and ask: was it a **missed include** (the most serious error), a **false include**, an *unsure* that was reasonable, or a criterion that two humans could also read differently? The prompt to help you classify them is [6.2 in the prompt library](../prompts/06_synthesis_and_reporting.md#62-discrepancy-summary-after-the-workshop-exercise).
-
-## Step 6. Extract data from one paper, with quotes (optional if you are short of time; recommended)
+## Step 5. Extract data from one paper, with quotes (12 min; optional if screening ran late)
 
 This is the 12-minute extraction step of [`activity/README.md`](../activity/README.md). If you are short of time, skip it; if you can, do it: extraction is where AI errors are hardest to see.
 
@@ -182,7 +173,16 @@ For each row below, find the quote in the paper I give you. Answer FOUND (verbat
 - [ ] If you ran it twice: which fields changed? Numbers usually change more than descriptions.
 - [ ] Score it (scorer page or `python3 activity/tools/score_extraction.py extraction.csv`): read `QUOTE NOT FOUND`, `unsupported` and `false absent` first.
 
-## Step 7. Talk about it
+## Step 6. Score and compare with the reference review (8 min)
+
+Only now look at the answers.
+
+- **Online scorer** (nothing leaves your browser): open the workshop website's scorer, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>, and load `screening_run1.csv`, `screening_run2.csv` or `my_decisions.csv`.
+- **With Python** (if you have it): `python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` (use `--help` to see the options).
+
+Then look at each disagreement with the reference and ask: was it a **missed include** (the most serious error), a **false include**, an *unsure* that was reasonable, or a criterion that two humans could also read differently? The prompt to help you classify them is [6.2 in the prompt library](../prompts/06_synthesis_and_reporting.md#62-discrepancy-summary-after-the-workshop-exercise).
+
+## Step 7. Talk about it (10 min, all together)
 
 Bring your answers to the group discussion:
 

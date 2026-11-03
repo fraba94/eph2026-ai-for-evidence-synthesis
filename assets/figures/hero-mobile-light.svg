@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="940" viewBox="0 0 760 940" role="img" aria-label="AI for evidence synthesis. EPH 2026 Bilbao, skills building seminar M.8, EUPHA Digital Health and Artificial Intelligence Section. An AI can screen all 60 records for you: would you notice the ones it got wrong? A schematic screening sheet compares AI decisions with the human review and highlights a missed include." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif">
+<title>AI for evidence synthesis. EPH 2026 Bilbao, skills building seminar M.8, EUPHA Digital Health and Artificial Intelligence Section. An AI can screen all 60 records for you: would you notice the ones it got wrong? A schematic screening sheet compares AI decisions with the human review and highlights a missed include.</title>
+<style>@keyframes scan{0%,12%{transform:translateY(0)}30%,46%{transform:translateY(112px)}64%,80%{transform:translateY(224px)}100%{transform:translateY(0)}}.lens{animation:scan 14s ease-in-out infinite}@media (prefers-reduced-motion:reduce){.lens{animation:none}}</style>
+<rect width="760" height="940" rx="16" fill="#FFFFFF"/>
+<text x="40" y="76" font-size="17" fill="#2E61A3" font-weight="700" letter-spacing="1.6">EPH 2026 · BILBAO · SKILLS BUILDING SEMINAR M.8</text>
+<text x="40" y="146.0" font-size="58" fill="#0F2747" font-weight="800">AI for evidence</text><text x="40" y="208.64" font-size="58" fill="#0F2747" font-weight="800">synthesis</text>
+<text x="40" y="286.0" font-size="25" fill="#4A5D78">Screening and data extraction with AI,</text><text x="40" y="321.0" font-size="25" fill="#4A5D78">checked against a review done by humans.</text>
+<rect x="40" y="366" width="680" height="92" rx="14" fill="#EAF2FC" stroke="#A9C5E8" stroke-width="1.2"/>
+<g transform="translate(62 390) scale(1.4167)" fill="none" stroke="#2E61A3" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g>
+<text x="118" y="402.0" font-size="23" fill="#0F2747" font-weight="650">An AI can screen all 60 records for you.</text><text x="118" y="433.05" font-size="23" fill="#0F2747" font-weight="650">Would you notice the ones it got wrong?</text>
+<rect x="40" y="486" width="680" height="428" rx="16" fill="#FFFFFF" stroke="#D6E0EC" stroke-width="1.2"/>
+<text x="64" y="524" font-size="19" fill="#0F2747" font-weight="700">Screening sheet</text>
+<text x="696" y="524" font-size="15" fill="#8496AE" text-anchor="end" font-style="italic">schematic</text>
+<text x="64" y="560" font-size="13" fill="#8496AE" font-weight="700" letter-spacing="1.2">RECORD</text>
+<text x="542" y="560" font-size="13" fill="#8496AE" font-weight="700" text-anchor="middle" letter-spacing="1.2">AI</text>
+<text x="654" y="560" font-size="13" fill="#8496AE" font-weight="700" text-anchor="middle" letter-spacing="1.2">HUMANS</text>
+<line x1="56" y1="631" x2="704" y2="631" stroke="#D6E0EC" stroke-width="1"/>
+<text x="64" y="609" font-size="16" fill="#4A5D78" font-weight="600">Record A</text>
+<rect x="164" y="592" width="306" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="164" y="606" width="168.3" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="496" y="589" width="92" height="28" rx="14" fill="#E8F5EC" stroke="#9DCFB1" stroke-width="1.2"/>
+<text x="542" y="608" font-size="14" fill="#1D6A44" font-weight="600" text-anchor="middle">include</text>
+<rect x="608" y="589" width="92" height="28" rx="14" fill="#E8F5EC" stroke="#9DCFB1" stroke-width="1.2"/>
+<text x="654" y="608" font-size="14" fill="#1D6A44" font-weight="600" text-anchor="middle">include</text>
+<line x1="56" y1="687" x2="704" y2="687" stroke="#D6E0EC" stroke-width="1"/>
+<text x="64" y="665" font-size="16" fill="#4A5D78" font-weight="600">Record B</text>
+<rect x="164" y="648" width="306" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="164" y="662" width="189.72000000000003" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="496" y="645" width="92" height="28" rx="14" fill="#F6F8FB" stroke="#D6E0EC" stroke-width="1.2"/>
+<text x="542" y="664" font-size="14" fill="#4A5D78" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="608" y="645" width="92" height="28" rx="14" fill="#F6F8FB" stroke="#D6E0EC" stroke-width="1.2"/>
+<text x="654" y="664" font-size="14" fill="#4A5D78" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="50" y="688" width="660" height="52" rx="10" fill="#FCEBEF" stroke="#E8B1BF" stroke-width="1.2"/>
+<line x1="56" y1="743" x2="704" y2="743" stroke="#D6E0EC" stroke-width="1"/>
+<text x="64" y="721" font-size="16" fill="#4A5D78" font-weight="600">Record C</text>
+<rect x="164" y="704" width="306" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="164" y="718" width="211.14000000000001" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="496" y="701" width="92" height="28" rx="14" fill="#F6F8FB" stroke="#D6E0EC" stroke-width="1.2"/>
+<text x="542" y="720" font-size="14" fill="#4A5D78" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="608" y="701" width="92" height="28" rx="14" fill="#E8F5EC" stroke="#9DCFB1" stroke-width="1.2"/>
+<text x="654" y="720" font-size="14" fill="#1D6A44" font-weight="600" text-anchor="middle">include</text>
+<line x1="56" y1="799" x2="704" y2="799" stroke="#D6E0EC" stroke-width="1"/>
+<text x="64" y="777" font-size="16" fill="#4A5D78" font-weight="600">Record D</text>
+<rect x="164" y="760" width="306" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="164" y="774" width="232.56" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="496" y="757" width="92" height="28" rx="14" fill="#F6F8FB" stroke="#D6E0EC" stroke-width="1.2"/>
+<text x="542" y="776" font-size="14" fill="#4A5D78" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="608" y="757" width="92" height="28" rx="14" fill="#F6F8FB" stroke="#D6E0EC" stroke-width="1.2"/>
+<text x="654" y="776" font-size="14" fill="#4A5D78" font-weight="600" text-anchor="middle">exclude</text>
+<line x1="56" y1="855" x2="704" y2="855" stroke="#D6E0EC" stroke-width="1"/>
+<text x="64" y="833" font-size="16" fill="#4A5D78" font-weight="600">Record E</text>
+<rect x="164" y="816" width="306" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="164" y="830" width="168.3" height="7" rx="3.5" fill="#BFD2EA"/>
+<rect x="496" y="813" width="92" height="28" rx="14" fill="#E8F5EC" stroke="#9DCFB1" stroke-width="1.2"/>
+<text x="542" y="832" font-size="14" fill="#1D6A44" font-weight="600" text-anchor="middle">include</text>
+<rect x="608" y="813" width="92" height="28" rx="14" fill="#E8F5EC" stroke="#9DCFB1" stroke-width="1.2"/>
+<text x="654" y="832" font-size="14" fill="#1D6A44" font-weight="600" text-anchor="middle">include</text>
+<g transform="translate(64 870) scale(0.8333)" fill="none" stroke="#A12F4B" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.4v.01"/></g>
+<text x="94" y="886" font-size="15.5" fill="#A12F4B" font-weight="600">Record C: the AI excluded a study the humans included</text>
+<g class="lens"><rect x="48" y="576" width="664" height="108" rx="12" fill="none" stroke="#2E61A3" stroke-width="2" stroke-dasharray="6 5" opacity="0.85"/></g>
+</svg>
