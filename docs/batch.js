@@ -163,7 +163,7 @@
       setStatus('<b>' + batch.length + '</b> records ready. Abstracts: ' + c.file + ' from the file, ' + c.pubmed + ' fetched from PubMed' +
         (c.none ? ', <b>' + c.none + ' not available</b> (screen those on the title, or mark them unsure)' : '') + '.', 'ok');
     }).catch(function (e) {
-      setStatus('Could not reach PubMed (' + esc(e.message) + '). The batch below has titles only for the missing abstracts. Try again in a minute, or ask a facilitator.', 'err');
+      setStatus('Could not reach PubMed (' + esc(e.message) + '). The batch below has titles only for the missing abstracts. Try again in a minute, or build the batch on your computer (Option B of the beginners guide).', 'err');
     }).then(function () { $('copy').disabled = false; });
   }
 

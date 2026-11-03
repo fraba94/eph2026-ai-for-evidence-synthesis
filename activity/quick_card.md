@@ -1,7 +1,8 @@
 # Quick card · AI for screening and extraction
 
 **Question:** Are hand hygiene interventions effective in reducing healthcare-associated infections?
-**Compare with:** the reference review (human, without AI). Full guide: `activity/README.md`
+**Compare with:** the reference review, Pruna et al., *J Clin Med* 2026 (12 included studies; screening and extraction by two human reviewers without AI; provisional). Do not open it before step 3.
+**Full guide:** `activity/README.md` (on your own: section "Doing it on your own (self-paced)", 60-90 min)
 
 | Roles | |
 |---|---|
@@ -22,23 +23,25 @@
 | C6 | English |
 
 **Step 1 · Screening · 10 min**
-Chat: batch 1 (R001-R020) from the batch page. Agent: all 60.
+Chat: batch 1 (R001-R020) from the records page. Agent: all 60.
 Output `record_id,decision,reason` · decision `include | exclude | unsure` · reason = criterion.
-Count the rows back. When in doubt: **unsure**. Save `run1.csv` (agent: `screening_run1.csv`).
+Count the rows back; verifier checks 3 decisions against the abstract. In doubt or no abstract: **unsure**.
+Save `screening_run1.csv`. Spare minute: same prompt in a new chat, save `screening_run2.csv`.
 
 **Step 2 · Extraction · 12 min**
-Read the form first (`data/extraction_form.csv`, core fields). One paper per chat (chat: `Phan2020.txt`).
+Read the form first (`data/extraction_form.csv`, 11 core fields). One paper per chat (chat: `Phan2020.txt`, study_id `Phan2020`).
 Output `study_id,field,value,source_quote,location`. Verbatim quote for every value; `not reported` is allowed.
 Verifier: Ctrl+F three quotes. Save `extraction.csv`.
 
 **Step 3 · Compare · 8 min** (now open `answers/`)
 Browser scorer, or:
-`python3 activity/tools/score_screening.py run1.csv` (agent: add `--expect-all`)
+`python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` (agent: add `--expect-all`)
 `python3 activity/tools/score_extraction.py extraction.csv`
-Read first: missed includes · QUOTE NOT FOUND · unsupported · false absent. Log 3 discrepancies.
+Read the coverage line first ("Screened 20 of 60" is expected in the chat track), then: missed includes · QUOTE NOT FOUND · unsupported · false absent. Log 3 discrepancies in `worksheets/discrepancy_log.md`: who is right, after checking the source.
 
-**Ask yourselves:** Would we accept this sensitivity? Can we trace every value? Did two runs agree? Is the reference
-always right? Who signs the table?
+**Ask yourselves:** Performance: would we accept this sensitivity? Transparency: can we trace every value? Bias: whose
+errors, which studies? Oversight: who signs the table? Reproducibility: did two runs agree? And the reference: is it
+always right?
 
 > ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.
 > If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,

@@ -192,7 +192,7 @@
         (ref.records ? ', titles available' : '') + '. <span class="muted">Source: ' + esc(refFrom.sgold) + '</span>';
     } else {
       s.className = 'status err';
-      s.innerHTML = 'Reference standard not found yet. Ask the facilitator, load it below under "Use another reference file", or <a href="?sample=1">try the synthetic sample</a>.';
+      s.innerHTML = 'Reference standard not found yet. Score with the Python scorers in activity/tools/ (see the activity guide), load the reference file below under "Use another reference file", or <a href="?sample=1">try the synthetic sample</a>.';
     }
     var e = $('ref-status-e');
     if (ref.egold) {

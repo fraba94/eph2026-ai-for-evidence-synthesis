@@ -7,7 +7,7 @@ Collaboration, JBI and the Collaboration for Environmental Evidence (2025, doi:1
 used, for what, how, how it was checked, and its limits. In a real review this information belongs in the protocol and
 in the methods section. The skill `.claude/skills/ai-use-reporting/` helps draft it.
 
-**Group:** ............ **Recorder:** ............
+**Group (or your name, if alone):** ............ **Recorder:** ............
 
 ## 1. Tool
 

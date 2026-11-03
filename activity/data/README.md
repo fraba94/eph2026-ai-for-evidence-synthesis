@@ -1,15 +1,24 @@
 # Data of the exercise: how they were built, and their limits
 
 Everything here was built on 3 November 2026 from PubMed and PubMed Central (NCBI E-utilities) by the scripts in
-[`../tools/`](../tools/), so it can be rebuilt or replaced. This page is the only one that names the reference review;
-the other pages say "the reference review".
+[`../tools/`](../tools/), so it can be rebuilt or replaced. This page gives the full reference of the reference review
+and its limits; the other pages introduce it briefly as Pruna et al., *J Clin Med* 2026.
+
+> **Doing the exercise?** This page describes the reference review but does not list its decisions. The review itself
+> (and [`../answers/`](../answers/README.md)) names the included studies: open them only after step 3.
 
 ## The reference review (PROVISIONAL)
 
+> Pruna ED, Davidescu L, Sorop-Florea M, Demeter I, Iurciuc S, Varga NI, David VL, Buleu F, Horhat FG.
 > Multimodal Hand Hygiene Interventions and Clinical Healthcare-Associated Infection Outcomes in Acute Care Hospitals:
 > A Systematic Review of Quasi-Experimental Studies. *J Clin Med* 2026;15(10):3882.
 > doi:[10.3390/jcm15103882](https://doi.org/10.3390/jcm15103882) · PMID 42194842 · PMCID PMC13207023 · CC BY 4.0 ·
 > PROSPERO CRD420261339769. Metadata and full text from PubMed / PubMed Central.
+
+**In short.** A systematic review of quasi-experimental studies (interrupted time series, controlled and uncontrolled
+before-after) in acute care hospitals; **12 included studies**; screening, extraction, risk of bias (ROBINS-I) and
+synthesis by two independent human reviewers without AI. **Provisional**: the workshop team may replace it (see
+[How to replace](#how-to-replace-the-reference-review)).
 
 **Why this one (for now).** Its question is exactly the exercise question; it is open access under CC BY, so its
 criteria, tables and included-study list can be reused here; its full text in PMC lists the **12 included studies**
@@ -64,7 +73,7 @@ computer, not redistributed:
 python3 activity/tools/fetch_abstracts.py        # -> activity/data/local/screening_records_full.csv (git-ignored)
 ```
 
-The [batch page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) does the same in the browser for chat users.
+The [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) does the same in the browser for chat users.
 
 **Limits (say them in the debrief).**
 - The reference decision is the review's **final inclusion**, not its title/abstract decision. At title/abstract stage
@@ -110,4 +119,6 @@ paper contradicts itself, or the review's table differs from the paper, the `not
    `python3 activity/tools/build_extraction_gold.py tables` (review tables) and
    `python3 activity/tools/build_extraction_gold.py skeleton --out my_work/gold_skeleton.csv`, fill values and quotes,
    then `python3 activity/tools/build_extraction_gold.py check --write`.
-4. Update the criteria table in [`../README.md`](../README.md), then run `python3 docs/sync_data.py` for the website.
+4. Update the criteria table in [`../README.md`](../README.md) and the short mentions of the review ("Pruna et al.")
+   in the repository's `README.md`, `activity/README.md`, `activity/quick_card.md`, `beginners/README.md` and
+   `docs/index.html`, then run `python3 docs/sync_data.py` for the website.

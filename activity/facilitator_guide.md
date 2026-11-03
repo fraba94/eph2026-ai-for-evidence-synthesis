@@ -1,7 +1,15 @@
-# Facilitator guide
+# Facilitator guide (for facilitators: contains answers)
 
-For the people running the hands-on part of the seminar. Participants use [`README.md`](README.md); this page adds
-timing, preparation, the pitfalls you should expect, and how to run the debrief. It contains answers: do not project it.
+> [!CAUTION]
+> **Spoiler warning. Participants: stop here.** This page names the records the reference review included, the traps
+> in each extraction paper and the expected AI errors. Reading it before you have saved your own screening and
+> extraction makes the exercise meaningless. Go back to the [activity guide](README.md). If you are doing the exercise
+> on your own, come back **after step 3**: the sections "What to expect in screening", "What to expect in
+> extraction" and "Interpreting the scores" are then your debrief.
+
+For the people running the hands-on part of the seminar, at EPH 2026 in Bilbao (Thursday 12 November 2026,
+16:45-17:45) or in a later run of the same workshop. Participants use [`README.md`](README.md); this page adds timing,
+preparation, the pitfalls you should expect, and how to run the debrief. Do not project it.
 
 > **Status of the answers.** The reference review is **provisional** (see [`data/README.md`](data/README.md)) and may be
 > replaced before the session. The extraction reference values were **prepared by the workshop team from the full
@@ -13,7 +21,7 @@ timing, preparation, the pitfalls you should expect, and how to run the debrief.
 
 | When | Check |
 |---|---|
-| The day before | Open the [batch page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) and the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) on the published site; copy batch 1 and confirm that the empty abstracts are filled from PubMed |
+| The day before | Open the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) and the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) on the published site; copy batch 1 and confirm that the empty abstracts are filled from PubMed |
 | The day before | On each facilitator laptop: `python3 activity/tools/fetch_abstracts.py` and `python3 activity/tools/fetch_fulltext.py` (local copies in `activity/data/local/`, git-ignored: do not publish them). This is the fallback if the venue network blocks NCBI |
 | The day before | Run the scorers on the examples: `python3 activity/tools/score_screening.py activity/examples/decisions_example.csv` and `python3 activity/tools/score_extraction.py activity/examples/extraction_example.csv` |
 | The day before | Print the [quick card](quick_card.md) (one per group) and a few copies of the [discrepancy log](worksheets/discrepancy_log.md) |
@@ -24,15 +32,17 @@ If the reference review has been replaced, rebuild first (see [`data/README.md`]
 
 ## Timing (60 minutes)
 
-| Min | Block | Facilitator cue |
-|---:|---|---|
-| 0-10 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
-| 10-20 | Demo of open-access tools | Show one screening prompt and one extraction prompt on the same question, including one visible error |
-| 18-20 | (end of demo) Groups and tracks already assigned by table; roles confirmed; the repository and batch page open | "Driver, prompter, verifier, recorder: check your role card" |
-| 20-30 | **Step 1 screening** | At minute 25: "Did you count the rows that came back?" At 29: "Save the file, even if incomplete" |
-| 30-42 | **Step 2 extraction** (chat track: optional if screening ran late; then compare screening only) | At 30: "Read the form for one minute before uploading." At 37: "Verifier: search three quotes now" |
-| 42-50 | **Step 3 compare** | "Open the scorer. Read the coverage line, missed includes and QUOTE NOT FOUND first. Log three discrepancies" |
-| 51-60 | Structured discussion | Use the prompts below; collect one sentence per group |
+Clock times are those of the Bilbao session (start 16:45); for another run, add the minutes to your start time.
+
+| Min | Clock | Block | Facilitator cue |
+|---:|---|---|---|
+| 0-10 | 16:45-16:55 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
+| 10-20 | 16:55-17:05 | Demo of open-access tools | Show one screening prompt and one extraction prompt on the same question, including one visible error |
+| 18-20 | 17:03-17:05 | (end of demo) Groups and tracks already assigned by table; roles confirmed; the repository and records page open | "Driver, prompter, verifier, recorder: check your role card" |
+| 20-30 | 17:05-17:15 | **Step 1 screening** | At minute 25: "Did you count the rows that came back?" At 29: "Save the file, even if incomplete" |
+| 30-42 | 17:15-17:27 | **Step 2 extraction** (chat track: optional if screening ran late; then compare screening only) | At 30: "Read the form for one minute before uploading." At 37: "Verifier: search three quotes now" |
+| 42-50 | 17:27-17:35 | **Step 3 compare** | "Open the scorer. Read the coverage line, missed includes and QUOTE NOT FOUND first. Log three discrepancies" |
+| 50-60 | 17:35-17:45 | Structured discussion | Use the prompts below; collect one sentence per group |
 
 ## What to expect in screening
 
@@ -101,7 +111,8 @@ systematically; for everyone else the beginners track is **for learning only**, 
 
 | Problem | Fallback |
 |---|---|
-| Network blocks NCBI (batch page cannot fill abstracts) | Use the 17 records shipped with abstracts: R008, R011, R018 (the only ones in batch 1), R021, R023, R029, R032, R034, R035, R038, R041, R046, R052, R053, R054, R056, R058; or share the local `screening_records_full.csv` on the facilitator laptop screen (do not post it online) |
+| Network blocks NCBI (records page cannot fill abstracts) | Use the 17 records shipped with abstracts: R008, R011, R018 (the only ones in batch 1), R021, R023, R029, R032, R034, R035, R038, R041, R046, R052, R053, R054, R056, R058; or share the local `screening_records_full.csv` on the facilitator laptop screen (do not post it online) |
 | Chat assistant refuses uploads | Paste the text from [`data/fulltext/Phan2020.txt`](data/fulltext/Phan2020.txt) in two halves, in the same conversation |
 | Group is fast | Second run in a new chat; or a second paper; or the agent track on all 60 records |
 | Group is slow | Screen 10 records only; extract the core fields only (`--core-only` in the scorer) |
+| Published website (GitHub Pages) not available | Serve it from a laptop: `cd docs && python3 -m http.server 8000`, then `http://localhost:8000/batch.html` and `scorer.html`; or Option B of the [beginners walkthrough](../beginners/README.md) and the Python scorers |

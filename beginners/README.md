@@ -11,16 +11,16 @@ A step-by-step, copy-paste walkthrough of the workshop exercise for people who o
 > [!WARNING]
 > This track exists so you can **see** how AI behaves on a review task, safely, on data where the right answers are known. It is not a shortcut to doing reviews with AI. AI can bring real advantages to evidence synthesis, but only for people with AI literacy and advanced skills; without them you risk serious errors and losing control of the process. **If you lack these skills, do not use AI to run real reviews.**
 
-## What you will do (about 30 minutes)
+## What you will do (about 30 minutes live, 60 to 90 minutes on your own)
 
-The steps follow the slides in the room: **screening (10 min) → extraction (12 min) → score and compare (8 min) → discussion (10 min)**.
+The steps are those of the live session at EPH 2026 in Bilbao: **screening (10 min) → extraction (12 min) → score and compare (8 min) → discussion (10 min)**. On your own, without a facilitator or the slides, take more time and follow [Doing it on your own (self-paced)](../activity/README.md#doing-it-on-your-own-self-paced): it says how to be your own verifier, when to open the answers and how to read the score.
 
-| Step | What | Time |
-|:-:|---|:-:|
-| 0–4 | Get ready, read the criteria, screen 20 abstracts, check what came back (and, with a spare minute, run it again in a new chat) | 10 min |
-| 5 | Extract data from one paper, with quotes (optional if screening ran late) | 12 min |
-| 6 | Score and compare with the reference review | 8 min |
-| 7 | Talk about it | 10 min, all together |
+| Step | What | Live session | On your own |
+|:-:|---|:-:|:-:|
+| 0–4 | Get ready, read the criteria, screen 20 abstracts, check what came back (and, with a spare minute, run it again in a new chat) | 10 min | 25–30 min |
+| 5 | Extract data from one paper, with quotes (optional if screening ran late) | 12 min | 15–20 min |
+| 6 | Score and compare with the reference review | 8 min | 10–15 min |
+| 7 | Talk about it | 10 min, all together | 10 min, in writing |
 
 **The question** is deliberately simple, so you can focus on the AI and not on the topic: *are hand hygiene interventions effective in preventing healthcare-associated infections (HAI)?*
 
@@ -30,7 +30,7 @@ The steps follow the slides in the room: **screening (10 min) → extraction (12
 
 Study design: quasi-experimental (interrupted time series, controlled or uncontrolled before-after). The full criteria C1–C6 are in [`activity/README.md`](../activity/README.md).
 
-The **reference review** is a systematic review on this question conducted **without AI**; its decisions are the answers you compare with. Its full reference, and why it was chosen, are in [`activity/data/README.md`](../activity/data/README.md); open it after the exercise, not before.
+The **reference review** is Pruna et al., *J Clin Med* 2026: a systematic review of quasi-experimental studies in acute care hospitals, with 12 included studies, in which two independent human reviewers did the screening and extraction **without AI**. Its decisions are the answers you compare with. The choice is provisional; the full reference, and why it was chosen, are in [`activity/data/README.md`](../activity/data/README.md). **Open it after the exercise, not before**: it names the included studies.
 
 ---
 
@@ -59,6 +59,8 @@ Why this matters: if you do not give the AI explicit criteria, it uses its own, 
 1. Open the **[records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html)**.
 2. Choose **batch 1 (R001-R020)**. The page downloads the abstracts that the repository cannot ship (licence) directly from PubMed, in your browser.
 3. Click **Copy batch** and paste it after the prompt below.
+
+If the records page does not open (the website is not available), use Option B or Option C.
 </details>
 
 <details>
@@ -69,7 +71,17 @@ python3 activity/tools/fetch_abstracts.py
 python3 beginners/make_batches.py activity/data/local/screening_records_full.csv --size 20
 ```
 
-The first command fills the missing abstracts from PubMed into a local, git-ignored file (do not publish it: many abstracts are copyrighted). The second writes paste-ready batches in `beginners/batches/`; use `screening_batch_01.md` (R001-R020).
+Run them from the repository folder (download it with **Code → Download ZIP** on GitHub, or `git clone`). The first command fills the missing abstracts from PubMed into a local, git-ignored file (do not publish it: many abstracts are copyrighted). The second writes paste-ready batches in `beginners/batches/`; use `screening_batch_01.md` (R001-R020): open it, copy everything inside the box and paste it after the prompt below.
+</details>
+
+<details>
+<summary><b>Option C: by hand</b> (no website, no Python)</summary>
+
+1. Open [`activity/data/screening_records.csv`](../activity/data/screening_records.csv) on GitHub and take records R001 to R020.
+2. For each record with an empty abstract, open `https://pubmed.ncbi.nlm.nih.gov/<pmid>/` (the `pmid` column) and copy the abstract **word for word**.
+3. Paste the records after the prompt below, one per block: `record_id`, `title`, `abstract`.
+
+Slower, but it works anywhere. Never ask the assistant to find or write a missing abstract.
 </details>
 
 > [!NOTE]
@@ -178,19 +190,24 @@ For each row below, find the quote in the paper I give you. Answer FOUND (verbat
 Only now look at the answers.
 
 - **Online scorer** (nothing leaves your browser): open the workshop website's scorer, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>, and load `screening_run1.csv`, `screening_run2.csv` or `my_decisions.csv`.
-- **With Python** (if you have it): `python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` (use `--help` to see the options).
+- **With Python** (if you have it, or if the website is not available): `python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` and `python3 activity/tools/score_extraction.py extraction.csv` (use `--help` to see the options).
+- **Without website and without Python:** compare your 20 rows by hand with [`activity/answers/screening_gold.csv`](../activity/answers/screening_gold.csv) (open it only now).
+
+**Read the coverage line first**: "Screened 20 of 60 records" is expected, because you screened batch 1 only (the 40 others count as *not screened*, not as errors). Fewer than 20 means the assistant dropped or renamed records.
 
 Then look at each disagreement with the reference and ask: was it a **missed include** (the most serious error), a **false include**, an *unsure* that was reasonable, or a criterion that two humans could also read differently? The prompt to help you classify them is [6.2 in the prompt library](../prompts/06_synthesis_and_reporting.md#62-discrepancy-summary-after-the-workshop-exercise).
 
 ## Step 7. Talk about it (10 min, all together)
 
-Bring your answers to the group discussion:
+In the live session, bring your answers to the group discussion. On your own, answer each question in writing, in one or two sentences:
 
 1. How many records did the AI get wrong, and of which kind? Would any error have changed the review's conclusions?
 2. What changed between run 1 and run 2?
 3. Which check caught the most problems?
 4. What would you need to write in a paper to report what you did? (Tool, model and version, date, prompt, what you checked: see [prompt 6.3](../prompts/06_synthesis_and_reporting.md#63-ai-use-statement).)
 5. Would you trust this for a real review? What would you need to learn first?
+
+These questions cover the five themes of the session's discussion (performance, transparency, bias, human oversight, reproducibility) and the reference itself: is the human review always right? The full list is in the [activity guide](../activity/README.md#discussion-last-10-minutes-of-the-session).
 
 ---
 
@@ -224,4 +241,4 @@ Bring your answers to the group discussion:
 > responsible for every decision: the AI does not.
 
 > [!WARNING]
-> **If you lack AI literacy and advanced skills, do not use AI to run real reviews.** Learn first; practise on data where the answers are known, like today's.
+> **If you lack AI literacy and advanced skills, do not use AI to run real reviews.** Learn first; practise on data where the answers are known, like the data of this exercise.

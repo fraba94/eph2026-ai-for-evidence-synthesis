@@ -4,7 +4,7 @@ Fill this in step 3, for at least three discrepancies between the AI output and 
 (abstract or paper) before deciding who is right: the reference can be wrong too. A CSV version with the same columns
 is in [`discrepancy_log.csv`](discrepancy_log.csv).
 
-**Group:** ............ **Track:** chat / agent **Tool and model:** ............ **Date:** ............
+**Group (or your name, if alone):** ............ **Track:** chat / agent **Tool and model:** ............ **Date:** ............
 
 | # | Task | Record or study / field | AI said | Reference says | Source says (quote, location) | Who is right? | Error type | Would a human reviewer have caught it? How? |
 |---|---|---|---|---|---|---|---|---|
