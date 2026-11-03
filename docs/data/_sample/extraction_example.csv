@@ -1,9 +1,9 @@
 study_id,field,value,source_quote,location
-S01,ai_task,Prediction,we developed a model to predict,Methods
-S01,hai_type,SSI (surgical site infection),surgical site infection,Title
+S01,design,Before-after,before and after the campaign,Methods
+S01,setting,ICU (intensive care unit),two intensive care units,Title
 S01,sample_size,"1,250",1250 patients were included,Results
-S01,auroc,not reported,,
-S03,ai_task,detection,to detect,Abstract
-S03,hai_type,bloodstream infection,bloodstream infection,Abstract
-S03,auroc,0.92,,
-S05,ai_task,prediction,,
+S01,hai_outcome,not reported,,
+S03,design,cluster RCT,cluster randomised,Title
+S03,setting,homes,nursing homes,Title
+S03,hai_outcome,respiratory infections,,
+S05,design,interrupted time series,,

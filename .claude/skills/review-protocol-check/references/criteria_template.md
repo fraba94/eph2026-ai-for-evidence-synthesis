@@ -28,16 +28,18 @@ Copy this table and fill it. `Stage`: TA = title/abstract, FT = full text.
 | | | |
 | | | |
 
-## Worked example (illustrative, from the workshop reference review)
+## Worked example (illustrative): hand hygiene and healthcare-associated infections
 
-The reference review (Barbati et al., Artif Intell Med 2025;172:103321, doi:10.1016/j.artmed.2025.103321) asked how AI-based models perform in detecting and predicting healthcare-associated infections (HAI), searching studies published between 1 July 2018 and 12 February 2024. A frame for it:
+Question: are hand hygiene interventions effective in preventing healthcare-associated infections (HAI)?
 
-| Element | Include if | Exclude if |
-|---|---|---|
-| Population | Patients in healthcare settings, or their data | Community-acquired infections only |
-| Index | AI-based model (machine learning, deep learning, NLP) for HAI detection or prediction | Rule-based scores with no AI component |
-| Outcome | Technical performance (e.g. recall, precision, AUROC) | No performance reported |
-| Design | Experimental or observational primary study | Reviews, editorials, protocols |
-| Dates | 1 Jul 2018 – 12 Feb 2024 | Outside the window |
+| Element | Include if | Exclude if | Stage |
+|---|---|---|---|
+| Population | Patients and/or healthcare workers in healthcare settings (hospitals, long-term care, outpatient care) | Community, school or household settings only | TA+FT |
+| Intervention | Hand hygiene intervention or promotion (e.g. alcohol-based hand rub introduction, education, reminders, feedback, multimodal strategies) | Interventions where hand hygiene is not a distinct component, or other infection-control measures alone | TA+FT |
+| Comparator | Usual care, no intervention, or the pre-intervention period | No comparison of any kind | FT |
+| Outcome | HAI incidence (overall or specific infections, e.g. bloodstream or surgical site infection, or specific organisms) | Hand hygiene compliance only, without any HAI outcome | FT (TA if clearly stated) |
+| Design | Randomised or non-randomised controlled studies, controlled before-after, interrupted time series | Reviews, editorials, laboratory studies of hand rub efficacy on skin flora | TA+FT |
 
-This is an illustration of the format, not the review's verbatim protocol. For the exercise, use the criteria printed in `activity/README.md`.
+Borderline examples worth discussing: a multimodal bundle in which hand hygiene is one of several components; a study reporting compliance as the primary outcome and infection rates as secondary; an uncontrolled before-after study.
+
+This is an illustration of the format. For the workshop exercise, use the criteria of the reference review in `activity/review_config.yaml` (also printed in `activity/README.md`), exactly as written.

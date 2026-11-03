@@ -1,6 +1,6 @@
 # Synthetic sample data (for testing the scorer only)
 
-These files are **invented**, are not taken from any study, and exist only so that `docs/scorer.html` can be tried
+Except `batch_records.csv`, these files are **invented**, are not taken from any study, and exist only so that `docs/scorer.html` can be tried
 before the real workshop data are copied into `docs/data/` (see `docs/README.md`). Open the scorer with
 `?sample=1` (for example `scorer.html?sample=1`) to load them. They follow the exact formats of the workshop files:
 
@@ -12,3 +12,4 @@ before the real workshop data are copied into `docs/data/` (see `docs/README.md`
 | `extraction_form.csv` | `field,definition,allowed_values,type` |
 | `extraction_gold.csv` | `study_id,field,value,source_quote,location` |
 | `extraction_example.csv` | `study_id,field,value,source_quote,location` |
+| `batch_records.csv` | records format with **real** PubMed PMIDs and titles (from PubMed E-utilities, search "hand hygiene healthcare-associated infection") and **empty** abstracts, to test `batch.html?sample=1`. Not screened, no answers. |

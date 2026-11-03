@@ -10,13 +10,13 @@ Explicit, human-approved eligibility criteria are the precondition for every lat
 
 ## Human in the loop
 - You draft; the human decides. Never mark criteria as "approved" yourself.
-- When a concept is ambiguous (e.g. "AI", "public health intervention", "outcome"), list the possible readings and ask. Do not pick one.
+- When a concept is ambiguous (e.g. "hand hygiene intervention", "multimodal strategy", "infection outcome"), list the possible readings and ask. Do not pick one.
 - Never proceed to screening, search or extraction in the same turn as drafting criteria.
 
 ## Procedure
 
 1. **Read the input.** A question in `$ARGUMENTS`, a protocol file, or the conversation. If a protocol exists (e.g. PROSPERO record, `protocol.md`), work from it and quote it; do not paraphrase criteria into something stricter or looser.
-2. **Pick the frame** and say why: PICO (interventions), PECO (exposures, e.g. risk factors, environmental), PCC (scoping reviews), SPIDER (qualitative), or a diagnostic/prognostic frame (index test or model, target condition, reference standard). For methods reviews such as "AI models for detecting infections", a frame like Population / Index model / Comparator / Outcome / Setting usually fits.
+2. **Pick the frame** and say why: PICO (interventions), PECO (exposures, e.g. risk factors, environmental), PCC (scoping reviews), SPIDER (qualitative), or a diagnostic/prognostic frame (index test or model, target condition, reference standard). Example: "hand hygiene interventions to prevent healthcare-associated infections" → PICO with Population = healthcare settings, Intervention = hand hygiene interventions or promotion, Comparator = usual care or pre-intervention period, Outcome = HAI incidence.
 3. **Draft the criteria table** using [references/criteria_template.md](references/criteria_template.md). Every criterion must be:
    - *operational*: decidable from a title/abstract or a full text by two people who would agree;
    - *paired*: an include rule and the matching exclude rule;
@@ -41,6 +41,6 @@ If asked to screen or extract and no approved criteria exist, reply that this sk
 - After approval only: `criteria.md` (or the file name the human chooses).
 
 ## When NOT to use
-- The criteria are already approved and frozen (e.g. the workshop exercise: criteria are given in `activity/README.md`; use them as they are, do not rewrite them).
+- The criteria are already approved and frozen (e.g. the workshop exercise: criteria are given in `activity/review_config.yaml` and `activity/README.md`; use them as they are, do not rewrite them).
 - Narrative overviews where no systematic eligibility decisions are made.
 - To "optimise" criteria after seeing the results: changing criteria post hoc is a protocol deviation and must be decided and reported by the review team.

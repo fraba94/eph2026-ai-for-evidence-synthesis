@@ -6,9 +6,9 @@ This file is for any coding agent (Claude Code, Codex CLI, Gemini CLI, Cursor, C
 
 Teaching material for the skills-building seminar **"Building skills in using AI tools to support evidence reviews for effective public health strategies"** (EPH Conference 2026, Bilbao), organised by the EUPHA Digital Health and Artificial Intelligence (DHAI) section with Concordia University, Leibniz ScienceCampus Digital Public Health Bremen and the Italian Society for AI in Medicine (SIIAM).
 
-Participants use AI to screen abstracts and extract data, then compare the AI output with a systematic review that was conducted **without AI**, used as the reference standard:
+Participants use AI to screen abstracts and extract data on a deliberately uncontroversial question, so that the focus stays on the AI method: **the effectiveness of hand hygiene interventions in preventing healthcare-associated infections (HAI)**. Worked PICO: *Population* healthcare settings (patients, healthcare workers); *Intervention* hand hygiene interventions or promotion; *Comparator* usual care or the pre-intervention period; *Outcome* HAI incidence.
 
-> Barbati C, Viviani L, Vecchio R, Arzilli G, De Angelis L, Baglivo F, Sacchi L, Bellazzi R, Rizzo C, Odone A. Artificial intelligence use and performance in detecting and predicting healthcare-associated infections: A systematic review. Artif Intell Med 2025;172:103321. doi:10.1016/j.artmed.2025.103321. PMID 41338040.
+The AI output is compared with **the reference review**, a systematic review conducted **without AI**. Its citation, question and eligibility criteria are defined in `activity/review_config.yaml` (provisional until the workshop). Always read the criteria from there, from `activity/README.md`, or from the user; never reconstruct them from memory.
 
 **Position of the repository:** AI can bring real advantages to evidence synthesis (speed, scale, consistency, living updates), but only for people with AI literacy and advanced skills. Users who do not understand how these systems work risk serious errors and losing control of the process. Human reviewers stay responsible for every decision.
 
@@ -17,7 +17,8 @@ Participants use AI to screen abstracts and extract data, then compare the AI ou
 | Path | Content |
 |---|---|
 | `activity/README.md` | The hands-on guide: task, eligibility criteria, steps |
-| `activity/data/screening_records.csv` | Records to screen: `record_id,pmid,doi,title,abstract,year,journal,license` (no labels) |
+| `activity/review_config.yaml` | The reference review: citation, question, eligibility criteria |
+| `activity/data/screening_records.csv` | Records to screen: `record_id,pmid,doi,title,abstract,year,journal,license` (no labels). Some abstracts may be empty until filled by `activity/tools/fetch_abstracts.py` |
 | `activity/data/extraction_form.csv` | Extraction form: `field,definition,allowed_values,type` |
 | `activity/answers/` | **Reference answers. Do not open until the user asks to score.** |
 | `activity/tools/score_screening.py`, `activity/tools/score_extraction.py` | Scorers (Python 3, standard library) |
@@ -38,6 +39,10 @@ Participants use AI to screen abstracts and extract data, then compare the AI ou
 7. **Do not read `activity/answers/`** (or any gold file) before the user explicitly asks to score or compare. Reading it earlier invalidates the exercise.
 8. **Data protection and licences.** Do not send personal or confidential data to external services. Process full texts only if their licence allows it (see the `license` column).
 9. **Stay in this folder.** Do not read or write outside the repository. Do not modify the files in `activity/data/` or `activity/answers/`; write your outputs to new files (suggested: `my_work/`).
+
+## Empty abstracts
+
+Some records in `activity/data/screening_records.csv` may have an empty `abstract`. Where the network allows, they can be filled with `python3 activity/tools/fetch_abstracts.py` (check `--help`). If an abstract is still empty, screen on the title only, mark the record `unsure` with reason `no abstract`, and tell the user. Never write an abstract from memory.
 
 ## File formats for outputs
 

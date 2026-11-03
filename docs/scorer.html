@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Score your results · AI for evidence synthesis</title>
+  <meta name="description" content="Compare your AI-assisted screening and extraction with the reference review. Runs in your browser: nothing is uploaded.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="assets/eupha-dhai-logo.png">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/eupha-dhai-logo.png" alt="EUPHA Digital Health and Artificial Intelligence section logo"><span>AI for evidence synthesis<small>EPH 2026 · Bilbao · M.8</small></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/README.md">Activity</a>
+      <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">Beginners</a>
+      <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/README.md">Prompts</a>
+      <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/skills/README.md">Skills</a>
+      <a href="scorer.html" aria-current="page">Scorer</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Hands-on activity · step 4</div>
+    <h1>Score your results</h1>
+    <p>Compare your decisions with the reference review, which was conducted without AI. Everything runs in your browser: your files are not uploaded anywhere.</p>
+    <div class="tabs" role="tablist" aria-label="Scorer">
+      <button role="tab" id="tab-screening" aria-controls="panel-screening" aria-selected="true">Screening</button>
+      <button role="tab" id="tab-extraction" aria-controls="panel-extraction" aria-selected="false">Data extraction</button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="wrap">
+    <div id="sample-banner" class="callout warn" style="margin-top:24px" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
+      <div><p><b>Synthetic sample mode.</b> The reference data and the example answers on this page are invented, only to show how the scorer works. <a href="scorer.html">Switch to the workshop data</a>.</p></div>
+    </div>
+
+    <!-- ================================================================ SCREENING -->
+    <section class="panel" id="panel-screening" role="tabpanel" aria-labelledby="tab-screening">
+      <div class="steps">
+        <div class="card">
+          <div class="step-title"><span class="n">1</span><h2>Add your screening decisions</h2></div>
+          <p class="hint">A CSV with the columns <code>record_id,decision,reason</code>; <code>decision</code> is <code>include</code>, <code>exclude</code> or <code>unsure</code>. Commas, semicolons or tabs all work, so you can paste straight from a spreadsheet or from the chat.</p>
+          <div class="row" style="margin-bottom:10px">
+            <label class="btn btn-plain file-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
+              Choose a CSV file<input type="file" id="s-file" accept=".csv,.tsv,.txt,text/csv">
+            </label>
+            <span id="s-file-status" class="status"></span>
+          </div>
+          <label for="s-text" class="visually-hidden">Your decisions</label>
+          <textarea id="s-text" spellcheck="false" placeholder="record_id,decision,reason&#10;R001,include,AI model predicting surgical site infection&#10;R002,exclude,no AI method&#10;R003,unsure,population unclear"></textarea>
+        </div>
+
+        <div class="card">
+          <div class="step-title"><span class="n">2</span><h2>Choose how to count</h2></div>
+          <div class="grid grid-2">
+            <label class="opt">Count <b>unsure</b> as
+              <select id="s-unsure"><option value="include" selected>include (go to full text)</option><option value="exclude">exclude</option></select>
+            </label>
+            <label class="opt">Records with <b>no decision</b>
+              <select id="s-missing"><option value="exclude" selected>count as exclude</option><option value="none">leave out of the metrics</option></select>
+            </label>
+          </div>
+          <p class="hint" style="margin-top:12px">At title and abstract stage the usual rule is: when in doubt, keep it. A record you never screened is a record you can miss, so by default it counts as excluded.</p>
+          <details class="box" style="margin-top:12px">
+            <summary>Optional: add a second run to check reproducibility</summary>
+            <p class="hint" style="margin-top:8px">Run the same prompt again in a new chat (or with a fresh agent) and paste the second set of decisions. The scorer reports how many records changed.</p>
+            <div class="row" style="margin-bottom:10px">
+              <label class="btn btn-plain file-btn">Choose run 2<input type="file" id="s-file2" accept=".csv,.tsv,.txt,text/csv"></label>
+              <span id="s-file2-status" class="status"></span>
+            </div>
+            <label for="s-text2" class="visually-hidden">Run 2 decisions</label>
+            <textarea id="s-text2" spellcheck="false" placeholder="record_id,decision,reason"></textarea>
+          </details>
+        </div>
+
+        <div class="card">
+          <div class="step-title"><span class="n">3</span><h2>Compare with the reference review</h2></div>
+          <p id="ref-status-s" class="status">Loading the reference standard...</p>
+          <div class="row">
+            <button class="btn btn-primary" type="button" id="s-go">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+              Score my screening
+            </button>
+            <span id="s-msg" class="status" role="status"></span>
+          </div>
+          <details class="box" style="margin-top:14px">
+            <summary>Use another reference file (facilitators)</summary>
+            <p class="hint" style="margin-top:8px">For example to score against your own group's decisions instead of the published review.</p>
+            <div class="row"><label class="btn btn-plain file-btn">Reference decisions (record_id,gold_decision,gold_basis)<input type="file" id="s-gold-file" accept=".csv,.tsv,.txt"></label><span id="s-gold-status" class="status"></span></div>
+            <div class="row" style="margin-top:8px"><label class="btn btn-plain file-btn">Records with titles (screening_records.csv)<input type="file" id="s-rec-file" accept=".csv,.tsv,.txt"></label><span id="s-rec-status" class="status"></span></div>
+          </details>
+        </div>
+
+        <div id="s-results" hidden aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ================================================================ EXTRACTION -->
+    <section class="panel" id="panel-extraction" role="tabpanel" aria-labelledby="tab-extraction" hidden>
+      <div class="steps">
+        <div class="card">
+          <div class="step-title"><span class="n">1</span><h2>Add your extraction</h2></div>
+          <p class="hint">Long format, one row per study and field: <code>study_id,field,value,source_quote,location</code>. Write <code>not reported</code> when the information is absent. The <code>source_quote</code> should be copied word for word from the paper.</p>
+          <div class="row" style="margin-bottom:10px">
+            <label class="btn btn-plain file-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
+              Choose a CSV file<input type="file" id="e-file" accept=".csv,.tsv,.txt,text/csv">
+            </label>
+            <span id="e-file-status" class="status"></span>
+          </div>
+          <label for="e-text" class="visually-hidden">Your extraction</label>
+          <textarea id="e-text" spellcheck="false" placeholder="study_id,field,value,source_quote,location&#10;S01,sample_size,1250,&quot;1250 patients were included&quot;,Results"></textarea>
+        </div>
+        <div class="card">
+          <div class="step-title"><span class="n">2</span><h2>Compare with the reference extraction</h2></div>
+          <p id="ref-status-e" class="status">Loading the reference extraction...</p>
+          <div class="row">
+            <button class="btn btn-primary" type="button" id="e-go">Score my extraction</button>
+            <span id="e-msg" class="status" role="status"></span>
+          </div>
+          <details class="box" style="margin-top:14px">
+            <summary>Use another reference file (facilitators)</summary>
+            <div class="row" style="margin-top:8px"><label class="btn btn-plain file-btn">Reference extraction (study_id,field,value,source_quote,location)<input type="file" id="e-gold-file" accept=".csv,.tsv,.txt"></label><span id="e-gold-status" class="status"></span></div>
+          </details>
+        </div>
+        <div id="e-results" hidden aria-live="polite"></div>
+      </div>
+    </section>
+
+    <div class="callout warn" style="margin-bottom:56px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
+      <div>
+        <p><b>A good score on a small exercise does not validate a tool.</b> These numbers describe one run, on one set of records, against one reference review. Before using AI in a real review you would need a documented pilot on your own question, reproducibility checks, and a human who verifies every decision.</p>
+        <p>The beginners track is <b>for learning only</b>. If you are not confident with how large language models work and with advanced techniques, do not use AI to conduct a real evidence review.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>EUPHA Digital Health and Artificial Intelligence Section · EPH 2026, Bilbao</span>
+    <span><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis">Repository</a> · Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Code MIT</span>
+  </div>
+</footer>
+<script src="scorer.js"></script>
+</body>
+</html>

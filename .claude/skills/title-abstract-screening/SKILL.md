@@ -9,7 +9,7 @@ argument-hint: "[records.csv] [criteria file]"
 The AI is a second pair of eyes, not the reviewer. Its job is to sort records with reasons a human can check quickly, and to be wrong in the safe direction: a false include costs a minute at full text, a missed include can change the conclusions.
 
 ## Human in the loop
-- **No criteria, no screening.** If there is no approved criteria file (or criteria in `activity/README.md` for the workshop), stop and run `review-protocol-check`.
+- **No criteria, no screening.** Take the criteria from the user, from an approved criteria file, or for the workshop from `activity/review_config.yaml` (also in `activity/README.md`). If none exists, stop and run `review-protocol-check`.
 - If a criterion is ambiguous for a specific record, mark it `unsure` and write the ambiguity in the reason. Do not resolve ambiguity by inventing a rule; collect these cases and ask the human at the end.
 - Final decisions are the human's. Your file is a draft labelled as AI output.
 - Do **not** open `activity/answers/` (or any gold file) before both runs are saved and the human asks to score.
@@ -20,7 +20,7 @@ The AI is a second pair of eyes, not the reviewer. Its job is to sort records wi
 
 ## Procedure
 
-1. **Count first.** Read the CSV with a CSV parser (not by eye). Report the number of records, duplicates of `record_id`, and records with empty abstracts. Empty abstract → `unsure`, reason `no abstract`.
+1. **Count first.** Read the CSV with a CSV parser (not by eye). Report the number of records, duplicates of `record_id`, and records with empty abstracts. In the workshop data, empty abstracts can be filled with `python3 activity/tools/fetch_abstracts.py` (check `--help`; needs network) or, if PubMed tools are available, by fetching the abstract by PMID and copying it verbatim. Never write an abstract from memory. Still empty → screen on the title, decision `unsure`, reason `no abstract`.
 2. **Number the criteria** (C1, C2, ...) exactly as approved. Every reason cites at least one criterion ID.
 3. **Run 1.** For each record, in order, decide:
    - `exclude` only if the title/abstract shows that at least one criterion is clearly **not** met. Reason: `C3 not met: <short quote or paraphrase from the abstract>`.

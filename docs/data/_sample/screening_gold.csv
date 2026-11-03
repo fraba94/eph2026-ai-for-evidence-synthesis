@@ -1,11 +1,11 @@
 record_id,gold_decision,gold_basis
-S01,include,"AI model, HAI outcome, performance reported"
-S02,exclude,No AI method
-S03,include,AI detection of HAI vs traditional surveillance
-S04,exclude,Not healthcare-associated infection
-S05,include,AI prediction of HAI
+S01,include,"Hand hygiene intervention, HAI outcome"
+S02,exclude,No HAI outcome
+S03,include,"Hand hygiene intervention, HAI outcome, RCT"
+S04,exclude,"Laboratory outcome, not HAI"
+S05,include,"Hand hygiene intervention, HAI outcome"
 S06,exclude,Not a primary study
-S07,include,AI prediction of HAI with performance
-S08,exclude,No AI method
-S09,include,AI detection of HAI vs traditional methods
+S07,include,"Hand hygiene intervention, HAI outcome"
+S08,exclude,No hand hygiene intervention
+S09,include,"Hand hygiene intervention, HAI outcome"
 S10,exclude,Not healthcare-associated

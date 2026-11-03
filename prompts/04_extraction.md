@@ -17,18 +17,18 @@ Before extracting, remember: the model never sees your PDF, only the text a pars
 I am preparing a data extraction form for a systematic review. Do not extract anything yet; I have not given you any paper.
 
 Review question: [QUESTION]
-Objective of this extraction: [e.g. describe the studies / the AI models and data sources / performance and comparators]
+Objective of this extraction: [e.g. describe the studies and settings / the hand hygiene interventions / HAI outcomes and comparators]
 
 Propose a form as a table with columns: field | definition (one sentence) | allowed values or format | type (categorical / numeric / text).
 Rules:
 - Include at least one descriptive field and one numerical field.
-- For numeric fields, define the format exactly (e.g. "AUROC as reported, with 95% CI if given; best model on external validation if available, else internal").
+- For numeric fields, define the format exactly (e.g. "HAI incidence as reported, with unit (per 1000 patient-days or per 100 admissions), for intervention and control/pre-intervention periods separately").
 - Every field must allow the value "not reported".
-- Flag fields where studies often report several values (several models, cohorts, time points) and ask me how to handle them.
+- Flag fields where studies often report several values (several wards, arms, time periods, infection types) and ask me how to handle them.
 ```
 
 **Check afterwards.** Edit the form yourself; pilot it on one paper; freeze it before extracting the rest.
-**Failure modes.** Vague definitions ("performance") that produce inconsistent values; no rule for multiple models or cohorts.
+**Failure modes.** Vague definitions ("performance") that produce inconsistent values; no rule for multiple arms, wards or time periods.
 
 ---
 
@@ -46,7 +46,7 @@ EXTRACTION FORM (fill every field, do not add or change fields):
 RULES
 - For every field give: value, a verbatim quote copied exactly from the paper, and the location (section, table or figure, page).
 - If the paper does not report the field, write value = not reported, leave the quote empty, and write in location where you looked.
-- Do not round, convert units, or pick among several values without saying so. If several values exist (models, cohorts), list each on its own row and say which is which.
+- Do not round, convert units, or pick among several values without saying so. If several values exist (wards, arms, periods), list each on its own row and say which is which.
 - If a value comes from a table, say so and give the row and column labels.
 
 OUTPUT: only a CSV block with the header
@@ -58,7 +58,7 @@ Reminder: verbatim quotes only; "not reported" is better than a guess.
 
 **Expected output.** A CSV block, one row per field.
 **Check afterwards.** Rows first (is any field missing?), then numbers (open the paper at each location), then every "not reported" (search the paper for the keyword and its synonyms).
-**Failure modes.** Quotes that look verbatim but are reconstructed; values from the wrong row of a scrambled table; best model chosen silently; confidence intervals dropped; "not reported" for values that are in a table, a figure or the supplement.
+**Failure modes.** Quotes that look verbatim but are reconstructed; values from the wrong row of a scrambled table; one ward or period chosen silently; compliance reported as if it were an infection outcome; confidence intervals dropped; "not reported" for values that are in a table, a figure or the supplement.
 
 ---
 

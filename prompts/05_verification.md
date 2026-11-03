@@ -15,7 +15,7 @@ You are verifying a data extraction. Use ONLY the attached paper.
 
 For each row of the table below:
 1. Search the paper for the quote. Answer FOUND (verbatim), NEAR (similar wording, give the real text), or NOT FOUND.
-2. If FOUND or NEAR: does the passage support the value for the same population, outcome, model and time point? Answer yes / partly / no, with one sentence.
+2. If FOUND or NEAR: does the passage support the value for the same population, outcome, arm and time period? Answer yes / partly / no, with one sentence.
 3. Do not correct values. Only report.
 
 TABLE (study_id,field,value,source_quote,location):
@@ -38,7 +38,7 @@ Output a CSV with the header: study_id,field,quote_status,supports_value,comment
 In the attached paper, look for any information on each of these fields, which were marked "not reported":
 [LIST FIELDS WITH THEIR DEFINITIONS]
 
-For each field: search the main text, every table, figure captions and any mention of supplementary material, including synonyms (e.g. AUROC, AUC, ROC area, C-statistic).
+For each field: search the main text, every table, figure captions and any mention of supplementary material, including synonyms (e.g. healthcare-associated infection, nosocomial, hospital-acquired, infection rate, incidence density).
 Answer: PRESENT (quote + location) or ABSENT (list where you looked).
 ```
 

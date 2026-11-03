@@ -4,7 +4,7 @@ For each category: what to look for, and a check you can run.
 
 | Category | Look for | Check |
 |---|---|---|
-| **Missing terminology** | Synonyms, spelling variants (UK/US), abbreviations, older and newer terms, brand or technique names (e.g. "random forest", "gradient boosting", "XGBoost", "natural language processing" for an AI concept) | Read titles/abstracts of 5–10 known relevant records: are their key words covered? |
+| **Missing terminology** | Synonyms, spelling variants (UK/US), abbreviations, older and newer terms, related concepts (e.g. for hand hygiene: "handwashing", "hand washing", "hand disinfection", "hand rub*", "alcohol-based", "hand sanitizer/sanitiser"; for the outcome: "nosocomial", "hospital-acquired", "cross infection", specific infections and organisms) | Read titles/abstracts of 5–10 known relevant records: are their key words covered? |
 | **Fabricated or incorrect controlled vocabulary** | MeSH/Emtree headings that do not exist, are misspelled, or map to a different concept; subheadings used as headings | Run `"Term"[MeSH Terms]` in PubMed and read the query translation; MeSH Browser |
 | **Controlled vocabulary only** | A concept searched only with MeSH: recent records not yet indexed are missed | Is there a free-text `[tiab]` equivalent for every MeSH term? |
 | **Overly restrictive concepts** | Too many AND-ed blocks; outcome or study-design blocks at the search stage; narrow phrases in quotes | Remove one block at a time and compare counts; look at what the removed block excluded |

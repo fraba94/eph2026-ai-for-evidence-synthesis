@@ -81,11 +81,11 @@ Each `SKILL.md` is plain Markdown with a short YAML header, so any agent can fol
 ## Example invocations
 
 ```text
-/review-protocol-check How do AI models perform in detecting and predicting healthcare-associated infections?
+/review-protocol-check Are hand hygiene interventions effective in preventing healthcare-associated infections?
 
-/search-strategy-critic ("Cross Infection"[MeSH] OR "healthcare-associated infection*"[tiab]) AND ("Machine Learning"[MeSH] OR "artificial intelligence"[tiab])  -- database: PubMed
+/search-strategy-critic ("Hand Hygiene"[MeSH] OR "hand hygiene"[tiab]) AND ("Cross Infection"[MeSH] OR "healthcare-associated infection*"[tiab])  -- database: PubMed
 
-Screen activity/data/screening_records.csv against the criteria in activity/README.md, two independent runs, then show me the disagreements. Do not score yet.
+Screen activity/data/screening_records.csv against the criteria in activity/review_config.yaml, two independent runs, then show me the disagreements. Do not score yet.
 
 Extract the fields in activity/data/extraction_form.csv from papers/S01.pdf. One paper only. Quote and location for every value.
 

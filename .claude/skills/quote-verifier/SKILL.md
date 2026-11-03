@@ -10,7 +10,7 @@ Fluency tells you nothing about correctness. A value is accepted only when its s
 
 ## Human in the loop
 - You verify and flag; you do not correct values on your own. Proposed corrections go in a separate column for the human to accept.
-- If the quote is found but you are unsure it supports the value (different population, outcome, time point, model, or metric), mark `support: unclear` and ask.
+- If the quote is found but you are unsure it supports the value (different population, outcome, period, arm, or metric), mark `support: unclear` and ask.
 - Never "verify" against your memory of the paper or of the literature. The source text is the only reference.
 
 ## Procedure
@@ -21,8 +21,8 @@ Fluency tells you nothing about correctness. A value is accepted only when its s
    python3 ${CLAUDE_SKILL_DIR}/scripts/verify_quotes.py extraction_ai.csv sources/ --out verification.csv
    ```
    Status per row: `quote_found`, `value_not_in_quote`, `quote_not_found`, `no_quote`, `not_reported`, `no_source`.
-3. **Semantic check** of every `quote_found` row (the script cannot do this): does the passage support the value for the right population, outcome, model, validation set, time point and unit? Is a confidence interval or denominator dropped? Is a rounded or converted value declared?
-4. **Absence check** of every `not_reported` row: search the full text for the field's keywords and synonyms (e.g. AUROC, AUC, ROC, C-statistic, c-index), check tables, figure captions and mentions of supplementary material. If found, mark `missed: present at <location>`.
+3. **Semantic check** of every `quote_found` row (the script cannot do this): does the passage support the value for the right population, outcome, ward or period, time point and unit? Is a confidence interval or denominator dropped? Is a rounded or converted value declared?
+4. **Absence check** of every `not_reported` row: search the full text for the field's keywords and synonyms (e.g. healthcare-associated, nosocomial, hospital-acquired, infection rate, incidence density, per 1000 patient-days), check tables, figure captions and mentions of supplementary material. If found, mark `missed: present at <location>`.
 5. **Repair the unsupported rows only by locating the real quote.** For `quote_not_found`: search the source for the value; if a verbatim passage exists, propose it as `proposed_quote`; if not, mark the value **unsupported**. Do not reword the quote to make it match.
 6. **Write** `verification.csv` (script output plus your columns `support` = supported / unclear / unsupported / missed, and `proposed_quote`, `proposed_value`) and report: counts per status, every unsupported or missed row, and rows from regions flagged `[PARSING RISK]`.
 

@@ -2,7 +2,7 @@
 
 > ⚠️ For learning only: see the disclaimer in the [prompt library index](README.md). You stay responsible for every decision.
 
-The AI can be a second pair of eyes, not the reviewer. Ask it to be wrong in the safe direction: a false include costs a minute at full text, a missed include can change the conclusions. Workshop data: [`activity/data/screening_records.csv`](../activity/data/screening_records.csv); criteria in [`activity/README.md`](../activity/README.md).
+The AI can be a second pair of eyes, not the reviewer. Ask it to be wrong in the safe direction: a false include costs a minute at full text, a missed include can change the conclusions. Workshop data: [`activity/data/screening_records.csv`](../activity/data/screening_records.csv); criteria in [`activity/README.md`](../activity/README.md) (also stored in [`activity/review_config.yaml`](../activity/review_config.yaml)). Worked example: hand hygiene interventions to prevent healthcare-associated infections.
 
 ---
 
@@ -25,7 +25,7 @@ RULES
 - include if all criteria are met or not contradicted by the abstract.
 - unsure if information is missing or ambiguous. When in doubt, do not exclude.
 - Do not use any knowledge about these studies beyond the text given.
-- Return one row for EVERY record, in the same order, even if the abstract is empty.
+- Return one row for EVERY record, in the same order. If the abstract is empty, decide on the title only and use unsure with reason "no abstract".
 
 OUTPUT: only a CSV block with the header
 record_id,decision,reason
@@ -43,7 +43,7 @@ Reminder: apply only criteria C1-C[n]; one row per record; when in doubt, unsure
 - Count: rows returned = records sent? Any record missing or duplicated?
 - Spot-check five reasons against the abstracts: is the quoted or paraphrased text really there?
 - Read every *exclude*: is the named criterion clearly contradicted, or just not mentioned?
-**Failure modes.** Rows silently dropped in long batches; topical similarity treated as eligibility; excluding for missing information; reasons getting vaguer towards the end of the batch.
+**Failure modes.** Abstracts "filled in" from the model's memory when the abstract field is empty (never ask it to find or write an abstract: fetch it from PubMed yourself); rows silently dropped in long batches; topical similarity treated as eligibility; excluding for missing information; reasons getting vaguer towards the end of the batch.
 
 ---
 

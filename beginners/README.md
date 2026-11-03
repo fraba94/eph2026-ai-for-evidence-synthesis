@@ -1,0 +1,218 @@
+# AI beginners track
+
+A step-by-step, copy-paste walkthrough of the workshop exercise for people who only have a chat assistant (ChatGPT, Claude, Gemini, Copilot, Mistral Le Chat, ...). No installation, no code.
+
+> ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.
+> If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,
+> hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility
+> checks, documentation of model and version), **do not use AI to conduct a real evidence review.** You stay
+> responsible for every decision: the AI does not.
+
+> [!WARNING]
+> This track exists so you can **see** how AI behaves on a review task, safely, on data where the right answers are known. It is not a shortcut to doing reviews with AI. AI can bring real advantages to evidence synthesis, but only for people with AI literacy and advanced skills; without them you risk serious errors and losing control of the process. **If you lack these skills, do not use AI to run real reviews.**
+
+## What you will do (about 30 minutes)
+
+| Step | What | Time |
+|:-:|---|:-:|
+| 0 | Get ready | 2 min |
+| 1 | Read the question and the criteria | 3 min |
+| 2 | Screen 20 abstracts with your assistant | 7 min |
+| 3 | Check what came back | 5 min |
+| 4 | Run it again in a new chat | 5 min |
+| 5 | Score against the reference review | 5 min |
+| 6 | Optional: extract data from one paper, with quotes | extra |
+| 7 | Talk about it | in the room |
+
+**The question** is deliberately simple, so you can focus on the AI and not on the topic: *are hand hygiene interventions effective in preventing healthcare-associated infections (HAI)?*
+
+| P | I | C | O |
+|---|---|---|---|
+| Healthcare settings (patients, healthcare workers) | Hand hygiene interventions or promotion | Usual care or the period before the intervention | HAI incidence |
+
+The **reference review** is a systematic review on this question conducted **without AI**; its decisions are the answers you compare with. Its full reference is in [`activity/README.md`](../activity/README.md).
+
+---
+
+## Step 0. Get ready
+
+- [ ] A laptop with a chat assistant open in the browser. Any one works; if your tool has a "temporary chat" or lets you switch memory off, use that.
+- [ ] A text editor or spreadsheet (Notepad, TextEdit, Excel, Google Sheets, LibreOffice) to save the answers.
+- [ ] A note with: **tool name, model name as displayed, date and time**. You will need it at the end.
+
+> [!CAUTION]
+> Never paste personal, patient or confidential data into a chat assistant. The workshop records are published abstracts, so they are fine for this exercise.
+
+## Step 1. Read the question and the criteria
+
+Open the hands-on guide: **[`activity/README.md`](../activity/README.md)**. It contains the review question and the **eligibility criteria** (labelled C1, C2, ...). Keep that page open: you will paste the criteria into the prompt. (The same criteria are stored in [`activity/review_config.yaml`](../activity/review_config.yaml).)
+
+Why this matters: if you do not give the AI explicit criteria, it uses its own, and they change every time you ask.
+
+## Step 2. Screen 20 abstracts
+
+**Get the records.** Choose one of the two options.
+
+<details>
+<summary><b>Option A (easiest): the ready-to-paste batch</b></summary>
+
+Open [`batches/screening_batch_all.md`](batches/screening_batch_all.md) (all records) or, if your assistant struggles with long messages, [`batches/screening_batch_01.md`](batches/screening_batch_01.md) and [`batches/screening_batch_02.md`](batches/screening_batch_02.md) (10 records each). Copy everything inside the grey box.
+
+If the batch files are not there, a facilitator can create them with `python3 beginners/make_batches.py`, or use Option B.
+</details>
+
+<details>
+<summary><b>Option B: copy from the CSV file</b></summary>
+
+1. Open [`activity/data/screening_records.csv`](../activity/data/screening_records.csv) on GitHub.
+2. Click **Raw** (top right of the file view). You now see plain text.
+3. Select all (Ctrl+A / Cmd+A) and copy (Ctrl+C / Cmd+C). The first line is the header; each following line is one record.
+
+The assistant can read CSV text directly. You only need the columns `record_id`, `title` and `abstract`; the others can stay.
+</details>
+
+> [!NOTE]
+> **Some abstracts may be empty.** A few records may arrive without an abstract (the facilitators fill them before the session with `activity/tools/fetch_abstracts.py`). If you still see an empty abstract, leave it: the prompt tells the assistant to mark it *unsure*. **Do not** ask the assistant to "find" or write the abstract: it may invent one.
+
+**Open a new chat**, paste this prompt, replace the two parts in `[BRACKETS]`, and send.
+
+```text
+You are a second reviewer screening titles and abstracts for a systematic review.
+
+ELIGIBILITY CRITERIA (apply exactly these, nothing else):
+[PASTE THE CRITERIA C1, C2, ... FROM activity/README.md]
+
+RULES
+- Decide for each record: include, exclude, or unsure.
+- exclude ONLY if the title/abstract clearly shows that at least one criterion is NOT met. Name the criterion.
+- include if all criteria are met or not contradicted by the abstract.
+- unsure if information is missing or ambiguous. When in doubt, do not exclude.
+- Use only the text given. Do not use anything you may know about these studies.
+- Return one row for EVERY record, in the same order. If the abstract is empty, decide on the title only and use unsure with reason "no abstract".
+
+OUTPUT: only a CSV block with the header
+record_id,decision,reason
+where reason is max 25 words and starts with the criterion code (e.g. "C2 not met: ...").
+After the CSV, write: "Records received: N. Rows returned: N."
+
+RECORDS
+[PASTE THE RECORDS HERE]
+
+Reminder: apply only the criteria above; one row per record; when in doubt, unsure.
+```
+
+**Save the answer.** Copy the CSV block into your text editor and save it as `run1.csv` (plain text, not .docx). In a spreadsheet: paste, then *File → Download / Save as → CSV*.
+
+> [!TIP]
+> If the reply is cut off, type `continue from record [last record_id], same format`. If it gives you a table instead of CSV, ask: `Give me the same as a CSV code block, nothing else.`
+
+## Step 3. Check what came back
+
+Before trusting anything, check it. This is the most important step.
+
+| Check | How | Why |
+|---|---|---|
+| **Every record is there** | Count the rows. Same number as the records you pasted? Any `record_id` missing or repeated? | Models silently drop rows in long lists |
+| **Reasons are real** | Pick 3 records. Does the abstract really say what the reason claims? | The reason can be invented even when the decision is right |
+| **Excludes are justified** | Read every *exclude*. Is the criterion clearly contradicted, or just not mentioned? | "Not mentioned" should be *unsure*, not *exclude* |
+| **Only your criteria were used** | Any reason citing something not in the criteria (language, country, "low quality")? | The model may add its own rules |
+
+## Step 4. Run it again, in a new chat
+
+1. Open a **new** chat (not the same one: it would just repeat itself).
+2. Paste the same prompt, but put the records **in reverse order** (or paste batch 02 before batch 01).
+3. Save the answer as `run2.csv`.
+4. Compare `run1.csv` and `run2.csv` side by side in a spreadsheet. Mark every record where the decision changed.
+
+> [!NOTE]
+> The answer is **sampled**: the model picks each word with some randomness. The same prompt on the same text can give a different decision. A result you cannot reproduce is not a method.
+
+For records where the two runs disagree, **you** decide: write your own decision in a third file, `my_decisions.csv` (same columns). Keep the AI files as they are.
+
+## Step 5. Score against the reference review
+
+Only now look at the answers.
+
+- **Online scorer** (nothing leaves your browser): open the workshop website's scorer, [`docs/scorer.html`](../docs/scorer.html) (on the published site: <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>), and load `run1.csv`, `run2.csv` or `my_decisions.csv`.
+- **With Python** (if you have it): `python3 activity/tools/score_screening.py run1.csv` (use `--help` to see the options).
+
+Then look at each disagreement with the reference and ask: was it a **missed include** (the most serious error), a **false include**, an *unsure* that was reasonable, or a criterion that two humans could also read differently? The prompt to help you classify them is [6.2 in the prompt library](../prompts/06_synthesis_and_reporting.md#62-discrepancy-summary-after-the-workshop-exercise).
+
+## Step 6 (optional). Extract data from one paper, with quotes
+
+Pick one open-access paper from the exercise (see [`activity/README.md`](../activity/README.md); use only papers whose licence allows uploading). Open a **new chat** and attach the PDF (or paste its text). Use the extraction form [`activity/data/extraction_form.csv`](../activity/data/extraction_form.csv).
+
+```text
+You are extracting data for a systematic review. Use ONLY the attached paper. Do not use outside knowledge.
+
+EXTRACTION FORM (fill every field, do not add or change fields):
+[PASTE THE FORM: field, definition, allowed values]
+
+RULES
+- For every field give: value, a verbatim quote copied exactly from the paper, and the location (section, table, page).
+- If the paper does not report the field, write: not reported. Do not guess.
+- Do not round or convert. If there are several values (several wards, arms or time periods), list each on its own row and say which is which.
+
+OUTPUT: only a CSV block with the header
+study_id,field,value,source_quote,location
+Use study_id = [THE STUDY ID].
+```
+
+Then verify, in **another new chat** with the same PDF attached:
+
+```text
+For each row below, find the quote in the attached paper. Answer FOUND (verbatim), NEAR (similar wording: give the real text) or NOT FOUND, and say whether the passage supports the value (yes / partly / no). Do not correct anything.
+
+[PASTE THE CSV ROWS]
+```
+
+**What to look for**
+
+- [ ] Open the PDF at every location given. Is the number really there, in the right row and column of the table?
+- [ ] Every *not reported*: search the PDF yourself (Ctrl+F) with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days). Is it really absent?
+- [ ] Quotes that are "almost" the same as the paper: the model rewrote them. Treat the value as unverified.
+- [ ] If you ran it twice: which fields changed? Numbers usually change more than descriptions.
+
+## Step 7. Talk about it
+
+Bring your answers to the group discussion:
+
+1. How many records did the AI get wrong, and of which kind? Would any error have changed the review's conclusions?
+2. What changed between run 1 and run 2?
+3. Which check caught the most problems?
+4. What would you need to write in a paper to report what you did? (Tool, model and version, date, prompt, what you checked: see [prompt 6.3](../prompts/06_synthesis_and_reporting.md#63-ai-use-statement).)
+5. Would you trust this for a real review? What would you need to learn first?
+
+---
+
+## Glossary
+
+| Term | Plain meaning | Why it matters here |
+|---|---|---|
+| **Large language model (LLM)** | Software trained on huge amounts of text to continue text plausibly | It produces fluent answers whether or not they are correct |
+| **Token** | A small piece of text (part of a word) that the model reads and writes | Limits on length and cost are counted in tokens |
+| **Context window** | Everything the model can "see" at once: your instructions, the documents, the whole conversation so far | It is finite, and information in the middle of a long input is used less reliably than at the start or end. One task per chat |
+| **Parsing** | Turning a PDF into plain text before the model reads it | The model never sees your PDF. Tables often come out scrambled, and numbers end up in the wrong place |
+| **Sampling** | The model chooses each next word with some randomness | The same prompt can give different answers: run twice and compare |
+| **Hallucination** | A confident statement, quote, number or reference that is not supported by the source or does not exist | Always ask for quotes and check them in the source |
+| **RAG (retrieval-augmented generation)** | The tool splits your documents into chunks, finds a few that look relevant to your question, and answers only from those | If the right chunk is not found, it says the information is "not reported" instead of saying it failed to find it |
+| **Agent** | A model wrapped in software that can take actions for you (open and save files, run programs) step by step | Powerful, and it acts with whatever access you give it. Give it one project folder, never your whole disk |
+| **Prompt** | The instructions you give the model | Explicit criteria and a fixed output format make answers checkable |
+| **Reference standard / gold standard** | The decisions of the original review done by humans without AI | What you compare the AI against |
+
+## Where next
+
+- [Prompt library](../prompts/README.md): more prompts for every stage of a review, with the checks to do afterwards.
+- [Skills library](../skills/README.md): the same method for agent tools like Claude Code, for advanced users.
+- Guidance: the 2025 position statement of Cochrane, the Campbell Collaboration, JBI and CEE says that evidence synthesists remain responsible for their synthesis, that AI should be used with human oversight, and that AI use that makes or suggests judgements must be fully reported (doi:[10.1186/s13750-025-00374-5](https://doi.org/10.1186/s13750-025-00374-5)). It supports the RAISE recommendations: <https://osf.io/fwaud/>.
+
+---
+
+> ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.
+> If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,
+> hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility
+> checks, documentation of model and version), **do not use AI to conduct a real evidence review.** You stay
+> responsible for every decision: the AI does not.
+
+> [!WARNING]
+> **If you lack AI literacy and advanced skills, do not use AI to run real reviews.** Learn first; practise on data where the answers are known, like today's.

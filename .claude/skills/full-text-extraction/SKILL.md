@@ -10,7 +10,7 @@ What happens between a PDF and your table: the PDF is **parsed** into a stream o
 
 ## Human in the loop
 - **The form comes first and is the human's.** No form, no extraction: ask for one (workshop: `activity/data/extraction_form.csv`, columns `field,definition,allowed_values,type`) or help the human draft one and wait for approval. Never add, drop or redefine fields on your own.
-- When a field definition does not fit what the paper reports (e.g. two cohorts, several models, a metric with another name), **stop and ask** how to record it; do not choose silently.
+- When a field definition does not fit what the paper reports (e.g. two wards, several intervention periods, an outcome with another name), **stop and ask** how to record it; do not choose silently.
 - The extraction is a draft for human verification. Run `quote-verifier` afterwards; the human checks rows first, then numbers, then every "not reported".
 
 ## Procedure
@@ -26,7 +26,7 @@ What happens between a PDF and your table: the PDF is **parsed** into a stream o
    - `source_quote`: **verbatim** text copied from the parsed text, short (one sentence or table cell row), enough to support the value. Never paraphrase inside the quote. Use ` ... ` only to join two pieces of the same passage.
    - `location`: section, table or figure, and page if known (e.g. `Results, Table 2, p.6`).
    - If the paper does not report it: `value` = `not reported`, `source_quote` empty, `location` = where you looked (e.g. `searched Methods, Results, Table 1-3`). "Not reported" is a valid, useful answer; a guess is not.
-   - If you are inferring rather than reading (e.g. design inferred from the methods), say `inferred:` at the start of the location and keep the supporting quote.
+   - If you are inferring rather than reading (e.g. controlled before-after design inferred from the methods), say `inferred:` at the start of the location and keep the supporting quote.
 5. **Write the CSV** `extraction_ai.csv` with exactly the columns `study_id,field,value,source_quote,location`, one row per study × field, no field skipped. Quote fields properly (use a CSV writer; quotes and commas in source text break hand-made CSV).
 6. **Reproducibility check.** If time allows, re-run one paper in a fresh context and compare field by field. Outcome numbers are usually less stable than study characteristics; report what changed.
 7. **Hand over**: run `quote-verifier` on the CSV and the parsed text; list for the human the `[PARSING RISK]` rows, the `not reported` rows and the fields that changed between runs.
@@ -41,15 +41,15 @@ What happens between a PDF and your table: the PDF is **parsed** into a stream o
 `extraction_ai.csv`:
 ```
 study_id,field,value,source_quote,location
-S01,country,Italy,"Data were collected at a tertiary hospital in Pisa, Italy",Methods 2.1 p.3
-S01,auroc_best_model,not reported,,searched Results and Tables 2-4
+S01,setting,adult intensive care units,"The study was conducted in four adult intensive care units",Methods 2.1 p.3
+S01,hai_incidence_control,not reported,,searched Results and Tables 1-3
 ```
 (Rows above illustrate the format only.)
 
 ## Common failure modes
 - Values from the wrong table row/column after a scrambled table parse (looks like a reasoning error, is a parsing error).
-- Picking the best of several models or the internal instead of external validation without saying so.
-- Dropping confidence intervals or denominators; mixing up sensitivity/recall, PPV/precision.
+- Picking one of several arms, periods or wards without saying so.
+- Dropping confidence intervals or denominators; mixing up incidence rates (per 1000 patient-days) with cumulative incidence (per 100 admissions); confusing hand hygiene compliance with infection outcomes.
 - Quotes that are "nearly" verbatim (reconstructed). `quote-verifier` catches these.
 - "Not reported" for something that is in a table, a figure or the supplement (retrieval or parsing failure reported as absence).
 

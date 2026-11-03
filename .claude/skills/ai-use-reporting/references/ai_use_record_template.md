@@ -26,7 +26,7 @@ The 2025 position statement says that decisions to use AI should be considered a
 
 ## 3. Example for the workshop exercise (past tense, for a training report)
 
-> During a training exercise we used [product, model identifier as displayed] ([access route]) on [date] to screen [N] titles and abstracts against pre-specified eligibility criteria, with the prompt reported in [appendix]. The AI output was compared with the decisions of a systematic review conducted without AI (Barbati et al., Artif Intell Med 2025;172:103321, doi:10.1016/j.artmed.2025.103321). [Observed agreement / missed includes, with denominators, from the scoring script.] All final decisions were made by the reviewers. Limitations include non-deterministic outputs (the second run differed on [n] records), [parsing / context issues observed], and the small, non-representative sample.
+> During a training exercise we used [product, model identifier as displayed] ([access route]) on [date] to screen [N] titles and abstracts against pre-specified eligibility criteria, with the prompt reported in [appendix]. The AI output was compared with the decisions of a systematic review conducted without AI ([citation of the reference review, from activity/review_config.yaml]). [Observed agreement / missed includes, with denominators, from the scoring script.] All final decisions were made by the reviewers. Limitations include non-deterministic outputs (the second run differed on [n] records), [parsing / context issues observed], and the small, non-representative sample.
 
 ## 4. Archive checklist
 - [ ] Prompts, verbatim, with dates
