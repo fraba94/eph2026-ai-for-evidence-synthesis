@@ -1,0 +1,11 @@
+record_id,decision,reason
+S01,include,campaign with HAI rates
+S02,exclude,no HAI outcome
+S03,include,"RCT, infections"
+S04,include,hand rub efficacy
+S05,exclude,monitoring is not hand hygiene
+S06,exclude,review
+S07,unsure,"bundle, unclear if hand hygiene alone"
+S08,exclude,no intervention
+S10,exclude,community
+S99,include,record id that does not exist

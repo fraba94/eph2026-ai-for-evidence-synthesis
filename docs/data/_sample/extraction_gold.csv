@@ -1,0 +1,9 @@
+study_id,field,value,source_quote,location
+S01,design,before-after,before and after the campaign,Methods
+S01,setting,intensive care unit,two intensive care units,Title
+S01,sample_size,1250,1250 patients were included,"Results, para 1"
+S01,hai_outcome,HAI per 1000 patient-days,infections per 1000 patient-days,Abstract
+S03,design,cluster RCT,cluster randomised,Title
+S03,setting,nursing homes,nursing homes,Title
+S03,sample_size,3400,3400 residents,Results
+S03,hai_outcome,not reported,,

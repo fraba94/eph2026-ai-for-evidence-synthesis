@@ -1,0 +1,157 @@
+table,row_label,ref,pmid,column,value
+Table 1,"Larson et al., 2010 [35]",35,10971880,Country,USA
+Table 1,"Larson et al., 2010 [35]",35,10971880,Study Design,Quasi-experimental clinical trial (controlled before–after)
+Table 1,"Larson et al., 2010 [35]",35,10971880,Setting,Two ~250-bed hospitals in the Mid-Atlantic region; adult MICU and NICU study units
+Table 1,"Larson et al., 2010 [35]",35,10971880,Study Period/Duration,August 1997–December 1998
+Table 1,"Larson et al., 2010 [35]",35,10971880,Intervention (Key Components),"Top-down organisational climate intervention based on Schein’s framework; leadership support, education, feedback, role modelling, competency reinforcement"
+Table 1,"Larson et al., 2010 [35]",35,10971880,Comparator/Baseline,"Intervention hospital vs. comparison hospital; baseline, implementation, and follow-up phases"
+Table 1,"Larson et al., 2010 [35]",35,10971880,Clinical Outcome(s) Assessed,Nosocomial MRSA and VRE infection rates
+Table 1,"Trick et al., 2007 [36]",36,17230386,Country,USA
+Table 1,"Trick et al., 2007 [36]",36,17230386,Study Design,Prospective multicentre controlled interventional observational study
+Table 1,"Trick et al., 2007 [36]",36,17230386,Setting,"Four hospitals (acute/long-term care, community, public teaching, university teaching), multiple ICUs and wards"
+Table 1,"Trick et al., 2007 [36]",36,17230386,Study Period/Duration,October 1999–December 2002
+Table 1,"Trick et al., 2007 [36]",36,17230386,Intervention (Key Components),"Increased ABHR availability, interactive education, poster campaign in 3 intervention hospitals"
+Table 1,"Trick et al., 2007 [36]",36,17230386,Comparator/Baseline,Three intervention hospitals vs. one control hospital; pre/post quarterly trends
+Table 1,"Trick et al., 2007 [36]",36,17230386,Clinical Outcome(s) Assessed,Incidence of antimicrobial-resistant bacteria from clinical cultures
+Table 1,"Stone et al., 2012 [37]",37,22556101,Country,England and Wales
+Table 1,"Stone et al., 2012 [37]",37,22556101,Study Design,Prospective ecological interrupted time-series study
+Table 1,"Stone et al., 2012 [37]",37,22556101,Setting,"Acute NHS hospital trusts, national campaign setting"
+Table 1,"Stone et al., 2012 [37]",37,22556101,Study Period/Duration,4-year national evaluation
+Table 1,"Stone et al., 2012 [37]",37,22556101,Intervention (Key Components),"Cleanyourhands campaign: bedside alcohol hand rub, posters, regular audit/feedback, patient empowerment materials"
+Table 1,"Stone et al., 2012 [37]",37,22556101,Comparator/Baseline,Trust-level pre/post time-series trends
+Table 1,"Stone et al., 2012 [37]",37,22556101,Clinical Outcome(s) Assessed,"MRSA bacteraemia, MSSA bacteraemia, Clostridium difficile infection"
+Table 1,"Kirkland et al., 2012 [38]",38,22822243,Country,USA
+Table 1,"Kirkland et al., 2012 [38]",38,22822243,Study Design,Interrupted time series with sequential interventions and 1-year follow-up
+Table 1,"Kirkland et al., 2012 [38]",38,22822243,Setting,"383-bed teaching hospital, rural New Hampshire"
+Table 1,"Kirkland et al., 2012 [38]",38,22822243,Study Period/Duration,January 2006–December 2009
+Table 1,"Kirkland et al., 2012 [38]",38,22822243,Intervention (Key Components),"Multifaceted initiative targeting leadership/accountability, measurement/feedback, hand sanitiser availability, education/training, marketing/communication"
+Table 1,"Kirkland et al., 2012 [38]",38,22822243,Comparator/Baseline,Baseline year and post-intervention follow-up within longitudinal series
+Table 1,"Kirkland et al., 2012 [38]",38,22822243,Clinical Outcome(s) Assessed,Healthcare-associated infection index; S. aureus infections; bloodstream infections; C. difficile infection
+Table 1,"Monistrol et al., 2012 [39]",39,22192567,Country,Spain
+Table 1,"Monistrol et al., 2012 [39]",39,22192567,Study Design,before-after intervention study with 1-year follow-up
+Table 1,"Monistrol et al., 2012 [39]",39,22192567,Setting,Three internal medicine wards in a 500-bed tertiary hospital
+Table 1,"Monistrol et al., 2012 [39]",39,22192567,Study Period/Duration,PRE/POST periods plus 1-year follow-up
+Table 1,"Monistrol et al., 2012 [39]",39,22192567,Intervention (Key Components),Multimodal educational campaign promoting ABHR use; WHO observation methodology
+Table 1,"Monistrol et al., 2012 [39]",39,22192567,Comparator/Baseline,PRE vs. POST intervention periods and follow-up
+Table 1,"Monistrol et al., 2012 [39]",39,22192567,Clinical Outcome(s) Assessed,Overall HAI incidence density; hospital-acquired MRSA incidence density
+Table 1,"Johnson et al., 2014 [40]",40,25444260,Country,USA
+Table 1,"Johnson et al., 2014 [40]",40,25444260,Study Design,Descriptive time-series quality improvement project
+Table 1,"Johnson et al., 2014 [40]",40,25444260,Setting,570-bed academic health centre comprising 7 hospitals and >50 clinics
+Table 1,"Johnson et al., 2014 [40]",40,25444260,Study Period/Duration,April 2006–September 2012
+Table 1,"Johnson et al., 2014 [40]",40,25444260,Intervention (Key Components),"Multifactorial action plan focused on staff education, accountability, product selection/accessibility, and organisational culture"
+Table 1,"Johnson et al., 2014 [40]",40,25444260,Comparator/Baseline,Historical baseline before implementation
+Table 1,"Johnson et al., 2014 [40]",40,25444260,Clinical Outcome(s) Assessed,CLABSI rate
+Table 1,"Chen et al., 2016 [41]",41,26694582,Country,Taiwan
+Table 1,"Chen et al., 2016 [41]",41,26694582,Study Design,Before-and-after interventional study
+Table 1,"Chen et al., 2016 [41]",41,26694582,Setting,1408-bed tertiary teaching hospital
+Table 1,"Chen et al., 2016 [41]",41,26694582,Study Period/Duration,January 2010–September 2011
+Table 1,"Chen et al., 2016 [41]",41,26694582,Intervention (Key Components),"WHO multimodal HH improvement strategy: point-of-care ABHR, tailored education, reminders, evaluation/feedback, institutional safety climate"
+Table 1,"Chen et al., 2016 [41]",41,26694582,Comparator/Baseline,Pre- vs. post-intervention periods
+Table 1,"Chen et al., 2016 [41]",41,26694582,Clinical Outcome(s) Assessed,Overall HAI rate; urinary tract infection; respiratory tract infection; bloodstream infection
+Table 1,"Shabot et al., 2016 [42]",42,26685929,Country,USA
+Table 1,"Shabot et al., 2016 [42]",42,26685929,Study Design,System-wide longitudinal quality improvement evaluation
+Table 1,"Shabot et al., 2016 [42]",42,26685929,Setting,11 hospitals and 150 inpatient units in a large health system
+Table 1,"Shabot et al., 2016 [42]",42,26685929,Study Period/Duration,October 2010–December 2014
+Table 1,"Shabot et al., 2016 [42]",42,26685929,Intervention (Key Components),Targeted Solutions Tool (TST) using DMAIC/Lean/Six Sigma; targeted interventions based on causes of noncompliance
+Table 1,"Shabot et al., 2016 [42]",42,26685929,Comparator/Baseline,Baseline vs. improve vs. control phases
+Table 1,"Shabot et al., 2016 [42]",42,26685929,Clinical Outcome(s) Assessed,Adult ICU CLABSI; VAP
+Table 1,"Al Kuwaiti et al., 2017 [43]",43,29201437,Country,Saudi Arabia
+Table 1,"Al Kuwaiti et al., 2017 [43]",43,29201437,Study Design,Prospective interventional before-after study
+Table 1,"Al Kuwaiti et al., 2017 [43]",43,29201437,Setting,"King Fahd Hospital of the University, inpatient wards"
+Table 1,"Al Kuwaiti et al., 2017 [43]",43,29201437,Study Period/Duration,January 2014–December 2016; 12-month intervention
+Table 1,"Al Kuwaiti et al., 2017 [43]",43,29201437,Intervention (Key Components),"WHO-based multicomponent HH strategy plus management engagement, education, reminders, posters/screensavers, monthly evaluation and feedback"
+Table 1,"Al Kuwaiti et al., 2017 [43]",43,29201437,Comparator/Baseline,Pre- vs. post-intervention phases
+Table 1,"Al Kuwaiti et al., 2017 [43]",43,29201437,Clinical Outcome(s) Assessed,Overall HAI rate; CAUTI rate
+Table 1,"Boyce et al., 2019 [44]",44,31106714,Country,USA
+Table 1,"Boyce et al., 2019 [44]",44,31106714,Study Design,Retrospective nonrandomized observational quasi-experimental study
+Table 1,"Boyce et al., 2019 [44]",44,31106714,Setting,Single 93-bed nonprofit acute-care hospital; 4 nursing units
+Table 1,"Boyce et al., 2019 [44]",44,31106714,Study Period/Duration,2014–2018
+Table 1,"Boyce et al., 2019 [44]",44,31106714,Intervention (Key Components),"Automated HH monitoring system plus frontline ownership, leadership support, feedback, supplementary promotional activities, Toyota Kata methodology"
+Table 1,"Boyce et al., 2019 [44]",44,31106714,Comparator/Baseline,Baseline and sequential intervention periods
+Table 1,"Boyce et al., 2019 [44]",44,31106714,Clinical Outcome(s) Assessed,Non-C. difficile HAIs; C. difficile infection
+Table 1,"Phan et al., 2020 [45]",45,32276646,Country,Vietnam
+Table 1,"Phan et al., 2020 [45]",45,32276646,Study Design,Prospective quasi-experimental observational study
+Table 1,"Phan et al., 2020 [45]",45,32276646,Setting,900-bed maternity/gynaecology-obstetrics tertiary-care centre
+Table 1,"Phan et al., 2020 [45]",45,32276646,Study Period/Duration,2010–2018
+Table 1,"Phan et al., 2020 [45]",45,32276646,Intervention (Key Components),"WHO multimodal strategy with repeated campaigns, point-of-care ABHR, local ABHR production, patient participation"
+Table 1,"Phan et al., 2020 [45]",45,32276646,Comparator/Baseline,Longitudinal pre/post trend across campaign period
+Table 1,"Phan et al., 2020 [45]",45,32276646,Clinical Outcome(s) Assessed,HAI other than SSI; SSI after gynaecological surgery; endometritis after abortion; SSI after C-section
+Table 1,"Mestre et al., 2012 [46]",46,23110061,Country,Spain
+Table 1,"Mestre et al., 2012 [46]",46,23110061,Study Design,Pre-post interventional study with two phases and time-series process analysis
+Table 1,"Mestre et al., 2012 [46]",46,23110061,Setting,"Private 200-bed teaching hospital; eight medical-surgical wards, emergency department, and 11-bed polyvalent ICU"
+Table 1,"Mestre et al., 2012 [46]",46,23110061,Study Period/Duration,Preintervention March 2007–December 2009; phase 1 January–December 2010; phase 2 January–December 2011
+Table 1,"Mestre et al., 2012 [46]",46,23110061,Intervention (Key Components),"WHO multimodal hand hygiene strategy followed by a continuous quality improvement phase with increased bedside alcohol hand rub placement, more frequent audits (“3/3 strategy”), standardized corrective-action recording, bimonthly feedback using statistical process control charts, and ongoing institutional support"
+Table 1,"Mestre et al., 2012 [46]",46,23110061,Comparator/Baseline,Preintervention baseline vs. phase 1 and phase 2 intervention periods
+Table 1,"Mestre et al., 2012 [46]",46,23110061,Clinical Outcome(s) Assessed,Healthcare-acquired MRSA colonization/infection rate
+Table 2,"Larson et al., 2010 [35]",35,10971880,Primary Clinical Outcome,Nosocomial MRSA and VRE infection rates
+Table 2,"Larson et al., 2010 [35]",35,10971880,Outcome Category,Organism-specific/AMR-related
+Table 2,"Larson et al., 2010 [35]",35,10971880,Main Finding,Greater reduction in MRSA and VRE in the intervention hospital than in the comparison hospital; clearest signal for VRE
+Table 2,"Larson et al., 2010 [35]",35,10971880,Direction of Effect,Favorable
+Table 2,"Larson et al., 2010 [35]",35,10971880,Statistical Support,Significant for VRE; less clear for MRSA
+Table 2,"Larson et al., 2010 [35]",35,10971880,Caveat,Non-randomized hospital comparison; outbreaks in comparator hospital may have influenced results
+Table 2,"Trick et al., 2007 [36]",36,17230386,Primary Clinical Outcome,Incidence of hospital-acquired antimicrobial-resistant bacteria
+Table 2,"Trick et al., 2007 [36]",36,17230386,Outcome Category,Organism-specific/AMR-related
+Table 2,"Trick et al., 2007 [36]",36,17230386,Main Finding,"Significant reduction observed in only one intervention hospital, which also had the greatest increase in hand hygiene adherence"
+Table 2,"Trick et al., 2007 [36]",36,17230386,Direction of Effect,Mixed
+Table 2,"Trick et al., 2007 [36]",36,17230386,Statistical Support,Significant in one hospital only
+Table 2,"Trick et al., 2007 [36]",36,17230386,Caveat,No uniform effect across hospitals; clinical control data were limited
+Table 2,"Stone et al., 2012 [37]",37,22556101,Primary Clinical Outcome,"MRSA bacteraemia, MSSA bacteraemia, Clostridioides difficile infection"
+Table 2,"Stone et al., 2012 [37]",37,22556101,Outcome Category,Organism-specific/AMR-related
+Table 2,"Stone et al., 2012 [37]",37,22556101,Main Finding,MRSA bacteraemia and C. difficile decreased over time; MSSA bacteraemia did not
+Table 2,"Stone et al., 2012 [37]",37,22556101,Direction of Effect,Mixed to favorable
+Table 2,"Stone et al., 2012 [37]",37,22556101,Statistical Support,Significant associations reported for some procurement-outcome relationships
+Table 2,"Stone et al., 2012 [37]",37,22556101,Caveat,Multiple national co-interventions limited attribution to hand hygiene alone
+Table 2,"Kirkland et al., 2012 [38]",38,22822243,Primary Clinical Outcome,Hospital-wide healthcare-associated infection index
+Table 2,"Kirkland et al., 2012 [38]",38,22822243,Outcome Category,Overall HAI
+Table 2,"Kirkland et al., 2012 [38]",38,22822243,Main Finding,HAI index fell from 4.8 to 3.3 per 1000 inpatient-days; S. aureus infections also decreased
+Table 2,"Kirkland et al., 2012 [38]",38,22822243,Direction of Effect,Favorable
+Table 2,"Kirkland et al., 2012 [38]",38,22822243,Statistical Support,Significant
+Table 2,"Kirkland et al., 2012 [38]",38,22822243,Caveat,Multifaceted programme with evolving implementation and broader quality-improvement context
+Table 2,"Monistrol et al., 2012 [39]",39,22192567,Primary Clinical Outcome,Overall HAI incidence density
+Table 2,"Monistrol et al., 2012 [39]",39,22192567,Outcome Category,Overall HAI
+Table 2,"Monistrol et al., 2012 [39]",39,22192567,Main Finding,Overall HAI incidence density remained essentially unchanged after intervention
+Table 2,"Monistrol et al., 2012 [39]",39,22192567,Direction of Effect,No clear effect
+Table 2,"Monistrol et al., 2012 [39]",39,22192567,Statistical Support,Not significant
+Table 2,"Monistrol et al., 2012 [39]",39,22192567,Caveat,Improved hand hygiene process measures did not translate into measurable overall HAI reduction
+Table 2,"Johnson et al., 2014 [40]",40,25444260,Primary Clinical Outcome,CLABSI rate
+Table 2,"Johnson et al., 2014 [40]",40,25444260,Outcome Category,Device-associated infection
+Table 2,"Johnson et al., 2014 [40]",40,25444260,Main Finding,CLABSI declined from 4.08 to 0.42 per 1000 device-days during the programme
+Table 2,"Johnson et al., 2014 [40]",40,25444260,Direction of Effect,Favorable
+Table 2,"Johnson et al., 2014 [40]",40,25444260,Statistical Support,Clear reduction reported
+Table 2,"Johnson et al., 2014 [40]",40,25444260,Caveat,Central line bundle introduced alongside hand hygiene initiative
+Table 2,"Chen et al., 2016 [41]",41,26694582,Primary Clinical Outcome,Overall HAI rate
+Table 2,"Chen et al., 2016 [41]",41,26694582,Outcome Category,Overall HAI
+Table 2,"Chen et al., 2016 [41]",41,26694582,Main Finding,Overall HAI decreased from 3.7% to 3.1%; urinary and respiratory tract infections also declined
+Table 2,"Chen et al., 2016 [41]",41,26694582,Direction of Effect,Favorable
+Table 2,"Chen et al., 2016 [41]",41,26694582,Statistical Support,Significant
+Table 2,"Chen et al., 2016 [41]",41,26694582,Caveat,Before-after design without contemporaneous control; concurrent IPC activities possible
+Table 2,"Shabot et al., 2016 [42]",42,26685929,Primary Clinical Outcome,Adult ICU CLABSI rate
+Table 2,"Shabot et al., 2016 [42]",42,26685929,Outcome Category,Device-associated infection
+Table 2,"Shabot et al., 2016 [42]",42,26685929,Main Finding,CLABSI decreased from 0.83 to 0.42 per 1000 line-days; VAP also declined
+Table 2,"Shabot et al., 2016 [42]",42,26685929,Direction of Effect,Favorable
+Table 2,"Shabot et al., 2016 [42]",42,26685929,Statistical Support,Significant for most phase/time analyses
+Table 2,"Shabot et al., 2016 [42]",42,26685929,Caveat,Prior CLABSI and VAP bundles may have contributed
+Table 2,"Al Kuwaiti et al., 2017 [43]",43,29201437,Primary Clinical Outcome,Overall HAI rate
+Table 2,"Al Kuwaiti et al., 2017 [43]",43,29201437,Outcome Category,Overall HAI
+Table 2,"Al Kuwaiti et al., 2017 [43]",43,29201437,Main Finding,Overall HAI decreased from 3.37 to 2.59; CAUTI also decreased
+Table 2,"Al Kuwaiti et al., 2017 [43]",43,29201437,Direction of Effect,Favorable
+Table 2,"Al Kuwaiti et al., 2017 [43]",43,29201437,Statistical Support,Reported as significant
+Table 2,"Al Kuwaiti et al., 2017 [43]",43,29201437,Caveat,Single-centre before-after study without contemporaneous control
+Table 2,"Boyce et al., 2019 [44]",44,31106714,Primary Clinical Outcome,Non-C. difficile HAI rate
+Table 2,"Boyce et al., 2019 [44]",44,31106714,Outcome Category,Overall HAI
+Table 2,"Boyce et al., 2019 [44]",44,31106714,Main Finding,"Non-C. difficile HAIs decreased by 56%, but C. difficile increased by 60%"
+Table 2,"Boyce et al., 2019 [44]",44,31106714,Direction of Effect,Mixed
+Table 2,"Boyce et al., 2019 [44]",44,31106714,Statistical Support,Reduction in non-C. difficile HAIs not statistically significant
+Table 2,"Boyce et al., 2019 [44]",44,31106714,Caveat,Small single-centre study; opposite trend for C. difficile
+Table 2,"Phan et al., 2020 [45]",45,32276646,Primary Clinical Outcome,HAI other than SSI incidence density
+Table 2,"Phan et al., 2020 [45]",45,32276646,Outcome Category,Overall HAI
+Table 2,"Phan et al., 2020 [45]",45,32276646,Main Finding,HAI other than SSI decreased from 1.10 to 0.45 per 1000 patient-days; some procedure-specific infections also declined
+Table 2,"Phan et al., 2020 [45]",45,32276646,Direction of Effect,Favorable
+Table 2,"Phan et al., 2020 [45]",45,32276646,Statistical Support,Significant downward trends reported
+Table 2,"Phan et al., 2020 [45]",45,32276646,Caveat,CAUTI-prevention programme likely contributed to observed decline
+Table 2,"Mestre et al., 2012 [46]",46,23110061,Primary Clinical Outcome,Healthcare-acquired MRSA colonization/infection rate
+Table 2,"Mestre et al., 2012 [46]",46,23110061,Outcome Category,Organism-specific/AMR-related
+Table 2,"Mestre et al., 2012 [46]",46,23110061,Main Finding,A small but significant decrease in healthcare-acquired MRSA coincided with implementation of the hospital-wide WHO/CQI hand hygiene programme; hand hygiene compliance also increased markedly over time
+Table 2,"Mestre et al., 2012 [46]",46,23110061,Direction of Effect,Favorable
+Table 2,"Mestre et al., 2012 [46]",46,23110061,Statistical Support,Significant
+Table 2,"Mestre et al., 2012 [46]",46,23110061,Caveat,Single-centre pre-post quality-improvement study without contemporaneous control; MRSA outcome may have been influenced by unmeasured confounding

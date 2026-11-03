@@ -1,0 +1,34 @@
+name: Report a problem
+description: Something is wrong or unclear in the materials, the data, the skills or the website.
+title: "[Problem] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - Activity guide or data (activity/)
+        - AI beginners track (beginners/)
+        - Prompt library (prompts/)
+        - Claude Code skills (.claude/skills/, skills/)
+        - Website, scorer or records page (docs/)
+        - README or other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Include the file or page, what you expected and what you saw. Screenshots are welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How to reproduce
+      description: Steps, browser or agent used, and the file you loaded (without personal data).
+  - type: input
+    id: suggestion
+    attributes:
+      label: Suggested fix (optional)

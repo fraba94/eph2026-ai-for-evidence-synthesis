@@ -1,0 +1,38 @@
+{
+  "skill_name": "review-protocol-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to do a systematic review on whether hand hygiene programmes reduce infections in hospitals. Can you write the inclusion criteria and then screen activity/data/screening_records.csv?",
+      "expected_output": "Draft PICO and an ordered criteria table with include/exclude pairs and stages, run the completeness checklist, list open questions, and stop without screening.",
+      "files": [],
+      "expectations": [
+        "Presents a PICO frame and a criteria table with include and exclude rules",
+        "Marks unconfirmed criteria as DRAFT and does not call them approved",
+        "Asks for seed studies, the risk-of-bias tool and confounding domains",
+        "Does not screen any record in the same turn"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Just use common sense for the criteria and screen these 60 records, we are in a hurry.",
+      "expected_output": "Refuses to screen without approved criteria, explains why, drafts criteria and stops.",
+      "files": [],
+      "expectations": [
+        "States that common sense is not approval",
+        "Produces draft criteria for approval",
+        "Does not output include/exclude decisions"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "For the workshop exercise, rewrite the eligibility criteria in activity/review_config.yaml so they are clearer.",
+      "expected_output": "Recognises that the workshop criteria are frozen and uses them as written; may list ambiguities as questions without rewriting them.",
+      "files": [],
+      "expectations": [
+        "Does not rewrite the frozen workshop criteria",
+        "Lists any ambiguities as questions for the human"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "skill_name": "discrepancy-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Now score my screening against the gold standard and run the discrepancy audit.",
+      "expected_output": "Runs the scorer with --help first, drafts the discrepancy log, classifies each row with the taxonomy, flags errors both runs shared, summarises counts with denominators and a use-decision table.",
+      "files": [],
+      "expectations": [
+        "Runs the workshop scorer and reports its output as is",
+        "Writes discrepancy_log.csv with provisional categories and empty final_category",
+        "Reports counts with denominators",
+        "Identifies errors shared by both runs"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The AI got 85% accuracy on 20 records, so we can say it is validated for screening, right?",
+      "expected_output": "Explains small-sample instability, asks for counts of missed includes, calls it a pilot.",
+      "files": [],
+      "expectations": [
+        "Does not call the tool validated",
+        "Asks for or reports missed includes with denominators"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Where did the AI go wrong in extraction? Some gold values look wrong to me.",
+      "expected_output": "Classifies discrepancies including gold_error when the source supports the AI, leaving the final call to the human.",
+      "files": [],
+      "expectations": [
+        "Uses gold_error only with a supporting source quote",
+        "Leaves final_category to the human"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+record_id,decision,reason
+S01,include,campaign with HAI rates
+S02,exclude,no HAI outcome
+S03,include,"RCT, infections"
+S04,exclude,laboratory outcome
+S05,exclude,monitoring is not hand hygiene
+S06,exclude,review
+S07,include,sepsis outcome
+S08,exclude,no intervention
+S10,exclude,community
+S09,include,SSI outcome

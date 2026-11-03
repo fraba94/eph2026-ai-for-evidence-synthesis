@@ -1,0 +1,61 @@
+record_id,decision,reason
+R001,exclude,fails C3
+R002,unsure,fails C1
+R003,exclude,C2: appears to be a single unit
+R004,unsure,C3 unclear: hand hygiene part of a bundle?
+R005,exclude,fails C3
+R006,unsure,meets C1-C6 on the abstract
+R007,exclude,fails C2
+R008,unsure,fails C5
+R009,exclude,fails C2
+R010,include,meets C1-C6 on the abstract
+R011,unsure,fails C5
+R012,unsure,C5: no HAI outcome in abstract
+R013,unsure,meets C1-C6 on the abstract
+R014,include,meets C1-C6 on the abstract
+R015,unsure,"possible multimodal intervention, HAI mentioned"
+R016,unsure,C3 unclear: hand hygiene part of a bundle?
+R017,include,meets C1-C6 on the abstract
+R018,include,"possible multimodal intervention, HAI mentioned"
+R019,include,meets C1-C6 on the abstract
+R020,include,meets C1-C6 on the abstract
+R021,include,meets C1-C6 on the abstract
+R022,exclude,C2: appears to be a single unit
+R023,exclude,fails C1
+R024,exclude,C5: no HAI outcome in abstract
+R025,exclude,C5: no HAI outcome in abstract
+R026,include,meets C1-C6 on the abstract
+R027,unsure,meets C1-C6 on the abstract
+R028,exclude,fails C4
+R029,include,meets C1-C6 on the abstract
+R030,include,meets C1-C6 on the abstract
+R031,unsure,meets C1-C6 on the abstract
+R032,exclude,C5: no HAI outcome in abstract
+R033,exclude,fails C4
+R034,exclude,fails C4
+R035,include,"possible multimodal intervention, HAI mentioned"
+R036,exclude,fails C5
+R037,exclude,fails C4
+R038,exclude,C5: no HAI outcome in abstract
+R039,include,C1-C6 met: hospital-wide multimodal programme with nosocomial infection outcome
+R040,include,meets C1-C6 on the abstract
+R041,exclude,fails C3
+R042,include,meets C1-C6 on the abstract
+R043,include,meets C1-C6 on the abstract
+R044,unsure,C3 unclear: hand hygiene part of a bundle?
+R045,exclude,fails C2
+R046,unsure,C3 unclear: hand hygiene part of a bundle?
+R047,exclude,fails C4
+R048,exclude,fails C3
+R049,exclude,fails C2
+R050,include,meets C1-C6 on the abstract
+R051,include,"possible multimodal intervention, HAI mentioned"
+R052,exclude,fails C5
+R053,include,"possible multimodal intervention, HAI mentioned"
+R054,unsure,C3 unclear: hand hygiene part of a bundle?
+R055,include,meets C1-C6 on the abstract
+R056,exclude,fails C5
+R057,exclude,fails C4
+R058,exclude,C5: no HAI outcome in abstract
+R059,unsure,meets C1-C6 on the abstract
+R060,include,meets C1-C6 on the abstract

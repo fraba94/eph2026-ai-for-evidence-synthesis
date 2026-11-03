@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="AI beginners track (for learning only)">
+  <title>AI beginners track (for learning only)</title>
+  <defs>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="96" rx="16" fill="#E8A33D"/>
+  <rect width="360" height="48.0" rx="16" fill="url(#sheen)"/>
+  <rect x="0.75" y="0.75" width="358.5" height="94.5" rx="15.25" fill="none" stroke="#F2C27A" stroke-width="1.5"/>
+  <circle cx="48" cy="48" r="27" fill="rgba(15,39,71,0.12)"/>
+  <g transform="translate(34 34) scale(1.1667)" fill="none" stroke="#0F2747" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/><path d="M7 10h10M7 13.5h6"/></g>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif">
+    <text x="92" y="44" font-size="20" font-weight="700" fill="#0F2747">AI beginners track</text>
+    <rect x="92" y="57" width="122" height="22" rx="11" fill="#0F2747"/><text x="153.0" y="72.5" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1.1" fill="#E8A33D">LEARNING ONLY</text><text x="224" y="72.5" font-size="14" fill="#0F2747">copy and paste</text>
+  </g>
+  <g transform="translate(322 48)" stroke="#0F2747" opacity="0.85"><path d="M0 0h16M10 -6l6 6-6 6" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

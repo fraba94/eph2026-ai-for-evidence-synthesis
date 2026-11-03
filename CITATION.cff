@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use these materials, please cite them as below."
+type: software
+title: "AI for evidence synthesis: materials for the EPH 2026 skills building seminar M.8, 'Building skills in using AI tools to support evidence reviews for effective public health strategies'"
+abstract: >-
+  Hands-on materials (activity guide, data, prompts for chat assistants, Claude Code skills, a
+  browser-based scorer) for a skills building seminar at the European Public Health Conference 2026,
+  Bilbao, organised by the EUPHA Digital Health and Artificial Intelligence Section with Concordia
+  University, the Leibniz ScienceCampus Digital Public Health Bremen and the Italian Society for AI in
+  Medicine (SIIAM). The AI beginners track is for learning only.
+authors:
+  - name: "EUPHA Digital Health and Artificial Intelligence Section"
+  - given-names: Francesco
+    family-names: Baglivo
+    affiliation: "University of Pisa"
+date-released: 2026-11-03
+version: "2026.11"
+license: CC-BY-4.0
+repository-code: "https://github.com/fraba94/eph2026-ai-for-evidence-synthesis"
+url: "https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/"
+keywords:
+  - evidence synthesis
+  - systematic reviews
+  - artificial intelligence
+  - large language models
+  - public health
+  - EUPHA
+  - EPH Conference 2026

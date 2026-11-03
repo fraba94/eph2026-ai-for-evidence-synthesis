@@ -1,0 +1,37 @@
+{
+  "skill_name": "search-strategy-critic",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "ChatGPT gave me this PubMed search: (\"Hand Hygiene\"[MeSH] OR handwashing[tiab]) AND \"Healthcare Infection\"[MeSH] AND randomized controlled trial[pt]. Can you improve it?",
+      "expected_output": "Parses concept blocks, verifies each MeSH term with PubMed tools or marks it unverified, flags the likely non-existent heading and the restrictive RCT filter, ranks top 3 risks, and does not rewrite the query.",
+      "files": [],
+      "expectations": [
+        "Shows a concept-block table",
+        "Checks every MeSH term and says how it was checked",
+        "Flags the design filter as a recall risk",
+        "Leaves the original query unchanged and asks before proposing edits"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here is my Embase.com strategy with Emtree terms. Please confirm all the Emtree terms exist.",
+      "expected_output": "Explains that PubMed tools cannot verify Emtree, marks the terms unverified and says where to check them.",
+      "files": [],
+      "expectations": [
+        "Marks Emtree terms as unverified rather than asserting they exist",
+        "Names a place where the human can check them"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Is my search good enough? It returns only 150 hits so it's manageable.",
+      "expected_output": "Asks for the search string, database and question; explains that a manageable count is not evidence of sensitivity.",
+      "files": [],
+      "expectations": [
+        "Asks for the exact string, database and review question",
+        "States that hit count is not a measure of quality"
+      ]
+    }
+  ]
+}

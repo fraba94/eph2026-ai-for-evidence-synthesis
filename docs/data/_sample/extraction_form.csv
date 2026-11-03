@@ -1,0 +1,5 @@
+field,definition,allowed_values,type,core
+design,Study design,RCT|cluster RCT|before-after|interrupted time series|other,categorical,yes
+setting,Care setting,free text,text,no
+sample_size,Number of patients or residents analysed,integer,numeric,yes
+hai_outcome,Healthcare-associated infection outcome measured,free text or not reported,text,yes

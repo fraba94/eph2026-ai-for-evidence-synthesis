@@ -1,0 +1,79 @@
+# ANSWER KEY of the screening exercise. Do not open before step 3.
+#
+# Read by activity/tools/build_screening_set.py together with activity/review_config.yaml.
+# Each list entry is a PubMed record. Roles:
+#   included            -> gold "include": the 12 studies included by the reference review (its Table 1, refs 35-46)
+#   fulltext_excluded   -> gold "exclude": records the reference review assessed in full text and excluded (refs 14-34;
+#                          reasons in the review's Supplementary File S2). They passed the review's title/abstract stage.
+#   near_misses         -> gold "exclude": not included in the reference review; retrieved by the approximate PubMed search
+#                          (review_config.yaml) and chosen because they fail a criterion clearly (reason = workshop team's note)
+#   possible_gold_errors -> gold "exclude" (the review did not include them) although they appear to meet its criteria:
+#                          kept on purpose as a discussion item ("is the reference standard always right?")
+
+included:
+  - {pmid: "10971880", label: "Larson et al. (review Table 1 says 2010; the cited paper is Behav Med 2000)"}
+  - {pmid: "17230386", label: "Trick et al., 2007"}
+  - {pmid: "22556101", label: "Stone et al., 2012"}
+  - {pmid: "22822243", label: "Kirkland et al., 2012"}
+  - {pmid: "22192567", label: "Monistrol et al., 2012"}
+  - {pmid: "25444260", label: "Johnson et al., 2014"}
+  - {pmid: "26694582", label: "Chen et al., 2016"}
+  - {pmid: "26685929", label: "Shabot et al., 2016"}
+  - {pmid: "29201437", label: "Al Kuwaiti et al., 2017"}
+  - {pmid: "31106714", label: "Boyce et al., 2019"}
+  - {pmid: "32276646", label: "Phan et al., 2020"}
+  - {pmid: "23110061", label: "Mestre et al., 2012"}
+
+fulltext_excluded:
+  - {pmid: "18063132", label: "Larson 2007"}
+  - {pmid: "40910066", label: "Yue 2025"}
+  - {pmid: "36199149", label: "van der Kooi 2022 (PROHIBIT)"}
+  - {pmid: "30083622", label: "Ragusa 2018"}
+  - {pmid: "29557594", label: "Lenz 2018"}
+  - {pmid: "35724953", label: "Ojanpera 2022"}
+  - {pmid: "30962918", label: "von Lengerke 2019"}
+  - {pmid: "18171185", label: "Ebnother 2008"}
+  - {pmid: "20407392", label: "Harne-Britner 2011"}
+  - {pmid: "17464919", label: "Le 2007"}
+  - {pmid: "21439767", label: "Koff 2011"}
+  - {pmid: "15866007", label: "Schelenz 2005"}
+  - {pmid: "32089464", label: "Gilbert 2020"}
+  - {pmid: "12675094", label: "Stone 1998"}
+  - {pmid: "23290090", label: "Salama 2013"}
+  - {pmid: "11515758", label: "Mishal 2001"}
+  - {pmid: "37425124", label: "Kong 2021"}
+  - {pmid: "21558771", label: "Pires dos Santos 2011"}
+  - {pmid: "19199825", label: "Lee 2009"}
+  - {pmid: "27999811", label: "Farhoudi 2016"}
+  - {pmid: "24945412", label: "Cheng 2014"}
+
+near_misses:
+  - {pmid: "18715394", reason: "C2: single neonatal intensive care unit"}
+  - {pmid: "20381804", reason: "C2: single neonatal intensive care unit"}
+  - {pmid: "15492360", reason: "C2: single neonatal intensive care unit"}
+  - {pmid: "12683507", reason: "C2: single neonatal intensive care unit; outcome is colonisation"}
+  - {pmid: "18937745", reason: "C2: single ward (urology)"}
+  - {pmid: "41626350", reason: "C5: knowledge and compliance only, no HAI outcome"}
+  - {pmid: "35177123", reason: "C5: knowledge, perception and compliance only, no HAI outcome"}
+  - {pmid: "28944053", reason: "C5: compliance and correctness only, no HAI outcome"}
+  - {pmid: "32410673", reason: "C5: knowledge and compliance only, no HAI outcome"}
+  - {pmid: "24636693", reason: "C5: adherence only, no HAI outcome"}
+  - {pmid: "27032842", reason: "C5: compliance only, no HAI outcome"}
+  - {pmid: "41018791", reason: "C5: accuracy of surgical hand antisepsis (process measure), no HAI outcome"}
+  - {pmid: "31642930", reason: "C4: cluster randomised trial; C5: adherence only"}
+  - {pmid: "30471974", reason: "C4: randomised trial (patient hand hygiene); outcome is colonisation"}
+  - {pmid: "12183307", reason: "C4: randomised trial; C5: hand contamination (microbial counts) only"}
+  - {pmid: "22240647", reason: "C1: care homes (long-term care)"}
+  - {pmid: "19457584", reason: "C3: broad bundle (isolation, cleaning, surveillance, education); hand hygiene not the central intervention"}
+  - {pmid: "25658534", reason: "C3: CRE bundle (screening, cohorting, stewardship); hand hygiene one component"}
+  - {pmid: "31827780", reason: "C3: multicomponent A. baumannii programme (decontamination, stewardship, precautions)"}
+  - {pmid: "30036671", reason: "C3: hospital-wide infection control programme with HAI-specific bundles; hand hygiene not separable"}
+  - {pmid: "24011440", reason: "C3: MRSA bundle (active surveillance, isolation, cohorting); hand hygiene one component"}
+  - {pmid: "18538700", reason: "C4: integrative review"}
+  - {pmid: "26220070", reason: "C4: systematic review and network meta-analysis; outcome is compliance"}
+  - {pmid: "25146752", reason: "C1: equine (veterinary) hospitals; C5: compliance only"}
+  - {pmid: "21439513", reason: "C4: outbreak investigation without an evaluable hand hygiene intervention"}
+  - {pmid: "23651891", reason: "C4: ecological observational study of compliance and infection rates, no intervention"}
+
+possible_gold_errors:
+  - {pmid: "11073019", reason: "Hospital-wide multimodal hand hygiene programme (Geneva), before-after surveys 1994-1997, nosocomial infection prevalence and MRSA transmission reported: appears to meet C1-C6 but is not among the 12 included studies nor among the full-text exclusions listed by the review."}

@@ -1,0 +1,11 @@
+record_id,gold_decision,gold_basis
+S01,include,"Hand hygiene intervention, HAI outcome"
+S02,exclude,No HAI outcome
+S03,include,"Hand hygiene intervention, HAI outcome, RCT"
+S04,exclude,"Laboratory outcome, not HAI"
+S05,include,"Hand hygiene intervention, HAI outcome"
+S06,exclude,Not a primary study
+S07,include,"Hand hygiene intervention, HAI outcome"
+S08,exclude,No hand hygiene intervention
+S09,include,"Hand hygiene intervention, HAI outcome"
+S10,exclude,Not healthcare-associated

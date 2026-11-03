@@ -1,0 +1,24 @@
+study_id,field,value,source_quote,location
+Phan2020,country,Vietnam,"Hung Vuong Hospital (HVH) is a 900-bed maternity hospital in Ho-Chi-Minh-City, Vietnam.",Abstract
+Phan2020,intervention_scope,hospital-wide,assuring a dispenser-to-patient ratio of 1:1 in the entire hospital,"Methods, Intervention"
+Phan2020,study_design,interrupted time series,"Trends of hand hygiene compliance (by calendar year), HAI incidence density (by calendar year), and SSI incidence proportions (by calendar year) were studied across time using Poisson regression analysis","Methods, Statistical analysis"
+Phan2020,intervention_components,WHO multimodal strategy; ABHR at point of care; education and training; posters; audit and feedback; leadership commitment,"From 2010, the World Health Organization (WHO) multimodal hand hygiene promotion strategy with all recommended tools was implemented",Methods
+Phan2020,comparator,pre-intervention period,The trend towards improvement was significant,Results
+Phan2020,primary_hai_outcome,HAI incidence density,The overall incidence density of HAI decreased significantly,Results
+Phan2020,hh_compliance_baseline,21.5%,Compliance improved from 21.5% (95%CI: 20.2–22.8%) in 2010,Abstract
+Phan2020,hh_compliance_post,75.0%,2018 | 5151 | 3865 | 75.0,Table 1
+Phan2020,hai_rate_baseline,1.10,from 1.10 episodes per 1000 patient-days in 2010,Results
+Phan2020,hai_rate_post,0.45,to 0.45 per 1000 patient-days in 2018,Results
+Phan2020,effect_estimate,IRR 0.85 (95% CI 0.79-0.90),"IRR 0.85; 95%CI, 0.79–0.90",Results
+Phan2020,direction_of_effect,favorable,The HAI-incidence decreased significantly,Abstract
+Phan2020,co_interventions,none reported,No other infection control interventions were introduced during the study period.,Methods
+Mestre2012,country,Spain,"Delfos Medical Center, Barcelona, Spain","Methods, Setting"
+Mestre2012,hh_compliance_baseline,57,"Overall compliance, % (95% CI) 57 (55.9–59.0)",Table 2
+Mestre2012,hh_compliance_post,82,sustained high level (82%) of HH compliance during intervention,Abstract
+Mestre2012,hai_rate_baseline,not reported,,Figure 5 only
+Mestre2012,primary_hai_outcome,hand hygiene compliance,The primary outcome was HH compliance,Methods
+AlKuwaiti2017,country,Saudi Arabia,"Al-Khobar, Saudi Arabia",Methods
+AlKuwaiti2017,hai_rate_baseline,3.37,"from 3.37 (95% CI: 3.05, 3.69) pre-intervention",Results
+AlKuwaiti2017,hai_rate_post,2.55,the rates of HAI decreased from 3.37 ± 0.60 to 2.55 ± 0.63,Discussion
+AlKuwaiti2017,effect_estimate,r = -0.278,HH compliance was found to be negatively correlated with HAI (r = −0.278),Abstract
+AlKuwaiti2017,hai_definition,CDC/NHSN definitions,HAI were defined according to CDC/NHSN surveillance definitions,Methods

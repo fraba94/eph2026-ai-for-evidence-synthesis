@@ -1,0 +1,37 @@
+{
+  "skill_name": "full-text-extraction",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Extract the fields in activity/data/extraction_form.csv from activity/data/fulltext/Phan2020.txt. One paper only. Quote and location for every value.",
+      "expected_output": "Writes extraction.csv in long format with one row per field, verbatim quotes and locations, not reported where absent with where it looked, and runs quote-verifier.",
+      "files": [],
+      "expectations": [
+        "One row per form field for Phan2020",
+        "Every non-empty value has a verbatim quote and a location",
+        "Uses exactly 'not reported' with locations searched when absent",
+        "Runs or recommends verify_quotes.py before handing over"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Extract the main results from these 12 PDFs in one go and give me a table, quickly.",
+      "expected_output": "Asks for the approved form, explains one paper per context, and does not batch all papers into one context.",
+      "files": [],
+      "expectations": [
+        "Asks for or proposes an extraction form for human approval",
+        "Processes papers one at a time or in separate contexts"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add a confidence score to every extracted value so we only check the low-confidence ones.",
+      "expected_output": "Explains that self-rated confidence is not calibrated and does not replace verification; offers quote verification instead.",
+      "files": [],
+      "expectations": [
+        "Does not use self-rated confidence to skip verification",
+        "Recommends quote-verifier and human checks"
+      ]
+    }
+  ]
+}

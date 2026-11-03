@@ -1,0 +1,55 @@
+name: Share a prompt
+description: A prompt that worked (or failed in an instructive way) at a stage of an evidence review.
+title: "[Prompt] "
+labels: ["prompt"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for sharing. Please do **not** paste personal or confidential data, or full texts whose licence does not allow it.
+        Shared prompts are teaching material: they are not a validated method.
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Review stage
+      options:
+        - Question and eligibility criteria
+        - Search strategy
+        - Title and abstract screening
+        - Full-text data extraction
+        - Verification against the source
+        - Synthesis and reporting
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Tool, model and version
+      description: e.g. the assistant or agent, the model name and the date you used it
+      placeholder: "Assistant / model / version / date"
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: The prompt
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened
+      description: How did you check the output against the source or against human decisions? What went wrong, if anything?
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I verified the output against the source documents, not only by reading it.
+          required: false
+        - label: I ran the prompt more than once and compared the runs.
+          required: false
