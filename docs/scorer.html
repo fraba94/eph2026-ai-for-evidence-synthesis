@@ -40,6 +40,10 @@
 
 <main id="main">
   <div class="wrap">
+    <div class="callout warn" style="margin-top:24px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
+      <div><p><b>For learning only.</b> These prompts are teaching material for this workshop. They are not a validated method. If you are not confident with how large language models work (context windows, parsing, sampling, retrieval, hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility checks, documentation of model and version), <b>do not use AI to conduct a real evidence review.</b> You stay responsible for every decision: the AI does not.</p></div>
+    </div>
     <div id="sample-banner" class="callout warn" style="margin-top:24px" hidden>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
       <div><p><b>Synthetic sample mode.</b> The reference data and the example answers on this page are invented, only to show how the scorer works. <a href="scorer.html">Switch to the workshop data</a>.</p></div>
@@ -68,11 +72,10 @@
             <label class="opt">Count <b>unsure</b> as
               <select id="s-unsure"><option value="include" selected>include (go to full text)</option><option value="exclude">exclude</option></select>
             </label>
-            <label class="opt">Records with <b>no decision</b>
-              <select id="s-missing"><option value="exclude" selected>count as exclude</option><option value="none">leave out of the metrics</option></select>
+            <label class="opt"><input type="checkbox" id="s-all"> I was meant to screen <b>all</b> records <span class="hint">(not-screened records count as exclude, so a dropped include is a missed include)</span>
             </label>
           </div>
-          <p class="hint" style="margin-top:12px">At title and abstract stage the usual rule is: when in doubt, keep it. A record you never screened is a record you can miss, so by default it counts as excluded.</p>
+          <p class="hint" style="margin-top:12px">Metrics are computed on the records in your file, and the coverage ("Screened N of 60") is always shown. If your group screened only part of the set (for example R001 to R020), leave the box unticked. At title and abstract stage, when in doubt, keep it: "unsure" counts as include.</p>
           <details class="box" style="margin-top:12px">
             <summary>Optional: add a second run to check reproducibility</summary>
             <p class="hint" style="margin-top:8px">Run the same prompt again in a new chat (or with a fresh agent) and paste the second set of decisions. The scorer reports how many records changed.</p>
@@ -112,7 +115,7 @@
       <div class="steps">
         <div class="card">
           <div class="step-title"><span class="n">1</span><h2>Add your extraction</h2></div>
-          <p class="hint">Long format, one row per study and field: <code>study_id,field,value,source_quote,location</code>. Write <code>not reported</code> when the information is absent. The <code>source_quote</code> should be copied word for word from the paper.</p>
+          <p class="hint">Long format, one row per study and field: <code>study_id,field,value,source_quote,location</code>. Write <code>not reported</code> when the information is absent. Only the studies present in your file are scored, so you can extract one paper. The <code>source_quote</code> should be copied word for word from the paper.</p>
           <div class="row" style="margin-bottom:10px">
             <label class="btn btn-plain file-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
@@ -127,6 +130,7 @@
           <div class="step-title"><span class="n">2</span><h2>Compare with the reference extraction</h2></div>
           <p id="ref-status-e" class="status">Loading the reference extraction...</p>
           <div class="row">
+            <label class="opt" style="margin-right:12px"><input type="checkbox" id="e-core"> Core fields only</label>
             <button class="btn btn-primary" type="button" id="e-go">Score my extraction</button>
             <span id="e-msg" class="status" role="status"></span>
           </div>
@@ -143,7 +147,6 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
       <div>
         <p><b>A good score on a small exercise does not validate a tool.</b> These numbers describe one run, on one set of records, against one reference review. Before using AI in a real review you would need a documented pilot on your own question, reproducibility checks, and a human who verifies every decision.</p>
-        <p>The beginners track is <b>for learning only</b>. If you are not confident with how large language models work and with advanced techniques, do not use AI to conduct a real evidence review.</p>
       </div>
     </div>
   </div>

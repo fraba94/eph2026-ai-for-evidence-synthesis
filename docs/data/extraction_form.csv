@@ -1,5 +1,5 @@
 field,definition,allowed_values,type,core
-country,"Country where the study was conducted, as stated in the paper. If the paper does not name the country, write not reported (do not infer it).",free text,text,yes
+country,"Country where the study was conducted. Take it from Methods/Results; if the paper gives it only in the affiliation of the study hospital, report it with 'author affiliations' as location. Do not infer it from city or campaign names alone; if it is not stated anywhere, write not reported.",free text,text,yes
 setting,Type and size of the hospital(s) and the wards/units covered by the study.,free text,text,no
 intervention_scope,How widely the intervention was implemented.,hospital-wide | multi-ward | single unit,categorical,yes
 study_design,"Design of the evaluation, as you would classify it (not only the authors' label).",interrupted time series | controlled before-after | uncontrolled before-after | randomised trial | other,categorical,yes

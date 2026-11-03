@@ -24,6 +24,7 @@ COPIES = [
     ("activity/data/screening_records.csv", "data/screening_records.csv"),
     ("activity/answers/screening_gold.csv", "data/screening_gold.csv"),
     ("activity/data/extraction_form.csv", "data/extraction_form.csv"),
+    ("activity/data/papers.csv", "data/papers.csv"),
     ("activity/answers/extraction_gold.csv", "data/extraction_gold.csv"),
     ("assets/eupha-dhai-logo.png", "assets/eupha-dhai-logo.png"),
     ("assets/banner.svg", "assets/banner.svg"),
