@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI for evidence synthesis · EPH 2026 Bilbao · EUPHA DHAI</title>
-  <meta name="description" content="Hands-on materials for the EPH 2026 skills building seminar M.8: using AI tools to support evidence reviews for effective public health strategies. EUPHA Digital Health and Artificial Intelligence Section.">
+  <meta name="description" content="Hands-on materials for the EPH 2026 skills building seminar M.8: screening and data extraction with AI, checked against a systematic review done by humans. EUPHA Digital Health and Artificial Intelligence Section.">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="AI for evidence synthesis · EPH 2026 Bilbao">
-  <meta property="og:description" content="Skills building seminar M.8 by the EUPHA Digital Health and Artificial Intelligence Section: screening and data extraction with AI, compared with a review conducted without AI.">
+  <meta property="og:description" content="An AI can screen all 60 records for you. Would you notice the ones it got wrong? Skills building seminar M.8 by the EUPHA Digital Health and Artificial Intelligence Section.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/assets/social-preview.png">
   <link rel="icon" href="assets/eupha-dhai-logo.png">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -24,6 +25,7 @@
       <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/README.md">Prompts</a>
       <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/skills/README.md">Skills</a>
       <a href="scorer.html">Scorer</a>
+      <a href="references.html">References</a>
     </nav>
   </div>
 </header>
@@ -32,66 +34,99 @@
   <!-- ============================================================ HERO -->
   <div class="hero">
     <div class="wrap">
-      <div class="logo-card"><img src="assets/eupha-dhai-logo.png" alt="EUPHA, European Public Health Association, Digital Health and Artificial Intelligence section"></div>
       <div>
         <div class="eyebrow">EPH 2026 · Bilbao · Skills building seminar M.8</div>
         <h1>AI for evidence synthesis</h1>
-        <p class="lede">Building skills in using AI tools to support evidence reviews for effective public health strategies. Hands-on materials from the EUPHA Digital Health and Artificial Intelligence Section.</p>
-        <p class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A33D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6"/></svg>AI can assist at every step. A human checks every step.</p>
+        <p class="lede">Screening and data extraction with AI, checked against a systematic review done by humans. Hands-on materials from the EUPHA Digital Health and Artificial Intelligence Section.</p>
+        <p class="hook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span>An AI can screen all 60 records for you. Would you notice the ones it got wrong?</span></p>
         <div class="cta">
           <a class="btn btn-primary" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/README.md">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="16.5" cy="9" r="2.6"/><path d="M16.2 13.6c2.7 0 4.8 1.9 4.8 4.9"/></svg>
             Start the activity</a>
-          <a class="btn btn-amber" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">
+          <a class="btn btn-soft" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/><path d="M7 10h10M7 13.5h6"/></svg>
             AI beginners track <span class="pill">learning only</span></a>
-          <a class="btn btn-ghost" href="scorer.html">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+          <a class="btn btn-plain" href="scorer.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M6.5 20.5v-7M11.5 20.5V5M16.5 20.5v-10"/></svg>
             Score your results</a>
         </div>
+      </div>
+      <div class="sheet">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/figures/sheet-dark.svg">
+          <img src="assets/figures/sheet-light.svg" width="520" height="434" alt="A schematic screening sheet: five records with the AI decision next to the human review decision. Record C was excluded by the AI and included by the humans: a missed include.">
+        </picture>
       </div>
     </div>
   </div>
 
-  <!-- ============================================================ RESOURCES -->
-  <section>
+  <!-- ============================================================ AT A GLANCE -->
+  <section id="glance">
+    <div class="wrap">
+      <figure class="figure figure-scroll">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/figures/at-a-glance-dark.svg">
+          <img src="assets/figures/at-a-glance-light.svg" width="1240" height="360" alt="At a glance: 60 records to screen; 12 included by the human reference review; 3 full-text papers; 19 extraction fields, 11 core; 10 agent skills; 18 chat prompts in 6 review stages.">
+        </picture>
+        <figcaption class="swipe">Scroll sideways to see the whole figure.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================================================ MESSAGE -->
+  <section class="alt" id="message">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker">Everything in one place</div>
-        <h2>Workshop materials</h2>
-        <p>Open the guide first. Everything else is linked from it.</p>
+        <div class="kicker">The key message</div>
+        <h2>The advantages come only with the skills</h2>
+        <p>AI can bring real advantages to evidence synthesis (speed, scale, consistency, living updates), but only to people with AI literacy and advanced skills. Those are necessary, not sufficient: they work together with review methods expertise and a verification workflow. Without them come serious errors and loss of control, and the human drops out of the loop. Human reviewers stay responsible for every decision.</p>
       </div>
-      <div class="grid grid-3">
-        <a class="card" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/README.md">
-          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="16.5" cy="9" r="2.6"/><path d="M16.2 13.6c2.7 0 4.8 1.9 4.8 4.9"/></svg></span>Hands-on activity</h3>
-          <p>The 30-minute group exercise: screening and data extraction with AI, compared with a review conducted without AI.</p>
-          <span class="go">Open the guide →</span>
-        </a>
-        <a class="card amber" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">
-          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/><path d="M7 10h10M7 13.5h6"/></svg></span>AI beginners track</h3>
-          <p>A copy-and-paste walkthrough for any chat assistant. <span class="pill">for learning only</span></p>
-          <span class="go">Start here if you are new to AI →</span>
-        </a>
-        <a class="card" href="batch.html">
-          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span>Records for your chat</h3>
-          <p>The records to screen, in batches of up to 20, ready to copy into a chat. Missing abstracts come from PubMed.</p>
-          <span class="go">Copy a batch →</span>
-        </a>
-        <a class="card" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/README.md">
-          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2.5h8l4.5 4.5v14.5H6z"/><path d="M14 2.5V7h4.5"/><path d="M9 12h6.5M9 15.5h6.5M9 8.5h2.5"/></svg></span>Prompt library</h3>
-          <p>Prompts for chat assistants, by review stage: question and criteria, search, screening, extraction, verification, reporting.</p>
-          <span class="go">Browse the prompts →</span>
-        </a>
-        <a class="card" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/skills/README.md">
-          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M6.5 9.5l3 2.5-3 2.5M12 15h5"/></svg></span>Claude Code skills</h3>
-          <p>Ten agent skills that load automatically when you open the repository with Claude Code, and can be adapted to other agents.</p>
-          <span class="go">See the skills →</span>
-        </a>
-        <a class="card" href="scorer.html">
-          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></span>Score your results</h3>
-          <p>Confusion matrix, sensitivity, specificity, precision and missed includes, plus extraction accuracy. Runs in your browser.</p>
-          <span class="go">Open the scorer →</span>
-        </a>
+      <figure class="figure">
+        <picture>
+          <source media="(max-width: 700px) and (prefers-color-scheme: dark)" srcset="assets/figures/key-message-mobile-dark.svg">
+          <source media="(max-width: 700px)" srcset="assets/figures/key-message-mobile-light.svg">
+          <source media="(prefers-color-scheme: dark)" srcset="assets/figures/key-message-dark.svg">
+          <img src="assets/figures/key-message-light.svg" width="1240" height="560" alt="Same tools, opposite outcomes. With AI literacy and advanced skills, review methods expertise and a verification workflow, all three together, AI tools bring real advantages with the human in the loop. Without them, trusting fluent output leads to missed studies, invented values and unchecked runs: serious errors and the human out of the loop.">
+        </picture>
+      </figure>
+      <div class="callout warn" style="margin-top:22px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
+        <div>
+          <p><b>For learning only.</b> These prompts are teaching material for this workshop. They are not a validated method. If you are not confident with how large language models work (context windows, parsing, sampling, retrieval, hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility checks, documentation of model and version), <b>do not use AI to conduct a real evidence review.</b> You stay responsible for every decision: the AI does not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ SESSION -->
+  <section id="session">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Session at a glance</div>
+        <h2>How the session works</h2>
+        <p>Two short talks (limitations first, with Patrick Boudreau; then benefits, with Francesco Baglivo), a demo of open-access tools, half an hour of hands-on work in small groups, and a structured discussion on performance, transparency, bias and human oversight.</p>
+      </div>
+      <figure class="figure figure-scroll">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/figures/session-dark.svg">
+          <img src="assets/figures/session-light.svg" width="1240" height="470" alt="How the session works: expert talks 10 min, demo 10 min, small-group exercise 30 min, discussion 10 min. The exercise: screen (10 min), extract (12 min), score against the human reference review (8 min), then discuss (10 min).">
+        </picture>
+        <figcaption class="swipe">Scroll sideways to see the whole figure.</figcaption>
+      </figure>
+      <div class="grid grid-2" style="margin-top:22px" id="exercise">
+        <div class="card">
+          <h3>The exercise</h3>
+          <p>The question is deliberately uncontroversial, so the focus stays on the AI method: <b>how effective are hand hygiene interventions in preventing healthcare-associated infections?</b></p>
+          <p style="margin-top:10px">The reference standard is the review by <b>Pruna et al.</b> (<i>J Clin Med</i>, 2026): a systematic review of quasi-experimental studies in acute care hospitals, with <b>12 included studies</b>, screened and extracted by two independent human reviewers without AI (<a href="https://doi.org/10.3390/jcm15103882">doi:10.3390/jcm15103882</a>). The choice is provisional; details and limits in <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/README.md">activity/data/README.md</a>. Open it after the exercise, not before.</p>
+        </div>
+        <div class="card">
+          <h3>Learning objectives</h3>
+          <ol style="margin:0;padding-left:1.2em;color:var(--muted)">
+            <li>Apply AI tools to screening and data extraction within a structured review workflow.</li>
+            <li>Compare AI-assisted outputs with manual results and identify discrepancies.</li>
+            <li>Critically assess risks, limitations and appropriate use of AI in evidence synthesis.</li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -100,11 +135,17 @@
   <section class="alt" id="paths">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker">Choose your path</div>
-        <h2>Two ways to take part</h2>
-        <p>Same records, same reference review. Pick the track that matches the tools you use.</p>
+        <div class="kicker">Two tracks</div>
+        <h2>Choose your path</h2>
+        <p>Same records, same human reference review. Pick the track that matches the tools you use.</p>
       </div>
-      <figure class="figure"><a href="assets/two-tracks.svg" title="Open the diagram full size"><img src="assets/two-tracks.svg" alt="Agent track: clone the repository, skills load automatically, run screening and extraction, score against the reference. Chat track, for learning only: open the beginners guide, copy and paste the prompts, save decisions, score in the browser. Both end by comparing with the human reference review."></a></figure>
+      <figure class="figure figure-scroll">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/figures/tracks-dark.svg">
+          <img src="assets/figures/tracks-light.svg" width="1240" height="550" alt="Agent track, for Claude Code or another coding agent, needs AI literacy and advanced skills: clone, skills load automatically, screen all 60 records and extract 3 papers, score. Chat track, learning only: open the beginners guide, copy a batch and a prompt, save your decisions, score in the browser. Both end by comparing with the human reference review, then discussing.">
+        </picture>
+        <figcaption class="swipe">Scroll sideways to see the whole figure.</figcaption>
+      </figure>
       <div class="grid grid-2" style="margin-top:22px">
         <div class="card">
           <h3>Agent track: Claude Code and other coding agents</h3>
@@ -113,83 +154,115 @@ cd eph2026-ai-for-evidence-synthesis
 claude</code></pre>
           <p style="margin-top:12px">The skills in <code>.claude/skills/</code> load automatically; <code>AGENTS.md</code> gives the same rules to other agents. For people with AI literacy and advanced skills.</p>
         </div>
-        <div class="card amber">
-          <h3>Chat track: any chat assistant</h3>
-          <p>ChatGPT, Claude, Gemini, Copilot, Mistral or another assistant: no installation. Follow the <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">beginners guide</a>, copy the records from <a href="batch.html">this page</a>, then score in the <a href="scorer.html">scorer</a>.</p>
-          <p style="margin-top:10px"><span class="pill">for learning only</span></p>
+        <div class="card yellow">
+          <h3>Chat track: any chat assistant <span class="pill">learning only</span></h3>
+          <p>ChatGPT, Claude, Gemini, Copilot, Mistral or another assistant: no installation. Follow the <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">beginners guide</a>, copy the records from <a href="batch.html">the records page</a>, then score in the <a href="scorer.html">scorer</a>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================ MESSAGE -->
-  <section id="message">
+  <!-- ============================================================ MAP -->
+  <section id="map">
     <div class="wrap">
       <div class="section-head">
-        <div class="kicker">The key message</div>
-        <h2>The advantages come only with the skills</h2>
-        <p>AI can bring real advantages to evidence synthesis (speed, scale, consistency, living updates), but only for people with AI literacy and advanced skills. Whoever does not understand how these systems work risks serious errors and losing control of the process, ending up out of the loop. Human reviewers stay responsible.</p>
+        <div class="kicker">Inside the repository</div>
+        <h2 class="visually-hidden">Where AI can help, where a human must check</h2>
       </div>
-      <figure class="figure"><a href="assets/in-the-loop.svg" title="Open the diagram full size"><img src="assets/in-the-loop.svg" alt="Diagram. With AI literacy and advanced skills: knowing how the system fails and using structured outputs, verification and repeated runs leads to real advantages, with the human in the loop. Without them: trusting fluent output leads to missed studies, invented values and silent failures, serious errors and the human out of the loop."></a></figure>
-      <div class="callout warn" style="margin-top:22px">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
-        <div>
-          <p><b>For learning only.</b> These prompts are teaching material for this workshop. They are not a validated method. If you are not confident with how large language models work (context windows, parsing, sampling, retrieval, hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility checks, documentation of model and version), <b>do not use AI to conduct a real evidence review.</b> You stay responsible for every decision: the AI does not.</p>
-        </div>
+      <figure class="figure figure-scroll">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/figures/review-map-dark.svg">
+          <img src="assets/figures/review-map-light.svg" width="1308" height="690" alt="Review stages with what AI can draft, what a human checks, the agent skills and the chat prompts: Question (review-protocol-check, prompts 1.1 to 1.3), Search (search-strategy-critic, 2.1 to 2.3), Screen (title-abstract-screening, 3.1 to 3.3), Extract (full-text-extraction and quote-verifier, 4.1 to 5.3), Appraise (risk-of-bias-assessment and grade-certainty, 6.1), Report (prisma-reporting-check and ai-use-reporting, 6.2 to 6.3). Across stages: discrepancy-audit. Red flags at every stage.">
+        </picture>
+        <figcaption class="swipe">Scroll sideways to see the whole figure.</figcaption>
+      </figure>
+      <div class="grid grid-3" style="margin-top:22px">
+        <a class="card" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/README.md">
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="16.5" cy="9" r="2.6"/><path d="M16.2 13.6c2.7 0 4.8 1.9 4.8 4.9"/></svg></span>Hands-on activity</h3>
+          <p>The 30-minute group exercise: screening and data extraction with AI, compared with a review done by humans.</p>
+          <span class="go">Open the guide →</span>
+        </a>
+        <a class="card" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">
+          <h3><span class="icon yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/><path d="M7 10h10M7 13.5h6"/></svg></span>AI beginners track</h3>
+          <p>A copy-and-paste walkthrough for any chat assistant. <span class="pill">learning only</span></p>
+          <span class="go">Start here if you are new to AI →</span>
+        </a>
+        <a class="card" href="batch.html">
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span>Records for your chat</h3>
+          <p>The records in batches of up to 20, ready to copy into a chat. Missing abstracts are fetched from PubMed in your browser.</p>
+          <span class="go">Copy a batch →</span>
+        </a>
+        <a class="card" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/README.md">
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2.5h8l4.5 4.5v14.5H6z"/><path d="M14 2.5V7h4.5"/><path d="M9 12h6.5M9 15.5h6.5M9 8.5h2.5"/></svg></span>Prompt library</h3>
+          <p>18 prompts for chat assistants in 6 review stages, each with what to check afterwards and common failure modes.</p>
+          <span class="go">Browse the prompts →</span>
+        </a>
+        <a class="card" href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/skills/README.md">
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M6.5 9.5l3 2.5-3 2.5M12 15h5"/></svg></span>Agent skills</h3>
+          <p>Ten Claude Code skills that load automatically when you open the repository, and can be adapted to other agents.</p>
+          <span class="go">See the skills →</span>
+        </a>
+        <a class="card" href="scorer.html">
+          <h3><span class="icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M6.5 20.5v-7M11.5 20.5V5M16.5 20.5v-10"/></svg></span>Score your results</h3>
+          <p>Confusion matrix, sensitivity, missed includes and extraction accuracy. Runs in your browser: nothing is uploaded.</p>
+          <span class="go">Open the scorer →</span>
+        </a>
       </div>
-      <div style="margin-top:40px">
-        <figure class="figure"><a href="assets/workflow.svg" title="Open the diagram full size"><img src="assets/workflow.svg" alt="Six review stages: question, search, screen, extract, synthesise, report. For each, what AI can help with and what a human must check. Red flags at every stage: invented studies or values, retrieval failures reported as not reported, different answers on a second run, undocumented model or version."></a></figure>
-      </div>
-      <p class="hint" style="margin-top:16px">Further guidance: <a href="https://doi.org/10.1186/s13750-025-00374-5">Position statement on AI use in evidence synthesis across Cochrane, the Campbell Collaboration, JBI and the Collaboration for Environmental Evidence (2025)</a> · <a href="https://osf.io/fwaud/">RAISE: Responsible use of AI in evidence SynthEsis</a>.</p>
     </div>
   </section>
 
-  <!-- ============================================================ SESSION -->
-  <section class="alt" id="session">
+  <!-- ============================================================ PROMPT -->
+  <section class="alt" id="prompt">
     <div class="wrap">
-      <div class="grid grid-2" style="gap:40px;align-items:start">
-        <div>
-          <div class="kicker">Session at a glance</div>
-          <h2>60 minutes, four parts</h2>
-          <ol class="timeline">
-            <li><div class="min">10<small>MIN</small></div><div><h3>Expert discussion</h3><p>Limitations first, with Patrick Boudreau (about 5 min), then benefits, with Francesco Baglivo (about 5 min).</p></div></li>
-            <li><div class="min">10<small>MIN</small></div><div><h3>Demo</h3><p>Selected open-access AI tools for evidence reviews.</p></div></li>
-            <li><div class="min">30<small>MIN</small></div><div><h3>Small-group exercise</h3><p>Screening and data extraction with AI, compared with a review conducted without AI.</p></div></li>
-            <li><div class="min">10<small>MIN</small></div><div><h3>Structured discussion</h3><p>Performance, transparency, bias and human oversight.</p></div></li>
-          </ol>
-        </div>
-        <div id="exercise">
-          <div class="kicker">The exercise</div>
-          <h2>Hand hygiene and healthcare-associated infections</h2>
-          <p>The question is deliberately uncontroversial, so the focus stays on the AI method: <b>how effective are hand hygiene interventions in preventing healthcare-associated infections?</b></p>
-          <p>The reference standard is a published systematic review on hand hygiene and healthcare-associated infections, <b>screened, extracted and synthesised by human reviewers without AI</b>. You screen a set of its records and extract data with AI, then compare your results with the human decisions and discuss where and why they differ.</p>
-          <p class="muted">The choice of reference review is provisional: details and limits in <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/README.md">activity/data/README.md</a>. The extraction reference values were prepared by the workshop team from the full texts and cross-checked with the review's own tables. Eligibility criteria and steps are in the <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/README.md">activity guide</a>.</p>
-          <div class="card" style="margin-top:18px">
-            <h3>Learning objectives</h3>
-            <ol style="margin:0;padding-left:1.2em;color:var(--muted)">
-              <li>Apply AI tools to screening and data extraction within a structured review workflow.</li>
-              <li>Compare AI-assisted outputs with manual results and identify discrepancies.</li>
-              <li>Critically assess risks, limitations and appropriate use of AI in evidence synthesis.</li>
-            </ol>
-          </div>
-        </div>
+      <figure class="figure figure-scroll">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/figures/prompt-card-dark.svg">
+          <img src="assets/figures/prompt-card-light.svg" width="1240" height="470" alt="A prompt from the library, prompt 2.2 Break my search (critique mode), verbatim excerpt: Act as a skeptical information specialist. Your task is NOT to rewrite this search strategy. Identify how it could fail to retrieve relevant studies. Rank the three most important failure risks, each with: what could be missed, why, and a test I can run. Do not modify the query yet. Why it works: asking to improve yields confident rewrites; asking to break yields checkable problems.">
+        </picture>
+        <figcaption class="swipe">Scroll sideways to see the whole figure.</figcaption>
+      </figure>
+      <p class="hint" style="margin-top:12px">Full prompt, expected output and checks: <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/02_search.md">prompts/02_search.md</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ REFERENCES -->
+  <section id="references">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Useful references</div>
+        <h2>Read these first</h2>
+        <p>Five starting points from the <a href="references.html">full list of 25 verified references</a>: guidance, evidence, workload and human factors, tools.</p>
       </div>
+      <ul class="ref-list">
+        <li><span class="rbadge guidance">Guidance</span> <b>Flemyng et al., <i>Campbell Syst Rev</i> 2025.</b> Joint position statement of Cochrane, the Campbell Collaboration, JBI and the Collaboration for Environmental Evidence: reviewers stay responsible, AI is used with human oversight and reported. <a href="https://doi.org/10.1002/cl2.70074">doi:10.1002/cl2.70074</a></li>
+        <li><span class="rbadge guidance">Guidance</span> <b>Fleurence et al., <i>Value Health</i> 2026.</b> ISPOR task-force good-practices report built on 115 empirical studies and expert consensus: AI inside human-in-the-loop workflows, not autonomous reviews. <a href="https://doi.org/10.1016/j.jval.2026.08.007">doi:10.1016/j.jval.2026.08.007</a></li>
+        <li><span class="rbadge evidence">Evidence</span> <b>Adam et al., <i>Res Synth Methods</i> 2026.</b> Living rapid review of 134 studies of AI tools for evidence synthesis; the authors conclude that no existing tool can replace human expertise. <a href="https://doi.org/10.1017/rsm.2026.10118">doi:10.1017/rsm.2026.10118</a></li>
+        <li><span class="rbadge evidence">Evidence</span> <b>Gartlehner et al., <i>Ann Intern Med</i> 2025.</b> Study within 6 ongoing systematic reviews comparing extraction by Claude, verified by a human, with human-only extraction. <a href="https://doi.org/10.7326/ANNALS-25-00739">doi:10.7326/ANNALS-25-00739</a></li>
+        <li><span class="rbadge human-factors">Human factors</span> <b>Qazi et al., <i>NEJM AI</i> 2026.</b> Randomised trial with 44 physicians trained in AI literacy: erroneous ChatGPT-4o suggestions lowered their diagnostic accuracy. <a href="https://doi.org/10.1056/AIoa2501001">doi:10.1056/AIoa2501001</a></li>
+      </ul>
+      <p style="margin-top:18px"><a class="btn btn-plain" href="references.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg>All references</a></p>
     </div>
   </section>
 
   <!-- ============================================================ PEOPLE -->
-  <section id="people">
+  <section class="alt" id="people">
     <div class="wrap">
       <div class="section-head">
         <div class="kicker">Organisers and speakers</div>
         <h2>Who is behind the session</h2>
-        <p>Organised by the <b>EUPHA Digital Health and Artificial Intelligence (DHAI) Section</b> with:</p>
-        <div class="orgs"><span>Concordia University, Canada</span><span>Leibniz ScienceCampus Digital Public Health Bremen, Germany</span><span>Italian Society for AI in Medicine (SIIAM)</span></div>
+        <p>Organised by the <b>EUPHA Digital Health and Artificial Intelligence (DHAI) Section</b> with Concordia University (Canada), the Leibniz ScienceCampus Digital Public Health Bremen (Germany) and the Italian Society for AI in Medicine (SIIAM).</p>
       </div>
       <div class="people">
         <div class="card person"><div class="role">Chair and contact</div><h3>Laura Maaß</h3><p>EUPHA Digital Health and Artificial Intelligence Section</p></div>
         <div class="card person"><div class="role">Speaker · limitations</div><h3>Patrick Boudreau</h3><p>Montreal Behavioural Medicine Centre, Concordia University</p></div>
         <div class="card person"><div class="role">Speaker · benefits</div><h3>Francesco Baglivo</h3><p>University of Pisa</p></div>
+      </div>
+      <div class="logos" aria-label="Organisers">
+        <img class="tall" src="assets/logos/eupha-dhai.png" alt="EUPHA, Digital Health and Artificial Intelligence Section">
+        <img src="assets/logos/concordia.png" alt="Concordia University, Montréal">
+        <img src="assets/logos/lsc-diph.png" alt="Leibniz ScienceCampus Digital Public Health Bremen">
+        <img src="assets/logos/siiam.png" alt="SIIAM, Società Italiana Intelligenza Artificiale in Medicina">
+        <img src="assets/logos/unipi.png" alt="Università di Pisa">
       </div>
       <div class="grid grid-2" style="margin-top:22px">
         <div class="card">
@@ -208,7 +281,7 @@ claude</code></pre>
 <footer>
   <div class="wrap">
     <span>EUPHA Digital Health and Artificial Intelligence Section · <a href="mailto:euphadhai@gmail.com">euphadhai@gmail.com</a></span>
-    <span><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis">Repository</a> · Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Code <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/LICENSE-CODE">MIT</a></span>
+    <span><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis">Repository</a> · <a href="references.html">References</a> · Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Code <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/LICENSE-CODE">MIT</a> · Logos: all rights reserved</span>
   </div>
 </footer>
 </body>

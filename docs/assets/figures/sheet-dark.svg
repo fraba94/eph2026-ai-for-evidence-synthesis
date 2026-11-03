@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="434" viewBox="732 30 520 434" role="img" aria-label="An AI can screen all 60 records for you: would you notice the ones it got wrong? A schematic screening sheet compares AI decisions with the human review and highlights a missed include." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif">
+<title>AI for evidence synthesis. EPH 2026 Bilbao, skills building seminar M.8, EUPHA Digital Health and Artificial Intelligence Section. An AI can screen all 60 records for you: would you notice the ones it got wrong? A schematic screening sheet compares AI decisions with the human review and highlights a missed include.</title>
+<style>@keyframes scan{0%,12%{transform:translateY(0)}30%,46%{transform:translateY(108px)}64%,80%{transform:translateY(216px)}100%{transform:translateY(0)}}.lens{animation:scan 14s ease-in-out infinite}@media (prefers-reduced-motion:reduce){.lens{animation:none}}</style>
+<rect width="1280" height="470" rx="16" fill="#0D1117"/>
+
+
+
+<rect x="56" y="274" width="600" height="92" rx="14" fill="#132840" stroke="#2F5A8C" stroke-width="1.2"/>
+
+
+
+<rect x="744" y="40" width="496" height="418" rx="16" fill="#0D1117" stroke="#30363D" stroke-width="1.2"/>
+<text x="768" y="78" font-size="17" fill="#E6EDF3" font-weight="700">Screening sheet</text>
+<text x="1216" y="78" font-size="13" fill="#768390" text-anchor="end" font-style="italic">schematic</text>
+<text x="768" y="114" font-size="11.5" fill="#768390" font-weight="700" letter-spacing="1.2">RECORD</text>
+<text x="1062" y="114" font-size="11.5" fill="#768390" font-weight="700" text-anchor="middle" letter-spacing="1.2">AI</text>
+<text x="1174" y="114" font-size="11.5" fill="#768390" font-weight="700" text-anchor="middle" letter-spacing="1.2">HUMANS</text>
+<line x1="760" y1="183" x2="1224" y2="183" stroke="#30363D" stroke-width="1"/>
+<text x="768" y="163" font-size="14.5" fill="#9DA7B3" font-weight="600">Record A</text>
+<rect x="860" y="146" width="130" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="860" y="160" width="71.5" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="1016" y="143" width="92" height="28" rx="14" fill="#10291C" stroke="#2E6B4A" stroke-width="1.2"/>
+<text x="1062" y="162" font-size="13" fill="#8FD6B2" font-weight="600" text-anchor="middle">include</text>
+<rect x="1128" y="143" width="92" height="28" rx="14" fill="#10291C" stroke="#2E6B4A" stroke-width="1.2"/>
+<text x="1174" y="162" font-size="13" fill="#8FD6B2" font-weight="600" text-anchor="middle">include</text>
+<line x1="760" y1="237" x2="1224" y2="237" stroke="#30363D" stroke-width="1"/>
+<text x="768" y="217" font-size="14.5" fill="#9DA7B3" font-weight="600">Record B</text>
+<rect x="860" y="200" width="130" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="860" y="214" width="80.60000000000001" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="1016" y="197" width="92" height="28" rx="14" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+<text x="1062" y="216" font-size="13" fill="#9DA7B3" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="1128" y="197" width="92" height="28" rx="14" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+<text x="1174" y="216" font-size="13" fill="#9DA7B3" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="754" y="238" width="476" height="50" rx="10" fill="#2D1720" stroke="#7D3A4E" stroke-width="1.2"/>
+<line x1="760" y1="291" x2="1224" y2="291" stroke="#30363D" stroke-width="1"/>
+<text x="768" y="271" font-size="14.5" fill="#9DA7B3" font-weight="600">Record C</text>
+<rect x="860" y="254" width="130" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="860" y="268" width="89.7" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="1016" y="251" width="92" height="28" rx="14" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+<text x="1062" y="270" font-size="13" fill="#9DA7B3" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="1128" y="251" width="92" height="28" rx="14" fill="#10291C" stroke="#2E6B4A" stroke-width="1.2"/>
+<text x="1174" y="270" font-size="13" fill="#8FD6B2" font-weight="600" text-anchor="middle">include</text>
+<line x1="760" y1="345" x2="1224" y2="345" stroke="#30363D" stroke-width="1"/>
+<text x="768" y="325" font-size="14.5" fill="#9DA7B3" font-weight="600">Record D</text>
+<rect x="860" y="308" width="130" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="860" y="322" width="98.8" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="1016" y="305" width="92" height="28" rx="14" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+<text x="1062" y="324" font-size="13" fill="#9DA7B3" font-weight="600" text-anchor="middle">exclude</text>
+<rect x="1128" y="305" width="92" height="28" rx="14" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+<text x="1174" y="324" font-size="13" fill="#9DA7B3" font-weight="600" text-anchor="middle">exclude</text>
+<line x1="760" y1="399" x2="1224" y2="399" stroke="#30363D" stroke-width="1"/>
+<text x="768" y="379" font-size="14.5" fill="#9DA7B3" font-weight="600">Record E</text>
+<rect x="860" y="362" width="130" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="860" y="376" width="71.5" height="7" rx="3.5" fill="#2F4565"/>
+<rect x="1016" y="359" width="92" height="28" rx="14" fill="#10291C" stroke="#2E6B4A" stroke-width="1.2"/>
+<text x="1062" y="378" font-size="13" fill="#8FD6B2" font-weight="600" text-anchor="middle">include</text>
+<rect x="1128" y="359" width="92" height="28" rx="14" fill="#10291C" stroke="#2E6B4A" stroke-width="1.2"/>
+<text x="1174" y="378" font-size="13" fill="#8FD6B2" font-weight="600" text-anchor="middle">include</text>
+<g transform="translate(768 414) scale(0.8333)" fill="none" stroke="#F2A7B8" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.4v.01"/></g>
+<text x="798" y="430" font-size="14" fill="#F2A7B8" font-weight="600">Record C: the AI excluded a study the humans included</text>
+<g class="lens"><rect x="752" y="130" width="480" height="104" rx="12" fill="none" stroke="#7FB3E6" stroke-width="2" stroke-dasharray="6 5" opacity="0.85"/></g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1330" viewBox="0 0 760 1330" role="img" aria-label="Same tools, opposite outcomes. With AI literacy and advanced skills, review methods expertise and a verification workflow, all three together (necessary, not sufficient), AI tools bring real advantages with the human in the loop. Without them, trusting fluent output leads to serious errors and the human out of the loop." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif">
+<title>Same tools, opposite outcomes. With AI literacy and advanced skills, review methods expertise and a verification workflow, all three together (necessary, not sufficient), AI tools bring real advantages with the human in the loop. Without them, trusting fluent output leads to serious errors and the human out of the loop.</title>
+<rect width="760" height="1330" rx="16" fill="#FFFFFF"/>
+<text x="40" y="64" font-size="40" fill="#0F2747" font-weight="800">Same tools,</text>
+<text x="40" y="112" font-size="40" fill="#0F2747" font-weight="800">opposite outcomes</text>
+<text x="40" y="156.0" font-size="22" fill="#4A5D78">The advantages of AI in evidence synthesis</text><text x="40" y="186.8" font-size="22" fill="#4A5D78">come only with the skills to control it.</text>
+<rect x="40" y="228" width="680" height="76" rx="16" fill="#FFFFFF" stroke="#D6E0EC" stroke-width="1.2"/>
+<g transform="translate(64 248) scale(1.4167)" fill="none" stroke="#2E61A3" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9-1.9 5.1-1.9-5.1-5.1-1.9 5.1-1.9z"/><path d="M18.5 16v4M16.5 18h4"/></g>
+<text x="116" y="276" font-size="25" fill="#0F2747" font-weight="700">AI tools in an evidence review</text>
+<path d="M380 304 V 352" stroke="#9DCFB1" stroke-width="2.6"/>
+<text x="40" y="384" font-size="16" fill="#1D6A44" font-weight="800" letter-spacing="1.2">NECESSARY, NOT SUFFICIENT: ALL THREE TOGETHER</text>
+<rect x="40" y="402" width="680" height="300" rx="18" fill="#E8F5EC" stroke="#9DCFB1" stroke-width="1.2"/>
+<g transform="translate(64 434) scale(1.4167)" fill="none" stroke="#1D6A44" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></g>
+<text x="116" y="458" font-size="24" fill="#0F2747" font-weight="700">AI literacy and advanced skills</text>
+<text x="116" y="490" font-size="20" fill="#4A5D78">how models fail: context, parsing, sampling</text>
+<g transform="translate(64 528) scale(1.4167)" fill="none" stroke="#1D6A44" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></g>
+<text x="116" y="552" font-size="24" fill="#0F2747" font-weight="700">Review methods expertise</text>
+<text x="116" y="584" font-size="20" fill="#4A5D78">criteria, bias, what a valid answer looks like</text>
+<g transform="translate(64 622) scale(1.4167)" fill="none" stroke="#1D6A44" stroke-width="1.80" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></g>
+<text x="116" y="646" font-size="24" fill="#0F2747" font-weight="700">A verification workflow</text>
+<text x="116" y="678" font-size="20" fill="#4A5D78">quotes checked, two runs, version logged</text>
+<path d="M380 702 V 742" stroke="#9DCFB1" stroke-width="2.6"/><path d="M370 732 L380 744 L390 732" fill="none" stroke="#9DCFB1" stroke-width="2.6" stroke-linecap="round"/>
+<rect x="40" y="752" width="680" height="116" rx="18" fill="#E8F5EC" stroke="#9DCFB1" stroke-width="1.2"/>
+<g transform="translate(64 772) scale(1.2500)" fill="none" stroke="#1D6A44" stroke-width="2.20" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></g>
+<text x="110" y="798" font-size="28" fill="#0F2747" font-weight="800">Real advantages</text>
+<text x="64" y="834" font-size="21" fill="#4A5D78">speed, scale, consistency, living updates</text>
+<text x="64" y="858" font-size="15" fill="#1D6A44" font-weight="800" letter-spacing="1.2">HUMAN IN THE LOOP</text>
+<rect x="40" y="908" width="680" height="150" rx="18" fill="#FCEBEF" stroke="#E8B1BF" stroke-width="1.2" stroke-dasharray="7 6"/>
+<text x="64" y="946" font-size="16" fill="#A12F4B" font-weight="800" letter-spacing="1.2">WITHOUT THEM</text>
+<text x="64" y="984.0" font-size="22" fill="#0F2747" font-weight="500">Trusts fluent output: missed studies, invented</text><text x="64" y="1014.8" font-size="22" fill="#0F2747" font-weight="500">values, “not reported” when the text is there</text>
+<path d="M380 1058 V 1098" stroke="#E8B1BF" stroke-width="2.6" stroke-dasharray="6 5"/><path d="M370 1088 L380 1100 L390 1088" fill="none" stroke="#E8B1BF" stroke-width="2.6" stroke-linecap="round"/>
+<rect x="40" y="1108" width="680" height="116" rx="18" fill="#FCEBEF" stroke="#E8B1BF" stroke-width="1.2" stroke-dasharray="7 6"/>
+<g transform="translate(64 1128) scale(1.2500)" fill="none" stroke="#A12F4B" stroke-width="2.20" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.4v.01"/></g>
+<text x="110" y="1154" font-size="28" fill="#0F2747" font-weight="800">Serious errors</text>
+<text x="64" y="1190" font-size="21" fill="#4A5D78">loss of control over the review process</text>
+<text x="64" y="1214" font-size="15" fill="#A12F4B" font-weight="800" letter-spacing="1.2">HUMAN OUT OF THE LOOP</text>
+<line x1="40" y1="1256" x2="720" y2="1256" stroke="#D6E0EC"/>
+<text x="40" y="1292.0" font-size="21" fill="#0F2747" font-weight="700">The human reviewer stays responsible for every</text><text x="40" y="1321.4" font-size="21" fill="#0F2747" font-weight="700">decision. The AI does not.</text>
+</svg>

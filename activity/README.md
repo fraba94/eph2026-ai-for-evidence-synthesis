@@ -102,8 +102,8 @@ At title/abstract stage, if the abstract does not let you decide, the answer is 
    ICU`). Ask for **every** record back and for `unsure` when in doubt.
 3. **Check the count.** Did you get back exactly as many rows as you sent? Any record missing, duplicated or renamed?
 4. **Verifier:** pick 3 decisions and check them against the abstract yourself.
-5. **Save** the output (header `record_id,decision,reason`) as `run1.csv` in the chat track (same names as the
-   [beginners walkthrough](../beginners/README.md)) or `screening_run1.csv` in the agent track.
+5. **Save** the output (header `record_id,decision,reason`) as `screening_run1.csv` (same name in both tracks and in the
+   [beginners walkthrough](../beginners/README.md)).
 
 <details>
 <summary>Hints</summary>
@@ -112,8 +112,7 @@ At title/abstract stage, if the abstract does not let you decide, the answer is 
 - Ask the AI to quote the phrase of the abstract that decides each criterion: it makes the verifier's job faster.
 - Records without an abstract: decide on the title and mark `unsure` with reason `no abstract`.
 - Agent track: `.claude/skills/title-abstract-screening/` runs two independent passes and lists the disagreements.
-- If you have one spare minute, **run the same prompt again in a new chat** and save `run2.csv` (agents:
-  `screening_run2.csv`): you will measure reproducibility in step 3.
+- If you have one spare minute, **run the same prompt again in a new chat** and save `screening_run2.csv`: you will measure reproducibility in step 3.
 
 </details>
 
@@ -156,7 +155,7 @@ Now you may open [`answers/`](answers/README.md).
    - Python (standard library only):
      ```bash
      # chat track
-     python3 activity/tools/score_screening.py run1.csv --compare run2.csv
+     python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv
      # agent track: every record should have been screened
      python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv --expect-all
      python3 activity/tools/score_extraction.py extraction.csv

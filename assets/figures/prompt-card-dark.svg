@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="470" viewBox="0 0 1240 470" role="img" aria-label="A prompt from the library, prompt 2.2 Break my search (critique mode), verbatim excerpt: Act as a skeptical information specialist. Your task is NOT to rewrite this search strategy. Identify how it could fail to retrieve relevant studies. [...] Rank the three most important failure risks, each with: what could be missed, why, and a test I can run. Do not modify the query yet. Why it works: asking to improve yields confident rewrites; asking to break yields checkable problems." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif">
+<title>A prompt from the library, prompt 2.2 Break my search (critique mode), verbatim excerpt: Act as a skeptical information specialist. Your task is NOT to rewrite this search strategy. Identify how it could fail to retrieve relevant studies. [...] Rank the three most important failure risks, each with: what could be missed, why, and a test I can run. Do not modify the query yet. Why it works: asking to improve yields confident rewrites; asking to break yields checkable problems.</title>
+<rect width="1240" height="470" rx="16" fill="#0D1117"/>
+<text x="40" y="56" font-size="28" fill="#E6EDF3" font-weight="800">A prompt from the library</text>
+<text x="40" y="88" font-size="17" fill="#9DA7B3">Prompt 2.2, “Break my search (critique mode)”, from prompts/02_search.md (excerpt, verbatim).</text>
+<rect x="40" y="116" width="760" height="330" rx="16" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+<g transform="translate(60 132) scale(0.9167)" fill="none" stroke="#9DA7B3" stroke-width="1.60" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/><path d="M7 10h10M7 13.5h6"/></g>
+<text x="92" y="149" font-size="14.5" fill="#9DA7B3" font-weight="600">New chat</text>
+<path d="M148 172 h630 a14 14 0 0 1 14 14 v222 a14 14 0 0 1 -14 14 h-616 a14 14 0 0 1 -14 -14 v-204 l-14 -4 l14 -10 z" fill="#132840" stroke="#2F5A8C" stroke-width="1.2"/>
+<text x="154" y="210" font-size="16.5" fill="#E6EDF3" font-weight="600">Act as a skeptical information specialist.</text>
+<text x="154" y="240" font-size="16.5" fill="#E6EDF3" font-weight="600">Your task is NOT to rewrite this search strategy.</text>
+<text x="154" y="270" font-size="16.5" fill="#E6EDF3" font-weight="600">Identify how it could fail to retrieve relevant studies.</text>
+<text x="154" y="300" font-size="16.5" fill="#9DA7B3">[...]</text>
+<text x="154" y="330" font-size="16.5" fill="#E6EDF3">Rank the three most important failure risks, each with:</text>
+<text x="154" y="360" font-size="16.5" fill="#E6EDF3">what could be missed, why, and a test I can run.</text>
+<text x="154" y="390" font-size="16.5" fill="#E6EDF3" font-weight="600">Do not modify the query yet.</text>
+<circle cx="88" cy="196" r="18" fill="#0D1117" stroke="#30363D" stroke-width="1.2"/><g transform="translate(78.0 186.0) scale(0.8333)" fill="none" stroke="#9DA7B3" stroke-width="1.70" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></g>
+<rect x="830" y="116" width="370" height="330" rx="16" fill="#0D1117" stroke="#30363D" stroke-width="1.2"/>
+<circle cx="870" cy="160" r="20" fill="#29240F" stroke="#776726" stroke-width="1.2"/><g transform="translate(859.0 149.0) scale(0.9167)" fill="none" stroke="#E6EDF3" stroke-width="1.70" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g>
+<text x="902" y="167" font-size="20" fill="#E6EDF3" font-weight="800">Why it works</text>
+<text x="854" y="214.0" font-size="18" fill="#E6EDF3" font-weight="600">Asking to improve yields</text><text x="854" y="240.1" font-size="18" fill="#E6EDF3" font-weight="600">confident rewrites;</text><text x="854" y="266.2" font-size="18" fill="#E6EDF3" font-weight="600">asking to break yields</text><text x="854" y="292.3" font-size="18" fill="#E6EDF3" font-weight="600">checkable problems.</text>
+<text x="854" y="348.0" font-size="15" fill="#9DA7B3">The same pattern runs through</text><text x="854" y="369.75" font-size="15" fill="#9DA7B3">the library: criteria first, quotes</text><text x="854" y="391.5" font-size="15" fill="#9DA7B3">for every value, two runs.</text>
+</svg>
