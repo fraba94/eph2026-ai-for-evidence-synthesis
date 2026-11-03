@@ -5,7 +5,7 @@
   <img src="assets/figures/hero-light.svg" width="100%" alt="AI for evidence synthesis. EPH 2026 Bilbao, skills building seminar M.8, EUPHA Digital Health and Artificial Intelligence Section. Screening and data extraction with AI, checked against a systematic review done by humans. An AI can screen all 60 records for you: would you notice the ones it got wrong? A schematic screening sheet shows one record that the AI excluded and the humans included.">
 </picture></a>
 
-**Hands-on materials for screening studies and extracting data with AI, and for checking the result against a systematic review done by humans.** Skills building seminar of the EUPHA Digital Health and Artificial Intelligence Section at the European Public Health Conference 2026, Bilbao.
+**Hands-on materials for screening studies and extracting data with AI, and for checking the result against a systematic review done by humans.** Skills building seminar of the EUPHA Digital Health and Artificial Intelligence Section at the European Public Health Conference 2026, Bilbao (12 November 2026). Everything stays online: you can do the exercise on your own, without the session.
 
 <p align="center">
   <a href="activity/README.md"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/activity-dark.svg"><img src="assets/buttons/activity-light.svg" width="49%" alt="Start the activity: 30-minute group exercise"></picture></a>
@@ -18,6 +18,7 @@
 
 <p align="center">
   <a href="https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/"><b>Workshop website</b></a> &nbsp;·&nbsp;
+  <a href="activity/README.md#doing-it-on-your-own-self-paced"><b>Do it on your own</b></a> &nbsp;·&nbsp;
   <a href="REFERENCES.md"><b>Useful references</b></a> &nbsp;·&nbsp;
   <a href="docs/slides/README.md"><b>Slides and abstract</b></a> &nbsp;·&nbsp;
   <a href="#quick-start-for-agents"><b>Quick start</b></a>
@@ -48,7 +49,9 @@ AI can bring real advantages to evidence synthesis (speed, scale, consistency, l
   <img src="assets/figures/session-light.svg" width="100%" alt="How the session works: 60 minutes. Expert talks 10 min (limitations, with Patrick Boudreau, then benefits, with Francesco Baglivo), demo of open-access tools 10 min, small-group exercise 30 min, discussion 10 min. The exercise: 1 screen (10 min, 60 records, 20 in the chat track), 2 extract (12 min, a verbatim quote and location for every value), 3 score (8 min, compare with the human reference review, missed includes first), then 4 discuss (10 min).">
 </picture>
 
-**The exercise.** The question is deliberately uncontroversial, so the focus stays on the AI method: *how effective are hand hygiene interventions in preventing healthcare-associated infections?* The reference standard is the review by **Pruna et al.** (*J Clin Med*, 2026), a systematic review of quasi-experimental studies in acute care hospitals with 12 included studies, screened and extracted by two independent human reviewers without AI ([doi:10.3390/jcm15103882](https://doi.org/10.3390/jcm15103882)). The choice is provisional; details and limits are in [`activity/data/README.md`](activity/data/README.md). You screen a set of records and extract data with AI, then score your results against the human decisions and discuss where, and why, they differ: missed studies, invented values, "not reported" when the information is there, a different answer on a second run. The criteria and the steps are in the [activity guide](activity/README.md).
+The live session took place on Thursday 12 November 2026, 16:45-17:45, at EPH 2026 in Bilbao (seminar M.8). **Not there?** You do not need the talks, the demo or a facilitator: allow 60 to 90 minutes and follow [Doing it on your own (self-paced)](activity/README.md#doing-it-on-your-own-self-paced), which says how to be your own verifier, when to open the answers and how to read the score.
+
+**The exercise.** The question is deliberately uncontroversial, so the focus stays on the AI method: *how effective are hand hygiene interventions in preventing healthcare-associated infections?* The reference standard is the review by **Pruna et al.** (*J Clin Med*, 2026), a systematic review of quasi-experimental studies in acute care hospitals with 12 included studies, screened and extracted by two independent human reviewers without AI ([doi:10.3390/jcm15103882](https://doi.org/10.3390/jcm15103882)). The choice is provisional; details and limits are in [`activity/data/README.md`](activity/data/README.md). Open the review after the exercise, not before: it names the included studies. You screen a set of records and extract data with AI, then score your results against the human decisions and discuss where, and why, they differ: missed studies, invented values, "not reported" when the information is there, a different answer on a second run. The criteria and the steps are in the [activity guide](activity/README.md).
 
 <details>
 <summary><b>Learning objectives</b></summary>
@@ -63,12 +66,15 @@ AI can bring real advantages to evidence synthesis (speed, scale, consistency, l
   <img src="assets/figures/at-a-glance-light.svg" width="100%" alt="At a glance: 60 records to screen, titles and abstracts; 12 human includes in the reference review; 3 full-text papers for data extraction; 19 extraction fields, 11 of them core; 10 agent skills for Claude Code; 18 chat prompts in 6 review stages.">
 </picture>
 
-## See it before the session
+## See it before you start
 
 The website gives the chat track everything without installing anything: the records in copy-ready batches (abstracts that the repository cannot ship are fetched from PubMed in your browser) and a scorer that compares your decisions with the reference review. Shown here with the fake decisions of [`activity/examples/`](activity/examples/README.md).
 
 <a href="https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html"><img src="assets/screenshots/scorer.png" width="100%" alt="Screenshot of the scorer with the example decisions: sensitivity 81.8%, specificity 56.2%, precision 30.0%, 2 missed includes, and the confusion matrix with 9 true includes, 21 false includes, 2 missed includes and 27 true excludes."></a>
 <p align="center"><sub>The scorer with the example file: the same numbers as <code>python3 activity/tools/score_screening.py activity/examples/decisions_example.csv</code></sub></p>
+
+> [!NOTE]
+> **Website not available?** The records page and the scorer are on GitHub Pages. Without them, everything still works: build the batches on your computer ([Option B of the beginners track](beginners/README.md#step-2-screen-20-abstracts): `fetch_abstracts.py` and `make_batches.py`), score with the Python scorers in [`activity/tools/`](activity/tools/README.md) (standard library only), or serve the same pages locally with `cd docs && python3 -m http.server 8000`. Details: [activity guide](activity/README.md#doing-it-on-your-own-self-paced).
 
 <details>
 <summary><b>The records page</b> (screenshot)</summary>
@@ -131,7 +137,7 @@ Catalogue and installation notes: [`skills/README.md`](skills/README.md).
 1. Read the warning above, then open the [AI beginners track](beginners/README.md).
 2. Copy a batch of records from the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) and paste it into your chat after the screening prompt.
 3. Save the answer as `record_id,decision,reason` and load it into the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html).
-4. Bring your missed includes and your surprises to the discussion.
+4. Bring your missed includes and your surprises to the discussion; on your own, answer the [discussion questions](activity/README.md#discussion-last-10-minutes-of-the-session) in writing.
 
 ## Inside the repository
 
@@ -156,6 +162,7 @@ eph2026-ai-for-evidence-synthesis/
 │   ├── README.md
 │   ├── data/             ← screening_records.csv, extraction_form.csv
 │   ├── answers/          ← reference answers: open only when you score
+│   ├── facilitator_guide.md ← for facilitators: contains answers, read after step 3
 │   └── tools/            ← score_screening.py, score_extraction.py
 ├── beginners/            ← AI beginners track (for learning only)
 ├── prompts/              ← prompt library for chat assistants, by review stage
@@ -181,6 +188,19 @@ Five starting points; the [full list](REFERENCES.md) has 25 references checked o
 - **Qazi et al., *NEJM AI* 2026.** Randomised trial with 44 physicians trained in AI literacy: erroneous ChatGPT-4o suggestions lowered their diagnostic accuracy. Literacy is necessary, not sufficient. [doi:10.1056/AIoa2501001](https://doi.org/10.1056/AIoa2501001)
 
 <p><a href="REFERENCES.md"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/references-dark.svg"><img src="assets/buttons/references-light.svg" width="49%" alt="Useful references: guidance and evidence"></picture></a></p>
+
+## About this repository
+
+| | |
+|---|---|
+| **What** | Teaching materials (activity guide, data, prompts, agent skills, scorers, website) for the skills building seminar M.8 *"Building skills in using AI tools to support evidence reviews for effective public health strategies"* |
+| **Event** | European Public Health Conference 2026 (EPH 2026), Bilbao, Thursday 12 November 2026, 16:45-17:45 |
+| **Made by** | The EUPHA Digital Health and Artificial Intelligence Section and Francesco Baglivo (University of Pisa), with the organisers and speakers below |
+| **Status** | Kept online for self-paced practice. Teaching material, not a validated method; the reference review is provisional ([why and limits](activity/data/README.md)) |
+| **Last updated** | 3 November 2026 (version 2026.11) |
+| **Cite** | [How to cite](#how-to-cite), or the [`CITATION.cff`](CITATION.cff) file |
+| **Licence** | Content CC BY 4.0, code MIT, logos excluded: [Licences](#licences) |
+| **Contact** | [euphadhai@gmail.com](mailto:euphadhai@gmail.com), or [open an issue](https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/issues/new/choose) |
 
 ## Organisers and speakers
 

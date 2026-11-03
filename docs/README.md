@@ -30,7 +30,7 @@ python3 docs/sync_data.py --check  # exits 1 if a copy is out of date
 ```
 
 The GitHub Action `.github/workflows/pages-data.yml` runs the check on every push and pull request.
-If a copy is missing anyway, the scorer and the batch page fall back to the raw files of the `main`
+If a copy is missing anyway, the scorer and the records page (`batch.html`) fall back to the raw files of the `main`
 branch on `raw.githubusercontent.com`, so the site keeps working.
 
 Note: `docs/data/screening_gold.csv` and `docs/data/extraction_gold.csv` are the reference answers.

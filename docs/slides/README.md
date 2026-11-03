@@ -1,6 +1,6 @@
 # Slides and abstract
 
-**EPH 2026, Bilbao · Skills building seminar M.8**
+**EPH 2026, Bilbao · Skills building seminar M.8 · Thursday 12 November 2026, 16:45-17:45**
 "Building skills in using AI tools to support evidence reviews for effective public health strategies"
 
 ## Abstract
@@ -13,6 +13,11 @@ Read it on the journal website:
 
 The slides of the session will be added to this folder after the conference, under the same licence as the
 rest of the repository (CC BY 4.0, see [`LICENSE`](../../LICENSE)) unless stated otherwise on the slides.
+
+You do not need the slides to do the exercise: the [activity guide](../../activity/README.md) contains everything
+they show (task, criteria, roles, the three steps, the discussion questions), and its section
+[Doing it on your own (self-paced)](../../activity/README.md#doing-it-on-your-own-self-paced) replaces the
+facilitators.
 
 | Part | Speaker |
 |---|---|
