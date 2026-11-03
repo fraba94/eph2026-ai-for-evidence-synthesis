@@ -1,0 +1,5 @@
+field,definition,allowed_values,type
+ai_task,Detection or prediction,detection|prediction,category
+hai_type,Type of healthcare-associated infection,free text,text
+sample_size,Number of patients in the analysed dataset,integer,number
+auroc,Area under the ROC curve of the best model,0-1 or not reported,number

@@ -1,0 +1,9 @@
+study_id,field,value,source_quote,location
+S01,ai_task,prediction,we developed a model to predict,Methods
+S01,hai_type,surgical site infection,surgical site infection,Title
+S01,sample_size,1250,1250 patients were included,"Results, para 1"
+S01,auroc,0.81,AUROC of 0.81,Table 2
+S03,ai_task,detection,to detect,Abstract
+S03,hai_type,central line-associated bloodstream infection,central line-associated bloodstream infection,Title
+S03,sample_size,3400,3400 admissions,Results
+S03,auroc,not reported,,

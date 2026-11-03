@@ -1,0 +1,11 @@
+record_id,decision,reason
+S01,include,AI predicts SSI
+S02,exclude,no AI
+S03,include,NLP detects CLABSI
+S04,include,"deep learning, infection"
+S05,exclude,C. difficile not in scope
+S06,exclude,review
+S07,unsure,"prospective model, unclear population"
+S08,exclude,no AI
+S10,exclude,community
+S99,include,record id that does not exist

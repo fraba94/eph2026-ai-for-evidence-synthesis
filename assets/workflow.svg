@@ -59,9 +59,10 @@
   <text class="ink" x="432" y="154" font-size="17" font-weight="700">Search</text>
   <path class="line" d="M563 148 h12" stroke-width="2" fill="none"/>
   <rect class="ai" x="386" y="196" width="176" height="120" rx="14" stroke-width="1.5"/>
-  <text class="ink" x="400" y="226" font-size="14.5">Draft Boolean strings</text>
-  <text class="ink" x="400" y="247" font-size="14.5">Translate syntax</text>
-  <text class="ink" x="400" y="268" font-size="14.5">across databases</text>
+  <text class="ink" x="400" y="226" font-size="14.5">Draft Boolean</text>
+  <text class="ink" x="400" y="247" font-size="14.5">strings</text>
+  <text class="ink" x="400" y="268" font-size="14.5">Translate syntax</text>
+  <text class="ink" x="400" y="289" font-size="14.5">across databases</text>
   <rect class="hu" x="386" y="336" width="176" height="120" rx="14" stroke-width="1.5"/>
   <text class="ink" x="400" y="366" font-size="14.5">Runs the search</text>
   <text class="ink" x="400" y="387" font-size="14.5">Tests known studies</text>
@@ -90,17 +91,19 @@
   <text class="ink" x="780" y="247" font-size="14.5">full texts, with</text>
   <text class="ink" x="780" y="268" font-size="14.5">verbatim quotes</text>
   <rect class="hu" x="766" y="336" width="176" height="120" rx="14" stroke-width="1.5"/>
-  <text class="ink" x="780" y="366" font-size="14.5">Designs the form first</text>
-  <text class="ink" x="780" y="387" font-size="14.5">Verifies every value</text>
-  <text class="ink" x="780" y="408" font-size="14.5">against the source</text>
+  <text class="ink" x="780" y="366" font-size="14.5">Designs the form</text>
+  <text class="ink" x="780" y="387" font-size="14.5">before extraction</text>
+  <text class="ink" x="780" y="408" font-size="14.5">Checks every value</text>
+  <text class="ink" x="780" y="429" font-size="14.5">against the source</text>
   <rect class="chip" x="956" y="124" width="176" height="48" rx="24" stroke-width="1.5"/>
   <circle cx="980" cy="148" r="14" fill="#2E61A3"/>
   <text class="white" x="980" y="153" font-size="14" font-weight="700" text-anchor="middle">5</text>
   <text class="ink" x="1002" y="154" font-size="17" font-weight="700">Synthesise</text>
   <path class="line" d="M1133 148 h12" stroke-width="2" fill="none"/>
   <rect class="ai" x="956" y="196" width="176" height="120" rx="14" stroke-width="1.5"/>
-  <text class="ink" x="970" y="226" font-size="14.5">Draft summary tables</text>
-  <text class="ink" x="970" y="247" font-size="14.5">Write analysis code</text>
+  <text class="ink" x="970" y="226" font-size="14.5">Draft summary</text>
+  <text class="ink" x="970" y="247" font-size="14.5">tables</text>
+  <text class="ink" x="970" y="268" font-size="14.5">Write analysis code</text>
   <rect class="hu" x="956" y="336" width="176" height="120" rx="14" stroke-width="1.5"/>
   <text class="ink" x="970" y="366" font-size="14.5">Judges heterogeneity</text>
   <text class="ink" x="970" y="387" font-size="14.5">and certainty</text>

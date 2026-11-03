@@ -1,0 +1,11 @@
+record_id,pmid,doi,title,abstract,year,journal,license
+S01,,,Synthetic record 1: gradient boosting to predict surgical site infection after colorectal surgery,Synthetic abstract. Retrospective cohort; machine learning model predicting surgical site infection; reports AUROC.,2023,Synthetic Journal of Examples,CC0
+S02,,,Synthetic record 2: hand hygiene compliance audit in three intensive care units,Synthetic abstract. Observational audit of hand hygiene compliance; no artificial intelligence.,2023,Synthetic Journal of Examples,CC0
+S03,,,Synthetic record 3: natural language processing of clinical notes to detect central line-associated bloodstream infection,Synthetic abstract. NLP pipeline compared with manual surveillance; reports recall and precision.,2023,Synthetic Journal of Examples,CC0
+S04,,,Synthetic record 4: deep learning for chest radiograph triage in the emergency department,Synthetic abstract. Convolutional network for pneumonia on radiographs in community patients.,2023,Synthetic Journal of Examples,CC0
+S05,,,Synthetic record 5: random forest prediction of Clostridioides difficile infection in hospitalised adults,Synthetic abstract. Electronic health record model; reports AUROC and calibration.,2023,Synthetic Journal of Examples,CC0
+S06,,,Synthetic record 6: narrative review of artificial intelligence in infection prevention,Synthetic abstract. Narrative review; no original data.,2023,Synthetic Journal of Examples,CC0
+S07,,,Synthetic record 7: machine learning early warning for ventilator-associated pneumonia,Synthetic abstract. Prospective validation of a model for ventilator-associated pneumonia; reports sensitivity.,2023,Synthetic Journal of Examples,CC0
+S08,,,Synthetic record 8: cost analysis of catheter care bundles,Synthetic abstract. Economic evaluation of bundles; no AI.,2023,Synthetic Journal of Examples,CC0
+S09,,,Synthetic record 9: automated surveillance of urinary tract infection using rule-based algorithms and neural networks,Synthetic abstract. Compares rule-based and neural network surveillance against manual review.,2023,Synthetic Journal of Examples,CC0
+S10,,,Synthetic record 10: conference abstract on AI for sepsis in the community,Synthetic abstract. Community-acquired sepsis; model performance reported.,2023,Synthetic Journal of Examples,CC0

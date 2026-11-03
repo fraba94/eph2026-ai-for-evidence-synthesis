@@ -41,6 +41,7 @@ def norm(text):
                  ("–", "-"), ("—", "-"), ("−", "-"), (" ", " ")):
         text = text.replace(a, b)
     text = re.sub(r"\s+", " ", text)
+    text = re.sub(r" ?- ?", "-", text)  # "0.861 - 0.975" == "0.861-0.975"
     return text.strip().lower()
 
 

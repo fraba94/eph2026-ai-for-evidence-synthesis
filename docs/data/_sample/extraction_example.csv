@@ -1,0 +1,9 @@
+study_id,field,value,source_quote,location
+S01,ai_task,Prediction,we developed a model to predict,Methods
+S01,hai_type,SSI (surgical site infection),surgical site infection,Title
+S01,sample_size,"1,250",1250 patients were included,Results
+S01,auroc,not reported,,
+S03,ai_task,detection,to detect,Abstract
+S03,hai_type,bloodstream infection,bloodstream infection,Abstract
+S03,auroc,0.92,,
+S05,ai_task,prediction,,
