@@ -1,10 +1,17 @@
 ---
 name: search-strategy-critic
-description: Critique a Boolean database search strategy (PubMed/MEDLINE, Embase, Scopus, Web of Science) as a skeptical information specialist - find how it could fail to retrieve relevant studies, verify every MeSH/Emtree term instead of trusting it, detect Boolean and syntax errors, and rank the top failure risks without rewriting the query. Use when someone shares a search string, asks "is my search good?", "check my search strategy", "peer review my search", or has just had an AI generate a query. Ask it to break the search, not to improve it.
-argument-hint: "[search string or path to file] [database]"
+description: 'Critique a Boolean database search strategy (PubMed/MEDLINE, Embase, Scopus, Web of Science) as a skeptical information specialist - find how it could fail to retrieve relevant studies, verify every MeSH/Emtree term instead of trusting it, detect Boolean and syntax errors, test retrieval of known relevant records, and rank the top failure risks without rewriting the query. Use whenever someone shares a search string, asks "is my search good?", "check my search strategy", "peer review my search", or has just had an AI generate a query, even if they ask to improve it: the job is to break the search, not to improve it.'
+license: CC-BY-4.0 (text) and MIT (scripts); see LICENSE and LICENSE-CODE in the source repository
+metadata:
+  version: '1.1'
+  last-reviewed: '2026-11-03'
+  author: EUPHA Digital Health and AI Section, EPH 2026 skills building seminar
+  source: https://github.com/fraba94/eph2026-ai-for-evidence-synthesis
 ---
 
 # Search strategy critic
+
+**Arguments:** `[search string or path to file] [database]`
 
 Principle from the workshop: **don't ask the AI to improve the search, ask it to break it.** A strategy can run without errors and still be methodologically inadequate. Sensitivity comes first: a manageable number of hits is not evidence of quality.
 
@@ -12,6 +19,7 @@ Principle from the workshop: **don't ask the AI to improve the search, ask it to
 - You critique; the information specialist or review team decides what to change. **Do not rewrite the query** unless the human explicitly asks after reading the critique.
 - If the review question or eligibility criteria are missing, ask for them (or run `review-protocol-check`). A search cannot be judged without the question it serves.
 - Say clearly which findings you verified (with a tool) and which are judgement.
+- PubMed tools verify MeSH only. Emtree (Embase), CINAHL headings and the syntax of other interfaces cannot be checked that way: mark them `unverified` and name the place where the human can check them.
 
 ## Procedure
 
@@ -42,7 +50,7 @@ Principle from the workshop: **don't ask the AI to improve the search, ask it to
 ## Reference points
 - Cochrane Handbook, Chapter 4 (Searching for and selecting studies): https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-04
 - PRISMA-S reporting of literature searches: Rethlefsen et al., Syst Rev 2021, doi:10.1186/s13643-020-01542-z
-- Report the final executed strategies, databases, platforms and dates; keep AI drafts and prompts with the review records.
+- Report the final executed strategies, databases, platforms and dates; keep AI drafts and prompts with the review records. PRISMA 2020 item 7 asks for the full search strategies for all databases, registers and websites, including any filters and limits used (Page et al., BMJ 2021, doi:10.1136/bmj.n71).
 
 ## When NOT to use
 - To *generate* a strategy from scratch for a real review without an information specialist: use the critique on a human-drafted strategy instead.

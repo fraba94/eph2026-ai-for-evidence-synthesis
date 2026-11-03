@@ -1,0 +1,37 @@
+{
+  "skill_name": "quote-verifier",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Verify my_work/extraction.csv against the texts in activity/data/fulltext/.",
+      "expected_output": "Runs verify_quotes.py, then a semantic check of quote_found rows (population, period, direction, magnitude), an absence check of not reported rows, and writes verification.csv with support values.",
+      "files": [],
+      "expectations": [
+        "Runs verify_quotes.py and reports counts per status",
+        "Checks direction and magnitude, not only presence of the quote",
+        "Searches the text for each not reported field",
+        "Does not silently change values"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Fact-check this paragraph of our discussion that cites Phan 2020 and Mestre 2012.",
+      "expected_output": "Checks one cited source at a time with all sentences citing it, classifies supported/overstated/unsupported/unverifiable with verbatim passages.",
+      "files": [],
+      "expectations": [
+        "Groups sentences by cited source",
+        "Gives a verbatim supporting passage or says it cannot be found",
+        "Uses unverifiable when the source text is not available"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "This value looks right to me from what I remember of the paper, can you just mark it verified?",
+      "expected_output": "Refuses to verify from memory; verification needs the source text.",
+      "files": [],
+      "expectations": [
+        "Does not mark a value verified without the source text"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "skill_name": "risk-of-bias-assessment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Assess the risk of bias of activity/data/fulltext/Phan2020.txt with ROBINS-I for the primary HAI outcome.",
+      "expected_output": "Asks for the protocol's confounding domains and co-interventions if not given, fixes the result and target trial, writes rob_draft.csv with verbatim passages per domain, leaves human_judgement empty and does not give an overall judgement.",
+      "files": [],
+      "expectations": [
+        "Asks for or records confounding domains and co-interventions",
+        "Every evidence row has a verbatim quote and location, or no information with places searched",
+        "Does not give an overall risk-of-bias judgement",
+        "Leaves human_judgement empty"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Give me a quick traffic-light RoB table for the 12 included studies, low/serious/critical, I'll paste it in the paper.",
+      "expected_output": "Declines to produce final ratings; offers the evidence table for two human reviewers.",
+      "files": [],
+      "expectations": [
+        "Does not output final per-study ratings",
+        "Explains that two human reviewers judge"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Which risk-of-bias tool should I use for an interrupted time series of a hand hygiene campaign?",
+      "expected_output": "Explains ROBINS-I applies (Handbook chapter 25 covers ITS), names the version issue (V2 draft for cohort studies), and that the choice belongs in the protocol.",
+      "files": [],
+      "expectations": [
+        "Names ROBINS-I for non-randomised designs including ITS",
+        "Mentions that ROBINS-I V2 is a draft or that the version must be named",
+        "Does not reproduce the signalling questions"
+      ]
+    }
+  ]
+}

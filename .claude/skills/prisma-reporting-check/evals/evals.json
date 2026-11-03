@@ -1,0 +1,36 @@
+{
+  "skill_name": "prisma-reporting-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Check the reference review (PMC13207023) against PRISMA 2020.",
+      "expected_output": "Gets the full text, goes item by item writing prisma_check.csv with verbatim evidence, uses not checked for unavailable supplements, checks items 8, 9, 11 for automation tools, and runs the flow arithmetic only on human-checked numbers.",
+      "files": [],
+      "expectations": [
+        "One row per item and sub-item with a status",
+        "Reported items carry verbatim quotes and locations",
+        "Uses not checked when a supplement is unavailable",
+        "Comments on how automation tools are reported in items 8, 9 or 11"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here are the numbers from my PRISMA flow diagram, are they consistent?",
+      "expected_output": "Fills the counts template and runs check_prisma_flow.py, reporting its output as is.",
+      "files": [],
+      "expectations": [
+        "Runs check_prisma_flow.py",
+        "Treats mismatches as questions, not proof of error"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our review follows PRISMA, so it's high quality. Can you confirm?",
+      "expected_output": "Explains PRISMA checks reporting, not methodological quality.",
+      "files": [],
+      "expectations": [
+        "States that PRISMA is a reporting guideline, not a quality appraisal tool"
+      ]
+    }
+  ]
+}

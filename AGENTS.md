@@ -23,7 +23,7 @@ The AI output is compared with **the reference review**, a systematic review con
 | `activity/answers/` | **Reference answers. Do not open until the user asks to score.** |
 | `activity/tools/score_screening.py`, `activity/tools/score_extraction.py` | Scorers (Python 3, standard library) |
 | `.claude/skills/` | Agent skills, one folder per review task (`SKILL.md`) |
-| `skills/README.md` | Catalogue of the skills and how to install them |
+| `skills/README.md` | Catalogue of the skills and how to install them; `skills/EXTERNAL.md` lists external skill collections (read its security note), `skills/THIRD_PARTY.md` records attribution |
 | `prompts/` | Prompt library for chat assistants, by review stage |
 | `beginners/` | AI beginners track (for learning only) |
 | `docs/` | Website, including a browser-based scorer |
@@ -66,9 +66,10 @@ python3 activity/tools/score_extraction.py my_work/extraction.csv
 Helper scripts (standard library only):
 
 ```bash
-python3 .claude/skills/title-abstract-screening/scripts/compare_runs.py activity/data/screening_records.csv my_work/screening_run1.csv my_work/screening_run2.csv --merged my_work/screening_merged.csv
+python3 .claude/skills/title-abstract-screening/scripts/compare_runs.py activity/data/screening_records.csv my_work/screening_run1.csv my_work/screening_run2.csv --merged my_work/screening_merged.csv --qc-sample 10
 python3 .claude/skills/quote-verifier/scripts/verify_quotes.py my_work/extraction.csv activity/data/fulltext/ --out verification.csv
 python3 .claude/skills/discrepancy-audit/scripts/draft_discrepancy_log.py screening my_work/screening_merged.csv activity/answers/screening_gold.csv
+python3 .claude/skills/prisma-reporting-check/scripts/check_prisma_flow.py my_work/flow_counts.csv
 ```
 
 ## Skills (task procedures)
@@ -83,6 +84,9 @@ Follow the matching `SKILL.md` when the user asks for one of these tasks. Agents
 | Full-text data extraction | `.claude/skills/full-text-extraction/SKILL.md` |
 | Verify extracted values against the source | `.claude/skills/quote-verifier/SKILL.md` |
 | Compare AI with the reference, classify errors | `.claude/skills/discrepancy-audit/SKILL.md` |
+| Risk-of-bias evidence table (ROBINS-I, RoB 2), humans judge | `.claude/skills/risk-of-bias-assessment/SKILL.md` |
+| GRADE certainty draft per outcome, team decides | `.claude/skills/grade-certainty/SKILL.md` |
+| Check a review against PRISMA 2020, flow arithmetic | `.claude/skills/prisma-reporting-check/SKILL.md` |
 | Document and report AI use | `.claude/skills/ai-use-reporting/SKILL.md` |
 
 ## Guidance to rely on

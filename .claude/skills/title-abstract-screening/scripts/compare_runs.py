@@ -3,14 +3,25 @@
 
 Usage:
   python3 compare_runs.py RECORDS.csv RUN1.csv RUN2.csv [--merged OUT.csv]
+                          [--qc-sample N] [--seed S]
 
 Reports missing / extra / duplicated record_ids, invalid decisions, raw agreement,
-Cohen's kappa, and every disagreement. With --merged, writes a conservative merged
-file: agreements keep the shared decision, disagreements become "unsure".
+Cohen's kappa and PABAK (prevalence-adjusted bias-adjusted kappa), both on the three
+decisions and on "advance" (include or unsure) versus "exclude", and every disagreement.
+Kappa is low when almost every record is excluded even if agreement is high, so read
+it next to raw agreement and PABAK.
+
+With --merged, writes a conservative merged file: agreements keep the shared decision,
+disagreements become "unsure".
+
+With --qc-sample N, prints a reproducible random sample of N records that BOTH runs
+excluded (all of them if fewer). Two runs of the same model can share a misreading,
+and a joint exclusion never shows up as a disagreement: a human should re-read these.
 Standard library only.
 """
 import argparse
 import csv
+import random
 import sys
 from collections import Counter
 
@@ -52,6 +63,30 @@ def cohen_kappa(pairs):
     return float("nan") if pe == 1 else (po - pe) / (1 - pe)
 
 
+def pabak(pairs, k):
+    """Prevalence-adjusted bias-adjusted kappa for k categories: (k*po - 1) / (k - 1)."""
+    n = len(pairs)
+    if n == 0:
+        return float("nan")
+    po = sum(a == b for a, b in pairs) / n
+    return (k * po - 1) / (k - 1)
+
+
+def advance(decision):
+    return "exclude" if decision == "exclude" else "advance"
+
+
+def binary_kappa(pairs):
+    n = len(pairs)
+    if n == 0:
+        return float("nan")
+    po = sum(a == b for a, b in pairs) / n
+    c1 = Counter(a for a, _ in pairs)
+    c2 = Counter(b for _, b in pairs)
+    pe = sum(c1[k] * c2[k] for k in ("advance", "exclude")) / (n * n)
+    return float("nan") if pe == 1 else (po - pe) / (1 - pe)
+
+
 def check_run(name, rows, ids):
     problems = 0
     counts = Counter(r["record_id"] for r in rows)
@@ -81,6 +116,9 @@ def main():
     ap.add_argument("run1")
     ap.add_argument("run2")
     ap.add_argument("--merged", help="write conservative merged decisions to this CSV")
+    ap.add_argument("--qc-sample", type=int, default=0, metavar="N",
+                    help="print a random sample of N records excluded by both runs, for human re-reading")
+    ap.add_argument("--seed", type=int, default=2026, help="random seed for --qc-sample (default 2026)")
     a = ap.parse_args()
 
     ids = read_ids(a.records)
@@ -97,7 +135,11 @@ def main():
     print("\nAgreement between runs:")
     if both:
         print(f"  compared {len(both)} records, raw agreement {agree}/{len(both)} = {agree / len(both):.1%}")
-        print(f"  Cohen's kappa = {cohen_kappa(pairs):.2f}")
+        print(f"  three decisions: Cohen's kappa = {cohen_kappa(pairs):.2f}, PABAK = {pabak(pairs, 3):.2f}")
+        bpairs = [(advance(x), advance(y)) for x, y in pairs]
+        bagree = sum(x == y for x, y in bpairs)
+        print(f"  advance (include/unsure) vs exclude: agreement {bagree}/{len(bpairs)} = {bagree / len(bpairs):.1%}, "
+              f"kappa = {binary_kappa(bpairs):.2f}, PABAK = {pabak(bpairs, 2):.2f}")
     table = Counter(pairs)
     print("  run1 \\ run2  " + "  ".join(f"{k:>8}" for k in VALID))
     for k1 in VALID:
@@ -110,6 +152,15 @@ def main():
             print(f"  {i}: run1={d1[i]['decision']} ({d1[i]['reason']}) | run2={d2[i]['decision']} ({d2[i]['reason']})")
     else:
         print("\nNo disagreements.")
+
+    if a.qc_sample > 0:
+        joint = [i for i in both if d1[i]["decision"] == "exclude" and d2[i]["decision"] == "exclude"]
+        rng = random.Random(a.seed)
+        sample = sorted(rng.sample(joint, min(a.qc_sample, len(joint))), key=ids.index)
+        print(f"\nQC sample: {len(sample)} of {len(joint)} records excluded by both runs (seed {a.seed}). "
+              "A human re-reads these; a joint exclusion is never a disagreement:")
+        for i in sample:
+            print(f"  {i}: run1 ({d1[i]['reason']}) | run2 ({d2[i]['reason']})")
 
     if a.merged:
         with open(a.merged, "w", newline="", encoding="utf-8") as f:

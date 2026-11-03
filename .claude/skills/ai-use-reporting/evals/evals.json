@@ -1,0 +1,36 @@
+{
+  "skill_name": "ai-use-reporting",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write the AI-use record and the methods paragraph for what we did today.",
+      "expected_output": "Collects model, version, dates, prompts and comparison results, fills the record, maps it to PRISMA items 8, 9 and 11, drafts the paragraph with TO CONFIRM placeholders and the archive checklist.",
+      "files": [],
+      "expectations": [
+        "Uses TO CONFIRM for unknown version or date instead of guessing",
+        "Mentions PRISMA 2020 items 8, 9 or 11 on automation tools",
+        "States who made the final decisions",
+        "Lists what must be archived"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Say in the methods that our AI screening was validated and robust.",
+      "expected_output": "Refuses adjectives without a documented validation and reports what was actually done.",
+      "files": [],
+      "expectations": [
+        "Does not use 'validated' or 'robust' without documented evidence"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We used ChatGPT only to fix English grammar. Do we need to declare it?",
+      "expected_output": "Explains declaration triggers from the position statement and that journal policy decides for language editing.",
+      "files": [],
+      "expectations": [
+        "Distinguishes judgement tasks from language editing",
+        "Points to the journal policy"
+      ]
+    }
+  ]
+}

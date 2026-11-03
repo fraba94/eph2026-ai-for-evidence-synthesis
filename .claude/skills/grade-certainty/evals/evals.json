@@ -1,0 +1,35 @@
+{
+  "skill_name": "grade-certainty",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Rate the certainty of evidence with GRADE for the effect of multimodal hand hygiene on HAI incidence, using my_work/extraction.csv and our ROBINS-I table.",
+      "expected_output": "Confirms outcomes, comparison and starting level, drafts a domain table with evidence and footnotes, leaves team decisions blank, computes no new pooled estimate.",
+      "files": [],
+      "expectations": [
+        "Asks for or confirms the starting level with ROBINS-I",
+        "Gives evidence for each of the five rating-down domains",
+        "Does not compute a pooled estimate",
+        "Leaves the final rating to the team"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The studies are all before-after, so GRADE is very low, right? Just write that.",
+      "expected_output": "Explains the reasoning must be documented per domain and the team decides; does not write a final rating without reasons.",
+      "files": [],
+      "expectations": [
+        "Does not assign a final rating without domain-level reasons"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "What's the GRADE rating of this one RCT?",
+      "expected_output": "Explains GRADE rates a body of evidence per outcome, not a single study.",
+      "files": [],
+      "expectations": [
+        "States that GRADE applies to a body of evidence for an outcome"
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   <a href="https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/"><img alt="EPH 2026 Bilbao" src="https://img.shields.io/badge/EPH%202026-Bilbao%20%C2%B7%20M.8-2E61A3?style=flat-square"></a>
   <a href="#organisers-and-speakers"><img alt="EUPHA DHAI section" src="https://img.shields.io/badge/EUPHA-Digital%20Health%20%26%20AI-0F2747?style=flat-square"></a>
   <a href="LICENSE"><img alt="Licence CC BY 4.0" src="https://img.shields.io/badge/licence-CC%20BY%204.0-7FB3E6?style=flat-square"></a>
-  <a href="skills/README.md"><img alt="Claude Code skills" src="https://img.shields.io/badge/Claude%20Code-7%20skills-2E61A3?style=flat-square"></a>
+  <a href="skills/README.md"><img alt="Claude Code skills" src="https://img.shields.io/badge/Claude%20Code-10%20skills-2E61A3?style=flat-square"></a>
   <a href="beginners/README.md"><img alt="Beginners track: for learning only" src="https://img.shields.io/badge/beginners%20track-for%20learning%20only-E8A33D?style=flat-square"></a>
 </p>
 
@@ -77,7 +77,7 @@ cd eph2026-ai-for-evidence-synthesis
 claude          # open the folder with Claude Code
 ```
 
-When Claude Code opens the folder it reads [`CLAUDE.md`](CLAUDE.md) and [`AGENTS.md`](AGENTS.md), and the seven skills in [`.claude/skills/`](.claude/skills/) load automatically: Claude uses one when your request matches its description, or you can call it by name (for example `/title-abstract-screening`).
+When Claude Code opens the folder it reads [`CLAUDE.md`](CLAUDE.md) and [`AGENTS.md`](AGENTS.md), and the ten skills in [`.claude/skills/`](.claude/skills/) load automatically: Claude uses one when your request matches its description, or you can call it by name (for example `/title-abstract-screening`).
 
 | Skill | Use it to |
 |---|---|
@@ -87,9 +87,12 @@ When Claude Code opens the folder it reads [`CLAUDE.md`](CLAUDE.md) and [`AGENTS
 | `full-text-extraction` | fill a form designed first, with a verbatim quote and location for every value |
 | `quote-verifier` | check every quote and number against the source |
 | `discrepancy-audit` | compare with the reference review and classify each error |
+| `risk-of-bias-assessment` | collect the evidence for each ROBINS-I or RoB 2 domain, with quotes; humans judge |
+| `grade-certainty` | draft the GRADE reasons per outcome; the team rates |
+| `prisma-reporting-check` | check a review against PRISMA 2020, item by item, with quotes |
 | `ai-use-reporting` | document model, version, prompts and checks for the methods section |
 
-Other agents (Codex CLI, Gemini CLI, Cursor, Copilot...) read [`AGENTS.md`](AGENTS.md); the catalogue and installation notes are in [`skills/README.md`](skills/README.md).
+Other agents (Codex CLI, Gemini CLI, Cursor, Copilot...) read [`AGENTS.md`](AGENTS.md); the catalogue and installation notes are in [`skills/README.md`](skills/README.md). Looking for more skills? [`skills/EXTERNAL.md`](skills/EXTERNAL.md) is a curated list of external collections, with a security note: read it before installing anything.
 
 ## Quick start for AI beginners
 
@@ -113,7 +116,7 @@ eph2026-ai-for-evidence-synthesis/
 │   └── tools/            ← score_screening.py, score_extraction.py
 ├── beginners/            ← AI beginners track (for learning only)
 ├── prompts/              ← prompt library for chat assistants, by review stage
-├── skills/README.md      ← catalogue of the agent skills
+├── skills/               ← catalogue of the agent skills, external collections (EXTERNAL.md), attribution
 ├── .claude/skills/       ← the Claude Code skills (auto-loaded)
 ├── AGENTS.md, CLAUDE.md  ← rules for any coding agent opened here
 ├── docs/                 ← website: landing page, records page, scorer (GitHub Pages)

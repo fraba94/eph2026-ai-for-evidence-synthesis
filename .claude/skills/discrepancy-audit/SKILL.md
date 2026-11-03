@@ -1,10 +1,18 @@
 ---
 name: discrepancy-audit
-description: Compare AI-assisted screening or extraction output with human or gold-standard decisions, classify every discrepancy (missed include, false include, wrong value, hallucinated value, omission, parsing error, ambiguous criterion, gold error), write a discrepancy log and summarise what the errors mean for the review. Use after scoring the workshop exercise, when asked "where did the AI go wrong?", "compare AI with our manual results", or when piloting/calibrating an AI tool against a human-reviewed sample.
-argument-hint: "[screening|extraction] [ai.csv] [gold.csv]"
+description: Compare AI-assisted screening or extraction output with human or gold-standard decisions, classify every discrepancy (missed include, false include, wrong value, hallucinated value, omission, parsing error, ambiguous criterion, gold error), look for errors both AI runs shared, write a discrepancy log and summarise what the errors mean for the review. Use after scoring the workshop exercise, whenever asked "where did the AI go wrong?", to compare AI with manual results, or when piloting or calibrating an AI tool against a human-reviewed sample.
+license: CC-BY-4.0 (text) and MIT (scripts); see LICENSE and LICENSE-CODE in the source repository
+compatibility: Bundled script needs Python 3 (standard library only). Written for Claude Code; any agent that reads SKILL.md can follow it.
+metadata:
+  version: '1.1'
+  last-reviewed: '2026-11-03'
+  author: EUPHA Digital Health and AI Section, EPH 2026 skills building seminar
+  source: https://github.com/fraba94/eph2026-ai-for-evidence-synthesis
 ---
 
 # Discrepancy audit
+
+**Arguments:** `[screening|extraction] [ai.csv] [gold.csv]`
 
 A single accuracy figure hides what matters. One missed eligible study can change a pooled estimate; ten false includes cost ten minutes. The audit looks at each disagreement, asks *why* it happened, and turns that into a decision about whether and how AI can be used for this task.
 
@@ -39,7 +47,8 @@ A single accuracy figure hides what matters. One missed eligible study can chang
    | `gold_error` | both | the source supports the AI | reference standard mistake; flag to the review team |
 
    For extraction rows, run `quote-verifier` first: a `quote_not_found` row is a candidate `hallucinated_value`; a quote found in a scrambled table is a candidate `parsing_error`.
-4. **Summarise** for the human: counts by category with denominators (e.g. "2 of 9 gold includes missed"), the most serious errors first (missed includes, hallucinated values), patterns (which criterion, which field, which kind of paper), and what would change the result (clearer criterion, better form definition, different parser, human check of a specific field).
+   Mark in `human_note` the errors that **both AI runs made** (e.g. a gold include excluded by run 1 and run 2 with the same reason). They are invisible in the run-to-run disagreement report and tell you what a second AI pass will never catch.
+4. **Summarise** for the human: counts by category with denominators (e.g. "2 of 9 gold includes missed"), the most serious errors first (missed includes, hallucinated values), patterns (which criterion, which field, which kind of paper), shared errors of the two runs, and what would change the result (clearer criterion, better form definition, different parser, human check of a specific field). When you give agreement with the gold standard, give raw agreement and counts next to kappa: with very few includes, kappa can look poor while agreement is high (PABAK, printed by `compare_runs.py`, shows the size of that effect).
 5. **Conclude with a use decision table**: for each task, *AI acceptable as second reviewer / acceptable with full human check / not acceptable*, with the reason. The human makes the final call.
 
 ## Output
