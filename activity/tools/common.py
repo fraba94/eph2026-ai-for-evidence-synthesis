@@ -223,8 +223,11 @@ def numbers_in(s):
     """All numbers in a string (handles 1,234 and 1.5 and -2)."""
     s = norm_text(s)
     out = []
-    for m in re.finditer(r"-?\d{1,3}(?:,\d{3})+(?:\.\d+)?|-?\d+(?:\.\d+)?", s):
-        out.append(float(m.group().replace(",", "")))
+    for m in re.finditer(r"(?<![\d.])-?\d{1,3}(?:,\d{3})+(?:\.\d+)?|(?<![\d.])-?\d+(?:\.\d+)?", s):
+        txt = m.group()
+        if txt.startswith("-") and m.start() > 0 and s[m.start() - 1].isalnum():
+            txt = txt[1:]  # a range such as 2010-2018 or 0.79-0.90, not a negative number
+        out.append(float(txt.replace(",", "")))
     return out
 
 

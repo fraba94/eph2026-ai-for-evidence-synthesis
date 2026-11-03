@@ -1,0 +1,3 @@
+# local copies whose licence does not allow redistribution (abstracts, full texts, metadata cache)
+data/local/
+__pycache__/

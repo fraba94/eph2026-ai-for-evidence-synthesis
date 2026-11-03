@@ -53,26 +53,27 @@ Why this matters: if you do not give the AI explicit criteria, it uses its own, 
 
 **Get the records.** Choose one of the two options.
 
-<details>
-<summary><b>Option A (easiest): the ready-to-paste batch</b></summary>
+<details open>
+<summary><b>Option A (easiest): the records page</b></summary>
 
-Open [`batches/screening_batch_all.md`](batches/screening_batch_all.md) (all records) or, if your assistant struggles with long messages, [`batches/screening_batch_01.md`](batches/screening_batch_01.md) and [`batches/screening_batch_02.md`](batches/screening_batch_02.md) (10 records each). Copy everything inside the grey box.
-
-If the batch files are not there, a facilitator can create them with `python3 beginners/make_batches.py`, or use Option B.
+1. Open the **[records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html)**.
+2. Choose **batch 1 (R001-R020)**. The page downloads the abstracts that the repository cannot ship (licence) directly from PubMed, in your browser.
+3. Click **Copy batch** and paste it after the prompt below.
 </details>
 
 <details>
-<summary><b>Option B: copy from the CSV file</b></summary>
+<summary><b>Option B: build the batch on your computer</b> (needs Python)</summary>
 
-1. Open [`activity/data/screening_records.csv`](../activity/data/screening_records.csv) on GitHub.
-2. Click **Raw** (top right of the file view). You now see plain text.
-3. Select all (Ctrl+A / Cmd+A) and copy (Ctrl+C / Cmd+C). The first line is the header; each following line is one record.
+```bash
+python3 activity/tools/fetch_abstracts.py
+python3 beginners/make_batches.py activity/data/local/screening_records_full.csv --size 20
+```
 
-The assistant can read CSV text directly. You only need the columns `record_id`, `title` and `abstract`; the others can stay.
+The first command fills the missing abstracts from PubMed into a local, git-ignored file (do not publish it: many abstracts are copyrighted). The second writes paste-ready batches in `beginners/batches/`; use `screening_batch_01.md` (R001-R020).
 </details>
 
 > [!NOTE]
-> **Some abstracts may be empty.** A few records may arrive without an abstract (the facilitators fill them before the session with `activity/tools/fetch_abstracts.py`). If you still see an empty abstract, leave it: the prompt tells the assistant to mark it *unsure*. **Do not** ask the assistant to "find" or write the abstract: it may invent one.
+> **Why some abstracts are missing from the repository.** The repository ships an abstract only when its licence allows redistribution; the others are fetched from PubMed by the records page (Option A) or by `fetch_abstracts.py` (Option B). If you still see an empty abstract, leave it: the prompt tells the assistant to mark it *unsure*. **Do not** ask the assistant to "find" or write the abstract: it may invent one.
 
 **Open a new chat**, paste this prompt, replace the two parts in `[BRACKETS]`, and send.
 
@@ -120,7 +121,7 @@ Before trusting anything, check it. This is the most important step.
 ## Step 4. Run it again, in a new chat
 
 1. Open a **new** chat (not the same one: it would just repeat itself).
-2. Paste the same prompt, but put the records **in reverse order** (or paste batch 02 before batch 01).
+2. Paste the same prompt and the same batch again. A fresh chat does not remember the first run, so this is an independent second run.
 3. Save the answer as `run2.csv`.
 4. Compare `run1.csv` and `run2.csv` side by side in a spreadsheet. Mark every record where the decision changed.
 
@@ -133,7 +134,7 @@ For records where the two runs disagree, **you** decide: write your own decision
 
 Only now look at the answers.
 
-- **Online scorer** (nothing leaves your browser): open the workshop website's scorer, [`docs/scorer.html`](../docs/scorer.html) (on the published site: <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>), and load `run1.csv`, `run2.csv` or `my_decisions.csv`.
+- **Online scorer** (nothing leaves your browser): open the workshop website's scorer, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>, and load `run1.csv`, `run2.csv` or `my_decisions.csv`.
 - **With Python** (if you have it): `python3 activity/tools/score_screening.py run1.csv` (use `--help` to see the options).
 
 Then look at each disagreement with the reference and ask: was it a **missed include** (the most serious error), a **false include**, an *unsure* that was reasonable, or a criterion that two humans could also read differently? The prompt to help you classify them is [6.2 in the prompt library](../prompts/06_synthesis_and_reporting.md#62-discrepancy-summary-after-the-workshop-exercise).

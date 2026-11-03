@@ -33,7 +33,7 @@ TABLE:
 ## 6.2 Discrepancy summary (after the workshop exercise)
 
 **Purpose.** Turn the comparison between AI output and the reference review into lessons.
-**When to use.** After scoring, with the discrepancy list (see [`activity/README.md`](../activity/README.md) and the scorer at [`docs/scorer.html`](../docs/scorer.html)).
+**When to use.** After scoring, with the discrepancy list (see [`activity/README.md`](../activity/README.md) and the scorer at [`docs/scorer.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)).
 
 ```text
 Below are the records where the AI screening (or extraction) disagreed with a reference review conducted without AI.
