@@ -52,12 +52,12 @@ Reminder: apply only criteria C1-C[n]; one row per record; when in doubt, unsure
 **Purpose.** Measure reproducibility. Outputs are sampled: the same prompt can give different decisions.
 **When to use.** Always, for at least part of the batch.
 
-Open a **new conversation** (no memory of the first run; turn off memory or use a temporary chat if your tool has it). Paste prompt 3.1 again with the records **in a different order** (for example reversed). Save both CSVs.
+Open a **new conversation** (no memory of the first run; turn off memory or use a temporary chat if your tool has it). Paste prompt 3.1 again with the records **in a different order** (for example reversed). Save them as `screening_run1.csv` and `screening_run2.csv` (the names used in `activity/README.md` and by the scorer).
 
 Then compare in a spreadsheet, or with the helper script if you have Python:
 
 ```bash
-python3 .claude/skills/title-abstract-screening/scripts/compare_runs.py activity/data/screening_records.csv run1.csv run2.csv --merged merged.csv
+python3 .claude/skills/title-abstract-screening/scripts/compare_runs.py activity/data/screening_records.csv screening_run1.csv screening_run2.csv --merged screening_merged.csv
 ```
 
 **Check afterwards.** How many records changed decision? Any record that is *include* in one run and *exclude* in the other must be decided by you. A conservative merge treats every disagreement as *unsure*.

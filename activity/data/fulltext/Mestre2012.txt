@@ -1,7 +1,8 @@
 # “The 3/3 Strategy”: A Successful Multifaceted Hospital Wide Hand Hygiene Intervention Based on WHO and Continuous Quality Improvement Methodology
 Journal: PLoS ONE (2012). DOI: 10.1371/journal.pone.0047200. PMID: 23110061. PMCID: PMC3478274
+Affiliations: Nosocomial Infection Control Unit, Delfos Medical Center, Barcelona, Catalonia, Spain; Supervisor Nursing Department, Delfos Medical Center, Barcelona, Catalonia, Spain; Infectious Diseases Unit, Hospital Clinic, Barcelona, Catalonia, Spain; Infectious Diseases and Microbiology Unit, Universitary Hospital Virgen de Macarena, Seville, Spain; University of Ottawa, Canada
 Licence: http://creativecommons.org/licenses/by/4.0/ | https://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.
-Changes: converted from the PubMed Central XML to plain text by activity/tools/pmc_to_text.py; author list, references, figure images and supplementary files omitted; tables flattened (cells separated by ' | ').
+Changes: converted from the PubMed Central XML to plain text by activity/tools/pmc_to_text.py; author names, references, figure images and supplementary files omitted; tables flattened (cells separated by ' | ').
 
 ## Abstract
 Background: Only multifaceted hospital wide interventions have been successful in achieving sustained improvements in hand hygiene (HH) compliance.

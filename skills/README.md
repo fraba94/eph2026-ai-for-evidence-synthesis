@@ -13,8 +13,8 @@ The skills live in [`.claude/skills/`](../.claude/skills/). This page is the cat
 |---|---|---|---|---|
 | [`review-protocol-check`](../.claude/skills/review-protocol-check/SKILL.md) | Turns a question into PICO/PECO and operational eligibility criteria, runs a completeness check, **refuses to go on without approved criteria** | Question & protocol | Review question or protocol | Criteria table, open questions, `criteria.md` after approval |
 | [`search-strategy-critic`](../.claude/skills/search-strategy-critic/SKILL.md) | Acts as a skeptical information specialist: verifies MeSH terms, finds Boolean and syntax errors, ranks the top 3 failure risks. **Breaks the search instead of rewriting it** | Search | Search string, database, question | Concept-block table, vocabulary check, ranked risks |
-| [`title-abstract-screening`](../.claude/skills/title-abstract-screening/SKILL.md) | Two independent screening runs with a reason per record citing the criterion, conservative merge (disagreement = unsure), completeness check, kappa | Title/abstract screening | Records CSV + criteria | `screening_run1.csv`, `screening_run2.csv`, `screening_ai.csv` |
-| [`full-text-extraction`](../.claude/skills/full-text-extraction/SKILL.md) | Form-first extraction, one paper per context, verbatim quote + location for every value, "not reported" allowed, parsing risks flagged | Data extraction | Extraction form + full texts | `extraction_ai.csv` (long format) |
+| [`title-abstract-screening`](../.claude/skills/title-abstract-screening/SKILL.md) | Two independent screening runs with a reason per record citing the criterion, conservative merge (disagreement = unsure), completeness check, kappa | Title/abstract screening | Records CSV + criteria | `screening_run1.csv`, `screening_run2.csv`, `screening_merged.csv` |
+| [`full-text-extraction`](../.claude/skills/full-text-extraction/SKILL.md) | Form-first extraction, one paper per context, verbatim quote + location for every value, "not reported" allowed, parsing risks flagged | Data extraction | Extraction form + full texts | `extraction.csv` (long format) |
 | [`quote-verifier`](../.claude/skills/quote-verifier/SKILL.md) | Checks every quote against the source text and every number against its quote, then the human-level check of support and of each "not reported" | Verification | Extraction CSV + source text | `verification.csv` |
 | [`discrepancy-audit`](../.claude/skills/discrepancy-audit/SKILL.md) | Compares AI with human/gold decisions and classifies each discrepancy (missed include, false include, wrong value, hallucinated value, omission, parsing error, gold error) | Evaluation / piloting | AI CSV + reference CSV | `discrepancy_log.csv`, summary, use-decision table |
 | [`ai-use-reporting`](../.claude/skills/ai-use-reporting/SKILL.md) | Builds the AI-use record and drafts the protocol/methods paragraph aligned with the 2025 position statement and RAISE | Reporting | Prompts, outputs, comparison results | `ai_use_record.md`, reporting paragraph |
@@ -89,7 +89,7 @@ Screen activity/data/screening_records.csv against the criteria in activity/revi
 
 Extract the fields in activity/data/extraction_form.csv from papers/S01.pdf. One paper only. Quote and location for every value.
 
-Verify extraction_ai.csv against the texts in sources/.
+Verify extraction.csv against the texts in activity/data/fulltext/.
 
 Now score my screening against the gold standard and run the discrepancy audit.
 

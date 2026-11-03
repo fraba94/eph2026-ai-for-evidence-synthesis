@@ -19,8 +19,8 @@ A single accuracy figure hides what matters. One missed eligible study can chang
    `python3 activity/tools/score_screening.py ...` or `python3 activity/tools/score_extraction.py ...`. Report their output as is.
 2. **Draft the log**:
    ```
-   python3 ${CLAUDE_SKILL_DIR}/scripts/draft_discrepancy_log.py screening  screening_ai.csv  activity/answers/screening_gold.csv
-   python3 ${CLAUDE_SKILL_DIR}/scripts/draft_discrepancy_log.py extraction extraction_ai.csv activity/answers/extraction_gold.csv
+   python3 ${CLAUDE_SKILL_DIR}/scripts/draft_discrepancy_log.py screening  screening_merged.csv  activity/answers/screening_gold.csv
+   python3 ${CLAUDE_SKILL_DIR}/scripts/draft_discrepancy_log.py extraction extraction.csv activity/answers/extraction_gold.csv
    ```
    It writes `discrepancy_log.csv` with provisional categories and empty `final_category`, `human_note`.
 3. **Classify each row** by reading the abstract/full text, the AI reason or quote, and the gold basis. Use the taxonomy:

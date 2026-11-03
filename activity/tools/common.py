@@ -25,9 +25,47 @@ TOOL_NAME = "eph2026_workshop"
 
 
 # --------------------------------------------------------------------------- CSV
-def read_csv(path):
-    with open(path, newline="", encoding="utf-8-sig") as fh:
-        return list(csv.DictReader(fh))
+def read_csv(path, expect=None):
+    """Read a CSV robustly and return a list of dicts with lower-case, stripped column names.
+
+    Tolerates what comes back from chat assistants: a byte-order mark, ``` code fences, prose lines before the
+    header or after the table, ';' or tab instead of ',', and unquoted commas in the last column (extra fields are
+    joined back into the last column instead of being lost). `expect`: column names that identify the header line.
+    """
+    with open(path, encoding="utf-8-sig", errors="replace") as fh:
+        text = fh.read().replace("\ufeff", "")
+    lines = [ln for ln in text.splitlines() if not ln.strip().startswith("```")]
+    expect = [e.lower() for e in (expect or [])]
+    start = 0
+    for i, ln in enumerate(lines):
+        low = ln.lower()
+        if expect and all(e in low for e in expect):
+            start = i
+            break
+        if not expect and ln.strip():
+            start = i
+            break
+    else:
+        return []
+    header_line = lines[start]
+    delim = max([",", ";", "\t"], key=lambda d: header_line.count(d))
+    rows = list(csv.reader(lines[start:], delimiter=delim))
+    if not rows:
+        return []
+    header = [h.strip().strip('"').lower() for h in rows[0]]
+    while header and not header[-1]:
+        header.pop()
+    out = []
+    for r in rows[1:]:
+        if not any(c.strip() for c in r):
+            continue
+        if len(r) == 1 and len(header) > 1 and delim not in r[0]:
+            continue  # a prose line (e.g. "Let me know if you need more") or a stray note
+        if len(r) > len(header):
+            r = r[:len(header) - 1] + [delim.join(r[len(header) - 1:])]
+        r = r + [""] * (len(header) - len(r))
+        out.append({h: (v or "").strip() for h, v in zip(header, r) if h})
+    return out
 
 
 def write_csv(path, rows, columns):
@@ -210,13 +248,17 @@ def squash(s):
     return re.sub(r"[\s|]+", "", s)
 
 
-NOT_REPORTED = {"not reported", "nr", "n/r", "not stated", "not available", "none reported", "missing",
-                "not applicable", "na", "n/a", "unclear", "not described"}
+NOT_REPORTED_EXACT = {"nr", "n/r", "n.r", "na", "n/a", "n.a", "missing", "unclear", "none", "-", "--", "?", "unknown"}
+NOT_REPORTED_PREFIX = ("not reported", "not stated", "not mentioned", "none reported", "not available", "not described",
+                       "not specified", "not given", "not provided", "not applicable", "no data", "not found",
+                       "no information", "information not", "not clearly reported", "not explicitly", "nr ", "nr:",
+                       "nr(", "n/r ", "na ", "n/a ")
 
 
 def is_not_reported(value):
-    v = norm_text(value).strip(" .;")
-    return v in NOT_REPORTED or v.startswith("not reported")
+    v = norm_text(value).strip(" .;:")
+    v = re.sub(r"[_*]", "", v).strip()
+    return v in NOT_REPORTED_EXACT or v.startswith(NOT_REPORTED_PREFIX)
 
 
 def numbers_in(s):

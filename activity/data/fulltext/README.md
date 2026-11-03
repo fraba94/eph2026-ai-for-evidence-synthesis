@@ -14,7 +14,7 @@ redistribution in this repository. Run `python3 activity/tools/fetch_fulltext.py
 `activity/data/local/fulltext/` (git-ignored), or open it at https://pmc.ncbi.nlm.nih.gov/articles/PMC5700699/.
 
 **Attribution and changes.** Text © the original authors, from PubMed Central. Each file was produced from the PMC
-XML by `activity/tools/pmc_to_text.py`: the author list, references, figure images and supplementary files were
-omitted, and tables were flattened to one line per row with cells separated by ` | `. No other change was made.
+XML by `activity/tools/pmc_to_text.py`: the author names, references, figure images and supplementary files were
+omitted, and tables were flattened to one line per row with cells separated by ` | `. Author affiliations are kept (one line at the top). No other change was made.
 Figures exist in these papers but appear here only as captions: values that are shown only in a figure cannot be
 quoted from the text (this is one of the lessons of the exercise).

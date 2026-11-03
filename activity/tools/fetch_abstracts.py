@@ -9,8 +9,6 @@ Usage:
     python3 activity/tools/fetch_abstracts.py
         -> writes activity/data/local/screening_records_full.csv (git-ignored; do not publish it)
     python3 activity/tools/fetch_abstracts.py --out my_work/records_full.csv
-    python3 activity/tools/fetch_abstracts.py --in activity/data/screening_records.csv --inplace
-        -> overwrites the input file (facilitator laptops only; do not commit the result)
 
 Then use the full file for screening, e.g.:
     python3 beginners/make_batches.py activity/data/local/screening_records_full.csv
@@ -31,8 +29,8 @@ COLS = ["record_id", "pmid", "doi", "title", "abstract", "year", "journal", "lic
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--in", dest="inp", default=os.path.join(C.DATA, "screening_records.csv"), help="records CSV to complete")
-    ap.add_argument("--out", default=os.path.join(C.LOCAL, "screening_records_full.csv"), help="output CSV")
-    ap.add_argument("--inplace", action="store_true", help="overwrite the input file instead of writing --out")
+    ap.add_argument("--out", default=os.path.join(C.LOCAL, "screening_records_full.csv"),
+                    help="output CSV (default: activity/data/local/screening_records_full.csv, git-ignored)")
     a = ap.parse_args()
 
     rows = C.read_csv(a.inp)
@@ -51,7 +49,9 @@ def main():
             filled += 1
         else:
             still.append(r["record_id"])
-    out = a.inp if a.inplace else a.out
+    out = a.out
+    if os.path.abspath(out) == os.path.abspath(a.inp) or os.path.abspath(out) == os.path.abspath(os.path.join(C.DATA, "screening_records.csv")):
+        C.die("refusing to overwrite the shipped records file: abstracts fetched from PubMed must not go into a tracked file")
     C.write_csv(out, rows, cols)
     print(f"filled {filled} abstracts -> {out}")
     if still:

@@ -14,6 +14,14 @@ Output (printed, and as Markdown with --out):
   - records flagged as POSSIBLE GOLD-STANDARD ERRORS in the reference (discussion items)
   - optional: agreement between two runs (--compare run2.csv): Cohen's kappa and the disagreements
 
+Coverage rule: metrics are computed on the records present in your file, and the report ALWAYS states the
+coverage ("Screened N of 60 records"), lists the records not screened, highlights reference includes that were
+not screened, and gives the sensitivity counting not-screened includes as missed. With --expect-all (agent
+track, where every record should be screened) not-screened records count as exclude in all metrics.
+
+The CSV reader tolerates ';' or tab separators, a byte-order mark, ``` fences, prose before/after the table,
+unquoted commas in the reason, and lower/upper case record IDs (r005 = R005 = 5).
+
 "unsure" is counted as INCLUDE by default (at title/abstract stage an uncertain record goes on to
 full text); use --unsure exclude to see the other scenario. Unsure records are always reported apart.
 
@@ -47,25 +55,24 @@ def norm_id(x):
 
 
 def load_decisions(path):
-    rows = C.read_csv(path)
+    rows = C.read_csv(path, expect=["record_id", "decision"])
     if not rows:
-        C.die(f"{path} has no rows")
-    cols = {c.strip().lower(): c for c in rows[0].keys()}
-    if "record_id" not in cols or "decision" not in cols:
+        C.die(f"{path}: no table with the columns record_id,decision[,reason] was found")
+    if "record_id" not in rows[0] or "decision" not in rows[0]:
         C.die(f"{path} needs the columns record_id,decision[,reason]; found: {', '.join(rows[0].keys())}")
     out, bad, dup = {}, [], []
     for i, r in enumerate(rows, 2):
-        rid = norm_id(r[cols["record_id"]])
+        rid = norm_id(r.get("record_id"))
         if not rid:
             continue
-        raw = (r[cols["decision"]] or "").strip().lower()
+        raw = (r.get("decision") or "").strip().strip("*`'\"").lower()
         d = SYN.get(raw)
         if d is None:
             bad.append((i, rid, raw))
             continue
         if rid in out:
             dup.append(rid)
-        out[rid] = {"decision": d, "reason": (r.get(cols.get("reason", ""), "") or "").strip()}
+        out[rid] = {"decision": d, "reason": (r.get("reason") or "").strip()}
     return out, bad, dup
 
 
@@ -93,6 +100,9 @@ def main():
     ap.add_argument("--gold", default=os.path.join(C.ANSWERS, "screening_gold.csv"), help="reference standard")
     ap.add_argument("--records", default=os.path.join(C.DATA, "screening_records.csv"), help="records file (titles)")
     ap.add_argument("--unsure", choices=["include", "exclude"], default="include", help="how to count 'unsure' (default: include)")
+    ap.add_argument("--expect-all", action="store_true",
+                    help="every reference record should have been screened (agent track): records not screened count as "
+                         "exclude in all metrics, so a dropped include is a missed include")
     ap.add_argument("--compare", metavar="RUN2.csv", help="second run of the same screening: report agreement")
     ap.add_argument("--out", help="also write the report as Markdown to this file")
     a = ap.parse_args()
@@ -117,8 +127,11 @@ def main():
         gd = g["gold_decision"].strip().lower()
         if rid not in dec:
             missing.append(rid)
-            continue
-        d = dec[rid]["decision"]
+            if not a.expect_all:
+                continue
+            d = "exclude"  # --expect-all: a record that was not screened is a record that was not kept
+        else:
+            d = dec[rid]["decision"]
         if d == "unsure":
             unsure.append(rid)
         eff = a.unsure if d == "unsure" else d
@@ -142,6 +155,25 @@ def main():
     f1 = ratio(2 * tp, 2 * tp + fp + fn)
     wss = ratio(tn + fn, n) - (1 - sens) if n else float("nan")
 
+    # ---- coverage block (same rule and wording as the web scorer) ----
+    n_gold = len(gold)
+    n_screened = n_gold - len(missing)
+    miss_inc = [r for r in missing if gold[r]["gold_decision"].strip().lower() == "include"]
+    p("## Coverage")
+    p("")
+    p(f"Screened {n_screened} of {n_gold} records ({len(missing)} not screened).")
+    if missing:
+        p(f"Not screened: {', '.join(missing)}")
+        if miss_inc:
+            p(f"**Not screened but INCLUDED in the reference: {', '.join(miss_inc)}**")
+        n_inc = sum(g["gold_decision"].strip().lower() == "include" for g in gold.values())
+        kept = tp
+        p(f"Sensitivity counting not-screened includes as missed: {pct(ratio(kept, n_inc))} ({kept}/{n_inc})")
+        if a.expect_all:
+            p("Not-screened records are counted as exclude in all metrics below (--expect-all).")
+        else:
+            p("Metrics below are computed on the screened records only; use --expect-all to count not-screened records as exclude.")
+    p("")
     p("## Confusion matrix")
     p("")
     p("| | Reference: include | Reference: exclude |")
@@ -153,7 +185,7 @@ def main():
     p("")
     p("| Metric | Value | Meaning |")
     p("|---|---:|---|")
-    p(f"| Records scored | {n} of {len(gold)} | records with a valid decision |")
+    p(f"| Records scored | {n} of {len(gold)} | {'all reference records (not screened = exclude)' if a.expect_all else 'records with a valid decision'} |")
     p(f"| Sensitivity (recall) | {pct(sens)} | share of the review's includes that you kept: the key metric at this stage |")
     p(f"| Specificity | {pct(spec)} | share of the excludes that you excluded |")
     p(f"| Precision (PPV) | {pct(prec)} | share of your includes that the review included |")
@@ -173,9 +205,10 @@ def main():
     if ft:
         t2 = f2 = n2 = m2 = 0
         for rid, g in gold.items():
-            if rid not in dec:
+            if rid not in dec and not a.expect_all:
                 continue
-            eff = a.unsure if dec[rid]["decision"] == "unsure" else dec[rid]["decision"]
+            dd = dec[rid]["decision"] if rid in dec else "exclude"
+            eff = a.unsure if dd == "unsure" else dd
             ta = "include" if (g["gold_decision"].strip().lower() == "include" or rid in ft) else "exclude"
             if ta == "include" and eff == "include":
                 t2 += 1
@@ -235,7 +268,7 @@ def main():
         p("")
     probs = []
     if missing:
-        probs.append(f"**{len(missing)} record(s) without a decision**: {', '.join(missing)}. A record that is silently dropped is a record that can be missed.")
+        probs.append(f"**{len(missing)} record(s) not screened**: {', '.join(missing)}. A record that is silently dropped is a record that can be missed.")
     if unknown:
         probs.append(f"{len(unknown)} record_id(s) not in the reference: {', '.join(unknown)}")
     if bad:

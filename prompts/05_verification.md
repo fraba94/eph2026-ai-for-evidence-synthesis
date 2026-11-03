@@ -25,7 +25,7 @@ Output a CSV with the header: study_id,field,quote_status,supports_value,comment
 ```
 
 **Check afterwards.** Open the paper at every NOT FOUND, NEAR and "partly/no". If you have Python, a mechanical check is more reliable than the model for verbatim matching:
-`python3 .claude/skills/quote-verifier/scripts/verify_quotes.py extraction.csv sources/ --out verification.csv`
+`python3 .claude/skills/quote-verifier/scripts/verify_quotes.py extraction.csv activity/data/fulltext/ --out verification.csv`
 **Failure modes.** The model says FOUND for a quote that is not there (it is checking its memory of the paper, not the text). Spot-check a few FOUND rows yourself.
 
 ---

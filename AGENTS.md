@@ -46,8 +46,11 @@ Some records in `activity/data/screening_records.csv` may have an empty `abstrac
 
 ## File formats for outputs
 
-- Screening decisions: `record_id,decision,reason` with `decision` in `include|exclude|unsure`.
-- Extraction: long format `study_id,field,value,source_quote,location`, one row per study and field.
+File names are the same as in `activity/README.md`, for both the chat and the agent track.
+
+- Screening decisions: `screening_run1.csv`, `screening_run2.csv` (and, for agents, the conservative merge `screening_merged.csv`), columns `record_id,decision,reason` with `decision` in `include|exclude|unsure`.
+- Extraction: `extraction.csv`, long format `study_id,field,value,source_quote,location`, one row per study and field. When a paper does not report a field, write exactly `not reported`.
+- Full texts for extraction: `activity/data/fulltext/<study_id>.txt` (e.g. `Phan2020.txt`); the study list is `activity/data/papers.csv`.
 
 ## How to run the scorers
 
@@ -55,17 +58,17 @@ Check the arguments first, then score (only when the user asks):
 
 ```bash
 python3 activity/tools/score_screening.py --help
-python3 activity/tools/score_screening.py my_work/screening_ai.csv
+python3 activity/tools/score_screening.py my_work/screening_run1.csv --compare my_work/screening_run2.csv
 python3 activity/tools/score_extraction.py --help
-python3 activity/tools/score_extraction.py my_work/extraction_ai.csv
+python3 activity/tools/score_extraction.py my_work/extraction.csv
 ```
 
 Helper scripts (standard library only):
 
 ```bash
-python3 .claude/skills/title-abstract-screening/scripts/compare_runs.py activity/data/screening_records.csv run1.csv run2.csv --merged screening_ai.csv
-python3 .claude/skills/quote-verifier/scripts/verify_quotes.py extraction_ai.csv sources/ --out verification.csv
-python3 .claude/skills/discrepancy-audit/scripts/draft_discrepancy_log.py screening screening_ai.csv activity/answers/screening_gold.csv
+python3 .claude/skills/title-abstract-screening/scripts/compare_runs.py activity/data/screening_records.csv my_work/screening_run1.csv my_work/screening_run2.csv --merged my_work/screening_merged.csv
+python3 .claude/skills/quote-verifier/scripts/verify_quotes.py my_work/extraction.csv activity/data/fulltext/ --out verification.csv
+python3 .claude/skills/discrepancy-audit/scripts/draft_discrepancy_log.py screening my_work/screening_merged.csv activity/answers/screening_gold.csv
 ```
 
 ## Skills (task procedures)

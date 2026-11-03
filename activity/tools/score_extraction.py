@@ -18,6 +18,10 @@ and, independently, a quote check against the full text of the paper:
     quote found / QUOTE NOT FOUND (hallucinated or paraphrased quote) / no quote / not checked (no full text)
     plus "number not in quote" when a number in your value does not appear in your own quote.
 
+The CSV reader tolerates ';' or tab separators, a byte-order mark, ``` fences, prose around the table and
+unquoted commas in the last column; study_id and field names are matched without regard to case
+(phan2020 = Phan2020, "HAI rate baseline" = hai_rate_baseline).
+
 Full texts are read from activity/data/fulltext/ and activity/data/local/fulltext/
 (run `python3 activity/tools/fetch_fulltext.py` for the papers that are not shipped).
 
@@ -162,13 +166,20 @@ def main():
     gold = C.read_csv(a.gold)
     papers = C.read_csv(a.papers)
     texts = load_texts(papers)
-    rows = C.read_csv(a.extraction)
+    rows = C.read_csv(a.extraction, expect=["study_id", "field"])
     if not rows or not {"study_id", "field", "value"} <= set(rows[0].keys()):
         C.die("the extraction file needs the columns study_id,field,value[,source_quote][,location]")
+    canon_sid = {g["study_id"].lower(): g["study_id"] for g in gold}
+    canon_sid.update({p_["study_id"].lower(): p_["study_id"] for p_ in papers})
+
+    def fkey(x):
+        return re.sub(r"[\s-]+", "_", (x or "").strip().strip("`*").lower())
     mine = {}
     unknown_fields, dups = set(), []
     for r in rows:
-        sid, f = (r.get("study_id") or "").strip(), (r.get("field") or "").strip()
+        sid = (r.get("study_id") or "").strip().strip("`*")
+        sid = canon_sid.get(sid.lower(), sid)
+        f = fkey(r.get("field"))
         if not sid or not f:
             continue
         if f not in form:
@@ -177,7 +188,7 @@ def main():
             dups.append(f"{sid}/{f}")
         r["study_id"], r["field"] = sid, f
         mine[(sid, f)] = r
-    studies = a.study or sorted({k[0] for k in mine})
+    studies = [canon_sid.get(x.lower(), x) for x in a.study] if a.study else sorted({k[0] for k in mine})
     known = {g["study_id"] for g in gold}
     missing_studies = [s for s in studies if s not in known]
 

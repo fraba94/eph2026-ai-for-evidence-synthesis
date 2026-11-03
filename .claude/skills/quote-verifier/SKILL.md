@@ -15,10 +15,10 @@ Fluency tells you nothing about correctness. A value is accepted only when its s
 
 ## Procedure
 
-1. **Get the source as text**, the same text the extraction used if possible (`pdftotext -layout paper.pdf S01.txt`). Name files `<study_id>.txt`. Note if the text came from a different parser than the extraction (differences in tables are then expected).
+1. **Get the source as text**, the same text the extraction used if possible (`pdftotext -layout paper.pdf S01.txt`). Name files `<study_id>.txt` (in the workshop the texts are already in `activity/data/fulltext/`, e.g. `Phan2020.txt`). Inside the workshop repository the script uses the scorer's own text normalisation (`activity/tools/common.py`), so its "found" agrees with `score_extraction.py`. Note if the text came from a different parser than the extraction (differences in tables are then expected).
 2. **Mechanical check** with the bundled script:
    ```
-   python3 ${CLAUDE_SKILL_DIR}/scripts/verify_quotes.py extraction_ai.csv sources/ --out verification.csv
+   python3 ${CLAUDE_SKILL_DIR}/scripts/verify_quotes.py extraction.csv activity/data/fulltext/ --out verification.csv
    ```
    Status per row: `quote_found`, `value_not_in_quote`, `quote_not_found`, `no_quote`, `not_reported`, `no_source`.
 3. **Semantic check** of every `quote_found` row (the script cannot do this): does the passage support the value for the right population, outcome, ward or period, time point and unit? Is a confidence interval or denominator dropped? Is a rounded or converted value declared?

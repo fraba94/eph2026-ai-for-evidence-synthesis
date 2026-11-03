@@ -21,7 +21,7 @@ A step-by-step, copy-paste walkthrough of the workshop exercise for people who o
 | 3 | Check what came back | 5 min |
 | 4 | Run it again in a new chat | 5 min |
 | 5 | Score against the reference review | 5 min |
-| 6 | Optional: extract data from one paper, with quotes | extra |
+| 6 | Extract data from one paper, with quotes (optional if you are short of time; recommended) | 12 min |
 | 7 | Talk about it | in the room |
 
 **The question** is deliberately simple, so you can focus on the AI and not on the topic: *are hand hygiene interventions effective in preventing healthcare-associated infections (HAI)?*
@@ -30,7 +30,7 @@ A step-by-step, copy-paste walkthrough of the workshop exercise for people who o
 |---|---|---|---|
 | Healthcare settings (patients, healthcare workers) | Hand hygiene interventions or promotion | Usual care or the period before the intervention | HAI incidence |
 
-The **reference review** is a systematic review on this question conducted **without AI**; its decisions are the answers you compare with. Its full reference is in [`activity/README.md`](../activity/README.md).
+The **reference review** is a systematic review on this question conducted **without AI**; its decisions are the answers you compare with. Its full reference, and why it was chosen, are in [`activity/data/README.md`](../activity/data/README.md) (the only page that names it).
 
 ---
 
@@ -102,7 +102,7 @@ RECORDS
 Reminder: apply only the criteria above; one row per record; when in doubt, unsure.
 ```
 
-**Save the answer.** Copy the CSV block into your text editor and save it as `run1.csv` (plain text, not .docx). In a spreadsheet: paste, then *File → Download / Save as → CSV*.
+**Save the answer.** Copy the CSV block into your text editor and save it as `screening_run1.csv` (plain text, not .docx). In a spreadsheet: paste, then *File → Download / Save as → CSV*.
 
 > [!TIP]
 > If the reply is cut off, type `continue from record [last record_id], same format`. If it gives you a table instead of CSV, ask: `Give me the same as a CSV code block, nothing else.`
@@ -122,8 +122,8 @@ Before trusting anything, check it. This is the most important step.
 
 1. Open a **new** chat (not the same one: it would just repeat itself).
 2. Paste the same prompt and the same batch again. A fresh chat does not remember the first run, so this is an independent second run.
-3. Save the answer as `run2.csv`.
-4. Compare `run1.csv` and `run2.csv` side by side in a spreadsheet. Mark every record where the decision changed.
+3. Save the answer as `screening_run2.csv`.
+4. Compare `screening_run1.csv` and `screening_run2.csv` side by side in a spreadsheet. Mark every record where the decision changed.
 
 > [!NOTE]
 > The answer is **sampled**: the model picks each word with some randomness. The same prompt on the same text can give a different decision. A result you cannot reproduce is not a method.
@@ -134,20 +134,24 @@ For records where the two runs disagree, **you** decide: write your own decision
 
 Only now look at the answers.
 
-- **Online scorer** (nothing leaves your browser): open the workshop website's scorer, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>, and load `run1.csv`, `run2.csv` or `my_decisions.csv`.
-- **With Python** (if you have it): `python3 activity/tools/score_screening.py run1.csv` (use `--help` to see the options).
+- **Online scorer** (nothing leaves your browser): open the workshop website's scorer, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>, and load `screening_run1.csv`, `screening_run2.csv` or `my_decisions.csv`.
+- **With Python** (if you have it): `python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` (use `--help` to see the options).
 
 Then look at each disagreement with the reference and ask: was it a **missed include** (the most serious error), a **false include**, an *unsure* that was reasonable, or a criterion that two humans could also read differently? The prompt to help you classify them is [6.2 in the prompt library](../prompts/06_synthesis_and_reporting.md#62-discrepancy-summary-after-the-workshop-exercise).
 
-## Step 6 (optional). Extract data from one paper, with quotes
+## Step 6. Extract data from one paper, with quotes (optional if you are short of time; recommended)
 
-Pick one open-access paper from the exercise (see [`activity/README.md`](../activity/README.md); use only papers whose licence allows uploading). Open a **new chat** and attach the PDF (or paste its text). Use the extraction form [`activity/data/extraction_form.csv`](../activity/data/extraction_form.csv).
+This is the 12-minute extraction step of [`activity/README.md`](../activity/README.md). If you are short of time, skip it; if you can, do it: extraction is where AI errors are hardest to see.
+
+1. **Look at the form first**, before giving the paper to the assistant: [`activity/data/extraction_form.csv`](../activity/data/extraction_form.csv). For this track use only the **11 core fields** (column `core = yes`): `country`, `intervention_scope`, `study_design`, `intervention_components`, `comparator`, `primary_hai_outcome`, `hh_compliance_baseline`, `hh_compliance_post`, `hai_rate_baseline`, `hai_rate_post`, `direction_of_effect`.
+2. Open a **new chat** and paste (or upload) the plain text of the paper: [`activity/data/fulltext/Phan2020.txt`](../activity/data/fulltext/Phan2020.txt) (alternative: [`Mestre2012.txt`](../activity/data/fulltext/Mestre2012.txt)). Use `study_id = Phan2020` (or `Mestre2012`).
+3. Paste the prompt below, then save the CSV block as **`extraction.csv`**.
 
 ```text
-You are extracting data for a systematic review. Use ONLY the attached paper. Do not use outside knowledge.
+You are extracting data for a systematic review. Use ONLY the paper I give you. Do not use outside knowledge.
 
 EXTRACTION FORM (fill every field, do not add or change fields):
-[PASTE THE FORM: field, definition, allowed values]
+[PASTE THE 11 CORE FIELDS: field, definition, allowed values]
 
 RULES
 - For every field give: value, a verbatim quote copied exactly from the paper, and the location (section, table, page).
@@ -156,23 +160,27 @@ RULES
 
 OUTPUT: only a CSV block with the header
 study_id,field,value,source_quote,location
-Use study_id = [THE STUDY ID].
+Use study_id = [Phan2020 or Mestre2012].
+
+PAPER:
+[PASTE THE TEXT OF THE PAPER, OR SAY "attached"]
 ```
 
-Then verify, in **another new chat** with the same PDF attached:
+Then verify, in **another new chat** with the same paper pasted or attached:
 
 ```text
-For each row below, find the quote in the attached paper. Answer FOUND (verbatim), NEAR (similar wording: give the real text) or NOT FOUND, and say whether the passage supports the value (yes / partly / no). Do not correct anything.
+For each row below, find the quote in the paper I give you. Answer FOUND (verbatim), NEAR (similar wording: give the real text) or NOT FOUND, and say whether the passage supports the value (yes / partly / no). Do not correct anything.
 
 [PASTE THE CSV ROWS]
 ```
 
 **What to look for**
 
-- [ ] Open the PDF at every location given. Is the number really there, in the right row and column of the table?
-- [ ] Every *not reported*: search the PDF yourself (Ctrl+F) with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days). Is it really absent?
+- [ ] Open the paper at every location given (Ctrl+F on the quote). Is the number really there, in the right row and column of the table?
+- [ ] Every *not reported*: search the paper yourself (Ctrl+F) with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days). Is it really absent?
 - [ ] Quotes that are "almost" the same as the paper: the model rewrote them. Treat the value as unverified.
 - [ ] If you ran it twice: which fields changed? Numbers usually change more than descriptions.
+- [ ] Score it (scorer page or `python3 activity/tools/score_extraction.py extraction.csv`): read `QUOTE NOT FOUND`, `unsupported` and `false absent` first.
 
 ## Step 7. Talk about it
 

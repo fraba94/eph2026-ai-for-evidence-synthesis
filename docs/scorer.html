@@ -18,6 +18,7 @@
       <a href="index.html">Home</a>
       <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/README.md">Activity</a>
       <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">Beginners</a>
+      <a href="batch.html">Records</a>
       <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/README.md">Prompts</a>
       <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/skills/README.md">Skills</a>
       <a href="scorer.html" aria-current="page">Scorer</a>
@@ -58,7 +59,7 @@
             <span id="s-file-status" class="status"></span>
           </div>
           <label for="s-text" class="visually-hidden">Your decisions</label>
-          <textarea id="s-text" spellcheck="false" placeholder="record_id,decision,reason&#10;R001,include,AI model predicting surgical site infection&#10;R002,exclude,no AI method&#10;R003,unsure,population unclear"></textarea>
+          <textarea id="s-text" spellcheck="false" placeholder="record_id,decision,reason&#10;R001,include,hospital-wide multimodal hand hygiene programme; HAI incidence reported&#10;R002,exclude,C5: outcome is hand hygiene compliance only, no infection outcome&#10;R003,unsure,C2: unclear whether the intervention covered more than one ward"></textarea>
         </div>
 
         <div class="card">
@@ -120,7 +121,7 @@
             <span id="e-file-status" class="status"></span>
           </div>
           <label for="e-text" class="visually-hidden">Your extraction</label>
-          <textarea id="e-text" spellcheck="false" placeholder="study_id,field,value,source_quote,location&#10;S01,sample_size,1250,&quot;1250 patients were included&quot;,Results"></textarea>
+          <textarea id="e-text" spellcheck="false" placeholder="study_id,field,value,source_quote,location&#10;Phan2020,country,Vietnam,&quot;...a 900-bed maternity hospital in Ho-Chi-Minh-City, Vietnam.&quot;,Abstract&#10;Phan2020,hai_definition,not reported,,searched Methods and Tables"></textarea>
         </div>
         <div class="card">
           <div class="step-title"><span class="n">2</span><h2>Compare with the reference extraction</h2></div>

@@ -31,14 +31,15 @@ The AI is a second pair of eyes, not the reviewer. Its job is to sort records wi
 4. **Run 2, independent.** Re-screen from the original CSV in **reverse or shuffled order**, without looking at run 1 (a fresh subagent or a fresh context is best). Write `screening_run2.csv`.
 5. **Check completeness and agreement** with the bundled script:
    ```
-   python3 ${CLAUDE_SKILL_DIR}/scripts/compare_runs.py RECORDS.csv screening_run1.csv screening_run2.csv --merged screening_ai.csv
+   python3 ${CLAUDE_SKILL_DIR}/scripts/compare_runs.py RECORDS.csv screening_run1.csv screening_run2.csv --merged screening_merged.csv
    ```
    It reports missing, extra and duplicated records, invalid decisions, raw agreement and Cohen's kappa, lists every disagreement, and writes a merged file where any disagreement becomes `unsure` (conservative). If any record is missing, fix that before going on: **never silently drop a record.**
 6. **Report to the human**: counts per decision, agreement statistics, the list of disagreements and of `unsure` records with their reasons, and the criteria that produced the most ambiguity (these are the questions for the human).
 7. **Score only when asked.** If a gold file exists (workshop: `activity/answers/screening_gold.csv`) and the human asks to score, run:
    ```
    python3 activity/tools/score_screening.py --help     # check the exact arguments first
-   python3 activity/tools/score_screening.py screening_ai.csv
+   python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv
+   python3 activity/tools/score_screening.py screening_merged.csv    # optional: the conservative merge
    ```
    Then hand over to `discrepancy-audit` to classify each disagreement with the gold standard.
 
@@ -46,7 +47,7 @@ The AI is a second pair of eyes, not the reviewer. Its job is to sort records wi
 | File | Content |
 |---|---|
 | `screening_run1.csv`, `screening_run2.csv` | `record_id,decision,reason`, one row per record |
-| `screening_ai.csv` | merged, disagreements → `unsure` |
+| `screening_merged.csv` | merged, disagreements → `unsure` |
 | chat report | counts, kappa, disagreements, questions for the human |
 
 ## Common failure modes to watch

@@ -9,14 +9,14 @@ argument-hint: "[extraction_form.csv] [paper.pdf or folder]"
 What happens between a PDF and your table: the PDF is **parsed** into a stream of characters, cut into **tokens**, placed in a finite **context window** with uneven attention, and the answer is **sampled** one token at a time. So: the model never sees your PDF, only whatever text the parser produced; and the output is generated, not looked up, so a fluent answer is produced whether or not it is right. Every rule below follows from that.
 
 ## Human in the loop
-- **The form comes first and is the human's.** No form, no extraction: ask for one (workshop: `activity/data/extraction_form.csv`, columns `field,definition,allowed_values,type`) or help the human draft one and wait for approval. Never add, drop or redefine fields on your own.
+- **The form comes first and is the human's.** No form, no extraction: ask for one (workshop: `activity/data/extraction_form.csv`, columns `field,definition,allowed_values,type,core`; the 11 `core = yes` fields are the minimum set) or help the human draft one and wait for approval. Never add, drop or redefine fields on your own.
 - When a field definition does not fit what the paper reports (e.g. two wards, several intervention periods, an outcome with another name), **stop and ask** how to record it; do not choose silently.
 - The extraction is a draft for human verification. Run `quote-verifier` afterwards; the human checks rows first, then numbers, then every "not reported".
 
 ## Procedure
 
 1. **Load the form.** Print it as a table. Check each field has a definition and, for categorical fields, allowed values. Missing definitions → ask.
-2. **Get text, and inspect it before extracting.** Extract the text yourself (e.g. `pdftotext -layout paper.pdf paper.txt`, or the tool's own reader) and look at it:
+2. **Get text, and inspect it before extracting.** In the workshop the plain texts are ready in `activity/data/fulltext/<study_id>.txt` (study list in `activity/data/papers.csv`). Otherwise extract the text yourself (e.g. `pdftotext -layout paper.pdf paper.txt`, or the tool's own reader) and look at it:
    - Are tables readable as rows and columns, or scrambled? Are numbers split from their labels?
    - Two-column layout interleaved? Hyphenation at line ends? Figures (values only in images)? Supplementary files referenced?
    Record each risk; values from risky regions get `[PARSING RISK]` in the location.
@@ -27,18 +27,18 @@ What happens between a PDF and your table: the PDF is **parsed** into a stream o
    - `location`: section, table or figure, and page if known (e.g. `Results, Table 2, p.6`).
    - If the paper does not report it: `value` = `not reported`, `source_quote` empty, `location` = where you looked (e.g. `searched Methods, Results, Table 1-3`). "Not reported" is a valid, useful answer; a guess is not.
    - If you are inferring rather than reading (e.g. controlled before-after design inferred from the methods), say `inferred:` at the start of the location and keep the supporting quote.
-5. **Write the CSV** `extraction_ai.csv` with exactly the columns `study_id,field,value,source_quote,location`, one row per study × field, no field skipped. Quote fields properly (use a CSV writer; quotes and commas in source text break hand-made CSV).
+5. **Write the CSV** `extraction.csv` with exactly the columns `study_id,field,value,source_quote,location`, one row per study × field, no field skipped. Quote fields properly (use a CSV writer; quotes and commas in source text break hand-made CSV).
 6. **Reproducibility check.** If time allows, re-run one paper in a fresh context and compare field by field. Outcome numbers are usually less stable than study characteristics; report what changed.
 7. **Hand over**: run `quote-verifier` on the CSV and the parsed text; list for the human the `[PARSING RISK]` rows, the `not reported` rows and the fields that changed between runs.
 8. **Score only when asked**: if the human asks and a gold file exists (workshop: `activity/answers/extraction_gold.csv`):
    ```
    python3 activity/tools/score_extraction.py --help    # check the exact arguments first
-   python3 activity/tools/score_extraction.py extraction_ai.csv
+   python3 activity/tools/score_extraction.py extraction.csv
    ```
    Then use `discrepancy-audit`.
 
 ## Output
-`extraction_ai.csv`:
+`extraction.csv`:
 ```
 study_id,field,value,source_quote,location
 S01,setting,adult intensive care units,"The study was conducted in four adult intensive care units",Methods 2.1 p.3
