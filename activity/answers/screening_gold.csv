@@ -1,0 +1,61 @@
+record_id,gold_decision,gold_basis
+R001,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C3: broad bundle (isolation, cleaning, surveillance, education); hand hygiene not the central intervention"
+R002,exclude,not included in the reference review (retrieved by approximate search); workshop note: C1: care homes (long-term care)
+R003,include,included in the reference review (listed in its table of included studies)
+R004,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R005,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C3: MRSA bundle (active surveillance, isolation, cohorting); hand hygiene one component"
+R006,include,included in the reference review (listed in its table of included studies)
+R007,exclude,not included in the reference review (retrieved by approximate search); workshop note: C2: single neonatal intensive care unit
+R008,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C5: compliance and correctness only, no HAI outcome"
+R009,exclude,not included in the reference review (retrieved by approximate search); workshop note: C2: single neonatal intensive care unit
+R010,include,included in the reference review (listed in its table of included studies)
+R011,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C5: adherence only, no HAI outcome"
+R012,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R013,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R014,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R015,exclude,not included in the reference review (retrieved by approximate search); workshop note: C3: hospital-wide infection control programme with HAI-specific bundles; hand hygiene not separable
+R016,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R017,include,included in the reference review (listed in its table of included studies)
+R018,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C5: accuracy of surgical hand antisepsis (process measure), no HAI outcome"
+R019,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R020,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R021,include,included in the reference review (listed in its table of included studies)
+R022,include,included in the reference review (listed in its table of included studies)
+R023,exclude,not included in the reference review (retrieved by approximate search); workshop note: C1: equine (veterinary) hospitals; C5: compliance only
+R024,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R025,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R026,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R027,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R028,exclude,not included in the reference review (retrieved by approximate search); workshop note: C4: randomised trial; C5: hand contamination (microbial counts) only
+R029,include,included in the reference review (listed in its table of included studies)
+R030,include,included in the reference review (listed in its table of included studies)
+R031,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R032,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R033,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C4: ecological observational study of compliance and infection rates, no intervention"
+R034,exclude,not included in the reference review (retrieved by approximate search); workshop note: C4: cluster randomised trial; C5: adherence only
+R035,exclude,not included in the reference review (retrieved by approximate search); workshop note: C4: systematic review and network meta-analysis; outcome is compliance
+R036,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C5: compliance only, no HAI outcome"
+R037,exclude,not included in the reference review (retrieved by approximate search); workshop note: C4: integrative review
+R038,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R039,exclude,"not included in the reference review, although it appears to meet its criteria: POSSIBLE GOLD-STANDARD ERROR (discussion item). Hospital-wide multimodal hand hygiene programme (Geneva), before-after surveys 1994-1997, nosocomial infection prevalence and MRSA transmission reported: appears to meet C1-C6 but is not among the 12 included studies nor among the full-text exclusions listed by the review."
+R040,include,included in the reference review (listed in its table of included studies)
+R041,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C3: multicomponent A. baumannii programme (decontamination, stewardship, precautions)"
+R042,include,included in the reference review (listed in its table of included studies)
+R043,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R044,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R045,exclude,not included in the reference review (retrieved by approximate search); workshop note: C2: single ward (urology)
+R046,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R047,exclude,not included in the reference review (retrieved by approximate search); workshop note: C4: randomised trial (patient hand hygiene); outcome is colonisation
+R048,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C3: CRE bundle (screening, cohorting, stewardship); hand hygiene one component"
+R049,exclude,not included in the reference review (retrieved by approximate search); workshop note: C2: single neonatal intensive care unit; outcome is colonisation
+R050,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R051,exclude,not included in the reference review (retrieved by approximate search); workshop note: C2: single neonatal intensive care unit
+R052,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C5: knowledge, perception and compliance only, no HAI outcome"
+R053,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C5: knowledge and compliance only, no HAI outcome"
+R054,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R055,include,included in the reference review (listed in its table of included studies)
+R056,exclude,"not included in the reference review (retrieved by approximate search); workshop note: C5: knowledge and compliance only, no HAI outcome"
+R057,exclude,not included in the reference review (retrieved by approximate search); workshop note: C4: outbreak investigation without an evaluable hand hygiene intervention
+R058,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R059,exclude,excluded by the reference review after full-text assessment (cited among its full-text exclusions; it passed the review's title/abstract stage)
+R060,include,included in the reference review (listed in its table of included studies)

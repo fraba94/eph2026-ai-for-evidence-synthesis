@@ -1,0 +1,20 @@
+field,definition,allowed_values,type,core
+country,"Country where the study was conducted, as stated in the paper. If the paper does not name the country, write not reported (do not infer it).",free text,text,yes
+setting,Type and size of the hospital(s) and the wards/units covered by the study.,free text,text,no
+intervention_scope,How widely the intervention was implemented.,hospital-wide | multi-ward | single unit,categorical,yes
+study_design,"Design of the evaluation, as you would classify it (not only the authors' label).",interrupted time series | controlled before-after | uncontrolled before-after | randomised trial | other,categorical,yes
+study_period,Calendar period of the baseline and intervention phases.,free text (e.g. 2010-2018),text,no
+follow_up_duration,Length of the intervention and follow-up period after the start of the intervention.,free text (e.g. 12 months),text,no
+who_multimodal_strategy,Is the intervention explicitly based on the WHO multimodal hand hygiene improvement strategy?,yes | no,categorical,no
+intervention_components,Components of the hand hygiene intervention.,"list, separated by ';': education/training; alcohol-based hand rub at point of care; reminders/posters; audit and feedback; leadership/institutional safety climate; patient participation; other (specify)",list,yes
+comparator,What the intervention period is compared with.,pre-intervention period | contemporaneous control | both,categorical,yes
+primary_hai_outcome,The main clinical healthcare-associated infection outcome reported (name it as the authors do).,free text,text,yes
+hai_definition,"Surveillance definition used for the infection outcome (e.g. CDC/NHSN), or not reported.",free text | not reported,text,no
+outcome_denominator,Unit in which the infection outcome is expressed.,free text (e.g. per 1000 patient-days),text,no
+hh_compliance_baseline,"Overall hand hygiene compliance at baseline (first or pre-intervention period), in %.",number (%) | not reported,proportion,yes
+hh_compliance_post,"Overall hand hygiene compliance in the last intervention/follow-up period reported, in %.",number (%) | not reported,proportion,yes
+hai_rate_baseline,"Primary HAI outcome at baseline, in the unit given in outcome_denominator.",number | not reported,numeric,yes
+hai_rate_post,"Primary HAI outcome in the last intervention/follow-up period reported, same unit.",number | not reported,numeric,yes
+effect_estimate,"Effect estimate for the primary HAI outcome with its 95% CI (e.g. IRR 0.85, 95% CI 0.79-0.90) or the statistical test reported.",free text | not reported,text,no
+direction_of_effect,Direction of the effect on the primary HAI outcome.,favourable | no clear effect | mixed | unfavourable,categorical,yes
+co_interventions,Other infection prevention interventions running in the same period that could explain the outcome.,free text | none reported,text,no

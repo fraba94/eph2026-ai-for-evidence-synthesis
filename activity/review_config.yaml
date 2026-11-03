@@ -1,0 +1,92 @@
+# Reference review used as the comparison standard of the hands-on exercise.
+#
+# PROVISIONAL: the workshop team may replace this review before the session. To swap it, edit this file
+# and activity/answers/reference_key.yaml, then rebuild the data:
+#     python3 activity/tools/build_screening_set.py
+#     python3 activity/tools/build_extraction_gold.py tables
+#     python3 activity/tools/build_extraction_gold.py check
+# See activity/data/README.md ("How to replace the reference review").
+#
+# This file contains NO answers (it is safe to give it to an AI assistant as the eligibility criteria).
+# The answers (included studies, records excluded by the review, near misses) are in
+# activity/answers/reference_key.yaml: do not open it before step 3 of the exercise.
+
+question: "Are hand hygiene interventions effective in reducing healthcare-associated infections?"
+
+review:
+  status: provisional
+  citation: "Multimodal Hand Hygiene Interventions and Clinical Healthcare-Associated Infection Outcomes in Acute Care Hospitals: A Systematic Review of Quasi-Experimental Studies. J Clin Med. 2026;15(10):3882."
+  doi: "10.3390/jcm15103882"
+  pmid: "42194842"
+  pmcid: "PMC13207023"
+  licence: "CC BY 4.0"
+  registration: "PROSPERO CRD420261339769"
+  conducted_without_ai: "Screening, extraction, risk of bias and synthesis by two independent human reviewers. The authors declare Rayyan for duplicate detection and screening workflow, and ChatGPT for English-language editing only (section 2.5 of the review)."
+  databases: "PubMed, Google Scholar, Embase, Scopus; backward reference screening"
+  date_limits: "none; English only"
+  n_included: 12
+
+# PICO as stated in the reference review (section 2.1)
+pico:
+  population: "Patients and healthcare workers in acute care hospitals"
+  intervention: "Hospital-wide or multi-ward multimodal hand hygiene intervention"
+  comparator: "Pre-intervention period, standard practice, or a contemporaneous comparator group where applicable"
+  outcome: "Occurrence of healthcare-associated infections (clinical HAI outcomes)"
+  study_design: "Quasi-experimental studies: interrupted time series, controlled before-after, uncontrolled before-after with defined pre and post periods"
+
+# Eligibility criteria, paraphrased closely from section 2.2.1-2.2.2 of the reference review.
+# A record is included only if it meets C1 to C6.
+criteria:
+  - id: C1
+    name: Setting
+    include: "Acute care hospital (general, tertiary referral or teaching hospital providing short-term inpatient care)."
+    exclude: "Conducted exclusively in long-term care facilities, nursing homes, outpatient or ambulatory care, or rehabilitation facilities; non-human (veterinary) settings."
+  - id: C2
+    name: Scope of the intervention
+    include: "Implemented hospital-wide or across more than one inpatient ward or department."
+    exclude: "Performed exclusively in a single intensive care unit, neonatal intensive care unit, emergency department or any other isolated single unit."
+  - id: C3
+    name: Intervention
+    include: "Multimodal hand hygiene intervention (at least two distinct hand hygiene improvement components, e.g. education, reminders, audit and feedback, alcohol-based hand rub availability, leadership, champions) that is the clearly central focus."
+    exclude: "Single isolated measure (e.g. posters alone, glove policy, product comparison, electronic monitoring without a wider strategy); broad infection-prevention bundles (screening, isolation, cohorting, cleaning, stewardship) in which hand hygiene is one component whose contribution cannot be interpreted."
+  - id: C4
+    name: Study design
+    include: "Quasi-experimental: interrupted time series, controlled before-after, or uncontrolled before-after with clearly defined pre- and post-intervention periods."
+    exclude: "Randomised trials (including cluster-randomised), cross-sectional or purely descriptive observational studies, outbreak reports without evaluable intervention data, case series or reports, editorials, letters, conference abstracts, reviews."
+  - id: C5
+    name: Outcome
+    include: "Reports at least one clinical healthcare-associated infection outcome (overall HAI rate, CLABSI, CAUTI, VAP/VAE, C. difficile infection, MRSA or VRE acquisition or infection, other clearly defined hospital-acquired infection)."
+    exclude: "Only process measures (hand hygiene compliance, hand rub consumption, knowledge, microbial counts on hands)."
+  - id: C6
+    name: Language
+    include: "English-language report (no date limits)."
+    exclude: "Other languages."
+
+screening:
+  records_file: "activity/data/screening_records.csv"
+  answers_file: "activity/answers/reference_key.yaml"   # included IDs and near misses: answers, do not open early
+  seed: 2026
+  # PubMed queries used to retrieve near-miss records (approximating the review's four search domains)
+  approximate_search:
+    - "(\"Hand Hygiene\"[MeSH Terms] OR \"Hand Disinfection\"[MeSH Terms] OR \"hand hygiene\"[tiab] OR \"hand washing\"[tiab] OR handwashing[tiab] OR \"hand disinfection\"[tiab]) AND (\"Cross Infection\"[MeSH Terms] OR \"healthcare-associated infection*\"[tiab] OR \"hospital-acquired infection*\"[tiab] OR \"nosocomial infection*\"[tiab] OR \"central line-associated\"[tiab] OR CLABSI[tiab] OR CAUTI[tiab] OR \"ventilator-associated pneumonia\"[tiab] OR difficile[tiab] OR MRSA[tiab] OR VRE[tiab]) AND (\"interrupted time series\"[tiab] OR \"before and after\"[tiab] OR \"before-after\"[tiab] OR \"controlled before-after\"[tiab] OR \"quasi-experimental\"[tiab] OR \"pre-post\"[tiab]) AND (\"Hospitals\"[MeSH Terms] OR hospital*[tiab] OR \"acute care\"[tiab]) AND english[la] AND 1990:2025[dp] NOT (\"Nursing Homes\"[MeSH Terms] OR \"nursing home*\"[ti] OR \"long-term care\"[ti])"
+    - "(same hand hygiene AND infection blocks) AND (\"Randomized Controlled Trial\"[pt] OR \"cluster randomi*\"[tiab] OR \"intensive care unit\"[ti] OR \"long-term care\"[ti] OR \"nursing home*\"[ti] OR review[pt]) AND english[la] AND 1990:2025[dp]"
+
+extraction:
+  form_file: "activity/data/extraction_form.csv"
+  papers_file: "activity/data/papers.csv"
+  gold_file: "activity/answers/extraction_gold.csv"
+  review_tables_file: "activity/answers/reference_review_tables.csv"
+  # map: extraction form field -> column of the reference review's tables (Table 1 / Table 2)
+  review_table_map:
+    country: "Country"
+    setting: "Setting"
+    study_design: "Study Design"
+    study_period: "Study Period/Duration"
+    intervention_components: "Intervention (Key Components)"
+    comparator: "Comparator/Baseline"
+    primary_hai_outcome: "Primary Clinical Outcome"
+    hai_rate_baseline: "Main Finding"
+    hai_rate_post: "Main Finding"
+    effect_estimate: "Statistical Support"
+    direction_of_effect: "Direction of Effect"
+    co_interventions: "Caveat"

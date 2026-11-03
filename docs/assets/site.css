@@ -260,7 +260,7 @@ label.opt { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .cm .fp { background: var(--hu-bg); color: var(--hu-ink); }
 @media (max-width: 520px) { .cm td { width: 110px; height: 72px; } .cm td b { font-size: 1.4rem; } }
 
-.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.table-wrap { position: relative; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 table.data { border-collapse: collapse; width: 100%; font-size: 14px; }
 table.data th, table.data td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
 table.data th { background: var(--surface-2); font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); position: sticky; top: 0; }
@@ -274,3 +274,14 @@ details.box { background: var(--surface); border: 1px solid var(--border); borde
 details.box summary { cursor: pointer; font-weight: 700; }
 .muted { color: var(--muted); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* keep grid children from growing past the viewport on small screens */
+.grid > *, .steps > *, .metrics > * { min-width: 0; }
+.file-btn { max-width: 100%; position: relative; }
+code { overflow-wrap: anywhere; }
+@media (max-width: 520px) {
+  .card { padding: 16px; }
+  .cm th { font-size: 11.5px; padding: 2px 4px; }
+  .metric .value { font-size: 1.7rem; }
+}
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }

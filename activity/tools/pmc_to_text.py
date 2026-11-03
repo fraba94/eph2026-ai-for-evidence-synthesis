@@ -85,10 +85,12 @@ def convert(xml_path):
     out.append(f"Journal: {journal} ({year}). DOI: {ids.get('doi', '')}. PMID: {ids.get('pmid', '')}. PMCID: PMC{str(ids.get('pmc', ids.get('pmcid', ''))).replace('PMC', '')}")
     lic = meta.find(".//permissions/license")
     if lic is not None:
-        out.append("Licence: " + (lic.get(XLINK) or "") + " " + text_of(lic))
+        out.append("Licence: " + (lic.get(XLINK) or "") + " | " + text_of(lic))
+    out.append("Changes: converted from the PubMed Central XML to plain text by activity/tools/pmc_to_text.py; "
+               "author list, references, figure images and supplementary files omitted; tables flattened (cells separated by ' | ').")
     out.append("")
     for ab in meta.findall("abstract"):
-        if ab.get("abstract-type") in ("graphical", "teaser"):
+        if ab.get("abstract-type") in ("graphical", "teaser", "plain-language-summary", "author-highlights"):
             continue
         out.append("## Abstract")
         secs = ab.findall("sec")

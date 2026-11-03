@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Records for your chat · AI for evidence synthesis</title>
+  <meta name="description" content="Copy-ready batches of the workshop records (title and abstract) to paste into any chat assistant after the screening prompt.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="assets/eupha-dhai-logo.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+    #out { min-height: 380px; font-size: 13px; line-height: 1.55; white-space: pre-wrap; }
+    #batches { display: flex; flex-wrap: wrap; gap: 8px; }
+    #batches .btn { padding: 8px 14px; font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/eupha-dhai-logo.png" alt="EUPHA Digital Health and Artificial Intelligence section logo"><span>AI for evidence synthesis<small>EPH 2026 · Bilbao · M.8</small></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/README.md">Activity</a>
+      <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">Beginners</a>
+      <a href="batch.html" aria-current="page">Records</a>
+      <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/README.md">Prompts</a>
+      <a href="scorer.html">Scorer</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Chat track · records</div>
+    <h1>Records for your chat</h1>
+    <p>Pick a batch, press <b>Copy batch</b>, and paste it into your chat assistant right after the screening prompt. Missing abstracts are fetched from PubMed directly in your browser.</p>
+  </div>
+</div>
+
+<main id="main">
+  <div class="wrap" style="padding:28px 20px 56px">
+    <div id="sample-banner" class="callout warn" style="margin-bottom:18px" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
+      <div><p><b>Sample mode.</b> These are real PubMed records found with the search "hand hygiene healthcare-associated infection", only to show how the page works. They are not the workshop records. <a href="batch.html">Switch to the workshop records</a>.</p></div>
+    </div>
+
+    <div class="callout warn" style="margin-bottom:18px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>
+      <div>
+        <p><b>For learning only.</b> These prompts are teaching material for this workshop. They are not a validated method. If you are not confident with how large language models work (context windows, parsing, sampling, retrieval, hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility checks, documentation of model and version), <b>do not use AI to conduct a real evidence review.</b> You stay responsible for every decision: the AI does not.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="card">
+        <div class="step-title"><span class="n">1</span><h2>Records</h2></div>
+        <p id="src" class="status">Loading the workshop records...</p>
+        <details class="box" style="margin-top:10px">
+          <summary>Use another records file</summary>
+          <p class="hint" style="margin-top:8px">Any CSV with the columns <code>record_id,pmid,title,abstract</code> (the workshop format is <code>record_id,pmid,doi,title,abstract,year,journal,license</code>).</p>
+          <label class="btn btn-plain file-btn">Choose a CSV file<input type="file" id="file" accept=".csv,.tsv,.txt,text/csv"></label>
+        </details>
+      </div>
+
+      <div class="card" id="work" hidden>
+        <div class="step-title"><span class="n">2</span><h2>Pick a batch and copy it</h2></div>
+        <div class="row" style="margin-bottom:12px">
+          <label class="opt">Records per batch
+            <select id="size"><option value="10">10</option><option value="20" selected>20</option></select>
+          </label>
+          <span class="hint">Smaller batches are safer: long messages are where assistants start skipping records.</span>
+        </div>
+        <div id="batches" role="group" aria-label="Batches"></div>
+        <p id="b-status" class="status" role="status" style="margin-top:12px"></p>
+        <label for="out" class="visually-hidden">Batch text</label>
+        <textarea id="out" readonly spellcheck="false"></textarea>
+        <div class="row" style="margin-top:12px">
+          <button class="btn btn-primary" type="button" id="copy" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg>
+            Copy batch
+          </button>
+          <button class="btn btn-plain" type="button" id="dl">Download as .txt</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="step-title"><span class="n">3</span><h2>Then</h2></div>
+        <ul style="margin:0;padding-left:1.2em">
+          <li>Use the screening prompt from the <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/beginners/README.md">beginners guide</a> or the <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/README.md">prompt library</a>, then paste the batch.</li>
+          <li>Count the rows you get back: every record must appear exactly once. If the answer is shorter, ask for the missing IDs.</li>
+          <li>Records marked <code>[no abstract available]</code>: decide on the title or mark them <code>unsure</code>. Never let the assistant write the abstract from memory.</li>
+          <li>Save the answer as <code>record_id,decision,reason</code> and score it in the <a href="scorer.html">scorer</a>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="hint" style="margin-top:24px">Abstracts not included in the workshop file are requested from PubMed (NCBI E-utilities) by your browser, at most 20 PMIDs per request, and are not stored. Abstract text remains under the copyright of its publishers; use it only for this exercise.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>EUPHA Digital Health and Artificial Intelligence Section · EPH 2026, Bilbao</span>
+    <span><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis">Repository</a> · Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Code MIT</span>
+  </div>
+</footer>
+<script src="batch.js"></script>
+</body>
+</html>
