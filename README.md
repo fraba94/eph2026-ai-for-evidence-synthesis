@@ -67,7 +67,7 @@ Guidance to rely on: the [position statement on AI use in evidence synthesis acr
 
 ## The exercise
 
-The question is deliberately uncontroversial, so that the focus stays on the AI method: **how effective are hand hygiene interventions in preventing healthcare-associated infections?** The reference standard is a published systematic review on hand hygiene and healthcare-associated infections, **conducted without AI**. In small groups you screen a set of records and extract data with AI, then [score](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) your results against the human decisions and discuss where, and why, they differ: missed studies, invented values, "not reported" when the information is there, different answers on a second run. The reference review, the eligibility criteria and the steps are in the [activity guide](activity/README.md).
+The question is deliberately uncontroversial, so that the focus stays on the AI method: **how effective are hand hygiene interventions in preventing healthcare-associated infections?** The reference standard is a published systematic review on hand hygiene and healthcare-associated infections, **screened, extracted and synthesised by human reviewers without AI**. In small groups you screen a set of records and extract data with AI, then [score](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) your results against the human decisions and discuss where, and why, they differ: missed studies, invented values, "not reported" when the information is there, different answers on a second run. The reference review, the eligibility criteria and the steps are in the [activity guide](activity/README.md).
 
 ## Quick start for agents
 
