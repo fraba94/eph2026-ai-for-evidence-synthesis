@@ -102,7 +102,8 @@ At title/abstract stage, if the abstract does not let you decide, the answer is 
    ICU`). Ask for **every** record back and for `unsure` when in doubt.
 3. **Check the count.** Did you get back exactly as many rows as you sent? Any record missing, duplicated or renamed?
 4. **Verifier:** pick 3 decisions and check them against the abstract yourself.
-5. **Save** the output as `screening_run1.csv` (header `record_id,decision,reason`).
+5. **Save** the output (header `record_id,decision,reason`) as `run1.csv` in the chat track (same names as the
+   [beginners walkthrough](../beginners/README.md)) or `screening_run1.csv` in the agent track.
 
 <details>
 <summary>Hints</summary>
@@ -111,12 +112,15 @@ At title/abstract stage, if the abstract does not let you decide, the answer is 
 - Ask the AI to quote the phrase of the abstract that decides each criterion: it makes the verifier's job faster.
 - Records without an abstract: decide on the title and mark `unsure` with reason `no abstract`.
 - Agent track: `.claude/skills/title-abstract-screening/` runs two independent passes and lists the disagreements.
-- If you have one spare minute, **run the same prompt again in a new chat** and save `screening_run2.csv`: you will
-  measure reproducibility in step 3.
+- If you have one spare minute, **run the same prompt again in a new chat** and save `run2.csv` (agents:
+  `screening_run2.csv`): you will measure reproducibility in step 3.
 
 </details>
 
 ## Step 2 · Data extraction (12 min)
+
+*Chat track: optional if screening took longer. A careful screening comparison is worth more than a rushed
+extraction; you can do extraction at home with the same files.*
 
 1. **Look at the form first**, before uploading anything: [`data/extraction_form.csv`](data/extraction_form.csv)
    (19 fields; the 11 marked `core = yes` are enough for the chat track). Discuss in 1 minute what each core field
@@ -151,10 +155,13 @@ Now you may open [`answers/`](answers/README.md).
    - Browser: [scorer page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): upload your CSV files.
    - Python (standard library only):
      ```bash
-     python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv
+     # chat track
+     python3 activity/tools/score_screening.py run1.csv --compare run2.csv
+     # agent track: every record should have been screened
+     python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv --expect-all
      python3 activity/tools/score_extraction.py extraction.csv
      ```
-2. **Read the misses first**: missed includes (screening), `QUOTE NOT FOUND`, `unsupported` and `false absent`
+2. **Read the coverage line first** ("Screened N of 60 records", records not screened), **then the misses**: missed includes (screening), `QUOTE NOT FOUND`, `unsupported` and `false absent`
    (extraction). Then the notes of the reference values: some papers contradict themselves.
 3. **Fill the [discrepancy log](worksheets/discrepancy_log.md)** for at least 3 discrepancies: what the AI said,
    what the reference says, who is right after checking the source, and the error type.
@@ -162,6 +169,12 @@ Now you may open [`answers/`](answers/README.md).
 
 <details>
 <summary>How to read the screening score</summary>
+
+**Coverage rule** (the same in the Python and the browser scorer): the metrics are computed on the records present
+in your file, and the report always says how many were screened ("Screened N of 60 records"), lists the records
+not screened, highlights any reference include among them, and gives the sensitivity *counting not-screened
+includes as missed*. In the chat track you screen 20 records, so 40 "not screened" is expected. With `--expect-all`
+(agent track) records not screened count as exclude in every metric. `unsure` counts as include.
 
 The reference is the review's **final** decision. Some records were excluded by the review only after reading the
 full text: including them at title/abstract stage is not an error. The scorer shows a "title/abstract-stage view"

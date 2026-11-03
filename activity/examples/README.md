@@ -7,7 +7,7 @@ before you score your own work. They are not answers.
 |---|---|
 | `decisions_example.csv` | a screening run (`record_id,decision,reason`) with two missed includes, some false includes, "unsure" records and one record silently dropped |
 | `decisions_example_run2.csv` | a second run of the same prompt, with some decisions changed (reproducibility) |
-| `extraction_example.csv` | an extraction (`study_id,field,value,source_quote,location`) with an invented quote, an inferred country, a value read from a table that differs from the text, a "not reported" that is reported, and a correlation given as effect estimate |
+| `extraction_example.csv` | an extraction (`study_id,field,value,source_quote,location`) with an invented quote, a country with a paraphrased (not verbatim) quote, a value read from a table that differs from the text, a "not reported" that is reported, and a correlation given as effect estimate |
 
 ```bash
 python3 activity/tools/score_screening.py activity/examples/decisions_example.csv --compare activity/examples/decisions_example_run2.csv

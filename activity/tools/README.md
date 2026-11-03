@@ -13,4 +13,15 @@ Every script prints its full help with `--help`. Run them from the repository ro
 | `pmc_to_text.py` | used by the others | Converts a PMC (JATS) XML article to plain text |
 | `common.py` | used by the others | Shared helpers (CSV, small YAML reader, text normalisation, NCBI E-utilities) |
 
+**Screening coverage rule** (shared with the browser scorer): metrics are computed on the records present in the
+decisions file; the report always prints `Screened N of 60 records (K not screened).`, the list of records not
+screened, `Not screened but INCLUDED in the reference: ...` when applicable, and `Sensitivity counting not-screened
+includes as missed: x% (a/b)`. `--expect-all` counts not-screened records as exclude in all metrics (agent track).
+`unsure` counts as include unless `--unsure exclude`.
+
+**Input tolerance**: the CSV reader accepts `,` `;` or tab separators, a byte-order mark, ``` fences, prose lines
+before or after the table, unquoted commas in the last column (joined back into it), and any letter case in
+`record_id`, `study_id` and field names. "Not reported" synonyms (NR, not stated, not mentioned, none reported, not
+available, n/a...) are recognised.
+
 Network access is needed only for `fetch_*` and `build_*` (NCBI E-utilities, at most about 3 requests per second).

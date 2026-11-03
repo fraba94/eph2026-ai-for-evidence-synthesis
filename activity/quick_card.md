@@ -24,7 +24,7 @@
 **Step 1 · Screening · 10 min**
 Chat: batch 1 (R001-R020) from the batch page. Agent: all 60.
 Output `record_id,decision,reason` · decision `include | exclude | unsure` · reason = criterion.
-Count the rows back. When in doubt: **unsure**. Save `screening_run1.csv`.
+Count the rows back. When in doubt: **unsure**. Save `run1.csv` (agent: `screening_run1.csv`).
 
 **Step 2 · Extraction · 12 min**
 Read the form first (`data/extraction_form.csv`, core fields). One paper per chat (chat: `Phan2020.txt`).
@@ -33,7 +33,7 @@ Verifier: Ctrl+F three quotes. Save `extraction.csv`.
 
 **Step 3 · Compare · 8 min** (now open `answers/`)
 Browser scorer, or:
-`python3 activity/tools/score_screening.py screening_run1.csv`
+`python3 activity/tools/score_screening.py run1.csv` (agent: add `--expect-all`)
 `python3 activity/tools/score_extraction.py extraction.csv`
 Read first: missed includes · QUOTE NOT FOUND · unsupported · false absent. Log 3 discrepancies.
 
