@@ -39,7 +39,8 @@ The **reference review** is Pruna et al., *J Clin Med* 2026: a systematic review
 
 ## Step 0. Get ready
 
-- [ ] A laptop with a chat assistant open in the browser (a phone works for reading the pages). Any assistant works; if your tool has a "temporary chat" or lets you switch memory off, use that.
+- [ ] A laptop with a chat assistant open in the browser (a phone works for reading the pages). Any assistant works.
+- [ ] **Turn off web search / browsing and use a temporary chat (memory off).** If your tool has no temporary chat, switch memory off in its settings. Why: the reference review is published, so an assistant with web access may simply look up the answers. In the previous run of this workshop (Berlin, September 2026) one recognised the published reference review and offered to repeat it.
 - [ ] The workshop website open in another tab: the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html) has every button you need, in order.
 - [ ] A note with: **tool name, model name as displayed, date and time**. You will need it in the discussion.
 
@@ -90,7 +91,7 @@ Slower, but it works anywhere. Never ask the assistant to find or write a missin
 > [!NOTE]
 > **Why some abstracts are missing from the repository.** The repository ships an abstract only when its licence allows redistribution; the others are fetched from PubMed by the records page (Option A) or by `fetch_abstracts.py` (Option B). If you still see an empty abstract, leave it: the prompt tells the assistant to mark it *unsure*. **Do not** ask the assistant to "find" or write the abstract: it may invent one.
 
-**Open a new chat**, paste this prompt, replace the two parts in `[BRACKETS]`, and send. Ready to paste, with the criteria C1-C6 already filled in: the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening) (Copy button).
+**Open a new temporary chat** (web search off), paste this prompt, replace the two parts in `[BRACKETS]`, and send. Ready to paste, with the criteria C1-C6 already filled in: the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening) (Copy button).
 
 ```text
 You are a second reviewer screening titles and abstracts for a systematic review.
@@ -103,7 +104,7 @@ RULES
 - exclude ONLY if the title/abstract clearly shows that at least one criterion is NOT met. Name the criterion.
 - include if all criteria are met or not contradicted by the abstract.
 - unsure if information is missing or ambiguous. When in doubt, do not exclude.
-- Use only the text given. Do not use anything you may know about these studies.
+- Use only the text given. Do not search the web, and do not use anything you may know about these studies.
 - Return one row for EVERY record, in the same order. If the abstract is empty, decide on the title only and use unsure with reason "no abstract".
 
 OUTPUT: only a CSV block with the header
@@ -146,13 +147,13 @@ The basis of every reference decision is on the [answers page](https://fraba94.g
 This is step 3 of [`activity/README.md`](../activity/README.md). Extraction is where AI errors are hardest to see, so the task is short: one paper, five fields, a quote for each.
 
 1. **Look at the form first**, before giving the paper to the assistant: [`activity/data/extraction_form.csv`](../activity/data/extraction_form.csv). Use only these **5 fields**: `country`, `study_design`, `intervention_components`, `primary_hai_outcome`, `direction_of_effect`.
-2. Open a **new chat** and paste (or upload) the plain text of the paper: [`activity/data/fulltext/Phan2020.txt`](../activity/data/fulltext/Phan2020.txt) (the [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html) has **Copy full text** and **Download .txt** buttons). Use `study_id = Phan2020`. At home, for more practice: [`Mestre2012.txt`](../activity/data/fulltext/Mestre2012.txt), the paper of the live demo (`study_id = Mestre2012`).
+2. Open a **new temporary chat** (web search off) and paste (or upload) the plain text of the paper: [`activity/data/fulltext/Phan2020.txt`](../activity/data/fulltext/Phan2020.txt) (the [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html) has **Copy full text** and **Download .txt** buttons). Use `study_id = Phan2020`. At home, for more practice: [`Mestre2012.txt`](../activity/data/fulltext/Mestre2012.txt), the paper of the live demo (`study_id = Mestre2012`).
 3. Paste the prompt below. Ready to paste: the [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) has this prompt with the 5 fields, their definitions and `study_id = Phan2020` already filled in, with a Copy button. Otherwise fill the parts in `[BRACKETS]` yourself.
 
 <!-- build_pages:extraction-prompt -->
 
 ```text
-You are extracting data for a systematic review. Use ONLY the paper I give you. Do not use outside knowledge.
+You are extracting data for a systematic review. Use ONLY the paper I give you. Do not search the web or use outside knowledge.
 
 EXTRACTION FORM (fill every field, do not add or change fields):
 [PASTE THE 5 FIELDS: field, definition, allowed values]
@@ -179,7 +180,7 @@ PAPER:
 In the live session, **bring one error you found** (in step 3 or step 4): what the AI said, what the source says, and why the AI got it wrong. On your own, answer each question in writing, in one or two sentences:
 
 1. How many records did the AI get wrong, and of which kind? Would any error have changed the review's conclusions?
-2. Would the same prompt give the same answer in a new chat? (Try it: [Going further](#going-further).)
+2. Would the same prompt give the same answer in a new chat? (Try it: [Going further](#going-further).) And how reproducible are human reviewers: would two of them agree?
 3. Which check caught the most problems?
 4. What would you need to write in a paper to report what you did? (Tool, model and version, date, prompt, what you checked: see [prompt 6.3](../prompts/06_synthesis_and_reporting.md#63-ai-use-statement).)
 5. Would you trust this for a real review? What would you need to learn first?

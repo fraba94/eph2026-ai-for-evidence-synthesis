@@ -198,6 +198,7 @@ Five starting points; the [full list](REFERENCES.md) has 25 references checked o
 | **What** | Teaching materials (activity guide, data, prompts, agent skills, scorers, website) for the skills building seminar M.8 *"Building skills in using AI tools to support evidence reviews for effective public health strategies"* |
 | **Event** | European Public Health Conference 2026 (EPH 2026), Bilbao, Thursday 12 November 2026, 16:45-17:45 |
 | **Made by** | The EUPHA Digital Health and Artificial Intelligence Section and Francesco Baglivo (University of Pisa), with the organisers and speakers below |
+| **Builds on** | A previous EUPHA DHAI workshop (annual meeting, Berlin, 10 September 2026) and its participants' feedback, which shaped the ready-made prompts, the time to verify and the rule to turn off web search |
 | **Status** | Kept online for self-paced practice. Teaching material, not a validated method; the reference review was confirmed on 6 November 2026 ([why and limits](activity/data/README.md)) |
 | **Last updated** | 3 November 2026 (version 2026.11) |
 | **Cite** | [How to cite](#how-to-cite), or the [`CITATION.cff`](CITATION.cff) file |

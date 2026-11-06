@@ -226,7 +226,8 @@ in advance. <strong>Today, on your own, you do both:</strong> you drive the AI, 
 <p>Everyone works individually, on their own laptop: <strong>you drive the AI, then you verify it.</strong> First you paste the
 prompt and the records and let the AI answer; then you stop and check what it said against the source, the abstract
 or the paper, before you believe it. A laptop is recommended (copying, pasting and reading two windows side by side);
-a phone works for reading the pages and the answers. In the discussion each person brings one error they found.</p>
+a phone works for reading the pages and the answers. If you like, compare your errors with your neighbour's
+after step 2 (optional). In the discussion each person brings one error they found.</p>
 <hr>
 <h2 id="choose-your-track">Choose your track<a class="anchor" href="#choose-your-track" aria-label="Link to this section">#</a></h2>
 <div class="table-wrap md-table stack"><table>
@@ -275,10 +276,23 @@ If you are not confident with how large language models work (context windows, p
 hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility
 checks, documentation of model and version), <strong>do not use AI to conduct a real evidence review.</strong> You stay
 responsible for every decision: the AI does not.</p></div></div>
-<p><strong>Two rules for both tracks.</strong> Screening answers after step 1, extraction answers after step 3: do not open the
-<a href="answers.html">reference answers</a> earlier. Upload or paste only texts whose licence allows it (the <code>license</code>
-column of the records, the <code>licence</code> column of <a href="papers.html"><code>data/papers.csv</code></a>), and never personal or
-confidential data.</p>
+<p><strong>Three rules for both tracks.</strong></p>
+<ol>
+<li>
+<p><strong>Turn off web search / browsing and use a temporary chat (memory off).</strong> In the previous run of this workshop
+    (Berlin, September 2026) a chat assistant with internet access recognised the published reference review and
+    offered to repeat it. The reference review here (Pruna et al. 2026) is published too: an AI with web access may
+    simply look up the answers. Agent track: do not allow web search or web fetch tools.</p>
+</li>
+<li>
+<p><strong>Screening answers after step 1, extraction answers after step 3</strong>: do not open the
+    <a href="answers.html">reference answers</a> earlier.</p>
+</li>
+<li>
+<p><strong>Upload or paste only texts whose licence allows it</strong> (the <code>license</code> column of the records, the <code>licence</code> column
+    of <a href="papers.html"><code>data/papers.csv</code></a>), and never personal or confidential data.</p>
+</li>
+</ol>
 <hr>
 <h2 id="the-eligibility-criteria-from-the-reference-review">The eligibility criteria (from the reference review)<a class="anchor" href="#the-eligibility-criteria-from-the-reference-review" aria-label="Link to this section">#</a></h2>
 <p>PICO: <strong>P</strong> patients and healthcare workers in acute care hospitals · <strong>I</strong> hospital-wide or multi-ward multimodal
@@ -349,7 +363,7 @@ hand hygiene intervention · <strong>C</strong> pre-intervention period, standar
     <code>include | exclude | unsure</code>, a reason naming the criterion).</p>
 </li>
 <li>
-<p><strong>Paste both</strong> into a new chat with your AI assistant: the prompt first, the records where it says
+<p><strong>Paste both</strong> into a new temporary chat with your AI assistant, web search off: the prompt first, the records where it says
     <code>[PASTE THE RECORDS HERE]</code>.</p>
 </li>
 <li>
@@ -394,7 +408,7 @@ error) and the <strong>false includes</strong>. Now you are the verifier.</p>
 </li>
 <li>
 <p><strong>Copy the full text</strong> of <a href="papers.html#Phan2020"><code>Phan2020.txt</code></a> (Copy and Download buttons on the
-    <a href="papers.html#Phan2020">Papers page</a>) and paste it into a <strong>new chat</strong> after the prompt.</p>
+    <a href="papers.html#Phan2020">Papers page</a>) and paste it into a <strong>new temporary chat</strong> (web search off) after the prompt.</p>
 </li>
 <li>
 <p>Every value must come with a <strong>verbatim quote</strong> and its location (section or table), or <code>not reported</code>.</p>
@@ -403,7 +417,7 @@ error) and the <strong>false includes</strong>. Now you are the verifier.</p>
 <li><strong>Compare</strong> with the <a href="answers.html#extraction">reference values</a> (extraction answers, after this
     step), or paste the answer into the scorer (tab "Short extraction"). Read the notes: some papers contradict
     themselves.</li>
-</ol><div class="ready-prompt"><p class="ready-title"><b>Ready to paste: the extraction prompt</b> with the 5 fields (<code>country</code>, <code>study_design</code>, <code>intervention_components</code>, <code>primary_hai_outcome</code>, <code>direction_of_effect</code>) and <code>study_id = Phan2020</code> already filled in. In a new chat, paste it, then paste the paper where it says <code>[PASTE THE TEXT OF THE PAPER, OR SAY &quot;attached&quot;]</code>.</p><div class="row"><button class="btn-copy" type="button" data-copy="#extraction-prompt-text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy the extraction prompt</span></button><a class="btn btn-plain" href="papers.html#Phan2020">Open the paper (Phan2020)</a></div><details><summary>Show the prompt</summary><pre id="extraction-prompt-text"><code>You are extracting data for a systematic review. Use ONLY the paper I give you. Do not use outside knowledge.
+</ol><div class="ready-prompt"><p class="ready-title"><b>Ready to paste: the extraction prompt</b> with the 5 fields (<code>country</code>, <code>study_design</code>, <code>intervention_components</code>, <code>primary_hai_outcome</code>, <code>direction_of_effect</code>) and <code>study_id = Phan2020</code> already filled in. In a new temporary chat with web search off, paste it, then paste the paper where it says <code>[PASTE THE TEXT OF THE PAPER, OR SAY &quot;attached&quot;]</code>.</p><div class="row"><button class="btn-copy" type="button" data-copy="#extraction-prompt-text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy the extraction prompt</span></button><a class="btn btn-plain" href="papers.html#Phan2020">Open the paper (Phan2020)</a></div><details><summary>Show the prompt</summary><pre id="extraction-prompt-text"><code>You are extracting data for a systematic review. Use ONLY the paper I give you. Do not search the web or use outside knowledge.
 
 EXTRACTION FORM (fill every field, do not add or change fields):
 - country: Country where the study was conducted. Take it from Methods/Results; if the paper gives it only in the affiliation of the study hospital, report it with &#x27;author affiliations&#x27; as location. Do not infer it from city or campaign names alone; if it is not stated anywhere, write not reported. Allowed values: free text.
@@ -461,7 +475,7 @@ room collects them. On your own: answer each theme in writing, one or two senten
 </tr>
 <tr>
 <td><strong>Reproducibility</strong></td>
-<td>Would the same prompt give the same answer twice? What would you report so that someone else can repeat what you did?</td>
+<td>Would the same prompt give the same answer twice? And how reproducible are human reviewers: would two of them, or the same one a month later, agree? What would you report so that someone else can repeat what you did?</td>
 </tr>
 <tr>
 <td><strong>The reference</strong></td>
@@ -477,6 +491,9 @@ room collects them. On your own: answer each theme in writing, one or two senten
 <p><strong>A second run.</strong> Paste the same prompt and the same batch in a <strong>new</strong> chat and paste both answers into the scorer
     (Going further box): it reports how many decisions changed and Cohen's kappa. A result you cannot reproduce is not
     a method.</p>
+</li>
+<li>
+<p><strong>Research idea from Berlin:</strong> compare the reproducibility of human reviewers and AI on the same extraction task.</p>
 </li>
 <li>
 <p><strong>The 11 core fields.</strong> The longer extraction, with the 11 core fields of the form: the prompt is on the
@@ -535,7 +552,7 @@ answers.</p>
 <td data-label="Block">Get ready</td>
 <td style="text-align: right;" data-label="Live session">demo</td>
 <td style="text-align: right;" data-label="On your own">10 min</td>
-<td data-label="What to do">Read the key message and the criteria on this page; pick a track. New to AI? Follow the <a href="beginners.html">beginners walkthrough</a> (chat track, for learning only)</td>
+<td data-label="What to do">Read the key message and the criteria on this page; pick a track; turn off web search and use a temporary chat (<a href="#choose-your-track">three rules</a>). New to AI? Follow the <a href="beginners.html">beginners walkthrough</a> (chat track, for learning only)</td>
 </tr>
 <tr>
 <td data-label="Block"><a href="#step-1--screening-10-min">Step 1 · Screening</a></td>
@@ -572,12 +589,12 @@ answers.</p>
 <p><strong>You drive, then you verify.</strong> Do not let the two jobs blur: first run the AI and keep its answer as it is; then
 stop and become the verifier, which is the part this exercise is about. The verifier checklist:</p>
 <ul>
-<li class="task-item">None<input type="checkbox" class="task-box"> <strong>Screening.</strong> As many rows came back as you sent (the scorer's coverage line); no <code>record_id</code> missing, repeated or renamed.</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> At least 2 decisions (one of them an <em>exclude</em>) checked against the abstract: does the abstract say what the reason claims?</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> Every <em>exclude</em> names a criterion that the abstract clearly contradicts, not one it merely does not mention (that is <em>unsure</em>).</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> No reason uses a rule that is not in C1-C6 (country, "low quality", date...).</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> <strong>Extraction.</strong> At least 2 quotes found with Ctrl+F in the paper, character for character; every number in a value appears in its quote.</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> Every <code>not reported</code> searched in the paper with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days).</li>
+<li class="task-item"><input type="checkbox" class="task-box"> <strong>Screening.</strong> As many rows came back as you sent (the scorer's coverage line); no <code>record_id</code> missing, repeated or renamed.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> At least 2 decisions (one of them an <em>exclude</em>) checked against the abstract: does the abstract say what the reason claims?</li>
+<li class="task-item"><input type="checkbox" class="task-box"> Every <em>exclude</em> names a criterion that the abstract clearly contradicts, not one it merely does not mention (that is <em>unsure</em>).</li>
+<li class="task-item"><input type="checkbox" class="task-box"> No reason uses a rule that is not in C1-C6 (country, "low quality", date...).</li>
+<li class="task-item"><input type="checkbox" class="task-box"> <strong>Extraction.</strong> At least 2 quotes found with Ctrl+F in the paper, character for character; every number in a value appears in its quote.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> Every <code>not reported</code> searched in the paper with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days).</li>
 </ul>
 <p><strong>When to open the answers.</strong> Screening answers after step 1, extraction answers after step 3. The scorer shows the
 screening reference as soon as you score, so screen first. The reference review itself and the

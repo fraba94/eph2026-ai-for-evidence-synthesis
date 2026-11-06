@@ -44,6 +44,7 @@
     <details class="toc" open>
       <summary>On this page</summary>
       <ol>
+        <li><a href="#what-we-learned-in-berlin-sept-2026">What we learned in Berlin (Sept 2026)</a></li>
         <li><a href="#before-the-session">Before the session</a></li>
         <li><a href="#timing-60-minutes">Timing (60 minutes)</a></li>
         <li><a href="#demo-script-four-hands">Demo script (four hands)</a></li>
@@ -68,6 +69,56 @@ preparation, the pitfalls you should expect, and how to run the debrief. Do not 
 texts</strong>, each with a verbatim quote and, where available, the reference review's own table entry
 (<code>review_table_value</code>); they have not yet been validated against the review team's extraction sheet. Say so when
 participants compare with them.</p></blockquote>
+<h2 id="what-we-learned-in-berlin-sept-2026">What we learned in Berlin (Sept 2026)<a class="anchor" href="#what-we-learned-in-berlin-sept-2026" aria-label="Link to this section">#</a></h2>
+<p>A longer version of this workshop ran at the EUPHA DHAI annual meeting in Berlin on 10 September 2026 (27
+participants): building and critiquing a search strategy with an LLM, then data extraction. About half of the
+participants used ChatGPT and half Claude; a few used Gemini, Perplexity or Consensus. From the session notes and
+the Mentimeter poll:</p>
+<div class="table-wrap md-table"><table>
+<thead>
+<tr>
+<th>What happened in Berlin</th>
+<th>What we changed for Bilbao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A ChatGPT Pro chat with internet access recognised the recently published reference review and asked whether the participant wanted to repeat exactly that research</td>
+<td>Rule 1 for everyone: web search / browsing off and a temporary chat (memory off); the prompts say "do not search the web". Pruna et al. 2026 is published too</td>
+</tr>
+<tr>
+<td>Most participants used zero-shot prompts without instructions (mainly those with an IT background added them)</td>
+<td>Ready-to-paste prompts with the criteria C1-C6, the rules and the output format already filled in</td>
+</tr>
+<tr>
+<td>Not enough time to check the outputs themselves; the AI's search strategy "seems solid at first"</td>
+<td>Fewer tasks (20 records, 1 paper, 5 fields) and a whole step (step 2) for verifying, with a verifier checklist</td>
+</tr>
+<tr>
+<td>The LLM's critique listed many possible errors; checking and ranking them meant reading the whole long answer</td>
+<td>Prompts ask for short, ranked output: a CSV with reasons of at most 25 words; the top three risks in the search critique (prompt 2.2)</td>
+</tr>
+<tr>
+<td>Terms needed human context: which infections count as healthcare-associated? Which AI technologies are included?</td>
+<td>Explicit criteria C1-C6 from the reference review; C5 lists the HAI outcomes that count</td>
+</tr>
+<tr>
+<td>Extraction: some found it useful; others said it made quite some assumptions and would use it only for straightforward categories</td>
+<td>Step 3 uses 5 straightforward fields, each with a verbatim quote and its location, and <code>not reported</code> as an allowed answer</td>
+</tr>
+<tr>
+<td>The reproducibility of the LLM was discussed a lot, and also that of humans: how reproducible are human scientists? A study comparing the two was named as a need</td>
+<td>A second run in a new chat (Going further, kappa in the scorer); "How reproducible are human reviewers?" in the discussion; the research idea under Going further</td>
+</tr>
+<tr>
+<td>What worked: the demonstration, step-by-step instructions, practical examples, the choice of individual or group work. One participant found it "too complicated for me"</td>
+<td>The demo in four hands; the Start page with the three steps in order; individual work, comparing with a neighbour optional; the beginners track (learning only)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Confidence at the end (23 of 27 answered; the sliders have no numeric scale labels): 3.6 on the strongly
+disagree–strongly agree slider that their LLM-built search strategy would find the relevant literature, and 3 that
+their extraction form would hold up on a paper they had not seen yet.</p>
 <h2 id="before-the-session">Before the session<a class="anchor" href="#before-the-session" aria-label="Link to this section">#</a></h2>
 <div class="table-wrap md-table"><table>
 <thead>
@@ -94,12 +145,16 @@ participants compare with them.</p></blockquote>
 <td>Print a few copies of the <a href="quick-card.html">quick card</a></td>
 </tr>
 <tr>
+<td>The day before</td>
+<td>On the demo laptop: <strong>web search / browsing off and a temporary chat (memory off)</strong>. The reference review is published: with web access the AI may look up the answers (it happened in Berlin, see <a href="#what-we-learned-in-berlin-sept-2026">below</a>)</td>
+</tr>
+<tr>
 <td>Before the session</td>
-<td>Nothing to assign: <strong>each participant works alone, on their own laptop</strong> (no groups, no roles). A laptop is recommended; a phone works for reading the pages</td>
+<td>Nothing to assign: <strong>each participant works alone, on their own laptop</strong> (no groups, no roles; comparing errors with a neighbour after step 2 is optional). A laptop is recommended; a phone works for reading the pages</td>
 </tr>
 <tr>
 <td>On arrival</td>
-<td>Write on a slide or board: the repository short link, "Chat track: batch 1 = R001-R020, paper Phan2020, 5 fields", "Screening answers after step 1, extraction answers after step 3"</td>
+<td>Write on a slide or board: the repository short link, "Chat track: batch 1 = R001-R020, paper Phan2020, 5 fields", "Web search off, temporary chat", "Screening answers after step 1, extraction answers after step 3"</td>
 </tr>
 </tbody>
 </table></div>
@@ -231,7 +286,7 @@ extracts <strong>Mestre2012</strong>, not Phan2020: the chat-track participants 
 </tr>
 <tr>
 <td data-label="Time">1:15-1:45</td>
-<td data-label="Francesco (driver)">Back on the Start page: <strong>Copy the screening prompt</strong> (C1-C6 already in it); new temporary chat; pastes the prompt, replaces <code>[PASTE THE RECORDS HERE]</code> with the batch; sends</td>
+<td data-label="Francesco (driver)">Back on the Start page: <strong>Copy the screening prompt</strong> (C1-C6 already in it); new temporary chat, web search off; pastes the prompt, replaces <code>[PASTE THE RECORDS HERE]</code> with the batch; sends</td>
 <td data-label="Patrick (verifier)">Reads one rule aloud: "Exclude only if the abstract clearly shows that a criterion is not met. When in doubt, unsure."</td>
 <td data-label="On screen">Chat assistant</td>
 </tr>
@@ -352,8 +407,9 @@ extracts <strong>Mestre2012</strong>, not Phan2020: the chat-track participants 
     or on the phone hotspot you will use as a fallback.</p>
 </li>
 <li class="task-item">
-<p><input type="checkbox" class="task-box"> <strong>Chat assistant.</strong> Logged in on the demo laptop; <strong>memory off or a temporary chat</strong>; no project knowledge or
-    custom instructions that could leak earlier runs.</p>
+<p><input type="checkbox" class="task-box"> <strong>Chat assistant.</strong> Logged in on the demo laptop; <strong>web search / browsing off and a temporary chat (memory
+    off)</strong>; no project knowledge or custom instructions that could leak earlier runs. Show the participants where
+    you switched web search off: it is the first of their three rules.</p>
 </li>
 <li class="task-item">
 <p><input type="checkbox" class="task-box"> <strong>Readable from the back of the room.</strong> Browser zoom 150%, large font in the chat; dark mode off if the
@@ -569,7 +625,7 @@ slide of the demo next to the errors the verifier caught. Then:</p>
 <li>
 <p><strong>Oversight.</strong> Who would sign the extraction table as it came out of the AI? What would you need to check first?</p>
 </li>
-<li><strong>Reproducibility.</strong> Who tried a second run (going further)? Did it agree? What should go in a methods section so that someone can repeat it?</li>
+<li><strong>Reproducibility.</strong> Who tried a second run (going further)? Did it agree? And how reproducible are human reviewers: would two of you agree on the same paper? What should go in a methods section so that someone can repeat it?</li>
 <li><strong>The reference.</strong> Did anyone disagree with the reference after checking the source?</li>
 </ol>
 <p>Close with the repository's position: these tools can help people who understand how they work and verify them

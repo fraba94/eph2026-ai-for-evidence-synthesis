@@ -35,10 +35,10 @@ Rules:
 ## 4.2 Extract with quotes
 
 **Purpose.** Fill the form for one paper with traceable values.
-**When to use.** One paper per new conversation, with the whole paper attached or pasted (not a "chat with your folder" tool).
+**When to use.** One paper per new conversation, with the whole paper attached or pasted (not a "chat with your folder" tool); temporary chat, web search / browsing off.
 
 ```text
-You are extracting data for a systematic review. Use ONLY the attached paper. Do not use any outside knowledge.
+You are extracting data for a systematic review. Use ONLY the attached paper. Do not search the web or use any outside knowledge.
 
 EXTRACTION FORM (fill every field, do not add or change fields):
 [PASTE FORM: field | definition | allowed values]

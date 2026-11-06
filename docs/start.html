@@ -93,7 +93,7 @@
             <ol class="do">
               <li><b>Copy batch 1</b> (R001–R020) on the records page: missing abstracts are fetched from PubMed in your browser.</li>
               <li><b>Copy the screening prompt</b>: the criteria C1–C6 are already pasted in.</li>
-              <li><b>Paste both into a new chat</b>: the prompt, then the records where it says <code>[PASTE THE RECORDS HERE]</code>.</li>
+              <li><b>Paste both into a new temporary chat, web search off</b>: the prompt, then the records where it says <code>[PASTE THE RECORDS HERE]</code>.</li>
               <li><b>Paste the AI's answer into the scorer</b>, as it is: no file to save.</li>
             </ol>
             <div class="row">
@@ -118,7 +118,7 @@ RULES
 - exclude ONLY if the title/abstract clearly shows that at least one criterion is NOT met. Name the criterion.
 - include if all criteria are met or not contradicted by the abstract.
 - unsure if information is missing or ambiguous. When in doubt, do not exclude.
-- Use only the text given. Do not use anything you may know about these studies.
+- Use only the text given. Do not search the web, and do not use anything you may know about these studies.
 - Return one row for EVERY record, in the same order. If the abstract is empty, decide on the title only and use unsure with reason &quot;no abstract&quot;.
 
 OUTPUT: only a CSV block with the header
@@ -157,7 +157,7 @@ Reminder: apply only the criteria above; one row per record; when in doubt, unsu
             <h3>Short extraction: Phan2020, 5 fields</h3>
             <ol class="do">
               <li><b>Copy the extraction prompt</b>: the 5 fields (country, study design, intervention components, primary HAI outcome, direction of effect) and the study ID Phan2020 are already filled in.</li>
-              <li><b>Copy the paper</b> and paste both into a new chat: the paper where the prompt says <code>[PASTE THE TEXT OF THE PAPER, OR SAY "attached"]</code>.</li>
+              <li><b>Copy the paper</b> and paste both into a new temporary chat (web search off): the paper where the prompt says <code>[PASTE THE TEXT OF THE PAPER, OR SAY "attached"]</code>.</li>
               <li>Every value with a <b>verbatim quote</b> and its location, or <code>not reported</code>. <b>Verify 2 quotes</b> with Ctrl+F in the paper.</li>
               <li><b>Compare</b> with the reference values (extraction answers, after this step).</li>
             </ol>
@@ -170,7 +170,7 @@ Reminder: apply only the criteria above; one row per record; when in doubt, unsu
             <pre id="paper-Phan2020" hidden data-src="data/fulltext/Phan2020.txt"></pre>
             <details>
               <summary>Show the extraction prompt</summary>
-              <!-- build_pages:extraction-prompt --><pre id="extraction-prompt"><code>You are extracting data for a systematic review. Use ONLY the paper I give you. Do not use outside knowledge.
+              <!-- build_pages:extraction-prompt --><pre id="extraction-prompt"><code>You are extracting data for a systematic review. Use ONLY the paper I give you. Do not search the web or use outside knowledge.
 
 EXTRACTION FORM (fill every field, do not add or change fields):
 - country: Country where the study was conducted. Take it from Methods/Results; if the paper gives it only in the affiliation of the study hospital, report it with &#x27;author affiliations&#x27; as location. Do not infer it from city or campaign names alone; if it is not stated anywhere, write not reported. Allowed values: free text.
@@ -209,13 +209,17 @@ PAPER:
     <!-- (d) on your own -->
     <section class="start-sec" id="roles" aria-labelledby="h-roles">
       <h2 id="h-roles"><span class="n">4</span>Working on your own</h2>
-      <p class="sub">No groups, no roles: <b>you drive the AI, then you verify it.</b> First let the AI answer; then stop and check what it said against the abstract or the paper before you believe it. A laptop is recommended; a phone works for reading the pages. <a href="activity.html#working-on-your-own">More</a></p>
+      <p class="sub">No groups, no roles: <b>you drive the AI, then you verify it.</b> First let the AI answer; then stop and check what it said against the abstract or the paper before you believe it. Comparing your errors with a neighbour after step 2 is optional. A laptop is recommended; a phone works for reading the pages. <a href="activity.html#working-on-your-own">More</a></p>
     </section>
 
     <!-- (e) rules -->
     <section class="start-sec" id="rules" aria-labelledby="h-rules">
-      <h2 id="h-rules"><span class="n">5</span>Two rules</h2>
+      <h2 id="h-rules"><span class="n">5</span>Three rules</h2>
       <div class="rules">
+        <div class="rule web">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9s1.2-6.4 3.6-9z"/><path d="M4.5 4.5l15 15"/></svg>
+          <div><p><b>Turn off web search / browsing and use a temporary chat (memory off).</b></p><p>The reference review is published: an AI with web access may simply look up the answers. At a previous workshop in Berlin, one recognised the review and offered to repeat it.</p></div>
+        </div>
         <div class="rule stop">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg>
           <div><p><b>Screening answers after step 1, extraction answers after step 3.</b></p><p>Not earlier: not the answers page, not the reference review, not the facilitator guide. They name the included studies.</p></div>

@@ -508,6 +508,8 @@ button.copy.copied, .btn-copy.copied { background: var(--green-bg); border-color
 .rule.stop svg { color: var(--pink-tx); }
 .rule.learn { background: var(--yellow-bg); border-color: var(--yellow-ln); }
 .rule.learn svg { color: var(--yellow-tx); }
+.rule.web { background: var(--blue-bg); border-color: var(--blue-ln); }
+.rule.web svg { color: var(--accent); }
 .rule p { margin: 0; }
 .rule p + p { margin-top: 4px; font-size: 14.5px; color: var(--muted); }
 
