@@ -62,7 +62,7 @@
           <div class="step-title"><span class="n">1</span><h2>Paste the AI's answer</h2></div>
           <p class="hint">Copy the whole answer from the chat and paste it here as it is: no file to save. The scorer finds the table with <code>record_id,decision,reason</code> and ignores code fences (<code>```csv</code>), sentences before or after it, semicolons and Markdown tables.</p>
           <label for="s-text" class="visually-hidden">The AI's answer</label>
-          <textarea id="s-text" class="paste-box" spellcheck="false" placeholder="Paste the AI's answer here, for example:&#10;&#10;Here are the decisions:&#10;```csv&#10;record_id,decision,reason&#10;R001,exclude,C3 not met: broad infection-control bundle&#10;R002,include,all criteria met or not contradicted&#10;```&#10;Records received: 20. Rows returned: 20."></textarea>
+          <textarea id="s-text" class="paste-box" spellcheck="false" placeholder="Paste the AI's answer here, for example:&#10;&#10;Here are the decisions:&#10;```csv&#10;record_id,decision,reason&#10;R000,exclude,C2 not met: single unit (made-up example)&#10;R999,include,all criteria met or not contradicted (made-up example)&#10;```&#10;Records received: 20. Rows returned: 20."></textarea>
           <p id="ref-status-s" class="status" style="margin-top:10px">Loading the reference standard...</p>
           <div class="row" style="margin-top:6px">
             <button class="btn btn-primary" type="button" id="s-go">
@@ -118,7 +118,7 @@
           <div class="step-title"><span class="n">1</span><h2>Paste the AI's extraction</h2></div>
           <p class="hint">Step 3, the short extraction: paste the whole answer from the chat, as it is. The scorer finds the table <code>study_id,field,value,source_quote,location</code> (one row per study and field; <code>not reported</code> when the information is absent). Only the studies in your answer are scored.</p>
           <label for="e-text" class="visually-hidden">The AI's extraction</label>
-          <textarea id="e-text" class="paste-box" spellcheck="false" placeholder="Paste the AI's answer here, for example:&#10;&#10;```csv&#10;study_id,field,value,source_quote,location&#10;Phan2020,country,Vietnam,&quot;...a 900-bed maternity hospital in Ho-Chi-Minh-City, Vietnam.&quot;,Abstract&#10;Phan2020,hai_definition,not reported,,searched Methods and Tables&#10;```"></textarea>
+          <textarea id="e-text" class="paste-box" spellcheck="false" placeholder="Paste the AI's answer here, for example:&#10;&#10;```csv&#10;study_id,field,value,source_quote,location&#10;Example2026,country,Utopia,&quot;...a 500-bed teaching hospital in Utopia (made-up example).&quot;,Methods&#10;Example2026,primary_hai_outcome,not reported,,searched Methods and Tables&#10;```"></textarea>
           <p id="ref-status-e" class="status" style="margin-top:10px">Loading the reference extraction...</p>
           <div class="row" style="margin-top:6px">
             <label class="opt">Fields to score
