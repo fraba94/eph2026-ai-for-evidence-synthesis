@@ -1,7 +1,8 @@
 # The demo video
 
-A silent video, about 5 minutes (4:52), 1280×720, with captions burned in: the three steps of the exercise done
-once on demo material, with **real AI answers** and a human who checks every answer against the source. It is the
+A silent video, about 5 minutes (4:53), 1280×720, with captions burned in: the three steps of the exercise done
+once on demo material, with **real AI answers**: a human opens two records and checks two quotes in the paper, and
+the scorer and a quote-check script check the rest. It is the
 demo of the EPH 2026 seminar M.8 (Bilbao, 12 November 2026, 16:55-17:05), commented live in the room: Francesco
 Baglivo narrates, Patrick Boudreau speaks for the verifier. The live demo in four hands is the fallback (see the
 [facilitator guide](../activity/facilitator_guide.md#demo-script)).
@@ -55,13 +56,14 @@ The step names and numbers are those of the Start page. Each caption names the b
 | 0:18 | Step 1 · Screening · 1/4 | Start page, **Open the records**, batch **41-60**, wait for "20 records ready" (abstracts from PubMed), **Copy batch** |
 | 0:43 | Step 1 · 2/4 | **Copy the screening prompt**, **Show the screening prompt**: criteria C1-C6 already in it |
 | 0:58 | Step 1 · 3/4 | Paste the prompt, then the records where it says `[PASTE THE RECORDS HERE]`, in a new temporary chat, web search off. The AI's answer, unedited: check the count first, 20 records in, 20 rows out |
-| 1:26 | Step 1 · 4/4 | Scorer: paste the whole answer, **Score my screening**. Coverage 20 of 60 (one batch); sensitivity 100%, 0 missed includes; 4 false includes. Recap card |
-| 1:50 | Step 2 · Look at the errors · 1/3 | The 4 false includes (R044, R050, R058, R059) were all excluded by the review only after reading the full text: not errors at this stage. **Going further**, title/abstract-stage view: 70% (7/10); the AI excluded R043, R046 and R054, which the human screeners had sent to full text (all three excluded in the end) |
-| 2:25 | Step 2 · 2/3 and 3/3 | Open 2 of them on the Records page, the sentences highlighted. **R050** (AI: unsure, C2): a hospital-wide campaign, but infections measured only in the ICU; "unsure" was fair. **R058** (AI: include, "check C3"): a hospital-wide campaign whose components are not described, then contact precautions and chlorhexidine bathing; C3 is in doubt, so "unsure" fits the prompt better. Either way both go to full text, where the review excluded them. Recap card |
+| 1:26 | Step 1 · 4/4 | Scorer: paste the whole answer, **Score my screening**. Coverage 20 of 60 (one batch); sensitivity 100% (3 of 3 includes), none missed; 4 false includes. Recap card |
+| 1:50 | Step 2 · Look at the errors · 1/4 | The 4 false includes (R044, R050, R058, R059) were all excluded by the review only after reading the full text: not errors at this stage |
+| 2:05 | Step 2 · 2/4 | **Going further**, title/abstract-stage view: sensitivity 70% (7 of 10); the AI excluded R043, R046 and R054, which the human screeners had sent to full text (all three excluded in the end) |
+| 2:25 | Step 2 · 3/4 and 4/4 | Open 2 of the 4 false includes on the Records page, the sentences highlighted. **R050** (AI: unsure, C2): a hospital-wide campaign, but infections measured only in the ICU; "unsure" was fair. **R058** (AI: include, "check C3"): a hospital-wide campaign whose components are not described, then contact precautions and chlorhexidine bathing; C3 is in doubt, so "unsure" fits the prompt better. Either way both go to full text, where the review excluded them. Recap card |
 | 3:28 | Step 3 · Short extraction · 1/3 | Papers page, Mestre2012, **Copy prompt + this paper**; paste into a new temporary chat, web search off |
 | 3:44 | Step 3 · 2/3 | The AI's answer, unedited: every value with a quote and its location; intervention components in two rows, one per phase, as the prompt allows |
-| 4:01 | Step 3 · 3/3 | **Show text**, find 2 quotes. **Quote 1**, country = Spain: found word for word, in the authors' affiliations, labelled "author affiliations" as the form allows. **Quote 2**, intervention components of phase 2: found word for word, but "3 days every 3 weeks" in the value is not in the quote; it is in Methods, a few lines up. The quote-check script agrees: 6 of 6 quotes verbatim. Recap card |
-| 4:43 | Your turn | The three steps on batch 1 and Phan2020, 30 minutes; scan the QR on the slide or open the Start page. AI drafts. You check. You decide |
+| 4:01 | Step 3 · 3/3 | **Show text**, find 2 quotes. **Quote 1**, country = Spain: found word for word, in the authors' affiliations, labelled "author affiliations" as the form allows. **Quote 2**, intervention components of phase 2: found word for word, but "3 days every 3 weeks" in the value is not in the quote; it is in Table 1 (Methods), a few lines up. The quote-check script agrees: 6 of 6 quotes verbatim, but 2 rows have numbers not in their quote. Recap card |
+| 4:43 | Your turn | The three steps on batch 1 and Phan2020, 30 minutes; open the Start page (QR on the next slide). AI drafts. You check. You decide |
 
 ## How it was made
 

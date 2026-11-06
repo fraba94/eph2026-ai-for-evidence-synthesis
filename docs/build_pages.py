@@ -681,8 +681,8 @@ def demo_video_html(root, heading=True):
     the WebVTT track carries the same text for screen readers and search (off by default, to avoid double captions)."""
     d = root + DEMO_DIR
     title = (f'<p class="demo-title"><b>Watch the {DEMO_LENGTH} demo first.</b> The three steps below, done once: an AI '
-             f'screens batch 3 and extracts Mestre2012, a human checks every answer against the source. Silent, with '
-             f'captions that name every button.</p>') if heading else ""
+             f'screens batch 3 and extracts Mestre2012; a human opens two records and checks two quotes in the paper, a script '
+             f'checks the rest. Silent, with captions that name every button.</p>') if heading else ""
     return (f'<figure class="demo-video" id="demo-video">{title}'
             f'<video controls preload="metadata" playsinline poster="{d}demo_poster.png" width="1280" height="720">'
             f'<source src="{d}demo.mp4" type="video/mp4">'
