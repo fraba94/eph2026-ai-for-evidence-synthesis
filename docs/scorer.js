@@ -77,7 +77,7 @@
   }
 
   // Tolerates a byte-order mark, ``` fences, prose before the header or after the table, ';' or tab
-  // separators, and unquoted commas in the last column (joined back), like the Python tools.
+  // separators, Markdown tables (| a | b |) and unquoted commas in the last column (joined back), like the Python tools.
   function readCSV(text, expect) {
     text = String(text || '').replace(/﻿/g, '').replace(/\r\n?/g, '\n');
     var lines = text.split('\n').filter(function (ln) { return ln.trim().indexOf('```') !== 0; });
@@ -91,7 +91,14 @@
     if (start < 0) return { header: [], rows: [] };
     var hl = lines[start];
     var delim = [',', ';', '\t'].reduce(function (best, d) { return hl.split(d).length > hl.split(best).length ? d : best; }, ',');
-    var rows = splitRows(lines.slice(start).join('\n'), delim);
+    var body = lines.slice(start);
+    if (hl.split('|').length >= 3 && hl.split('|').length > hl.split(delim).length) {
+      // a Markdown table (| record_id | decision | reason |): drop the outer pipes and the |---| line
+      delim = '|';
+      body = body.filter(function (ln) { return !ln.trim() || !/^\s*\|?[\s:|-]+\|?\s*$/.test(ln); })
+        .map(function (ln) { return ln.replace(/^\s*\|?(.*?)\|?\s*$/, '$1'); });
+    }
+    var rows = splitRows(body.join('\n'), delim);
     if (!rows.length) return { header: [], rows: [] };
     var header = rows[0].map(function (h) { return stripChars(h.trim(), '"').toLowerCase(); });
     while (header.length && !header[header.length - 1]) header.pop();
@@ -319,14 +326,15 @@
 
     var html = '';
     // coverage block (same rule and wording as score_screening.py)
-    html += '<div class="callout ' + (missInc.length ? 'danger' : (missing.length ? 'warn' : 'info')) + '">' + (missing.length ? ICON_WARN : ICON_INFO) + '<div>' +
-      '<p><b>Screened ' + nScreened + ' of ' + nGold + ' records</b> (' + missing.length + ' not screened).</p>';
+    html += '<div class="callout ' + (expectAll && missInc.length ? 'danger' : (expectAll && missing.length ? 'warn' : 'info')) + '">' + (expectAll && missing.length ? ICON_WARN : ICON_INFO) + '<div>' +
+      '<p><b>Screened ' + nScreened + ' of ' + nGold + ' records</b> (' + missing.length + ' not screened).' +
+      (!expectAll && missing.length ? ' Expected if you screened one batch (batch 1 = R001-R020); fewer than you sent means the AI dropped or renamed records.' : '') + '</p>';
     if (missing.length) {
       html += '<p>Not screened: ' + missing.map(function (r) { return missInc.indexOf(r) >= 0 ? '<b>' + esc(r) + '</b>' : esc(r); }).join(', ') + '</p>';
       if (missInc.length) html += '<p><b>Not screened but INCLUDED in the reference: ' + missInc.map(esc).join(', ') + '</b></p>';
       html += '<p>Sensitivity counting not-screened includes as missed: <b>' + pct(ratio(tp, nInc)) + '</b> (' + tp + '/' + nInc + ')</p>';
       html += '<p class="hint">' + (expectAll ? 'Not-screened records are counted as exclude in all metrics below ("I was meant to screen all records" is ticked).' :
-        'Metrics below are computed on the screened records only. Tick "I was meant to screen all records" in step 2 to count not-screened records as exclude.') + '</p>';
+        'Metrics below are computed on the screened records only. Tick "I was meant to screen all records" (Going further box) to count not-screened records as exclude.') + '</p>';
     }
     html += '</div></div>';
 
@@ -337,13 +345,14 @@
       metric('Missed includes', String(fn), 'reference includes you excluded' + (expectAll ? ' or did not screen' : ''), false, fn > 0) +
       '</div>';
 
-    html += '<div class="grid grid-2" style="margin-top:18px">';
-    html += '<div class="card"><h3>Confusion matrix</h3><table class="cm" aria-label="Confusion matrix">' +
+    var more = '';
+    more += '<div class="grid grid-2" style="margin-top:18px">';
+    more += '<div class="card"><h3>Confusion matrix</h3><table class="cm" aria-label="Confusion matrix">' +
       '<tr><th></th><th>Reference: include</th><th>Reference: exclude</th></tr>' +
       '<tr><th>You: include</th><td class="tp"><b>' + tp + '</b><span>true include</span></td><td class="fp"><b>' + fp + '</b><span>false include</span></td></tr>' +
       '<tr><th>You: exclude</th><td class="fn"><b>' + fn + '</b><span>missed include</span></td><td class="tn"><b>' + tn + '</b><span>true exclude</span></td></tr>' +
       '</table></div>';
-    html += '<div class="card"><h3>All indicators</h3><table class="data">' +
+    more += '<div class="card"><h3>All indicators</h3><table class="data">' +
       '<tr><td>Records scored</td><td><b>' + n + '</b> of ' + nGold + ' <span class="hint">(' + (expectAll ? 'all reference records, not screened = exclude' : 'records with a valid decision') + ')</span></td></tr>' +
       '<tr><td>NPV</td><td><b>' + pct(npv) + '</b></td></tr>' +
       '<tr><td>Accuracy <span class="hint">(misleading when includes are few)</span></td><td><b>' + pct(acc) + '</b></td></tr>' +
@@ -365,7 +374,7 @@
         var ta = (gold[rid].d === 'include' || ft.indexOf(rid) >= 0) ? 'include' : 'exclude';
         if (ta === 'include' && eff === 'include') t2++; else if (ta === 'include') m2++; else if (eff === 'include') f2++; else n2++;
       });
-      html += '<div class="card" style="margin-top:18px"><h3>Title/abstract-stage view</h3><p>' + ft.length +
+      more += '<div class="card" style="margin-top:18px"><h3>Title/abstract-stage view</h3><p>' + ft.length +
         ' records were excluded by the review only after reading the full text, so they passed its title/abstract stage. Counting them as "include" gives a fairer picture of title/abstract screening:</p>' +
         '<table class="data" style="margin-top:10px"><tr><td>Sensitivity (stage view)</td><td><b>' + pct(ratio(t2, t2 + m2)) + '</b> (' + t2 + '/' + (t2 + m2) + ')</td></tr>' +
         '<tr><td>Specificity (stage view)</td><td><b>' + pct(ratio(n2, n2 + f2)) + '</b> (' + n2 + '/' + (n2 + f2) + ')</td></tr>' +
@@ -378,11 +387,17 @@
     if (run.dup.length) probs.push('<b>Duplicated record_id</b> (last one kept): ' + run.dup.map(esc).join(', ') + '.');
     if (probs.length) html += '<div class="callout warn" style="margin-top:18px">' + ICON_WARN + '<div>' + probs.map(function (w) { return '<p>' + w + '</p>'; }).join('') + '</div></div>';
 
+    html += '<div class="card errors-card" id="look-at-the-errors" style="margin-top:18px"><h3>Step 2 · Look at the errors</h3>' +
+      '<p>Open two of the records below: read the title and the abstract (PubMed link), then decide yourself why the AI got them wrong. ' +
+      'Which criterion did it use, and was it right to? A missed include is the costly error at this stage; a false include that the review excluded only after reading the full text (see the reference basis) is not an error at title/abstract stage. ' +
+      'The <a href="answers.html">reference answers</a> give the basis of every reference decision.</p>' +
+      (missed.length || falseInc.length ? '' : '<p><b>No missed or false includes in the records you screened.</b> Look at the unsure decisions and at the reasons instead: are they what the abstract says?</p>');
     html += listTable('Missed includes: check these first', 'fn', missed, dec, true);
-    html += listTable('False includes', 'fp', falseInc, dec, false);
-    html += listTable('Unsure (counted as ' + unsureAs + ')', 'partial', unsure, dec, false);
+    html += listTable('False includes', 'fp', falseInc, dec, true);
+    more += listTable('Unsure (counted as ' + unsureAs + ')', 'partial', unsure, dec, false);
     if (flagged.length) html += listTable('Possible errors in the reference standard', 'extra', flagged, dec, false,
       'These records were not included by the reference review although they appear to meet its criteria. A "false include" here may be a correct decision: discuss before blaming the AI.');
+    html += '</div>';
 
     // reproducibility
     var t2txt = $('s-text2').value;
@@ -402,6 +417,7 @@
             '</table></div>' : '') + '</div>';
       } catch (e) { html += '<p class="status err">Run 2: ' + esc(e.message) + '</p>'; }
     }
+    html += '<details class="box" style="margin-top:18px"><summary>Going further: all indicators, the title/abstract-stage view, unsure decisions</summary>' + more + '</details>';
 
     html += '<p class="hint" style="margin-top:18px">Interpretation: at title/abstract stage a missed include is far more costly than a false include. The reference is the review\'s final inclusion (after full text), so records it excluded at full text are legitimate includes at this stage: read the "reference basis" before calling a false include an error.</p>';
     html += '<div class="row" style="margin-top:12px"><button class="btn btn-plain" type="button" id="s-dl">Download the comparison (CSV)</button>' +
@@ -424,7 +440,10 @@
       '<div class="table-wrap" style="margin-top:12px"><table class="data"><tr><th>Record</th><th>Title</th><th>Decision</th><th>Your reason</th><th>Reference basis</th></tr>' +
       ids.map(function (id) {
         var m = dec[id];
-        return '<tr><td><span class="tag ' + cls + '">' + esc(id) + '</span></td><td>' + esc(title(id)) + '</td><td>' + (m ? esc(m.decision) : '<i>not screened</i>') +
+        var rec = ref.records && ref.records[id], pm = rec && rec.pmid ? String(rec.pmid).trim() : '';
+        return '<tr><td><span class="tag ' + cls + '">' + esc(id) + '</span></td><td>' + esc(title(id)) +
+          (pm ? '<br><a href="https://pubmed.ncbi.nlm.nih.gov/' + encodeURIComponent(pm) + '/" target="_blank" rel="noopener">Read the abstract on PubMed</a>' : '') +
+          '</td><td>' + (m ? esc(m.decision) : '<i>not screened</i>') +
           '</td><td>' + (m ? esc(m.reason) : '') + '</td><td>' + esc(ref.sgold[id].basis) + '</td></tr>';
       }).join('') + '</table></div></details>';
   }
@@ -494,6 +513,9 @@
     'missing': 'missing', 'false absent': 'falsenr', 'unsupported': 'invented' };
 
   var lastExtraction = null;
+  // the short extraction of step 3 (the same five fields as SHORT_FIELDS in docs/build_pages.py)
+  var SHORT_FIELDS = ['country', 'study_design', 'intervention_components', 'primary_hai_outcome', 'direction_of_effect'];
+  var SCOPE_LABEL = { short: 'the 5 fields of the short extraction', core: 'the 11 core fields', all: 'all fields', mine: 'only the fields in your file' };
 
   function scoreExtraction() {
     var out = $('e-results'), msg = $('e-msg');
@@ -505,7 +527,8 @@
     if (!p.rows.length || ['study_id', 'field', 'value'].some(function (c) { return p.header.indexOf(c) < 0; })) {
       msg.className = 'status err'; msg.textContent = 'Your extraction needs the columns study_id,field,value[,source_quote][,location].'; return;
     }
-    var form = ref.form || {}, coreOnly = $('e-core').checked;
+    var form = ref.form || {}, scope = $('e-fields') ? $('e-fields').value : 'all';
+    var coreOnly = scope === 'core';
     var canonSid = {};
     ref.egold.forEach(function (g) { canonSid[g.study_id.toLowerCase()] = g.study_id; });
     (ref.papers || []).forEach(function (q) { if (q.study_id) canonSid[q.study_id.toLowerCase()] = q.study_id; });
@@ -531,6 +554,8 @@
       if (studies.indexOf(g.study_id) < 0) return;
       var f = form[g.field] || {};
       if (coreOnly && (f.core || 'yes') !== 'yes') return;
+      if (scope === 'short' && SHORT_FIELDS.indexOf(g.field) < 0) return;
+      if (scope === 'mine' && !mine[g.study_id + '||' + g.field]) return;
       var r = mine[g.study_id + '||' + g.field];
       var val = r ? (r.value || '') : '';
       var cat = r ? compare(val, g.value, f.type || 'text', 0.02) : 'missing';
@@ -541,7 +566,7 @@
       return studies.indexOf(sid) >= 0 && !ref.egold.some(function (g) { return g.study_id === sid && g.field === f; });
     });
     lastExtraction = { results: results, studies: studies.filter(function (s) { return known[s]; }), missingStudies: missingStudies,
-      unknownFields: Object.keys(unknownFields).sort(), dups: dups, extra: extra.length, hasQuote: p.header.indexOf('source_quote') >= 0, coreOnly: coreOnly };
+      unknownFields: Object.keys(unknownFields).sort(), dups: dups, extra: extra.length, hasQuote: p.header.indexOf('source_quote') >= 0, scope: scope };
     renderExtraction();
     out.hidden = false;
     out.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -562,7 +587,7 @@
       html += '<div class="callout danger">' + ICON_WARN + '<div><p><b>No study in your file matches the reference.</b> Reference studies: ' +
         Object.keys(ref.egold.reduce(function (o, g) { o[g.study_id] = 1; return o; }, {})).map(esc).join(', ') + '.</p></div></div>';
     }
-    html += '<p class="status">Studies scored: <b>' + (L.studies.map(esc).join(', ') || 'none') + '</b>' + (L.coreOnly ? ' · core fields only' : ' · all fields') + '.</p>';
+    html += '<p class="status">Studies scored: <b>' + (L.studies.map(esc).join(', ') || 'none') + '</b>' + ' · ' + (SCOPE_LABEL[L.scope] || 'all fields') + '.</p>';
     html += '<div class="metrics" style="margin-top:12px">' +
       metric('Agreement', agree + ' / ' + res.length, 'exact + within tolerance + text match (' + pct(ratio(agree, res.length)) + ')', true) +
       metric('Among fields you extracted', agree + ' / ' + attempted, pct(ratio(agree, attempted)) + (accepted ? '; after your review: ' + (agree + accepted) + ' / ' + attempted : '')) +

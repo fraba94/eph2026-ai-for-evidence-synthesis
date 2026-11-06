@@ -21,6 +21,7 @@
       <a href="activity.html" aria-current="page">Activity</a>
       <a href="beginners.html">Beginners</a>
       <a href="batch.html">Records</a>
+      <a href="papers.html">Papers</a>
       <a href="prompts.html">Prompts</a>
       <a href="skills.html">Skills</a>
       <a href="scorer.html">Scorer</a>
@@ -33,7 +34,7 @@
   <div class="wrap">
     <div class="eyebrow"><a href="activity.html">Hands-on activity</a> · printable card</div>
     <h1 id="quick-card--ai-for-screening-and-extraction">Quick card · AI for screening and extraction</h1>
-    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/quick_card.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-03">3 November 2026</time></span></p>
+    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/quick_card.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-06">6 November 2026</time></span></p>
   </div>
 </div>
 
@@ -43,34 +44,9 @@
     <article class="md">
 
 <p><strong>Question:</strong> Are hand hygiene interventions effective in reducing healthcare-associated infections?
-<strong>Compare with:</strong> the reference review, Pruna et al., <em>J Clin Med</em> 2026 (12 included studies; screening and extraction by two human reviewers without AI; provisional). Do not open it before step 3.
+<strong>Compare with:</strong> the reference review, Pruna et al., <em>J Clin Med</em> 2026 (12 included studies; screening and extraction by two human reviewers without AI; provisional). Screening answers after step 1, extraction answers after step 3.
 <strong>Full guide:</strong> <code>activity/README.md</code> (on your own: section "Doing it on your own (self-paced)", 60-90 min)</p>
-<div class="table-wrap md-table"><table>
-<thead>
-<tr>
-<th>Roles</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Driver</td>
-<td>types and runs the tool</td>
-</tr>
-<tr>
-<td>Prompter</td>
-<td>writes prompts, pastes the criteria verbatim</td>
-</tr>
-<tr>
-<td>Verifier</td>
-<td>checks every quote and number in the source</td>
-</tr>
-<tr>
-<td>Recorder</td>
-<td>AI use record + discrepancy log</td>
-</tr>
-</tbody>
-</table></div>
+<p><strong>Work on your own</strong>, on your own laptop: you drive the AI, then you verify it. Site: Start page, then one tap per material.</p>
 <p><strong>Include only if ALL are met</strong></p>
 <div class="table-wrap md-table"><table>
 <thead>
@@ -107,22 +83,23 @@
 </tbody>
 </table></div>
 <p><strong>Step 1 · Screening · 10 min</strong>
-Chat: batch 1 (R001-R020) from the records page. Agent: all 60.
-Output <code>record_id,decision,reason</code> · decision <code>include | exclude | unsure</code> · reason = criterion.
-Count the rows back; verifier checks 3 decisions against the abstract. In doubt or no abstract: <strong>unsure</strong>.
-Save <code>screening_run1.csv</code>. Spare minute: same prompt in a new chat, save <code>screening_run2.csv</code>.</p>
-<p><strong>Step 2 · Extraction · 12 min</strong>
-Read the form first (<code>data/extraction_form.csv</code>, 11 core fields). One paper per chat (chat: <code>Phan2020.txt</code>, study_id <code>Phan2020</code>).
-Output <code>study_id,field,value,source_quote,location</code>. Verbatim quote for every value; <code>not reported</code> is allowed.
-Verifier: Ctrl+F three quotes. Save <code>extraction.csv</code>.</p>
-<p><strong>Step 3 · Compare · 8 min</strong> (now open <code>answers/</code>)
-Browser scorer, or:
-<code>python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv</code> (agent: add <code>--expect-all</code>)
-<code>python3 activity/tools/score_extraction.py extraction.csv</code>
-Read the coverage line first ("Screened 20 of 60" is expected in the chat track), then: missed includes · QUOTE NOT FOUND · unsupported · false absent. Log 3 discrepancies in <code>worksheets/discrepancy_log.md</code>: who is right, after checking the source.</p>
-<p><strong>Ask yourselves:</strong> Performance: would we accept this sensitivity? Transparency: can we trace every value? Bias: whose
-errors, which studies? Oversight: who signs the table? Reproducibility: did two runs agree? And the reference: is it
-always right?</p>
+Copy batch 1 (R001-R020) from the Records page and the screening prompt from the Start page (criteria already in it).
+Paste both into a new chat. Then <strong>paste the AI's answer into the Scorer</strong> as it is: no file to save.
+Coverage line first: "Screened 20 of 60" is expected; fewer means records were dropped. In doubt or no abstract: <strong>unsure</strong>.</p>
+<p><strong>Step 2 · Look at the errors · 10 min</strong> (screening answers: now)
+The Scorer lists the missed includes and the false includes. Open 2 of them (title and abstract, PubMed link) and
+decide yourself why the AI got them wrong: which criterion, and was it right? Keep one error for the discussion.</p>
+<p><strong>Step 3 · Short extraction · 10 min</strong> (extraction answers: after this step)
+Paper <code>Phan2020</code> (Papers page: Copy full text), the extraction prompt with <strong>5 fields</strong> already filled in:
+<code>country</code>, <code>study_design</code>, <code>intervention_components</code>, <code>primary_hai_outcome</code>, <code>direction_of_effect</code>.
+Each value with a verbatim quote and its location, or <code>not reported</code>. Verify 2 quotes with Ctrl+F.
+Compare with the reference values on the Answers page. Read the notes: some papers contradict themselves.</p>
+<p><strong>Discussion · 10 min:</strong> each person brings <strong>one error they found</strong>.</p>
+<p><strong>Going further:</strong> a second run in a new chat; the 11 core fields; the discrepancy log and the AI use record; the
+agent track (all 60 records, 3 papers, skills, <code>python3 activity/tools/score_screening.py ... --expect-all</code>).</p>
+<p><strong>Ask yourself:</strong> Performance: would I accept this sensitivity? Transparency: can I trace every value? Bias: whose
+errors, which studies? Oversight: would I sign the table? Reproducibility: would a second run agree? And the
+reference: is it always right?</p>
 <div class="md-alert md-alert-warning md-alert-plain"><svg class="md-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg><div><p><strong>For learning only.</strong> These prompts are teaching material for this workshop. They are not a validated method.
 If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,
 hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility

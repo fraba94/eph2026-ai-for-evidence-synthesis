@@ -21,6 +21,7 @@
       <a href="../activity.html">Activity</a>
       <a href="../beginners.html">Beginners</a>
       <a href="../batch.html">Records</a>
+      <a href="../papers.html">Papers</a>
       <a href="../prompts.html" aria-current="page">Prompts</a>
       <a href="../skills.html">Skills</a>
       <a href="../scorer.html">Scorer</a>
@@ -33,7 +34,7 @@
   <div class="wrap">
     <div class="eyebrow"><a href="../prompts.html">Prompt library</a> · stage 4 of 6</div>
     <h1 id="4-data-extraction-from-full-texts">4. Data extraction from full texts</h1>
-    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/04_extraction.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-03">3 November 2026</time></span></p>
+    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/04_extraction.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-06">6 November 2026</time></span></p>
   </div>
 </div>
 
@@ -50,7 +51,7 @@
     <article class="md">
 
 <div class="md-alert md-alert-warning md-alert-plain"><svg class="md-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg><div><p>For learning only: see the disclaimer in the <a href="../prompts.html">prompt library index</a>. You stay responsible for every decision.</p></div></div>
-<p>Design the form <strong>before</strong> you upload anything. One paper per conversation. A quote and a location for every value. "Not reported" is a valid answer. Workshop form: <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/extraction_form.csv"><code>activity/data/extraction_form.csv</code></a>.</p>
+<p>Design the form <strong>before</strong> you upload anything. One paper per conversation. A quote and a location for every value. "Not reported" is a valid answer. Workshop form: <a href="../papers.html#extraction-form"><code>activity/data/extraction_form.csv</code></a>.</p>
 <p>Before extracting, remember: the model never sees your PDF, only the text a parser extracted from it. Tables are the hardest thing to parse, and many apparent "reasoning errors" on numbers are really parsing errors.</p>
 <hr>
 <h2 id="41-design-the-form-first">4.1 Design the form first<a class="anchor" href="#41-design-the-form-first" aria-label="Link to this section">#</a></h2>
@@ -92,6 +93,18 @@ Reminder: verbatim quotes only; &quot;not reported&quot; is better than a guess.
 <p><strong>Expected output.</strong> A CSV block, one row per field.
 <strong>Check afterwards.</strong> Rows first (is any field missing?), then numbers (open the paper at each location), then every "not reported" (search the paper for the keyword and its synonyms).
 <strong>Failure modes.</strong> Quotes that look verbatim but are reconstructed; values from the wrong row of a scrambled table; one ward or period chosen silently; compliance reported as if it were an infection outcome; confidence intervals dropped; "not reported" for values that are in a table, a figure or the supplement.</p>
+<h3 id="workshop-variant-the-short-extraction-5-fields">Workshop variant: the short extraction (5 fields)<a class="anchor" href="#workshop-variant-the-short-extraction-5-fields" aria-label="Link to this section">#</a></h3>
+<p>Step 3 of the <a href="../activity.html#step-3--short-extraction-10-min">exercise</a> uses prompt 4.2 with only <strong>5 fields</strong>
+of the workshop form and <code>study_id = Phan2020</code>. Ready to paste, with the paper slot left for you, on the
+<a href="../papers.html#extraction-prompt">Papers page</a>. To fill prompt 4.2 by hand, paste these lines where it says
+<code>[PASTE FORM: field | definition | allowed values]</code>:</p>
+<div class="codeblock"><div class="codebar"><span class="lang">Prompt</span><button class="copy" type="button" data-label="Copy prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy prompt</span></button></div><pre><code class="language-text">- country: Country where the study was conducted. Take it from Methods/Results; if the paper gives it only in the affiliation of the study hospital, report it with &#x27;author affiliations&#x27; as location. Do not infer it from city or campaign names alone; if it is not stated anywhere, write not reported. Allowed values: free text.
+- study_design: Design of the evaluation, as you would classify it (not only the authors&#x27; label). Allowed values: interrupted time series | controlled before-after | uncontrolled before-after | randomised trial | other.
+- intervention_components: Components of the hand hygiene intervention. Allowed values: list, separated by &#x27;;&#x27;: education/training; alcohol-based hand rub at point of care; reminders/posters; audit and feedback; leadership/institutional safety climate; patient participation; other (specify).
+- primary_hai_outcome: The main clinical healthcare-associated infection outcome reported (name it as the authors do). Allowed values: free text.
+- direction_of_effect: Direction of the effect on the primary HAI outcome. Allowed values: favourable | no clear effect | mixed | unfavourable.</code></pre></div>
+<p>Going further: the 11 core fields (column <code>core = yes</code> of the form) are on the
+<a href="../papers.html#going-further">Papers page</a>.</p>
 <hr>
 <h2 id="43-table-check">4.3 Table check<a class="anchor" href="#43-table-check" aria-label="Link to this section">#</a></h2>
 <p><strong>Purpose.</strong> Expose parsing problems before trusting numbers that come from tables.</p>

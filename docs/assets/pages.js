@@ -1,5 +1,5 @@
 /* EPH 2026 · AI for evidence synthesis · small helpers for the generated pages and the start page.
-   - Copy buttons on code blocks (one click copies the prompt) and on [data-copy] buttons.
+   - Copy buttons on code blocks (one click copies the prompt) and on [data-copy] buttons ([data-src] preloads a file).
    - Task-list checkboxes remember their state in this browser (localStorage, nothing is sent anywhere).
    - On the day of the session, the start page marks the block that is happening now (Bilbao time).
    No external scripts. */
@@ -45,12 +45,33 @@
     });
   });
 
-  // buttons that copy the text of another element: <button data-copy="#id">
+  // elements filled from a file when the page loads: <pre data-src="data/fulltext/Phan2020.txt">, so that a
+  // Copy button can copy it at once (a copy after a download is refused by some phones)
+  function loadSrc(el) {
+    if (el._loading) return el._loading;
+    el._loading = fetch(el.getAttribute('data-src')).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    }).then(function (t) { el.textContent = t; return t; });
+    el._loading.catch(function () { el._loading = null; });
+    return el._loading;
+  }
+  document.querySelectorAll('[data-src]').forEach(function (el) { loadSrc(el).catch(function () {}); });
+
+  // buttons that copy the text of another element: <button data-copy="#id">; with data-fill="#other" and
+  // data-placeholder="[...]" the text of #other replaces the placeholder (a prompt with the paper pasted in)
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var el = document.querySelector(btn.getAttribute('data-copy'));
       if (!el) return;
-      copyText(el.textContent).then(function () { flash(btn, true); }, function () { flash(btn, false); });
+      var text = el.textContent;
+      var fill = btn.getAttribute('data-fill') && document.querySelector(btn.getAttribute('data-fill'));
+      if (fill) text = text.replace(btn.getAttribute('data-placeholder') || '', function () { return fill.textContent; });
+      if (!text && el.hasAttribute('data-src')) {
+        loadSrc(el).then(copyText).then(function () { flash(btn, true); }, function () { flash(btn, false); });
+        return;
+      }
+      copyText(text).then(function () { flash(btn, true); }, function () { flash(btn, false); });
     });
   });
 

@@ -11,6 +11,7 @@ The scorer and the batch page also fall back to the raw files on GitHub (main br
 missing, so the site keeps working even if this script was not run. Standard library only.
 """
 import argparse
+import csv
 import filecmp
 import shutil
 import sys
@@ -28,6 +29,13 @@ COPIES = [
     ("activity/answers/extraction_gold.csv", "data/extraction_gold.csv"),
     ("assets/eupha-dhai-logo.png", "assets/eupha-dhai-logo.png"),
 ]
+# the full texts that may be redistributed (papers.csv: shipped = yes), for the Papers page (copy and download)
+with open(ROOT / "activity/data/papers.csv", encoding="utf-8", newline="") as f:
+    COPIES += [(r["fulltext_file"], f"data/fulltext/{r['study_id']}.txt") for r in csv.DictReader(f)
+               if r.get("shipped", "").strip().lower() == "yes" and r.get("fulltext_file")]
+# the worksheet templates, for the Download and Copy buttons of the worksheet pages
+COPIES += [(f"activity/worksheets/{p.name}", f"data/worksheets/{p.name}")
+           for p in sorted((ROOT / "activity/worksheets").glob("*")) if p.suffix in (".md", ".csv")]
 # the figures (built by assets/figures/build_figures.py) and the organisers' logos, every file in the folder
 COPIES += [(f"assets/figures/{p.name}", f"assets/figures/{p.name}") for p in sorted((ROOT / "assets/figures").glob("*.svg"))]
 COPIES += [(f"assets/logos/{p.name}", f"assets/logos/{p.name}") for p in sorted((ROOT / "assets/logos").glob("*.png"))

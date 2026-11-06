@@ -21,6 +21,7 @@
       <a href="activity.html" aria-current="page">Activity</a>
       <a href="beginners.html">Beginners</a>
       <a href="batch.html">Records</a>
+      <a href="papers.html">Papers</a>
       <a href="prompts.html">Prompts</a>
       <a href="skills.html">Skills</a>
       <a href="scorer.html">Scorer</a>
@@ -33,7 +34,7 @@
   <div class="wrap">
     <div class="eyebrow"><a href="activity.html">Hands-on activity</a> · worksheet</div>
     <h1 id="ai-use-record">AI use record</h1>
-    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/worksheets/ai_use_record.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-03">3 November 2026</time></span></p>
+    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/worksheets/ai_use_record.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-06">6 November 2026</time></span></p>
   </div>
 </div>
 
@@ -51,14 +52,86 @@
       </ol>
     </details>
     <article class="md">
+<div class="worksheet-tools"><p><b>Optional, going further.</b> Fill it on paper, in a text editor or a spreadsheet: copy the template or download it.</p><div class="row"><button class="btn-copy" type="button" data-copy="#worksheet-template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy template</span></button><a class="btn btn-plain" href="data/worksheets/ai_use_record.md" download="ai_use_record.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></svg>Download template (.md)</a></div><pre id="worksheet-template" hidden><code># AI use record
 
-<p>A record of how AI was used in your run of the exercise, so that someone else could repeat it and judge it. The items
+**Optional (going further):** not needed for the 30 minutes of the live session. A record of how AI was used in your
+run of the exercise, so that someone else could repeat it and judge it. The items
+follow the reporting expected by the RAISE recommendations (Responsible use of AI in evidence SynthEsis,
+https://osf.io/fwaud/) and the position statement on AI use in evidence synthesis by Cochrane, the Campbell
+Collaboration, JBI and the Collaboration for Environmental Evidence (2025, doi:10.1186/s13750-025-00374-5): what was
+used, for what, how, how it was checked, and its limits. In a real review this information belongs in the protocol and
+in the methods section. The skill `.claude/skills/ai-use-reporting/` helps draft it.
+
+**Your name:** ............
+
+## 1. Tool
+
+| Item | Screening | Extraction |
+|---|---|---|
+| Tool / product (e.g. ChatGPT, Claude, Gemini, Copilot, Claude Code) | | |
+| Model and version as shown by the tool | | |
+| Date and time of use | | |
+| Access (free, paid, institutional; web, app, API, agent) | | |
+| Settings you could see or change (temperature, &quot;thinking&quot;, web search on/off, memory on/off, project knowledge) | | |
+| Files given to the tool (which records, which paper, format: CSV, text, PDF) | | |
+| Data protection: was anything confidential or personal uploaded? Licence of the texts checked? | | |
+
+## 2. Prompts
+
+Paste the exact prompts, in order, including follow-ups and corrections. Note which ones were run in a new
+conversation.
+
+```text
+Prompt 1:
+
+Prompt 2:
+```
+
+## 3. Outputs
+
+| Item | Screening | Extraction |
+|---|---|---|
+| File name of the raw output saved | | |
+| Number of records/values requested vs returned | | |
+| Was the output edited by hand before scoring? What? | | |
+| Second run done? File name | | |
+
+## 4. Human checks
+
+| Check | Done? | What it found |
+|---|---|---|
+| Count of rows returned vs sent | | |
+| Decisions checked against the abstract (how many?) | | |
+| Quotes searched in the paper (how many? found?) | | |
+| Numbers checked against tables | | |
+| &quot;Not reported&quot; values checked by searching the paper | | |
+| Two runs compared | | |
+
+## 5. Performance against the reference
+
+| Measure | Value |
+|---|---|
+| Screening sensitivity (recall) / specificity / precision | |
+| Missed includes (record IDs) | |
+| Extraction agreement (from `score_extraction.py` or the browser scorer) | |
+| Quotes not found in the source | |
+| Agreement between run 1 and run 2 (kappa or % agreement) | |
+
+## 6. Limitations and judgement
+
+- What would you **not** trust this tool to do without a human check?
+- Would you use it in a real review? For which step, as first or second reviewer, and with which checks?
+- What would you write in the methods section? (One paragraph.)
+</code></pre></div>
+
+<p><strong>Optional (going further):</strong> not needed for the 30 minutes of the live session. A record of how AI was used in your
+run of the exercise, so that someone else could repeat it and judge it. The items
 follow the reporting expected by the RAISE recommendations (Responsible use of AI in evidence SynthEsis,
 <a href="https://osf.io/fwaud/">https://osf.io/fwaud/</a>) and the position statement on AI use in evidence synthesis by Cochrane, the Campbell
 Collaboration, JBI and the Collaboration for Environmental Evidence (2025, doi:10.1186/s13750-025-00374-5): what was
 used, for what, how, how it was checked, and its limits. In a real review this information belongs in the protocol and
 in the methods section. The skill <code>.claude/skills/ai-use-reporting/</code> helps draft it.</p>
-<p><strong>Group (or your name, if alone):</strong> ............ <strong>Recorder:</strong> ............</p>
+<p><strong>Your name:</strong> ............</p>
 <h2 id="1-tool">1. Tool<a class="anchor" href="#1-tool" aria-label="Link to this section">#</a></h2>
 <div class="table-wrap md-table"><table>
 <thead>

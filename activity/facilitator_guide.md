@@ -15,7 +15,7 @@ preparation, the pitfalls you should expect, and how to run the debrief. Do not 
 > replaced before the session. The extraction reference values were **prepared by the workshop team from the full
 > texts**, each with a verbatim quote and, where available, the reference review's own table entry
 > (`review_table_value`); they have not yet been validated against the review team's extraction sheet. Say so when
-> groups compare with them.
+> participants compare with them.
 
 ## Before the session
 
@@ -24,9 +24,9 @@ preparation, the pitfalls you should expect, and how to run the debrief. Do not 
 | The day before | Open the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) and the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) on the published site; copy batch 1 and confirm that the empty abstracts are filled from PubMed |
 | The day before | On each facilitator laptop: `python3 activity/tools/fetch_abstracts.py` and `python3 activity/tools/fetch_fulltext.py` (local copies in `activity/data/local/`, git-ignored: do not publish them). This is the fallback if the venue network blocks NCBI |
 | The day before | Run the scorers on the examples: `python3 activity/tools/score_screening.py activity/examples/decisions_example.csv` and `python3 activity/tools/score_extraction.py activity/examples/extraction_example.csv` |
-| The day before | Print the [quick card](quick_card.md) (one per group) and a few copies of the [discrepancy log](worksheets/discrepancy_log.md) |
-| Before the session | **Pre-assign groups, tracks and roles** (e.g. by table: tables marked "chat" and "agent", role cards on each table). Forming groups from scratch takes far more than one minute |
-| On arrival | Write on a slide or board: the repository short link, "Chat track: batch 1 = R001-R020, paper Phan2020", "Do not open `answers/` before step 3" |
+| The day before | Print a few copies of the [quick card](quick_card.md) |
+| Before the session | Nothing to assign: **each participant works alone, on their own laptop** (no groups, no roles). A laptop is recommended; a phone works for reading the pages |
+| On arrival | Write on a slide or board: the repository short link, "Chat track: batch 1 = R001-R020, paper Phan2020, 5 fields", "Screening answers after step 1, extraction answers after step 3" |
 
 If the reference review has been replaced, rebuild first (see [`data/README.md`](data/README.md#how-to-replace-the-reference-review)) and re-read the record IDs below.
 
@@ -38,11 +38,11 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
 | 10-20 | 16:55-17:05 | Demo in four hands: **Francesco Baglivo** drives the AI, **Patrick Boudreau** checks the source | Follow the [demo script](#demo-script-four-hands): one screening batch, one extraction, then the errors the verifier caught |
-| 18-20 | 17:03-17:05 | (end of demo) Groups and tracks already assigned by table; roles confirmed; the repository and records page open | "Driver, prompter, verifier, recorder: check your role card" |
-| 20-30 | 17:05-17:15 | **Step 1 screening** | At minute 25: "Did you count the rows that came back?" At 29: "Save the file, even if incomplete" |
-| 30-42 | 17:15-17:27 | **Step 2 extraction** (chat track: optional if screening ran late; then compare screening only) | At 30: "Read the form for one minute before uploading." At 37: "Verifier: search three quotes now" |
-| 42-50 | 17:27-17:35 | **Step 3 compare** | "Open the scorer. Read the coverage line, missed includes and QUOTE NOT FOUND first. Log three discrepancies" |
-| 50-60 | 17:35-17:45 | Structured discussion | Use the prompts below; collect one sentence per group |
+| 18-20 | 17:03-17:05 | (end of demo) Everyone opens the Start page on their own laptop | "Today, on your own, you do both: you drive the AI, then you verify it" |
+| 20-30 | 17:05-17:15 | **Step 1 screening**: batch 1, the screening prompt, then the AI's answer pasted into the scorer | At minute 25: "Paste the answer into the scorer as soon as it arrives. Coverage line first: did all 20 come back?" |
+| 30-40 | 17:15-17:25 | **Step 2 look at the errors**: open two missed or false includes, decide why the AI got them wrong | At 30: "Read the abstract, not the AI's reason." At 38: "Keep one error for the discussion" |
+| 40-50 | 17:25-17:35 | **Step 3 short extraction**: Phan2020, 5 fields, a quote for each | At 40: "Read the 5 definitions before you paste the paper." At 45: "Verify two quotes with Ctrl+F now" |
+| 50-60 | 17:35-17:45 | Structured discussion | Each person brings one error they found: collect them on the whiteboard slide of the demo; then the prompts below |
 
 ## Demo script (four hands)
 
@@ -54,7 +54,8 @@ workshop: **one drives the AI, one checks the source.**
 - **Patrick = verifier.** Never touches the AI. Asks "show me where it says that" and checks the answers against the
   abstract or the paper. He decides what is accepted.
 
-Participants then do the same steps in the same roles (driver and verifier of the [group roles](README.md#group-roles)).
+Today, on your own, you do both: participants then run the same steps alone, first as driver, then as verifier
+(see [Working on your own](README.md#working-on-your-own)).
 The point to land at the end: **the errors were caught by the verifier, not by the AI.**
 
 **Pages used.** All on the published site, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/> (or on `http://localhost:8000/` if you serve `docs/` from a
@@ -62,19 +63,22 @@ laptop):
 
 - [Start page, `start.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html): the screening prompt with C1-C6 already pasted in, with a Copy button.
 - [Records page, `batch.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html): the batches; missing abstracts are filled from PubMed in the browser.
-- [Beginners walkthrough, step 5](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late):
-  the extraction prompt and the verification prompt; the 11 core fields are the rows with `core = yes` of the
-  [extraction form](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/data/extraction_form.csv). Same prompts in the [prompt library](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) (3.1, 4.2).
-- [Scorer, `scorer.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): paste the CSV; nothing is uploaded.
+- [Papers page, `papers.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html): the full texts (Copy, Download, Show) and the short extraction
+  prompt with the 5 fields already filled in; on the Mestre2012 card, **Copy prompt + this paper** gives the prompt with
+  `study_id = Mestre2012` and the paper already pasted in. The 11-field version is under "Going further". Same
+  prompts in the [beginners walkthrough, step 4](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-4-short-extraction-one-paper-5-fields-with-quotes-10-min)
+  and the [prompt library](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) (3.1, 4.2).
+- [Scorer, `scorer.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): paste the AI's answer as it is; nothing is uploaded.
+- [Answers page, `answers.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html): screening answers after step 1, extraction answers after step 3, each behind its own button.
 - Mestre2012 full text (CC BY 4.0), the demo paper: [`data/fulltext/Mestre2012.txt`](data/fulltext/Mestre2012.txt), or
   [as plain text](https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Mestre2012.txt)
   to select all and copy.
 
 > [!IMPORTANT]
-> **Demo on batch 3 (R041-R060), not batch 1.** The chat-track groups screen batch 1 (R001-R020) right after the
+> **Demo on batch 3 (R041-R060), not batch 1.** The chat-track participants screen batch 1 (R001-R020) right after the
 > demo: projecting the scorer on batch 1 would show them its missed includes. Batch 3 keeps the same steps without
-> the spoiler (agent-track groups, who screen all 60, see 20 of their answers: tell them so). Likewise, the demo
-> extracts **Mestre2012**, not Phan2020: the chat-track groups extract Phan2020 right after.
+> the spoiler (agent-track participants, who screen all 60, see 20 of their answers: tell them so). Likewise, the demo
+> extracts **Mestre2012**, not Phan2020: the chat-track participants extract Phan2020 right after.
 
 ### Minute by minute
 
@@ -88,13 +92,13 @@ laptop):
 | 2:30-3:45 | Switches to the records tab, Ctrl+F on the record Patrick names | Picks **two decisions**, preferably one exclude and one include or unsure: "Show me where it says that." Reads the sentence of the abstract and says aloud: supported, or not | `batch.html` (the abstract) next to the chat |
 | 3:45-5:00 | Copies the CSV block; Scorer, screening tab; pastes it; leaves "I was meant to screen all records" **unticked**; compares | "Coverage line first: Screened 20 of 60 is expected, fewer means rows were dropped." Then: "Missed includes: the costly error at this stage." | `scorer.html` |
 | **B. Extraction** | | | |
-| 5:00-5:45 (17:00) | New chat; pastes the extraction prompt with the 11 core fields (prepared the day before), `study_id = Mestre2012`, then the full text of Mestre2012 (or attaches the file); sends | States the rule: "Every value has a verbatim quote and a location, or says not reported. A value without a quote is not a value." | Chat assistant |
+| 5:00-5:45 (17:00) | New chat; Papers page, Mestre2012 card: **Copy prompt + this paper** (the 5 fields of step 3, `study_id = Mestre2012`, the full text already pasted in); pastes it; sends | States the rule: "Every value has a verbatim quote and a location, or says not reported. A value without a quote is not a value." | Chat assistant |
 | 5:45-6:30 | Opens `Mestre2012.txt` in the second tab while the answer arrives | Chooses **two quotes** from the answer: one with a number, and a `not reported` if there is one | Chat, then `Mestre2012.txt` |
 | 6:30-7:30 | Ctrl+F on six to eight words of each quote, then on a synonym for the `not reported` field | "Is it there word for word, in the section it says?" Then **one number**: "Is the number in the value also in the quote?" | `Mestre2012.txt` with the match highlighted |
-| 7:30-8:00 | "We do not score the extraction now: that is your job in step 2." | Sums up aloud what passed and what did not | Chat |
+| 7:30-8:00 | "We do not score the extraction now: that is your job in step 3." | Sums up aloud what passed and what did not | Chat |
 | **C. What we just saw** | | | |
 | 8:00-9:15 (17:03) | Switches to the whiteboard slide and writes each error found: record ID or field, what was wrong | For each error: "Who caught it? Not the AI. The verifier, with the source open." If none: "No visible error today. That is also a result: here is what our rehearsal produced." | Whiteboard slide |
-| 9:15-10:00 | Back to the Start page, section 2 (tracks) | Hands over: "Your turn. Same steps, same roles: driver at the keyboard, verifier with the source open. Chat track: batch 1 and Phan2020. Check your role card." | `start.html#choose-your-track` |
+| 9:15-10:00 | Back to the Start page, the three steps | Hands over: "Your turn. Today, on your own, you do both: you drive the AI, then you verify it, with the source open. Chat track: batch 1, then Phan2020." | `start.html#right-now` |
 
 ### What to watch for
 
@@ -117,28 +121,28 @@ laptop):
       projector washes it out.
 - [ ] **Two tabs open:** `start.html` and the chat. Keep `batch.html`, `scorer.html` and `Mestre2012.txt` one click
       away (a local copy of `Mestre2012.txt` works without network).
-- [ ] **Extraction prompt ready:** the prompt of the beginners walkthrough, step 5, with the 11 core fields of the
-      extraction form pasted in and `study_id = Mestre2012`, saved in a text file on the laptop.
+- [ ] **Extraction prompt ready:** the short extraction prompt for Mestre2012 (Papers page, Mestre2012 card,
+      **Copy prompt + this paper**), also saved in a text file on the laptop as a backup.
 - [ ] **Rehearsal run saved locally as backup**, in case the live run shows no error or the network fails: the
       screening CSV, the extraction CSV and screenshots of the chat and of the scorer, with one error marked.
       Keep it on the laptop only (outside the repository or in the git-ignored `activity/data/local/`): **do not
       commit or post outputs that contain copyrighted abstracts**.
 - [ ] **AI use record.** Note the model name, version and date of the rehearsal, and again on the day, in the
-      [AI use record](worksheets/ai_use_record.md): the demo models what the recorder does.
+      [AI use record](worksheets/ai_use_record.md) (optional for participants, under "Going further"): the demo shows what to record.
 - [ ] **Rehearse once in four hands** with a timer: who speaks when, and where the hand-over at 9:15 happens.
 
 ### If something fails
 
 | Problem | What to do |
 |---|---|
-| No network (records page, chat or scorer do not load) | Show the saved rehearsal run: screenshots of the chat, the CSV and the scorer. Say it is a rehearsal and when it was run. Then point to the [fallbacks](#if-things-go-wrong) for the groups |
+| No network (records page, chat or scorer do not load) | Show the saved rehearsal run: screenshots of the chat, the CSV and the scorer. Say it is a rehearsal and when it was run. Then point participants to the [fallbacks](#if-things-go-wrong) |
 | The AI makes no visible error | Say so: it is also a result, and it does not prove the next run will be clean. Show the rehearsal's error and who caught it |
 | Records page does not fill the abstracts | Use the records shipped with abstracts (see [If things go wrong](#if-things-go-wrong)) or the rehearsal run |
 | Time overrun | Skip part B (extraction). **Always keep part C**: the errors on the whiteboard and the hand-over |
 
 ## What to expect in screening
 
-Record IDs refer to the current build (seed 2026). Chat track groups see R001-R020 (4 includes).
+Record IDs refer to the current build (seed 2026). Chat-track participants see R001-R020 (4 includes).
 
 | Record(s) | Reference | Typical AI behaviour and why it is instructive |
 |---|---|---|
@@ -168,17 +172,17 @@ All three papers contain traps that come from the papers, not from the AI. The `
 | Mestre2012 | Baseline period given three ways (March 2007, October 2007, 2007-2008); phase 1 compliance 78% in Table 2 but 79.5% in the Abstract, with a CI that does not contain 78; denominator per 1,000 in Methods vs per 10,000 in Results | Flags internal inconsistencies |
 | AlKuwaiti2017 | Post-intervention HAI rate 2.59 (Abstract, Results), 2.5483 (Table II, 2016) and 2.55 (Discussion); which year was the intervention year is not stated | Quotes one value and its location, notes the others |
 | AlKuwaiti2017 | No surveillance definition; no effect estimate (only P < 0.05); a non-significant correlation (r = -0.278, p = 0.381) easily reported as an "effect" | `not reported` where the paper is silent |
-| AlKuwaiti2017 | Licence CC BY-NC: not shipped in the repository | Agent track fetches it locally; chat track uses Phan2020 or Mestre2012 |
+| AlKuwaiti2017 | Licence CC BY-NC: not shipped in the repository | Agent track fetches it locally; chat track uses Phan2020 (Mestre2012 at home) |
 
 ## Interpreting the scores
 
 - **Coverage first.** The scorer starts with "Screened N of 60 records" and lists records not screened. Metrics are
   computed on the screened records; the line "Sensitivity counting not-screened includes as missed" shows the cost of
-  dropped records (chat assistants often drop rows). Agent-track groups should score with `--expect-all`.
+  dropped records (chat assistants often drop rows). Agent-track participants should score with `--expect-all`.
 - **Sensitivity first.** At title/abstract stage, a missed include is the costly error. Precision against the final
-  decision is naturally low because 21 records reached the review's full-text stage: point groups to the
+  decision is naturally low because 21 records reached the review's full-text stage: point participants to the
   title/abstract-stage view and to `gold_basis`.
-- **Kappa between two runs** shows sampling variability: the same prompt, the same records, different answers. Ask
+- **Kappa between two runs** (going further) shows sampling variability: the same prompt, the same records, different answers. Ask
   what a reviewer would report about it.
 - **Extraction:** `QUOTE NOT FOUND` (invented or paraphrased quote), `unsupported` (value where the paper is silent)
   and `false absent` (missed information, often in tables) matter more than small numeric differences. `within tol.`
@@ -188,12 +192,15 @@ All three papers contain traps that come from the papers, not from the AI. The `
 
 ## Debrief prompts (last 10 minutes)
 
-1. **Performance.** Hands up: who missed at least one include? Which one, and why?
+Start with the errors: **each person brings one error they found** (step 2 or step 3), and it goes on the whiteboard
+slide of the demo next to the errors the verifier caught. Then:
+
+1. **Performance.** Hands up: whose AI missed at least one include? Which one, and why?
 2. **Transparency.** Who found a quote that was not in the paper? How long did it take to find out?
 3. **Bias.** Were the errors random, or always the same kind (single units, bundles, numbers in tables, inferred
    countries)?
 4. **Oversight.** Who would sign the extraction table as it came out of the AI? What would you need to check first?
-5. **Reproducibility.** Did your two runs agree? What should go in a methods section so that someone can repeat it?
+5. **Reproducibility.** Who tried a second run (going further)? Did it agree? What should go in a methods section so that someone can repeat it?
 6. **The reference.** Did anyone disagree with the reference after checking the source?
 
 Close with the repository's position: these tools can help people who understand how they work and verify them
@@ -205,6 +212,6 @@ systematically; for everyone else the beginners track is **for learning only**, 
 |---|---|
 | Network blocks NCBI (records page cannot fill abstracts) | Use the 17 records shipped with abstracts: R008, R011, R018 (the only ones in batch 1), R021, R023, R029, R032, R034, R035, R038, R041, R046, R052, R053, R054, R056, R058; or share the local `screening_records_full.csv` on the facilitator laptop screen (do not post it online) |
 | Chat assistant refuses uploads | Paste the text from [`data/fulltext/Phan2020.txt`](data/fulltext/Phan2020.txt) in two halves, in the same conversation |
-| Group is fast | Second run in a new chat; or a second paper; or the agent track on all 60 records |
-| Group is slow | Screen 10 records only; extract the core fields only (`--core-only` in the scorer) |
+| Someone is fast | Going further: a second run in a new chat; the 11 core fields; the second paper (Mestre2012); the agent track on all 60 records |
+| Someone is slow | Screen 10 records only (batch size 10 on the records page); if step 3 does not fit, keep the error found in step 2 for the discussion |
 | Published website (GitHub Pages) not available | Serve it from a laptop: `cd docs && python3 -m http.server 8000`, then `http://localhost:8000/batch.html` and `scorer.html`; or Option B of the [beginners walkthrough](../beginners/README.md) and the Python scorers |

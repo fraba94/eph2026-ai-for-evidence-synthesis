@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="550" viewBox="0 0 1240 550" role="img" aria-label="Two ways to take part. Agent track (Claude Code or another coding agent; needs AI literacy and advanced skills): clone, skills load automatically, screen all 60 records and extract 3 papers, score. Chat track (any chat assistant, learning only): open the beginners guide, copy a batch and a prompt, save your decisions, score in the browser. Both end by comparing with the human reference review and discussing." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif">
-<title>Two ways to take part. Agent track (Claude Code or another coding agent; needs AI literacy and advanced skills): clone, skills load automatically, screen all 60 records and extract 3 papers, score. Chat track (any chat assistant, learning only): open the beginners guide, copy a batch and a prompt, save your decisions, score in the browser. Both end by comparing with the human reference review and discussing.</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="550" viewBox="0 0 1240 550" role="img" aria-label="Two ways to take part. Agent track (Claude Code or another coding agent; needs AI literacy and advanced skills): clone, skills load automatically, screen all 60 records and extract 3 papers, score. Chat track (any chat assistant, learning only): open the beginners guide, copy a batch and a prompt, paste the answer in the browser scorer, look at the errors. Both end by comparing with the human reference review and discussing." font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif">
+<title>Two ways to take part. Agent track (Claude Code or another coding agent; needs AI literacy and advanced skills): clone, skills load automatically, screen all 60 records and extract 3 papers, score. Chat track (any chat assistant, learning only): open the beginners guide, copy a batch and a prompt, paste the answer in the browser scorer, look at the errors. Both end by comparing with the human reference review and discussing.</title>
 <rect width="1240" height="550" rx="16" fill="#0D1117"/>
 <text x="40" y="56" font-size="28" fill="#E6EDF3" font-weight="800">Two ways to take part</text>
 <text x="40" y="88" font-size="17" fill="#9DA7B3">Same records, same human reference review, two ways to work.</text>
@@ -49,13 +49,13 @@
 <line x1="666" y1="284" x2="666" y2="300" stroke="#776726" stroke-width="1.2"/>
 <circle cx="666" cy="314" r="13" fill="#29240F" stroke="#776726" stroke-width="1.2"/>
 <text x="666" y="319" font-size="14" fill="#E6EDF3" font-weight="800" text-anchor="middle">3</text>
-<text x="692" y="314" font-size="16" fill="#E6EDF3" font-weight="700">Save your decisions</text>
-<text x="692" y="334" font-size="13.5" fill="#9DA7B3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">record_id, decision, reason</text>
+<text x="692" y="314" font-size="16" fill="#E6EDF3" font-weight="700">Paste the answer in the scorer</text>
+<text x="692" y="334" font-size="13.5" fill="#9DA7B3">nothing is uploaded</text>
 <line x1="666" y1="328" x2="666" y2="344" stroke="#776726" stroke-width="1.2"/>
 <circle cx="666" cy="358" r="13" fill="#29240F" stroke="#776726" stroke-width="1.2"/>
 <text x="666" y="363" font-size="14" fill="#E6EDF3" font-weight="800" text-anchor="middle">4</text>
-<text x="692" y="358" font-size="16" fill="#E6EDF3" font-weight="700">Score in the browser</text>
-<text x="692" y="378" font-size="13.5" fill="#9DA7B3">nothing is uploaded</text>
+<text x="692" y="358" font-size="16" fill="#E6EDF3" font-weight="700">Look at the errors</text>
+<text x="692" y="378" font-size="13.5" fill="#9DA7B3">missed and false includes</text>
 <line x1="652" y1="400" x2="1178" y2="400" stroke="#30363D" stroke-dasharray="3 4"/>
 <text x="652" y="427" font-size="14" fill="#9DA7B3" font-weight="700">Teaching material, not a validated method</text>
 <path d="M915.0 446 V 476" stroke="#2E6B4A" stroke-width="1.6"/>

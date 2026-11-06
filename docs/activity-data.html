@@ -21,6 +21,7 @@
       <a href="activity.html" aria-current="page">Activity</a>
       <a href="beginners.html">Beginners</a>
       <a href="batch.html">Records</a>
+      <a href="papers.html">Papers</a>
       <a href="prompts.html">Prompts</a>
       <a href="skills.html">Skills</a>
       <a href="scorer.html">Scorer</a>
@@ -54,7 +55,7 @@
 <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/tree/main/activity/tools"><code>../tools/</code></a>, so it can be rebuilt or replaced. This page gives the full reference of the reference review
 and its limits; the other pages introduce it briefly as Pruna et al., <em>J Clin Med</em> 2026.</p>
 <blockquote><p><strong>Doing the exercise?</strong> This page describes the reference review but does not list its decisions. The review itself
-(and <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/answers/README.md"><code>../answers/</code></a>) names the included studies: open them only after step 3.</p></blockquote>
+(and <a href="answers.html"><code>../answers/</code></a>) names the included studies: open them only after step 3.</p></blockquote>
 <h2 id="the-reference-review-provisional">The reference review (PROVISIONAL)<a class="anchor" href="#the-reference-review-provisional" aria-label="Link to this section">#</a></h2>
 <blockquote><p>Pruna ED, Davidescu L, Sorop-Florea M, Demeter I, Iurciuc S, Varga NI, David VL, Buleu F, Horhat FG.
 Multimodal Hand Hygiene Interventions and Clinical Healthcare-Associated Infection Outcomes in Acute Care Hospitals:
@@ -190,13 +191,13 @@ computer, not redistributed:</p>
 <td data-label="study_id">Phan2020</td>
 <td data-label="Paper"><em>Antimicrob Resist Infect Control</em> 2020;9:51, doi:<a href="https://doi.org/10.1186/s13756-020-00712-x">10.1186/s13756-020-00712-x</a>, PMID 32276646</td>
 <td data-label="Licence">CC BY 4.0</td>
-<td data-label="Full text here"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/fulltext/Phan2020.txt"><code>fulltext/Phan2020.txt</code></a></td>
+<td data-label="Full text here"><a href="papers.html#Phan2020"><code>fulltext/Phan2020.txt</code></a></td>
 </tr>
 <tr>
 <td data-label="study_id">Mestre2012</td>
 <td data-label="Paper"><em>PLoS One</em> 2012;7(10):e47200, doi:<a href="https://doi.org/10.1371/journal.pone.0047200">10.1371/journal.pone.0047200</a>, PMID 23110061</td>
 <td data-label="Licence">CC BY 4.0</td>
-<td data-label="Full text here"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/fulltext/Mestre2012.txt"><code>fulltext/Mestre2012.txt</code></a></td>
+<td data-label="Full text here"><a href="papers.html#Mestre2012"><code>fulltext/Mestre2012.txt</code></a></td>
 </tr>
 <tr>
 <td data-label="study_id">AlKuwaiti2017</td>
@@ -206,7 +207,7 @@ computer, not redistributed:</p>
 </tr>
 </tbody>
 </table></div>
-<p>The form (<a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/extraction_form.csv"><code>extraction_form.csv</code></a>: <code>field,definition,allowed_values,type,core</code>) follows the data
+<p>The form (<a href="papers.html#extraction-form"><code>extraction_form.csv</code></a>: <code>field,definition,allowed_values,type,core</code>) follows the data
 items the reference review says it extracted (country, setting, design, wards, intervention, periods, comparator,
 outcome definitions, denominators, findings, compliance, co-interventions), plus effect estimate and direction.</p>
 <p>The reference values (<a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/answers/extraction_gold.csv"><code>../answers/extraction_gold.csv</code></a>:
@@ -229,7 +230,7 @@ paper contradicts itself, or the review's table differs from the paper, the <cod
     <code>python3 activity/tools/build_screening_set.py --from-export export.csv --id-col pmid --decision-col decision</code>.</p>
 </li>
 <li>
-<p>Extraction: update <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/papers.csv"><code>papers.csv</code></a>, run <code>python3 activity/tools/fetch_fulltext.py</code>,
+<p>Extraction: update <a href="papers.html"><code>papers.csv</code></a>, run <code>python3 activity/tools/fetch_fulltext.py</code>,
     <code>python3 activity/tools/build_extraction_gold.py tables</code> (review tables) and
     <code>python3 activity/tools/build_extraction_gold.py skeleton --out my_work/gold_skeleton.csv</code>, fill values and quotes,
     then <code>python3 activity/tools/build_extraction_gold.py check --write</code>.</p>

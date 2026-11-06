@@ -1,15 +1,10 @@
 # Quick card · AI for screening and extraction
 
 **Question:** Are hand hygiene interventions effective in reducing healthcare-associated infections?
-**Compare with:** the reference review, Pruna et al., *J Clin Med* 2026 (12 included studies; screening and extraction by two human reviewers without AI; provisional). Do not open it before step 3.
+**Compare with:** the reference review, Pruna et al., *J Clin Med* 2026 (12 included studies; screening and extraction by two human reviewers without AI; provisional). Screening answers after step 1, extraction answers after step 3.
 **Full guide:** `activity/README.md` (on your own: section "Doing it on your own (self-paced)", 60-90 min)
 
-| Roles | |
-|---|---|
-| Driver | types and runs the tool |
-| Prompter | writes prompts, pastes the criteria verbatim |
-| Verifier | checks every quote and number in the source |
-| Recorder | AI use record + discrepancy log |
+**Work on your own**, on your own laptop: you drive the AI, then you verify it. Site: Start page, then one tap per material.
 
 **Include only if ALL are met**
 
@@ -23,25 +18,28 @@
 | C6 | English |
 
 **Step 1 · Screening · 10 min**
-Chat: batch 1 (R001-R020) from the records page. Agent: all 60.
-Output `record_id,decision,reason` · decision `include | exclude | unsure` · reason = criterion.
-Count the rows back; verifier checks 3 decisions against the abstract. In doubt or no abstract: **unsure**.
-Save `screening_run1.csv`. Spare minute: same prompt in a new chat, save `screening_run2.csv`.
+Copy batch 1 (R001-R020) from the Records page and the screening prompt from the Start page (criteria already in it).
+Paste both into a new chat. Then **paste the AI's answer into the Scorer** as it is: no file to save.
+Coverage line first: "Screened 20 of 60" is expected; fewer means records were dropped. In doubt or no abstract: **unsure**.
 
-**Step 2 · Extraction · 12 min**
-Read the form first (`data/extraction_form.csv`, 11 core fields). One paper per chat (chat: `Phan2020.txt`, study_id `Phan2020`).
-Output `study_id,field,value,source_quote,location`. Verbatim quote for every value; `not reported` is allowed.
-Verifier: Ctrl+F three quotes. Save `extraction.csv`.
+**Step 2 · Look at the errors · 10 min** (screening answers: now)
+The Scorer lists the missed includes and the false includes. Open 2 of them (title and abstract, PubMed link) and
+decide yourself why the AI got them wrong: which criterion, and was it right? Keep one error for the discussion.
 
-**Step 3 · Compare · 8 min** (now open `answers/`)
-Browser scorer, or:
-`python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` (agent: add `--expect-all`)
-`python3 activity/tools/score_extraction.py extraction.csv`
-Read the coverage line first ("Screened 20 of 60" is expected in the chat track), then: missed includes · QUOTE NOT FOUND · unsupported · false absent. Log 3 discrepancies in `worksheets/discrepancy_log.md`: who is right, after checking the source.
+**Step 3 · Short extraction · 10 min** (extraction answers: after this step)
+Paper `Phan2020` (Papers page: Copy full text), the extraction prompt with **5 fields** already filled in:
+`country`, `study_design`, `intervention_components`, `primary_hai_outcome`, `direction_of_effect`.
+Each value with a verbatim quote and its location, or `not reported`. Verify 2 quotes with Ctrl+F.
+Compare with the reference values on the Answers page. Read the notes: some papers contradict themselves.
 
-**Ask yourselves:** Performance: would we accept this sensitivity? Transparency: can we trace every value? Bias: whose
-errors, which studies? Oversight: who signs the table? Reproducibility: did two runs agree? And the reference: is it
-always right?
+**Discussion · 10 min:** each person brings **one error they found**.
+
+**Going further:** a second run in a new chat; the 11 core fields; the discrepancy log and the AI use record; the
+agent track (all 60 records, 3 papers, skills, `python3 activity/tools/score_screening.py ... --expect-all`).
+
+**Ask yourself:** Performance: would I accept this sensitivity? Transparency: can I trace every value? Bias: whose
+errors, which studies? Oversight: would I sign the table? Reproducibility: would a second run agree? And the
+reference: is it always right?
 
 > ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.
 > If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,

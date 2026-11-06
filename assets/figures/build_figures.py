@@ -267,7 +267,7 @@ def session(t, c):
     unit = (x1 - x0) / 60
     segs = [(10, "Expert talks", "limits, benefits", "talk", False),
             (10, "Demo", "open-access tools", "play", False),
-            (30, "Small-group exercise", "screen, extract, score", "users", True),
+            (30, "Exercise, on your own", "screen, errors, extract", "person", True),
             (10, "Discussion", "the whole room", "chat", False)]
     x = x0
     pos = []
@@ -281,10 +281,10 @@ def session(t, c):
         pos.append((x, w))
         x += w
     # bracket from the exercise segment to its three steps, and from the discussion segment to step 4
-    steps = [("funnel", "Screen", 10, [f"{c['records']} records (20 in the chat", "track): include, exclude", "or unsure, with a reason"], "blue"),
-             ("quote", "Extract", 12, ["one paper (3 for agents):", "a verbatim quote and its", "location for every value"], "blue"),
-             ("chart", "Score", 8, ["compare with the human", "reference review: read", "the missed includes first"], "green"),
-             ("talk", "Discuss", 10, ["missed studies, invented", "values, a different answer", "on a second run"], "yellow")]
+    steps = [("funnel", "Screen", 10, ["20 records with your AI,", "then paste its answer", "into the scorer"], "blue"),
+             ("chart", "Look at the errors", 10, ["open 2 missed or false", "includes: why did the", "AI get them wrong?"], "green"),
+             ("quote", "Short extraction", 10, ["one paper, 5 fields, a", "verbatim quote for each;", "check 2 with Ctrl+F"], "blue"),
+             ("talk", "Discuss", 10, ["each person brings one", "error they found and", "why the AI made it"], "yellow")]
     cw, gap, cy = 274, 21.3, 262
     ex, ew = pos[2]
     dx, dw = pos[3]
@@ -301,17 +301,18 @@ def session(t, c):
         bg, ln = t[f"{tone}_bg"], t[f"{tone}_ln"]
         b.append(rect(cx, cy, cw, 176, t["card"], t["border"], 16))
         b.append(badge_icon(ic, cx + 40, cy + 40, 22, bg, ln, t["ink"], 24))
-        b.append(text(cx + 74, cy + 36, f"{i + 1} · {name}", 20, t["ink"], 800))
+        b.append(text(cx + 74, cy + 36, f"{i + 1} · {name}", 20 if len(name) < 16 else 18, t["ink"], 800))
         b.append(text(cx + 74, cy + 58, f"{m} min", 14.5, t["muted"], 600))
         b.append(lines(cx + 20, cy + 98, desc, 15, t["muted"], 400, 1.42))
         if i < 3:
             ax = cx + cw + 3
             b.append(icon("arrow", ax, cy + 30, 16, t["faint"], 2))
-    b.append(text(40, 458, "Not finishing is expected: a careful comparison of 10 records beats a fast run of 60.", 15, t["muted"], 400, italic=True))
-    title = (f"60 minutes, four parts. Expert discussion 10 min, demo 10 min, small-group exercise 30 min, "
-             f"structured discussion 10 min. The exercise: 1 screen (10 min, {c['records']} records, 20 in the chat track), "
-             "2 extract (12 min, a verbatim quote for every value), 3 score (8 min, compare with the human reference review), "
-             "then 4 discuss (10 min).")
+    b.append(text(40, 458, "Not finishing is expected: two errors understood are worth more than twenty decisions left unchecked.", 15, t["muted"], 400, italic=True))
+    title = ("60 minutes, four parts. Expert discussion 10 min, demo 10 min, exercise on your own 30 min, "
+             "structured discussion 10 min. The exercise: 1 screen (10 min, 20 records with your AI, then paste its answer "
+             "into the scorer), 2 look at the errors (10 min, open 2 missed or false includes and decide why the AI got them "
+             "wrong), 3 short extraction (10 min, one paper, 5 fields, a verbatim quote for each, check 2 with Ctrl+F), "
+             "then 4 discuss (10 min, each person brings one error they found).")
     return svg(W, H, title, "\n".join(b), t)
 
 
@@ -412,8 +413,8 @@ def tracks(t, c):
             ("chat", "Chat track", "any chat assistant, no installation", "yellow", "LEARNING ONLY",
              [("Open the beginners guide", "beginners/README.md"),
               ("Copy a batch and a prompt", "records R001–R020"),
-              ("Save your decisions", "record_id, decision, reason"),
-              ("Score in the browser", "nothing is uploaded")],
+              ("Paste the answer in the scorer", "nothing is uploaded"),
+              ("Look at the errors", "missed and false includes")],
              "Teaching material, not a validated method")]
     for k, (ic, name, sub, tone, tag, steps, foot) in enumerate(cols):
         x, y, w = 40 + k * 590, 116, 570
@@ -441,8 +442,8 @@ def tracks(t, c):
     b.append(text(640, 507, "Both end the same way: compare with the human reference review, then discuss", 17, t["ink"], 700, "middle"))
     title = (f"Two ways to take part. Agent track (Claude Code or another coding agent; needs AI literacy and advanced skills): "
              f"clone, skills load automatically, screen all {c['records']} records and extract {c['papers']} papers, score. "
-             "Chat track (any chat assistant, learning only): open the beginners guide, copy a batch and a prompt, save your "
-             "decisions, score in the browser. Both end by comparing with the human reference review and discussing.")
+             "Chat track (any chat assistant, learning only): open the beginners guide, copy a batch and a prompt, paste the "
+             "answer in the browser scorer, look at the errors. Both end by comparing with the human reference review and discussing.")
     return svg(W, H, title, "\n".join(b), t)
 
 
@@ -484,7 +485,7 @@ def prompt_card(t, c):
 
 
 BUTTONS = {  # short labels: on a phone each button is about 175 pixels wide
-    "activity": ("users", "Start the activity", "30-minute group exercise", "blue", None),
+    "activity": ("users", "Start the activity", "30 minutes, on your own", "blue", None),
     "beginners": ("chat", "Beginners track", "", "yellow", "LEARNING ONLY"),
     "records": ("stack", "Records to screen", "copy-ready batches", "blue", None),
     "scorer": ("chart", "Score your results", "in your browser", "green", None),
