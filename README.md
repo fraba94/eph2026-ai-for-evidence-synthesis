@@ -26,12 +26,12 @@
 
 ## The key message
 
-<picture>
+<a href="REFERENCES.md" title="The evidence behind the key message"><picture>
   <source media="(max-width: 700px) and (prefers-color-scheme: dark)" srcset="assets/figures/key-message-mobile-dark.svg">
   <source media="(max-width: 700px)" srcset="assets/figures/key-message-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/figures/key-message-dark.svg">
   <img src="assets/figures/key-message-light.svg" width="100%" alt="Same tools, opposite outcomes. With three things together, AI literacy and advanced skills, review methods expertise and a verification workflow (necessary, not sufficient), AI tools bring real advantages (speed, scale, consistency, living updates) with the human in the loop. Without them, trusting fluent output leads to missed studies, invented values and unchecked runs: serious errors, loss of control, human out of the loop.">
-</picture>
+</picture></a>
 
 AI can bring real advantages to evidence synthesis (speed, scale, consistency, living updates), **but only to people with AI literacy and advanced skills.** Those skills are necessary, not sufficient: they work together with review methods expertise and a verification workflow. Without them come serious errors and loss of control, and the human drops out of the loop. Human reviewers stay responsible for every decision.
 
@@ -44,10 +44,10 @@ AI can bring real advantages to evidence synthesis (speed, scale, consistency, l
 
 ## How the session works
 
-<picture>
+<a href="activity/README.md#the-60-minute-session" title="The 60-minute session in the activity guide"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/figures/session-dark.svg">
   <img src="assets/figures/session-light.svg" width="100%" alt="How the session works: 60 minutes. Expert talks 10 min (limitations, with Patrick Boudreau, then benefits, with Francesco Baglivo), demo of open-access tools 10 min, small-group exercise 30 min, discussion 10 min. The exercise: 1 screen (10 min, 60 records, 20 in the chat track), 2 extract (12 min, a verbatim quote and location for every value), 3 score (8 min, compare with the human reference review, missed includes first), then 4 discuss (10 min).">
-</picture>
+</picture></a>
 
 The live session took place on Thursday 12 November 2026, 16:45-17:45, at EPH 2026 in Bilbao (seminar M.8). **Not there?** You do not need the talks, the demo or a facilitator: allow 60 to 90 minutes and follow [Doing it on your own (self-paced)](activity/README.md#doing-it-on-your-own-self-paced), which says how to be your own verifier, when to open the answers and how to read the score.
 
@@ -61,10 +61,10 @@ The live session took place on Thursday 12 November 2026, 16:45-17:45, at EPH 20
 3. Critically assess risks, limitations and appropriate use of AI in evidence synthesis.
 </details>
 
-<picture>
+<a href="activity/README.md#files-of-the-exercise" title="The files of the exercise"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/figures/at-a-glance-dark.svg">
   <img src="assets/figures/at-a-glance-light.svg" width="100%" alt="At a glance: 60 records to screen, titles and abstracts; 12 human includes in the reference review; 3 full-text papers for data extraction; 19 extraction fields, 11 of them core; 10 agent skills for Claude Code; 18 chat prompts in 6 review stages.">
-</picture>
+</picture></a>
 
 ## See it before you start
 
@@ -84,10 +84,10 @@ The website gives the chat track everything without installing anything: the rec
 
 ## Choose your path
 
-<picture>
+<a href="activity/README.md#choose-your-track" title="Choose your track"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/figures/tracks-dark.svg">
   <img src="assets/figures/tracks-light.svg" width="100%" alt="Agent track, for Claude Code or another coding agent, needs AI literacy and advanced skills: clone the repository, skills load automatically, screen all 60 records and extract 3 papers, score against the reference. Chat track, any chat assistant, learning only: open the beginners guide, copy a batch and a prompt, save your decisions, score in the browser. Both end the same way: compare with the human reference review, then discuss.">
-</picture>
+</picture></a>
 
 <details>
 <summary><b>The two tracks side by side</b></summary>
@@ -212,7 +212,7 @@ Organised by the **EUPHA Digital Health and Artificial Intelligence (DHAI) Secti
 | Speaker, limitations | **Patrick Boudreau**, Montreal Behavioural Medicine Centre, Concordia University |
 | Speaker, benefits | **Francesco Baglivo**, University of Pisa |
 
-<p align="center"><img src="assets/logos/organisers-strip.png" width="100%" alt="Logos: EUPHA Digital Health and Artificial Intelligence Section; Concordia University, Montréal; Leibniz ScienceCampus Digital Public Health Bremen; SIIAM, Società Italiana Intelligenza Artificiale in Medicina; Università di Pisa."></p>
+<p align="center"><a href="https://eupha.org/digital-health" title="EUPHA Digital Health and AI section"><img src="assets/logos/eupha-dhai.png" height="56" alt="EUPHA Digital Health and AI section"></a>&nbsp;&nbsp; <a href="https://www.concordia.ca" title="Concordia University"><img src="assets/logos/concordia.png" height="44" alt="Concordia University"></a>&nbsp;&nbsp; <a href="https://www.lsc-digital-public-health.de" title="Leibniz ScienceCampus Digital Public Health Bremen"><img src="assets/logos/lsc-diph.png" height="44" alt="Leibniz ScienceCampus Digital Public Health Bremen"></a>&nbsp;&nbsp; <a href="https://www.siiam.it" title="SIIAM"><img src="assets/logos/siiam.png" height="44" alt="SIIAM"></a>&nbsp;&nbsp; <a href="https://www.unipi.it" title="University of Pisa"><img src="assets/logos/unipi.png" height="44" alt="University of Pisa"></a>&nbsp;&nbsp;</p>
 
 Abstract: *Eur J Public Health* 2026;36(Suppl 5):ckag169.470, [on the journal website](https://academic.oup.com/eurpub/article/36/Supplement_5/ckag169.470/8995443).
 
