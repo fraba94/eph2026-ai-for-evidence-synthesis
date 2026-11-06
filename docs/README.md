@@ -1,15 +1,19 @@
 # The workshop website (GitHub Pages)
 
-This folder is a static website: plain HTML, CSS and JavaScript, no build step and no external scripts.
-Published address once enabled: <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/>
+This folder is a static website: plain HTML, CSS and JavaScript, no external scripts. Published at
+<https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/>. The pages that show the Markdown guides are generated
+from them (see [Pages generated from the Markdown guides](#pages-generated-from-the-markdown-guides)); everything else
+is written by hand.
 
 | Page | What it does |
 |---|---|
+| [`start.html`](start.html) | **Start here**: the page of the first QR code in the room (slides 1, 13 and 21). Mobile first: the 60-minute timeline with clock times (on the day it marks the block happening now, Bilbao time), the two tracks, the four things to do right now (records, screening prompt with a Copy button, save, score), group roles, the two rules, the self-paced path. The screening prompt in it is written by `build_pages.py` (beginners prompt with the criteria C1-C6 of `activity/README.md` pasted in) |
 | [`index.html`](index.html) | Landing page: the key message, the session, the two tracks, the review map, a prompt, references, organisers. Figures come from `assets/figures/` (built by `assets/figures/build_figures.py`) |
 | [`batch.html`](batch.html) | **Records to screen**: the workshop records in batches of 10 or 20, copy-ready for a chat assistant. Empty abstracts are fetched from PubMed (NCBI E-utilities `efetch`) by the visitor's browser, by PMID, at most 20 per request, one request at a time, without an API key or an email address. Nothing is stored. |
 | [`scorer.html`](scorer.html) | **Score your results**. Same rules and numbers as `activity/tools/score_screening.py` and `score_extraction.py`. Screening: metrics on the records in the uploaded file, coverage always shown ("Screened N of 60"), not-screened reference includes highlighted, sensitivity counting them as missed, a toggle "I was meant to screen all records" (= `--expect-all`), title/abstract-stage view, run-2 reproducibility with Cohen's kappa. Extraction: only the studies present in the file, optional core fields only, " OR " alternatives in reference values, false absent / unsupported values, human review of partial matches. The quote check against the full text is done only by the Python scorer. Runs in the browser; files are never uploaded. |
 | [`references.html`](references.html) | **Useful references**: the list of [`REFERENCES.md`](../REFERENCES.md) with filters by type (guidance, evidence, context, human factors, tool, exercise) |
 | [`slides/`](slides/README.md) | Abstract link; slides after the session |
+| `activity.html`, `beginners.html`, `prompts.html`, `prompts/0N_*.html`, `skills.html`, `skills-external.html`, `activity-data.html`, `worksheet-*.html`, `quick-card.html`, `facilitator-guide.html` | **Generated** from the Markdown guides by `build_pages.py`. Do not edit them by hand |
 
 ## Enable GitHub Pages (once)
 
@@ -29,13 +33,58 @@ python3 docs/sync_data.py          # copies activity/data (records, form, papers
 python3 docs/sync_data.py --check  # exits 1 if a copy is out of date
 ```
 
-The GitHub Action `.github/workflows/pages-data.yml` runs the check on every push and pull request.
+The GitHub Action `.github/workflows/pages-data.yml` runs the check on every push and pull request (together with the
+check of the generated pages, below).
 If a copy is missing anyway, the scorer and the records page (`batch.html`) fall back to the raw files of the `main`
 branch on `raw.githubusercontent.com`, so the site keeps working.
 
 Note: `docs/data/screening_gold.csv` and `docs/data/extraction_gold.csv` are the reference answers.
 They are public by design (the repository is open), so ask participants to score only after they
 have finished.
+
+## Pages generated from the Markdown guides
+
+The Markdown files stay the single source: agents and GitHub read them, the website shows them.
+[`build_pages.py`](build_pages.py) turns them into pages with the same header, navigation, footer and style as the
+rest of the site, so that participants never leave the website (each page links to its source on GitHub and shows
+the date of the last commit that changed it).
+
+| Source | Page |
+|---|---|
+| `activity/README.md` | `activity.html` |
+| `beginners/README.md` | `beginners.html` |
+| `prompts/README.md`, `prompts/0N_*.md` | `prompts.html`, `prompts/0N_*.html` (previous / next stage at the bottom) |
+| `skills/README.md`, `skills/EXTERNAL.md` | `skills.html`, `skills-external.html` |
+| `activity/data/README.md`, `activity/worksheets/*.md`, `activity/quick_card.md`, `activity/facilitator_guide.md` | `activity-data.html`, `worksheet-discrepancy-log.html`, `worksheet-ai-use-record.html`, `quick-card.html`, `facilitator-guide.html` (spoiler warning kept, `noindex`) |
+
+What the conversion does, as GitHub does:
+
+- **Heading ids are GitHub's slugs** (lowercase, punctuation such as `·` and `()` removed, spaces to `-`), so
+  `Step 1 · Screening (10 min)` is `#step-1--screening-10-min`. The slides' QR codes rely on this: do not rename the
+  headings of `activity/README.md` without updating the slides.
+- Alerts (`> [!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]`, `[!CAUTION]`) and the "⚠️ For learning only" quote
+  become callouts; `<details>` blocks, tables (scrolling sideways on phones), task lists (ticks are remembered in the
+  browser) and fenced code with a **Copy** button (one click copies a prompt) are supported.
+- Relative links go to the site page when there is one (anchors kept), otherwise to the file on GitHub
+  (`blob/main/...`, or `tree/main/...` for folders). Links to the website's own URL become relative links.
+
+**After changing any of these Markdown files, or `build_pages.py`, run:**
+
+```bash
+pip install -r docs/requirements.txt   # once: python-markdown, the only dependency
+python3 docs/build_pages.py            # rewrites the generated pages and the navigation bar of the hand-written pages
+python3 docs/build_pages.py --check    # exits 1 if a page is out of date (the "Last updated" date is ignored)
+```
+
+The navigation bar of every page comes from the `NAV` list in `build_pages.py`: to add a page to the menu, change it
+there and rebuild.
+
+**Why a check and not an automatic rebuild.** The GitHub Action `.github/workflows/pages-data.yml` only *checks*
+(`sync_data.py --check` and `build_pages.py --check`) on every push and pull request; it never commits. A bot that
+commits to `main` would need write permission, would fight with branch protection and with commits made at the same
+time, and its commits would not show up in the pull request where the Markdown changed. With the check, a stale page
+makes the pull request fail with the command that fixes it, and the regenerated pages are reviewed and merged with
+the change that caused them.
 
 ## Try it locally
 

@@ -5,6 +5,8 @@
   <img src="assets/figures/hero-light.svg" width="100%" alt="AI for evidence synthesis. EPH 2026 Bilbao, skills building seminar M.8, EUPHA Digital Health and Artificial Intelligence Section. Screening and data extraction with AI, checked against a systematic review done by humans. An AI can screen all 60 records for you: would you notice the ones it got wrong? A schematic screening sheet shows one record that the AI excluded and the humans included.">
 </picture></a>
 
+> **Best viewed on the workshop website: <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/>** (in the room? open [Start here](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html)). The guides below are the same pages, as Markdown files.
+
 **Hands-on materials for screening studies and extracting data with AI, and for checking the result against a systematic review done by humans.** Skills building seminar of the EUPHA Digital Health and Artificial Intelligence Section at the European Public Health Conference 2026, Bilbao (12 November 2026). Everything stays online: you can do the exercise on your own, without the session.
 
 <p align="center">
