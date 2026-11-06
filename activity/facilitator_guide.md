@@ -57,23 +57,24 @@ workshop: **one drives the AI, one checks the source.**
 Participants then do the same steps in the same roles (driver and verifier of the [group roles](README.md#group-roles)).
 The point to land at the end: **the errors were caught by the verifier, not by the AI.**
 
-**Pages used** (published site; same pages on `http://localhost:8000/` if you serve `docs/` from a laptop):
+**Pages used.** All on the published site, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/> (or on `http://localhost:8000/` if you serve `docs/` from a
+laptop):
 
-| What | Link |
-|---|---|
-| Start page (screening prompt with C1-C6 already pasted in, Copy button) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html) |
-| Records page (batches, abstracts filled from PubMed in the browser) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) |
-| Extraction prompt (11 core fields) and the verification prompt | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late) |
-| Extraction form (the 11 rows with `core = yes`) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/data/extraction_form.csv](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/data/extraction_form.csv) |
-| Prompt library (screening 3.1, extraction 4.2) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) |
-| Scorer (paste the CSV, nothing is uploaded) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) |
-| Phan2020 full text (CC BY 4.0) | [`data/fulltext/Phan2020.txt`](data/fulltext/Phan2020.txt), plain text: <https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Phan2020.txt> |
+- [Start page, `start.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html): the screening prompt with C1-C6 already pasted in, with a Copy button.
+- [Records page, `batch.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html): the batches; missing abstracts are filled from PubMed in the browser.
+- [Beginners walkthrough, step 5](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late):
+  the extraction prompt and the verification prompt; the 11 core fields are the rows with `core = yes` of the
+  [extraction form](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/data/extraction_form.csv). Same prompts in the [prompt library](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) (3.1, 4.2).
+- [Scorer, `scorer.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): paste the CSV; nothing is uploaded.
+- Mestre2012 full text (CC BY 4.0), the demo paper: [`data/fulltext/Mestre2012.txt`](data/fulltext/Mestre2012.txt), or
+  [as plain text](https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Mestre2012.txt)
+  to select all and copy.
 
 > [!IMPORTANT]
 > **Demo on batch 3 (R041-R060), not batch 1.** The chat-track groups screen batch 1 (R001-R020) right after the
 > demo: projecting the scorer on batch 1 would show them its missed includes. Batch 3 keeps the same steps without
-> the spoiler (agent-track groups, who screen all 60, see 20 of their answers: tell them so). Likewise, do **not**
-> run the extraction scorer on Phan2020 in the demo: the groups extract the same paper.
+> the spoiler (agent-track groups, who screen all 60, see 20 of their answers: tell them so). Likewise, the demo
+> extracts **Mestre2012**, not Phan2020: the chat-track groups extract Phan2020 right after.
 
 ### Minute by minute
 
@@ -87,9 +88,9 @@ The point to land at the end: **the errors were caught by the verifier, not by t
 | 2:30-3:45 | Switches to the records tab, Ctrl+F on the record Patrick names | Picks **two decisions**, preferably one exclude and one include or unsure: "Show me where it says that." Reads the sentence of the abstract and says aloud: supported, or not | `batch.html` (the abstract) next to the chat |
 | 3:45-5:00 | Copies the CSV block; Scorer, screening tab; pastes it; leaves "I was meant to screen all records" **unticked**; compares | "Coverage line first: Screened 20 of 60 is expected, fewer means rows were dropped." Then: "Missed includes: the costly error at this stage." | `scorer.html` |
 | **B. Extraction** | | | |
-| 5:00-5:45 (17:00) | New chat; pastes the extraction prompt with the 11 core fields (prepared the day before), `study_id = Phan2020`, then the full text of Phan2020 (or attaches the file); sends | States the rule: "Every value has a verbatim quote and a location, or says not reported. A value without a quote is not a value." | Chat assistant |
-| 5:45-6:30 | Opens `Phan2020.txt` in the second tab while the answer arrives | Chooses **two quotes** from the answer: one with a number, and a `not reported` if there is one | Chat, then `Phan2020.txt` |
-| 6:30-7:30 | Ctrl+F on six to eight words of each quote, then on a synonym for the `not reported` field | "Is it there word for word, in the section it says?" Then **one number**: "Is the number in the value also in the quote?" | `Phan2020.txt` with the match highlighted |
+| 5:00-5:45 (17:00) | New chat; pastes the extraction prompt with the 11 core fields (prepared the day before), `study_id = Mestre2012`, then the full text of Mestre2012 (or attaches the file); sends | States the rule: "Every value has a verbatim quote and a location, or says not reported. A value without a quote is not a value." | Chat assistant |
+| 5:45-6:30 | Opens `Mestre2012.txt` in the second tab while the answer arrives | Chooses **two quotes** from the answer: one with a number, and a `not reported` if there is one | Chat, then `Mestre2012.txt` |
+| 6:30-7:30 | Ctrl+F on six to eight words of each quote, then on a synonym for the `not reported` field | "Is it there word for word, in the section it says?" Then **one number**: "Is the number in the value also in the quote?" | `Mestre2012.txt` with the match highlighted |
 | 7:30-8:00 | "We do not score the extraction now: that is your job in step 2." | Sums up aloud what passed and what did not | Chat |
 | **C. What we just saw** | | | |
 | 8:00-9:15 (17:03) | Switches to the whiteboard slide and writes each error found: record ID or field, what was wrong | For each error: "Who caught it? Not the AI. The verifier, with the source open." If none: "No visible error today. That is also a result: here is what our rehearsal produced." | Whiteboard slide |
@@ -114,10 +115,10 @@ The point to land at the end: **the errors were caught by the verifier, not by t
       custom instructions that could leak earlier runs.
 - [ ] **Readable from the back of the room.** Browser zoom 150%, large font in the chat; dark mode off if the
       projector washes it out.
-- [ ] **Two tabs open:** `start.html` and the chat. Keep `batch.html`, `scorer.html` and `Phan2020.txt` one click
-      away (a local copy of `Phan2020.txt` works without network).
+- [ ] **Two tabs open:** `start.html` and the chat. Keep `batch.html`, `scorer.html` and `Mestre2012.txt` one click
+      away (a local copy of `Mestre2012.txt` works without network).
 - [ ] **Extraction prompt ready:** the prompt of the beginners walkthrough, step 5, with the 11 core fields of the
-      extraction form pasted in and `study_id = Phan2020`, saved in a text file on the laptop.
+      extraction form pasted in and `study_id = Mestre2012`, saved in a text file on the laptop.
 - [ ] **Rehearsal run saved locally as backup**, in case the live run shows no error or the network fails: the
       screening CSV, the extraction CSV and screenshots of the chat and of the scorer, with one error marked.
       Keep it on the laptop only (outside the repository or in the git-ignored `activity/data/local/`): **do not

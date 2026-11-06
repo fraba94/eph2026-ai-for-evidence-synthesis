@@ -50,7 +50,8 @@ the AI, one checks the source.** Francesco is at the keyboard and uses the same 
 [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), the screening prompt, the
 [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)); Patrick asks "show me where it
 says that" and checks the AI's answers against the abstract or the paper. Watch who catches the errors: the verifier,
-not the AI. Right after, your group does the same steps in the same roles (driver and verifier, see
+not the AI. The demo uses batch 3 (R041-R060) and the paper Mestre2012, so that nothing you will work on is shown
+in advance. Right after, your group does the same steps in the same roles (driver and verifier, see
 [Group roles](#group-roles)).
 
 Not at the session? The talks and the demo are not needed to do the exercise: the key message is above, and the

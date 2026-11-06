@@ -175,49 +175,27 @@ workshop: <strong>one drives the AI, one checks the source.</strong></p>
 </ul>
 <p>Participants then do the same steps in the same roles (driver and verifier of the <a href="activity.html#group-roles">group roles</a>).
 The point to land at the end: <strong>the errors were caught by the verifier, not by the AI.</strong></p>
-<p><strong>Pages used</strong> (published site; same pages on <code>http://localhost:8000/</code> if you serve <code>docs/</code> from a laptop):</p>
-<div class="table-wrap md-table"><table>
-<thead>
-<tr>
-<th>What</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Start page (screening prompt with C1-C6 already pasted in, Copy button)</td>
-<td><a href="start.html">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html</a></td>
-</tr>
-<tr>
-<td>Records page (batches, abstracts filled from PubMed in the browser)</td>
-<td><a href="batch.html">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html</a></td>
-</tr>
-<tr>
-<td>Extraction prompt (11 core fields) and the verification prompt</td>
-<td><a href="beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late</a></td>
-</tr>
-<tr>
-<td>Extraction form (the 11 rows with <code>core = yes</code>)</td>
-<td><a href="data/extraction_form.csv">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/data/extraction_form.csv</a></td>
-</tr>
-<tr>
-<td>Prompt library (screening 3.1, extraction 4.2)</td>
-<td><a href="prompts.html">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html</a></td>
-</tr>
-<tr>
-<td>Scorer (paste the CSV, nothing is uploaded)</td>
-<td><a href="scorer.html">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html</a></td>
-</tr>
-<tr>
-<td>Phan2020 full text (CC BY 4.0)</td>
-<td><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/fulltext/Phan2020.txt"><code>data/fulltext/Phan2020.txt</code></a>, plain text: <a href="https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Phan2020.txt">https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Phan2020.txt</a></td>
-</tr>
-</tbody>
-</table></div>
+<p><strong>Pages used.</strong> All on the published site, <a href="index.html">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/</a> (or on <code>http://localhost:8000/</code> if you serve <code>docs/</code> from a
+laptop):</p>
+<ul>
+<li><a href="start.html">Start page, <code>start.html</code></a>: the screening prompt with C1-C6 already pasted in, with a Copy button.</li>
+<li><a href="batch.html">Records page, <code>batch.html</code></a>: the batches; missing abstracts are filled from PubMed in the browser.</li>
+<li>
+<p><a href="beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late">Beginners walkthrough, step 5</a>:
+    the extraction prompt and the verification prompt; the 11 core fields are the rows with <code>core = yes</code> of the
+    <a href="data/extraction_form.csv">extraction form</a>. Same prompts in the <a href="prompts.html">prompt library</a> (3.1, 4.2).</p>
+</li>
+<li>
+<p><a href="scorer.html">Scorer, <code>scorer.html</code></a>: paste the CSV; nothing is uploaded.</p>
+</li>
+<li>Mestre2012 full text (CC BY 4.0), the demo paper: <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/fulltext/Mestre2012.txt"><code>data/fulltext/Mestre2012.txt</code></a>, or
+    <a href="https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Mestre2012.txt">as plain text</a>
+    to select all and copy.</li>
+</ul>
 <div class="md-alert md-alert-important"><p class="md-alert-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/><path d="M12 8.5v4M12 15v.01"/></svg>Important</p><p><strong>Demo on batch 3 (R041-R060), not batch 1.</strong> The chat-track groups screen batch 1 (R001-R020) right after the
 demo: projecting the scorer on batch 1 would show them its missed includes. Batch 3 keeps the same steps without
-the spoiler (agent-track groups, who screen all 60, see 20 of their answers: tell them so). Likewise, do <strong>not</strong>
-run the extraction scorer on Phan2020 in the demo: the groups extract the same paper.</p></div>
+the spoiler (agent-track groups, who screen all 60, see 20 of their answers: tell them so). Likewise, the demo
+extracts <strong>Mestre2012</strong>, not Phan2020: the chat-track groups extract Phan2020 right after.</p></div>
 <h3 id="minute-by-minute">Minute by minute<a class="anchor" href="#minute-by-minute" aria-label="Link to this section">#</a></h3>
 <div class="table-wrap md-table stack"><table>
 <thead>
@@ -279,21 +257,21 @@ run the extraction scorer on Phan2020 in the demo: the groups extract the same p
 </tr>
 <tr>
 <td data-label="Time">5:00-5:45 (17:00)</td>
-<td data-label="Francesco (driver)">New chat; pastes the extraction prompt with the 11 core fields (prepared the day before), <code>study_id = Phan2020</code>, then the full text of Phan2020 (or attaches the file); sends</td>
+<td data-label="Francesco (driver)">New chat; pastes the extraction prompt with the 11 core fields (prepared the day before), <code>study_id = Mestre2012</code>, then the full text of Mestre2012 (or attaches the file); sends</td>
 <td data-label="Patrick (verifier)">States the rule: "Every value has a verbatim quote and a location, or says not reported. A value without a quote is not a value."</td>
 <td data-label="On screen">Chat assistant</td>
 </tr>
 <tr>
 <td data-label="Time">5:45-6:30</td>
-<td data-label="Francesco (driver)">Opens <code>Phan2020.txt</code> in the second tab while the answer arrives</td>
+<td data-label="Francesco (driver)">Opens <code>Mestre2012.txt</code> in the second tab while the answer arrives</td>
 <td data-label="Patrick (verifier)">Chooses <strong>two quotes</strong> from the answer: one with a number, and a <code>not reported</code> if there is one</td>
-<td data-label="On screen">Chat, then <code>Phan2020.txt</code></td>
+<td data-label="On screen">Chat, then <code>Mestre2012.txt</code></td>
 </tr>
 <tr>
 <td data-label="Time">6:30-7:30</td>
 <td data-label="Francesco (driver)">Ctrl+F on six to eight words of each quote, then on a synonym for the <code>not reported</code> field</td>
 <td data-label="Patrick (verifier)">"Is it there word for word, in the section it says?" Then <strong>one number</strong>: "Is the number in the value also in the quote?"</td>
-<td data-label="On screen"><code>Phan2020.txt</code> with the match highlighted</td>
+<td data-label="On screen"><code>Mestre2012.txt</code> with the match highlighted</td>
 </tr>
 <tr>
 <td data-label="Time">7:30-8:00</td>
@@ -378,12 +356,12 @@ run the extraction scorer on Phan2020 in the demo: the groups extract the same p
     projector washes it out.</p>
 </li>
 <li class="task-item">
-<p><input type="checkbox" class="task-box"> <strong>Two tabs open:</strong> <code>start.html</code> and the chat. Keep <code>batch.html</code>, <code>scorer.html</code> and <code>Phan2020.txt</code> one click
-    away (a local copy of <code>Phan2020.txt</code> works without network).</p>
+<p><input type="checkbox" class="task-box"> <strong>Two tabs open:</strong> <code>start.html</code> and the chat. Keep <code>batch.html</code>, <code>scorer.html</code> and <code>Mestre2012.txt</code> one click
+    away (a local copy of <code>Mestre2012.txt</code> works without network).</p>
 </li>
 <li class="task-item">
 <p><input type="checkbox" class="task-box"> <strong>Extraction prompt ready:</strong> the prompt of the beginners walkthrough, step 5, with the 11 core fields of the
-    extraction form pasted in and <code>study_id = Phan2020</code>, saved in a text file on the laptop.</p>
+    extraction form pasted in and <code>study_id = Mestre2012</code>, saved in a text file on the laptop.</p>
 </li>
 <li class="task-item">
 <p><input type="checkbox" class="task-box"> <strong>Rehearsal run saved locally as backup</strong>, in case the live run shows no error or the network fails: the
