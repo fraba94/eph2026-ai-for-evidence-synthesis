@@ -29,6 +29,26 @@ later, without a facilitator or the slides: if that is you, start with
 | **Output** | screening decisions, one extraction table, a filled [discrepancy log](worksheets/discrepancy_log.md) |
 | **Not finishing** | is expected. A careful comparison of 10 records beats a fast run of 60 |
 
+## All materials at a glance
+
+Everything for the hands-on part is on the workshop website, one tap away on a phone or a laptop.
+
+| Material | Where |
+|---|---|
+| Start page: the 30 minutes in order, with every button | [Start](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html) |
+| Eligibility criteria C1-C6 | [On this page](#the-eligibility-criteria-from-the-reference-review) |
+| Records to screen, copy-ready (chat track: batch 1, R001-R020) | [Records](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) |
+| Screening prompt, criteria already pasted in | [Start, step 1](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#copy-screening-prompt) |
+| Full texts of the papers (Phan2020 for the chat track), copy or download | [Papers](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html) |
+| Extraction prompt, 11 core fields and `study_id` already filled in | [Papers, extraction prompt](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) |
+| Extraction form (19 fields, 11 core) | [Papers, extraction form](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-form) |
+| Step-by-step walkthrough for chat assistants (learning only) | [Beginners](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html) |
+| Scorer (your files stay in your browser) | [Scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) |
+| Reference answers, **step 3 only** | [Answers](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html) |
+| Discrepancy log and AI use record, with downloadable templates | [Discrepancy log](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/worksheet-discrepancy-log.html) · [AI use record](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/worksheet-ai-use-record.html) |
+| One-page card to print | [Quick card](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/quick-card.html) |
+| More prompts, agent skills | [Prompts](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) · [Skills](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/skills.html) |
+
 ---
 
 ## The 60-minute session
@@ -79,7 +99,7 @@ Agree on the roles in the first minute. Rotate if you like. Alone, you take all 
 |---|---|---|
 | For | anyone with a chat assistant | people already using Claude Code, Codex CLI, Gemini CLI or similar |
 | Screening | **20 records**: R001-R020 (batch 1 of the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), which fills missing abstracts from PubMed) | all **60 records** in [`data/screening_records.csv`](data/screening_records.csv) |
-| Extraction | **1 paper**: [`data/fulltext/Phan2020.txt`](data/fulltext/Phan2020.txt) (or [`Mestre2012.txt`](data/fulltext/Mestre2012.txt)) | the **3 papers** in [`data/papers.csv`](data/papers.csv) |
+| Extraction | **1 paper**: [`Phan2020`](data/fulltext/Phan2020.txt) (`Mestre2012`, the paper of the demo, is for practice at home) | the **3 papers** in [`data/papers.csv`](data/papers.csv) |
 | Help | step-by-step walkthrough and ready prompts: [`../beginners/README.md`](../beginners/README.md), prompt library [`../prompts/README.md`](../prompts/README.md) | skills for screening, extraction, quote checking and discrepancy audit: [`../skills/README.md`](../skills/README.md) |
 | Scoring | [browser scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) | `python3 activity/tools/score_screening.py` and `score_extraction.py` |
 
@@ -151,15 +171,20 @@ extraction; you can do extraction at home with the same files.*
 1. **Look at the form first**, before uploading anything: [`data/extraction_form.csv`](data/extraction_form.csv)
    (19 fields; the 11 marked `core = yes` are enough for the chat track). Discuss in 1 minute what each core field
    means for this paper type.
-2. **One paper per conversation.** Chat track: paste or upload [`Phan2020.txt`](data/fulltext/Phan2020.txt) (or
-   [`Mestre2012.txt`](data/fulltext/Mestre2012.txt)). Agent track: the three papers of
+2. **One paper per conversation.** Chat track: paste or upload [`Phan2020.txt`](data/fulltext/Phan2020.txt) (the
+   [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html) has Copy and Download
+   buttons; [`Mestre2012.txt`](data/fulltext/Mestre2012.txt), the paper of the demo, is for practice at home). Agent track: the three papers of
    [`data/papers.csv`](data/papers.csv) (the third, Al Kuwaiti 2017, is CC BY-NC: download it to your computer with
    `python3 activity/tools/fetch_fulltext.py`).
 3. **Prompt.** Ask for a long table `study_id,field,value,source_quote,location`, a **verbatim quote** and a
    location (section or table) for every value, and `not reported` when the paper does not say it. Use the
-   `study_id` from `papers.csv` (e.g. `Phan2020`).
+   `study_id` from `papers.csv` (e.g. `Phan2020`). Chat track: the
+   [ready prompt](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) has the
+   11 core fields and `study_id = Phan2020` already filled in.
 4. **Verifier:** search 3 quotes in the paper (Ctrl+F). Then check every number against its quote.
 5. **Save** as `extraction.csv`.
+
+<!-- build_pages:extraction-prompt -->
 
 <details>
 <summary>Hints</summary>
@@ -175,7 +200,9 @@ extraction; you can do extraction at home with the same files.*
 
 ## Step 3 · Compare with the reference (8 min)
 
-Now you may open [`answers/`](answers/README.md).
+Now you may open the reference answers: the
+[answers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html) of the website (behind a
+button) or the [`answers/`](answers/README.md) folder.
 
 1. **Score.**
    - Browser: [scorer page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): load your CSV files (they stay in your browser).
@@ -188,7 +215,9 @@ Now you may open [`answers/`](answers/README.md).
      python3 activity/tools/score_extraction.py extraction.csv
      ```
 2. **Read the coverage line first** ("Screened N of 60 records", records not screened), **then the misses**: missed includes (screening), `QUOTE NOT FOUND`, `unsupported` and `false absent`
-   (extraction). Then the notes of the reference values: some papers contradict themselves.
+   (extraction). Then the notes of the
+   [reference values](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html#extraction): some
+   papers contradict themselves.
 3. **Fill the [discrepancy log](worksheets/discrepancy_log.md)** for at least 3 discrepancies: what the AI said,
    what the reference says, who is right after checking the source, and the error type.
 4. **Finish the [AI use record](worksheets/ai_use_record.md)**.

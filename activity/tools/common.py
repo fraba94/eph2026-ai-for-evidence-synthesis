@@ -29,8 +29,8 @@ def read_csv(path, expect=None):
     """Read a CSV robustly and return a list of dicts with lower-case, stripped column names.
 
     Tolerates what comes back from chat assistants: a byte-order mark, ``` code fences, prose lines before the
-    header or after the table, ';' or tab instead of ',', and unquoted commas in the last column (extra fields are
-    joined back into the last column instead of being lost). `expect`: column names that identify the header line.
+    header or after the table, ';' or tab instead of ',', unquoted commas in the last column (extra fields are
+    joined back into the last column instead of being lost), and Markdown tables (| a | b |). `expect`: column names that identify the header line.
     """
     with open(path, encoding="utf-8-sig", errors="replace") as fh:
         text = fh.read().replace("\ufeff", "")
@@ -49,7 +49,13 @@ def read_csv(path, expect=None):
         return []
     header_line = lines[start]
     delim = max([",", ";", "\t"], key=lambda d: header_line.count(d))
-    rows = list(csv.reader(lines[start:], delimiter=delim))
+    body = lines[start:]
+    if header_line.count("|") >= 2 and header_line.count("|") > header_line.count(delim):
+        # a Markdown table (| record_id | decision | reason |): drop the outer pipes and the |---| line
+        delim = "|"
+        body = [re.sub(r"^\s*\|?(.*?)\|?\s*$", r"\1", ln) for ln in body
+                if not re.match(r"^\s*\|?[\s:|-]+\|?\s*$", ln) or not ln.strip()]
+    rows = list(csv.reader(body, delimiter=delim))
     if not rows:
         return []
     header = [h.strip().strip('"').lower() for h in rows[0]]

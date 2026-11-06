@@ -28,6 +28,7 @@ Full texts are read from activity/data/fulltext/ and activity/data/local/fulltex
 Examples:
     python3 activity/tools/score_extraction.py my_work/extraction_ai.csv
     python3 activity/tools/score_extraction.py my_work/extraction_ai.csv --study Phan2020 --out my_work/extraction_report.md
+    python3 activity/tools/score_extraction.py extraction.csv --fields country,study_design,intervention_components,primary_hai_outcome,direction_of_effect
     python3 activity/tools/score_extraction.py activity/examples/extraction_example.csv
 
 Do not run this before step 3 of the exercise: it reads the answers in activity/answers/.
@@ -158,6 +159,8 @@ def main():
     ap.add_argument("--papers", default=os.path.join(C.DATA, "papers.csv"))
     ap.add_argument("--study", action="append", help="score only this study_id (repeatable); default: studies present in your file")
     ap.add_argument("--core-only", action="store_true", help="score only the core fields of the form")
+    ap.add_argument("--fields", help="score only these fields, comma-separated (the short extraction of step 3: "
+                    "country,study_design,intervention_components,primary_hai_outcome,direction_of_effect)")
     ap.add_argument("--tol", type=float, default=0.02, help="relative tolerance for numbers (default 0.02 = 2%%)")
     ap.add_argument("--out", help="also write the report as Markdown to this file")
     a = ap.parse_args()
@@ -199,12 +202,15 @@ def main():
     p(f"Reference: `{os.path.relpath(a.gold)}` (values prepared by the workshop team from the full texts, cross-checked "
       "with the reference review's own tables: column 'review table'). Studies scored: " + (", ".join(s for s in studies if s in known) or "none"))
     p("")
+    only_fields = {x.strip().lower() for x in (a.fields or "").split(",") if x.strip()}
     results = []
     for g in gold:
         if g["study_id"] not in studies:
             continue
         f = form.get(g["field"], {})
         if a.core_only and f.get("core", "yes") != "yes":
+            continue
+        if only_fields and g["field"] not in only_fields:
             continue
         r = mine.get((g["study_id"], g["field"]))
         val = (r or {}).get("value", "") or ""

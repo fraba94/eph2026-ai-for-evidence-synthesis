@@ -147,8 +147,10 @@ For records where the two runs disagree, **you** decide: write your own decision
 This is the 12-minute extraction step of [`activity/README.md`](../activity/README.md). If you are short of time, skip it; if you can, do it: extraction is where AI errors are hardest to see.
 
 1. **Look at the form first**, before giving the paper to the assistant: [`activity/data/extraction_form.csv`](../activity/data/extraction_form.csv). For this track use only the **11 core fields** (column `core = yes`): `country`, `intervention_scope`, `study_design`, `intervention_components`, `comparator`, `primary_hai_outcome`, `hh_compliance_baseline`, `hh_compliance_post`, `hai_rate_baseline`, `hai_rate_post`, `direction_of_effect`.
-2. Open a **new chat** and paste (or upload) the plain text of the paper: [`activity/data/fulltext/Phan2020.txt`](../activity/data/fulltext/Phan2020.txt) (alternative: [`Mestre2012.txt`](../activity/data/fulltext/Mestre2012.txt)). Use `study_id = Phan2020` (or `Mestre2012`).
-3. Paste the prompt below, then save the CSV block as **`extraction.csv`**.
+2. Open a **new chat** and paste (or upload) the plain text of the paper: [`activity/data/fulltext/Phan2020.txt`](../activity/data/fulltext/Phan2020.txt) (the [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html) has **Copy full text** and **Download .txt** buttons). Use `study_id = Phan2020`. At home, for more practice: [`Mestre2012.txt`](../activity/data/fulltext/Mestre2012.txt), the paper of the live demo (`study_id = Mestre2012`).
+3. Paste the prompt below, then save the CSV block as **`extraction.csv`**. Ready to paste: the [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) has this prompt with the 11 core fields and `study_id = Phan2020` already filled in, with a Copy button. Otherwise fill the parts in `[BRACKETS]` yourself.
+
+<!-- build_pages:extraction-prompt -->
 
 ```text
 You are extracting data for a systematic review. Use ONLY the paper I give you. Do not use outside knowledge.
@@ -191,6 +193,7 @@ Only now look at the answers.
 
 - **Online scorer** (nothing leaves your browser): open the workshop website's scorer, <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html>, and load `screening_run1.csv`, `screening_run2.csv` or `my_decisions.csv`.
 - **With Python** (if you have it, or if the website is not available): `python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv` and `python3 activity/tools/score_extraction.py extraction.csv` (use `--help` to see the options).
+- **Reference answers** (decisions with their basis, extraction values with quotes and notes), behind a button: <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html>. The **discrepancy log** to fill: <https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/worksheet-discrepancy-log.html>.
 - **Without website and without Python:** compare your 20 rows by hand with [`activity/answers/screening_gold.csv`](../activity/answers/screening_gold.csv) (open it only now).
 
 **Read the coverage line first**: "Screened 20 of 60 records" is expected, because you screened batch 1 only (the 40 others count as *not screened*, not as errors). Fewer than 20 means the assistant dropped or renamed records.

@@ -83,12 +83,17 @@ PAGES = [
 ]
 SRC_TO_OUT = {src: out for src, out, *_ in PAGES}
 # repository paths that have an equivalent hand-written page
-EXTRA_MAP = {"README.md": "index.html", "REFERENCES.md": "references.html", "README.md#useful-references": "references.html"}
+EXTRA_MAP = {"README.md": "index.html", "REFERENCES.md": "references.html", "README.md#useful-references": "references.html",
+             # the papers, the form and the answers have their own pages; the worksheet CSV is copied into docs/data/
+             "activity/data/papers.csv": "papers.html", "activity/data/fulltext/README.md": "papers.html",
+             "activity/data/fulltext": "papers.html", "activity/data/extraction_form.csv": "papers.html#extraction-form",
+             "activity/answers/README.md": "answers.html", "activity/answers": "answers.html",
+             "activity/worksheets/discrepancy_log.csv": "data/worksheets/discrepancy_log.csv"}
 # the prompt stages, for the previous / next links
 PROMPT_STAGES = [p for p in PAGES if p[0].startswith("prompts/0")]
 
 NAV = [("Home", "index.html"), ("Start", "start.html"), ("Activity", "activity.html"), ("Beginners", "beginners.html"),
-       ("Records", "batch.html"), ("Prompts", "prompts.html"), ("Skills", "skills.html"), ("Scorer", "scorer.html"),
+       ("Records", "batch.html"), ("Papers", "papers.html"), ("Prompts", "prompts.html"), ("Skills", "skills.html"), ("Scorer", "scorer.html"),
        ("References", "references.html")]
 HAND_WRITTEN = {"index.html": "Home", "start.html": "Start", "batch.html": "Records", "scorer.html": "Scorer",
                 "references.html": "References"}
