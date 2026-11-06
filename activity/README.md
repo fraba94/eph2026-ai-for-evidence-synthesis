@@ -58,24 +58,29 @@ The live session: EPH 2026, Bilbao, skills building seminar M.8, Thursday 12 Nov
 | Min | Clock | Block | Who |
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | **Expert discussion.** Limitations of AI in evidence reviews (Patrick Boudreau, about 5 min), then benefits (Francesco Baglivo, about 5 min) | speakers |
-| 10-20 | 16:55-17:05 | **Demo** of selected open-access AI tools on the same question ([what you will see](#the-demo)) | Francesco Baglivo and Patrick Boudreau |
+| 10-20 | 16:55-17:05 | **Demo video** (about 5 min, commented live) and your task ([watch it](#the-demo)) | Francesco Baglivo and Patrick Boudreau |
 | 20-50 | 17:05-17:35 | **Exercise, on your own** (this page): step 1 screening (10 min, 17:05-17:15), step 2 look at the errors (10 min, 17:15-17:25), step 3 short extraction (10 min, 17:25-17:35) | you |
 | 50-60 | 17:35-17:45 | **Structured discussion**: each person brings one error they found; performance, transparency, bias, human oversight, reproducibility, and the reference itself | everyone |
 
 ### The demo
 
-Before you start, Francesco Baglivo and Patrick Boudreau run the exercise in front of you, in four hands. **One drives
-the AI, one checks the source.** Francesco is at the keyboard and uses the same pages and prompts you will use (the
-[Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html), the
-[records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), the screening prompt, the
-[scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)); Patrick asks "show me where it
-says that" and checks the AI's answers against the abstract or the paper. Watch who catches the errors: the verifier,
-not the AI. The demo uses batch 3 (R041-R060) and the paper Mestre2012, so that nothing you will work on is shown
-in advance. **Today, on your own, you do both:** you drive the AI, then you verify it (see
-[Working on your own](#working-on-your-own)).
+Before you start, watch the demo video: the three steps of this exercise, done once with an AI chat assistant and
+checked by a human, with captions that name every button you will click. In the room, Francesco Baglivo comments it
+live and Patrick Boudreau speaks for the verifier, the person who checks every answer against the abstract or the
+paper. The AI answers in the video are real: an AI chat assistant was run on 6 November 2026 with the prompts of this
+site, web search off, and its answers are shown unedited. The video uses batch 3 (R041-R060) and the paper Mestre2012,
+so that nothing you will work on is shown in advance: **you do the same steps on batch 1 and Phan2020.** Watch who
+catches the errors: the verifier, not the AI. **Today, on your own, you do both:** you drive the AI, then you verify
+it (see [Working on your own](#working-on-your-own)).
 
-Not at the session? The talks and the demo are not needed to do the exercise: the key message is above, and the
-[self-paced path](#doing-it-on-your-own-self-paced) below replaces the facilitators and the slides.
+<!-- build_pages:demo-video -->
+
+On GitHub: [the video (MP4)](../docs/assets/demo/demo.mp4), its [captions (WebVTT)](../docs/assets/demo/demo.vtt), and
+[what it shows, with the raw AI answers](../demo/README.md).
+
+Not at the session? Watch the video above: it shows the three steps without a facilitator. The talks are not needed
+to do the exercise: the key message is above, and the [self-paced path](#doing-it-on-your-own-self-paced) below
+replaces the facilitators and the slides.
 
 ---
 
@@ -276,7 +281,7 @@ answers.
 
 | Block | Live session | On your own | What to do |
 |---|---:|---:|---|
-| Get ready | demo | 10 min | Read the key message and the criteria on this page; pick a track; turn off web search and use a temporary chat ([three rules](#choose-your-track)). New to AI? Follow the [beginners walkthrough](../beginners/README.md) (chat track, for learning only) |
+| Get ready | demo video | 10 min | Watch the [demo video](#the-demo) (5 min); read the key message and the criteria on this page; pick a track; turn off web search and use a temporary chat ([three rules](#choose-your-track)). New to AI? Follow the [beginners walkthrough](../beginners/README.md) (chat track, for learning only) |
 | [Step 1 · Screening](#step-1--screening-10-min) | 10 min | 15-20 min | Batch 1 (R001-R020); paste the AI's answer into the scorer |
 | [Step 2 · Look at the errors](#step-2--look-at-the-errors-10-min) | 10 min | 15-20 min | Open the missed and false includes; decide why the AI got them wrong |
 | [Step 3 · Short extraction](#step-3--short-extraction-10-min) | 10 min | 15-20 min | Phan2020, 5 fields, a quote for every value; verify the quotes before opening the extraction answers |

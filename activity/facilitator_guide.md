@@ -32,7 +32,7 @@ the Mentimeter poll:
 | Terms needed human context: which infections count as healthcare-associated? Which AI technologies are included? | Explicit criteria C1-C6 from the reference review; C5 lists the HAI outcomes that count |
 | Extraction: some found it useful; others said it made quite some assumptions and would use it only for straightforward categories | Step 3 uses 5 straightforward fields, each with a verbatim quote and its location, and `not reported` as an allowed answer |
 | The reproducibility of the LLM was discussed a lot, and also that of humans: how reproducible are human scientists? A study comparing the two was named as a need | A second run in a new chat (Going further, kappa in the scorer); "How reproducible are human reviewers?" in the discussion; the research idea under Going further |
-| What worked: the demonstration, step-by-step instructions, practical examples, the choice of individual or group work. One participant found it "too complicated for me" | The demo in four hands; the Start page with the three steps in order; individual work, comparing with a neighbour optional; the beginners track (learning only) |
+| What worked: the demonstration, step-by-step instructions, practical examples, the choice of individual or group work. One participant found it "too complicated for me" | A demo video of the three steps with captions that name every button, commented live (the demo in four hands as fallback); the Start page with the three steps in order; individual work, comparing with a neighbour optional; the beginners track (learning only) |
 
 Confidence at the end (23 of 27 answered; the sliders have no numeric scale labels): 3.6 on the strongly
 disagree–strongly agree slider that their LLM-built search strategy would find the relevant literature, and 3 that
@@ -46,7 +46,7 @@ their extraction form would hold up on a paper they had not seen yet.
 | The day before | On each facilitator laptop: `python3 activity/tools/fetch_abstracts.py` and `python3 activity/tools/fetch_fulltext.py` (local copies in `activity/data/local/`, git-ignored: do not publish them). This is the fallback if the venue network blocks NCBI |
 | The day before | Run the scorers on the examples: `python3 activity/tools/score_screening.py activity/examples/decisions_example.csv` and `python3 activity/tools/score_extraction.py activity/examples/extraction_example.csv` |
 | The day before | Print a few copies of the [quick card](quick_card.md) |
-| The day before | On the demo laptop: **web search / browsing off and a temporary chat (memory off)**. The reference review is published: with web access the AI may look up the answers (it happened in Berlin, see [below](#what-we-learned-in-berlin-sept-2026)) |
+| The day before | Play the [demo video](../docs/assets/demo/demo.mp4) on the presentation laptop from a local copy (it is also embedded in the slides), full screen, at the projector's resolution; check that the captions are readable from the back row. Only for the fallback: on the demo laptop, **web search / browsing off and a temporary chat (memory off)**. The reference review is published: with web access the AI may look up the answers (it happened in Berlin, see [below](#what-we-learned-in-berlin-sept-2026)) |
 | Before the session | Nothing to assign: **each participant works alone, on their own laptop** (no groups, no roles; comparing errors with a neighbour after step 2 is optional). A laptop is recommended; a phone works for reading the pages |
 | On arrival | Write on a slide or board: the repository short link, "Chat track: batch 1 = R001-R020, paper Phan2020, 5 fields", "Web search off, temporary chat", "Screening answers after step 1, extraction answers after step 3" |
 
@@ -59,17 +59,52 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 | Min | Clock | Block | Facilitator cue |
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
-| 10-20 | 16:55-17:05 | Demo in four hands: **Francesco Baglivo** drives the AI, **Patrick Boudreau** checks the source | Follow the [demo script](#demo-script-four-hands): one screening batch, one extraction, then the errors the verifier caught |
-| 18-20 | 17:03-17:05 | (end of demo) Everyone opens the Start page on their own laptop | "Today, on your own, you do both: you drive the AI, then you verify it" |
+| 10-20 | 16:55-17:05 | **Demo video** (4:52), commented live: **Francesco Baglivo** narrates, **Patrick Boudreau** speaks for the verifier | Follow the [demo script](#demo-script): the video, then the errors the verifier caught. Fallback if the video cannot play: the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
+| 16-20 | 17:01-17:05 | (after the video) Everyone opens the Start page on their own laptop | "Today, on your own, you do both: you drive the AI, then you verify it. Same steps, batch 1 and Phan2020" |
 | 20-30 | 17:05-17:15 | **Step 1 screening**: batch 1, the screening prompt, then the AI's answer pasted into the scorer | At minute 25: "Paste the answer into the scorer as soon as it arrives. Coverage line first: did all 20 come back?" |
 | 30-40 | 17:15-17:25 | **Step 2 look at the errors**: open two missed or false includes, decide why the AI got them wrong | At 30: "Read the abstract, not the AI's reason." At 38: "Keep one error for the discussion" |
 | 40-50 | 17:25-17:35 | **Step 3 short extraction**: Phan2020, 5 fields, a quote for each | At 40: "Read the 5 definitions before you paste the paper." At 45: "Verify two quotes with Ctrl+F now" |
 | 50-60 | 17:35-17:45 | Structured discussion | Each person brings one error they found: collect them on the whiteboard slide of the demo; then the prompts below |
 
-## Demo script (four hands)
+## Demo script
 
-Ten minutes, 16:55-17:05, **Francesco Baglivo** and **Patrick Boudreau** together. The demo stages the message of the
-workshop: **one drives the AI, one checks the source.**
+Ten minutes, 16:55-17:05, **Francesco Baglivo** and **Patrick Boudreau** together. **The demo is a video**, commented
+live: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (4:52, silent, captions burned in; also on the
+[Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#demo) and embedded in the slides).
+It shows the three steps exactly as the participants will do them, with the same step names and button labels, on
+demo material (batch 3 and Mestre2012), with **real AI answers** recorded on 6 November 2026 (an AI chat assistant,
+the prompts of the site, web search off; details and the raw answers in [`demo/README.md`](../demo/README.md)).
+The message is the same as in the live version: **one drives the AI, one checks the source**, and the errors are
+caught by the verifier, not by the AI.
+
+- **Francesco narrates** what the AI is asked to do and what it answers ("the prompt already has C1-C6", "the AI
+  says 20 rows").
+- **Patrick speaks for the verifier**: "show me where it says that". He reads the highlighted sentence aloud and says
+  what is accepted.
+- Let the captions carry the instructions; do not read them out. Pause the video (space bar) only at the three recap
+  cards if the room needs it.
+
+| Video | On screen | Francesco (narrates) | Patrick (verifier) |
+|---|---|---|---|
+| 0:00 | Title, the three steps | "Five minutes, then it is your turn: same steps, your own laptop." | "Batch 3 and Mestre2012 here; you get batch 1 and Phan2020." |
+| 0:18 | Step 1 · Screening: records, prompt, chat | "Records page, batch 3, Copy batch. Start page, Copy the screening prompt." | "Web search off, temporary chat. Exclude only when the abstract clearly says so." |
+| 1:09 | The AI's answer | "This is what the AI returned, unedited." | "Before reading a single decision: 20 records in, 20 rows out? We count." |
+| 1:26 | Scorer | "Paste it all, Score my screening." | "Coverage first. Then missed includes: zero here. That is the costly error." |
+| 1:50 | Step 2 · Look at the errors | "4 false includes, all excluded by the review only after reading the full text." | "Not errors at this stage. But look: the AI excluded 3 records the human screeners kept. Check its excludes too." |
+| 2:25 | R050 and R058 on the Records page | "The AI's reason is the blue box. We read the abstract instead." | R050: "Hospital-wide campaign, infections only in the ICU: unsure is fair." R058: "Components not described, then contact precautions and bathing: C3 in doubt." |
+| 3:28 | Step 3 · Short extraction | "Copy prompt + this paper: one paste." | "A value without a quote is not a value." |
+| 4:01 | Quotes in the full text | "Show text, then find the quote." | Quote 1: "Word for word, in the affiliations: the form allows it if the location says so." Quote 2: "Word for word, but the number in the value is not in the quote. Found it a few lines up. Check every number." |
+| 4:43 | Your turn | Hands over: "Your turn. Start page, step 1." | "Today, on your own, you do both: you drive the AI, then you verify it." |
+
+After the video (about 17:01): the participants open the Start page on their own laptop; Francesco switches to the
+whiteboard slide and writes the three points the verifier caught in the video (3 excludes stricter than the human
+screeners; R058 include with a doubt on C3; a number not in its quote), to be completed with the participants'
+errors in the discussion.
+
+### Fallback: the live demo in four hands
+
+If the video cannot be played (no sound is needed, but a broken file or a projector that cannot show video can
+happen), run the demo live, in four hands, with exactly the same steps, as below.
 
 - **Francesco = driver.** At the keyboard. Runs the AI with exactly the pages and prompts the participants will use,
   and says aloud what he clicks.
@@ -102,7 +137,7 @@ laptop):
 > the spoiler (agent-track participants, who screen all 60, see 20 of their answers: tell them so). Likewise, the demo
 > extracts **Mestre2012**, not Phan2020: the chat-track participants extract Phan2020 right after.
 
-### Minute by minute
+#### Minute by minute (fallback)
 
 | Time | Francesco (driver) | Patrick (verifier) | On screen |
 |---|---|---|---|
@@ -152,12 +187,14 @@ laptop):
       commit or post outputs that contain copyrighted abstracts**.
 - [ ] **AI use record.** Note the model name, version and date of the rehearsal, and again on the day, in the
       [AI use record](worksheets/ai_use_record.md) (optional for participants, under "Going further"): the demo shows what to record.
-- [ ] **Rehearse once in four hands** with a timer: who speaks when, and where the hand-over at 9:15 happens.
+- [ ] **Rehearse the commentary on the video** once, with the table of the [demo script](#demo-script); then the
+      fallback once in four hands with a timer: who speaks when, and where the hand-over at 9:15 happens.
 
 ### If something fails
 
 | Problem | What to do |
 |---|---|
+| The video does not play (slides or browser) | Play the local copy of `docs/assets/demo/demo.mp4` in another player, or open it from the Start page; if none works, run the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
 | No network (records page, chat or scorer do not load) | Show the saved rehearsal run: screenshots of the chat, the CSV and the scorer. Say it is a rehearsal and when it was run. Then point participants to the [fallbacks](#if-things-go-wrong) |
 | The AI makes no visible error | Say so: it is also a result, and it does not prove the next run will be clean. Show the rehearsal's error and who caught it |
 | Records page does not fill the abstracts | Use the records shipped with abstracts (see [If things go wrong](#if-things-go-wrong)) or the rehearsal run |

@@ -612,3 +612,12 @@ details.more-options[open] > summary { margin-bottom: 4px; }
   #extraction-answers th:nth-child(3) { width: 16%; } #extraction-answers th:nth-child(4) { width: 24%; }
   #extraction-answers th:nth-child(5) { width: 11%; }
 }
+
+/* ---------- demo video (start.html, activity.html; block written by build_pages.py) ---------- */
+.demo-sec { padding-top: 26px; }
+.demo-video { margin: 0; }
+.demo-video .demo-title { font-size: 1.08rem; margin: 0 0 12px; max-width: 760px; }
+.demo-video video { display: block; width: 100%; max-width: 860px; height: auto; aspect-ratio: 16 / 9; background: #0F2747;
+  border: 1px solid var(--border); border-radius: 12px; }
+.demo-video figcaption { color: var(--muted); font-size: 14.5px; margin-top: 8px; max-width: 860px; overflow-wrap: anywhere; }
+.md .demo-video { margin: 18px 0 14px; }

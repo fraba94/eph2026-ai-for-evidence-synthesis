@@ -14,7 +14,7 @@ the website:
 It also writes two pages from the workshop data (papers.html: the full texts, the extraction prompt and the form;
 answers.html: the reference answers behind a button), keeps the navigation bar of the hand-written pages (index,
 start, batch, scorer, references) identical, and writes the ready-to-paste screening and extraction prompts into
-start.html.
+start.html (and the demo video block).
 
     pip install -r docs/requirements.txt   # python-markdown, the only dependency
     python3 docs/build_pages.py            # write the pages
@@ -91,7 +91,9 @@ EXTRA_MAP = {"README.md": "index.html", "REFERENCES.md": "references.html", "REA
              "activity/data/papers.csv": "papers.html", "activity/data/fulltext/README.md": "papers.html",
              "activity/data/fulltext": "papers.html", "activity/data/extraction_form.csv": "papers.html#extraction-form",
              "activity/answers/README.md": "answers.html", "activity/answers": "answers.html",
-             "activity/worksheets/discrepancy_log.csv": "data/worksheets/discrepancy_log.csv"}
+             "activity/worksheets/discrepancy_log.csv": "data/worksheets/discrepancy_log.csv",
+             # the demo video lives in docs/ already
+             "docs/assets/demo/demo.mp4": "assets/demo/demo.mp4", "docs/assets/demo/demo.vtt": "assets/demo/demo.vtt"}
 
 
 def read_csv(rel):
@@ -592,7 +594,7 @@ LICENCE_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
 # who works on which paper (not a column of papers.csv: the plan of the session)
 AUDIENCE = {
     "Phan2020": ("Chat track · step 3", "The paper of the short extraction in the live session (step 3). Agent track: one of its three papers."),
-    "Mestre2012": ("Live demo, then practice at home", "Used in the live demo. After the session it is free for practice on your own: same prompt, study_id Mestre2012."),
+    "Mestre2012": ("Demo video, then practice at home", "Used in the demo video. After the session it is free for practice on your own: same prompt, study_id Mestre2012."),
     "AlKuwaiti2017": ("Agent track · going further", "Not on this site: its licence (CC BY-NC) does not allow redistribution. The agent track downloads it to the computer with the command below, or reads it in PubMed Central."),
 }
 
@@ -669,8 +671,35 @@ def ready_prompt_html(root, pid="extraction-prompt-text", which="short", paper_b
             f'<details><summary>Show the prompt</summary>{pre_block(pid, extraction_prompt(which=which))}</details></div>')
 
 
+# The demo video (docs/assets/demo/: video, poster, captions; what it shows and the raw AI answers in demo/ at the root)
+DEMO_DIR = "assets/demo/"
+DEMO_LENGTH = "5-minute"
+
+
+def demo_video_html(root, heading=True):
+    """The demo video block, the same on start.html and activity.html. The captions are burned into the video;
+    the WebVTT track carries the same text for screen readers and search (off by default, to avoid double captions)."""
+    d = root + DEMO_DIR
+    title = (f'<p class="demo-title"><b>Watch the {DEMO_LENGTH} demo first.</b> The three steps below, done once: an AI '
+             f'screens batch 3 and extracts Mestre2012, a human checks every answer against the source. Silent, with '
+             f'captions that name every button.</p>') if heading else ""
+    return (f'<figure class="demo-video" id="demo-video">{title}'
+            f'<video controls preload="metadata" playsinline poster="{d}demo_poster.png" width="1280" height="720">'
+            f'<source src="{d}demo.mp4" type="video/mp4">'
+            f'<track kind="captions" src="{d}demo.vtt" srclang="en" label="English">'
+            f'Your browser cannot play this video: <a href="{d}demo.mp4">download it (MP4)</a>.</video>'
+            f'<figcaption>Real answers of an AI chat assistant, recorded on 6 November 2026 with the prompts of this site '
+            f'(web search off), shown unedited. Demo material only: batch 3 (R041–R060) and Mestre2012; you work on '
+            f'batch 1 and Phan2020. <a href="{d}demo.mp4" download>Download (MP4)</a> · '
+            f'<a href="{d}demo.vtt" download>captions (WebVTT)</a> · '
+            f'<a href="{GH_TREE}demo">what it shows and the raw AI answers</a></figcaption></figure>')
+
+
 def inject_blocks(body, root):
-    """<!-- build_pages:extraction-prompt --> in a Markdown guide becomes the ready-to-paste prompt."""
+    """<!-- build_pages:extraction-prompt --> in a Markdown guide becomes the ready-to-paste prompt,
+    <!-- build_pages:demo-video --> the demo video."""
+    body = re.sub(r"(?:<p>)?\s*<!-- build_pages:demo-video -->\s*(?:</p>)?",
+                  lambda m: demo_video_html(root, heading=False), body)
     return re.sub(r"(?:<p>)?\s*<!-- build_pages:extraction-prompt -->\s*(?:</p>)?",
                   lambda m: ready_prompt_html(root), body)
 
@@ -935,6 +964,8 @@ def update_hand_written(name, current, text):
         block = pre_block("extraction-prompt", extraction_prompt())
         text = re.sub(r"(<!-- build_pages:extraction-prompt -->).*?(<!-- /build_pages:extraction-prompt -->)",
                       lambda m: m.group(1) + block + m.group(2), text, count=1, flags=re.S)
+        text = re.sub(r"(<!-- build_pages:demo-video -->).*?(<!-- /build_pages:demo-video -->)",
+                      lambda m: m.group(1) + demo_video_html(root) + m.group(2), text, count=1, flags=re.S)
     return text
 
 
