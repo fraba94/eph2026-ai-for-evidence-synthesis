@@ -11,8 +11,7 @@ For the people running the hands-on part of the seminar, at EPH 2026 in Bilbao (
 16:45-17:45) or in a later run of the same workshop. Participants use [`README.md`](README.md); this page adds timing,
 preparation, the pitfalls you should expect, and how to run the debrief. Do not project it.
 
-> **Status of the answers.** The reference review is **provisional** (see [`data/README.md`](data/README.md)) and may be
-> replaced before the session. The extraction reference values were **prepared by the workshop team from the full
+> **Status of the answers.** The reference review was confirmed by the workshop team on 6 November 2026 (see [`data/README.md`](data/README.md)). The extraction reference values were **prepared by the workshop team from the full
 > texts**, each with a verbatim quote and, where available, the reference review's own table entry
 > (`review_table_value`); they have not yet been validated against the review team's extraction sheet. Say so when
 > participants compare with them.

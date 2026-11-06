@@ -1,7 +1,7 @@
 # Quick card · AI for screening and extraction
 
 **Question:** Are hand hygiene interventions effective in reducing healthcare-associated infections?
-**Compare with:** the reference review, Pruna et al., *J Clin Med* 2026 (12 included studies; screening and extraction by two human reviewers without AI; provisional). Screening answers after step 1, extraction answers after step 3.
+**Compare with:** the reference review, Pruna et al., *J Clin Med* 2026 (12 included studies; screening and extraction by two human reviewers without AI). Screening answers after step 1, extraction answers after step 3.
 **Full guide:** `activity/README.md` (on your own: section "Doing it on your own (self-paced)", 60-90 min)
 
 **Work on your own**, on your own laptop: you drive the AI, then you verify it. Site: Start page, then one tap per material.
