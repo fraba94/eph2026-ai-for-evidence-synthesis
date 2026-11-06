@@ -64,9 +64,10 @@ The live session: EPH 2026, Bilbao, skills building seminar M.8, Thursday 12 Nov
 
 ### The demo
 
-Before you start, watch the demo video: the three steps of this exercise, done once with an AI chat assistant and
-checked by a human, with captions that name every button you will click. In the room, Francesco Baglivo comments it
-live and Patrick Boudreau speaks for the verifier, the person who checks every answer against the abstract or the
+Before you start, watch the demo video: the three steps of this exercise, done once with an AI chat assistant, with
+captions that name every button you will click. A human opens two of the records in the abstract and checks two
+quotes in the paper; the scorer and a quote-check script check the rest. In the room, Francesco Baglivo comments it
+live and Patrick Boudreau speaks for the verifier, the person who checks the AI's answers against the abstract or the
 paper. The AI answers in the video are real: an AI chat assistant was run on 6 November 2026 with the prompts of this
 site, web search off, and its answers are shown unedited. The video uses batch 3 (R041-R060) and the paper Mestre2012,
 so that nothing you will work on is shown in advance: **you do the same steps on batch 1 and Phan2020.** Watch who

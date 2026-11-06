@@ -59,7 +59,7 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 | Min | Clock | Block | Facilitator cue |
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
-| 10-20 | 16:55-17:05 | **Demo video** (4:52), commented live: **Francesco Baglivo** narrates, **Patrick Boudreau** speaks for the verifier | Follow the [demo script](#demo-script): the video, then the errors the verifier caught. Fallback if the video cannot play: the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
+| 10-20 | 16:55-17:05 | **Demo video** (4:53), commented live: **Francesco Baglivo** narrates, **Patrick Boudreau** speaks for the verifier | Follow the [demo script](#demo-script): the video, then the errors the verifier caught. Fallback if the video cannot play: the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
 | 16-20 | 17:01-17:05 | (after the video) Everyone opens the Start page on their own laptop | "Today, on your own, you do both: you drive the AI, then you verify it. Same steps, batch 1 and Phan2020" |
 | 20-30 | 17:05-17:15 | **Step 1 screening**: batch 1, the screening prompt, then the AI's answer pasted into the scorer | At minute 25: "Paste the answer into the scorer as soon as it arrives. Coverage line first: did all 20 come back?" |
 | 30-40 | 17:15-17:25 | **Step 2 look at the errors**: open two missed or false includes, decide why the AI got them wrong | At 30: "Read the abstract, not the AI's reason." At 38: "Keep one error for the discussion" |
@@ -69,7 +69,7 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 ## Demo script
 
 Ten minutes, 16:55-17:05, **Francesco Baglivo** and **Patrick Boudreau** together. **The demo is a video**, commented
-live: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (4:52, silent, captions burned in; also on the
+live: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (4:53, silent, captions burned in; also on the
 [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#demo) and embedded in the slides).
 It shows the three steps exactly as the participants will do them, with the same step names and button labels, on
 demo material (batch 3 and Mestre2012), with **real AI answers** recorded on 6 November 2026 (an AI chat assistant,
@@ -93,7 +93,7 @@ caught by the verifier, not by the AI.
 | 1:50 | Step 2 · Look at the errors | "4 false includes, all excluded by the review only after reading the full text." | "Not errors at this stage. But look: the AI excluded 3 records the human screeners kept. Check its excludes too." |
 | 2:25 | R050 and R058 on the Records page | "The AI's reason is the blue box. We read the abstract instead." | R050: "Hospital-wide campaign, infections only in the ICU: unsure is fair." R058: "Components not described, then contact precautions and bathing: C3 in doubt." |
 | 3:28 | Step 3 · Short extraction | "Copy prompt + this paper: one paste." | "A value without a quote is not a value." |
-| 4:01 | Quotes in the full text | "Show text, then find the quote." | Quote 1: "Word for word, in the affiliations: the form allows it if the location says so." Quote 2: "Word for word, but the number in the value is not in the quote. Found it a few lines up. Check every number." |
+| 4:01 | Quotes in the full text | "Show text, then find the quote." | Quote 1: "Word for word, in the affiliations: the form allows it if the location says so." Quote 2: "Word for word, but the number in the value is not in the quote. Found it in Table 1, a few lines up. Check every number." |
 | 4:43 | Your turn | Hands over: "Your turn. Start page, step 1." | "Today, on your own, you do both: you drive the AI, then you verify it." |
 
 After the video (about 17:01): the participants open the Start page on their own laptop; Francesco switches to the
