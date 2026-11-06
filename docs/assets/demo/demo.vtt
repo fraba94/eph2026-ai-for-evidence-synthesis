@@ -1,223 +1,83 @@
 WEBVTT
 
-NOTE Demo video of the EPH 2026 workshop exercise (seminar M.8). The same captions are burned into the video.
+NOTE Demo video of the EPH 2026 workshop exercise (seminar M.8): one repository, your AI, your way. The same captions are burned into the video.
 
 1
-00:00:02.101 --> 00:00:07.255
-A silent demo: follow the captions at the bottom.
+00:00:01.473 --> 00:00:11.389
+The repository holds the materials. Bring your own AI.
 
 2
-00:00:07.255 --> 00:00:12.059
-You will do the same on batch 1 and Phan2020.
+00:00:11.389 --> 00:00:16.194
+The repository: Everything you need is here. Use it with any AI.
 
 3
-00:00:12.059 --> 00:00:18.447
-Here we use batch 3 and Mestre2012.
+00:00:16.194 --> 00:00:22.603
+The repository: Data, prompts, agent instructions, website: the same materials.
 
 4
-00:00:18.447 --> 00:00:23.052
-Step 1 · Screening · 1/4: Open the Start page. Step 1 is screening.
+00:00:22.603 --> 00:00:27.212
+Pick your route: A, B or C.
 
 5
-00:00:23.052 --> 00:00:28.075
-Step 1 · Screening · 1/4: Click "Open the records".
+00:00:27.212 --> 00:00:33.618
+Route A · Copy and paste: Click "Copy the screening prompt" on the Start page.
 
 6
-00:00:28.075 --> 00:00:33.082
-Step 1 · Screening · 1/4: Pick a batch: here "41–60". Yours is "1–20".
+00:00:33.618 --> 00:00:42.623
+Route A · Copy and paste: Records page: batch, "Copy batch", paste both into a chat.
 
 7
-00:00:33.082 --> 00:00:38.088
-Step 1 · Screening · 1/4: Wait for "20 records ready": abstracts come from PubMed.
+00:00:42.623 --> 00:00:51.983
+Route A · Copy and paste: The AI answers: check 20 records in, 20 rows out.
 
 8
-00:00:38.088 --> 00:00:43.299
-Step 1 · Screening · 1/4: Click "Copy batch".
+00:00:51.983 --> 00:00:59.475
+Route B · Attach the files: Download the prompt from GitHub: prompts/03_screening.md.
 
 9
-00:00:43.299 --> 00:00:48.503
-Step 1 · Screening · 2/4: Back on the Start page: click "Copy the screening prompt".
+00:00:59.475 --> 00:01:04.081
+Route B · Attach the files: And the paper: "Download raw file".
 
 10
-00:00:48.503 --> 00:00:53.108
-Step 1 · Screening · 2/4: Click "Show the screening prompt" to read it.
+00:01:04.081 --> 00:01:10.086
+Route B · Attach the files: Records with abstracts: "Download as .txt" on the Records page.
 
 11
-00:00:53.108 --> 00:00:58.119
-Step 1 · Screening · 2/4: The prompt already contains criteria C1–C6.
+00:01:10.086 --> 00:01:14.495
+Route B · Attach the files: Attach the files to any assistant, then ask.
 
 12
-00:00:58.119 --> 00:01:04.124
-Step 1 · Screening · 3/4: Paste the prompt, then the records where it says [PASTE THE RECORDS HERE].
+00:01:14.495 --> 00:01:20.901
+Route C · Connect an agent: Clone it: the agent reads AGENTS.md and the skills.
 
 13
-00:01:04.124 --> 00:01:09.316
-Step 1 · Screening · 3/4: Use a new temporary chat, with web search off.
+00:01:20.901 --> 00:01:27.311
+Route C · Connect an agent: A real agent run: two screenings, then compared.
 
 14
-00:01:09.316 --> 00:01:13.726
-Step 1 · Screening · 3/4: This is the AI's real answer, unedited.
+00:01:27.311 --> 00:01:33.718
+Route C · Connect an agent: Runs agree on 19 of 20; a human resolves R044.
 
 15
-00:01:13.726 --> 00:01:19.137
-Step 1 · Screening · 3/4: One row per record: a decision and the criterion behind it.
+00:01:33.718 --> 00:01:41.018
+Route C · Connect an agent: Chat assistants with a GitHub connector can read it too.
 
 16
-00:01:19.137 --> 00:01:26.291
-Step 1 · Screening · 3/4: Check the count first: 20 records in, 20 rows out.
+00:01:41.018 --> 00:01:49.026
+Whatever the route: check it: Paste the AI's decisions into the scorer: coverage first.
 
 17
-00:01:26.291 --> 00:01:31.296
-Step 1 · Screening · 4/4: Open the scorer and paste the AI's whole answer.
+00:01:49.026 --> 00:01:53.431
+Whatever the route: check it: 0 missed includes; open the flagged records yourself.
 
 18
-00:01:31.296 --> 00:01:35.601
-Step 1 · Screening · 4/4: Press "Score my screening".
+00:01:53.431 --> 00:02:00.236
+Whatever the route: check it: Then find the AI's quote in the paper, word for word.
 
 19
-00:01:35.601 --> 00:01:41.011
-Step 1 · Screening · 4/4: Coverage first: 20 of 60 screened, as expected for one batch.
+00:02:00.236 --> 00:02:05.849
+Whatever the route: check it: Found. But the value's "3 days every 3 weeks" is in Table 1.
 
 20
-00:01:41.011 --> 00:01:46.220
-Step 1 · Screening · 4/4: Sensitivity 100% (3 of 3 includes): none missed. Then 4 false includes.
-
-21
-00:01:46.220 --> 00:01:49.825
-Step 1 done: 20 records in, 20 rows out; Scored: 20 of 60 screened, 0 missed includes.
-
-22
-00:01:50.752 --> 00:01:55.762
-Step 2 · Look at the errors · 1/4: Under the score: 0 missed includes, 4 false includes.
-
-23
-00:01:55.762 --> 00:02:01.169
-Step 2 · Look at the errors · 1/4: All 4 were excluded by the review only after the full text.
-
-24
-00:02:01.169 --> 00:02:05.780
-Step 2 · Look at the errors · 1/4: At title/abstract stage, these are not errors.
-
-25
-00:02:05.780 --> 00:02:10.784
-Step 2 · Look at the errors · 2/4: Open "Going further": the title/abstract-stage view.
-
-26
-00:02:10.784 --> 00:02:15.591
-Step 2 · Look at the errors · 2/4: Stage-view sensitivity 70% (7 of 10): the AI excluded R043, R046 and R054.
-
-27
-00:02:15.591 --> 00:02:20.397
-Step 2 · Look at the errors · 2/4: The human screeners had sent those 3 to full text.
-
-28
-00:02:20.397 --> 00:02:25.811
-Step 2 · Look at the errors · 2/4: The AI was stricter than the humans: check its excludes too.
-
-29
-00:02:25.811 --> 00:02:32.038
-Step 2 · Look at the errors · 3/4: Open 2 of the 4 false includes: here R050 and R058.
-
-30
-00:02:32.038 --> 00:02:36.355
-Step 2 · Look at the errors · 3/4: On the Records page, batch 3 again.
-
-31
-00:02:36.355 --> 00:02:41.360
-Step 2 · Look at the errors · 3/4: R050: read the abstract, not only the AI's reason.
-
-32
-00:02:41.360 --> 00:02:47.168
-Step 2 · Look at the errors · 3/4: Found: hospital-wide campaign, but infections measured only in the ICU.
-
-33
-00:02:47.168 --> 00:02:52.375
-Step 2 · Look at the errors · 3/4: Decide: "unsure" was fair, C2 really is unclear here.
-
-34
-00:02:52.375 --> 00:02:57.790
-Step 2 · Look at the errors · 3/4: The review excluded it after the full text: not an error now.
-
-35
-00:02:57.790 --> 00:03:02.796
-Step 2 · Look at the errors · 4/4: R058: the AI said include, but flagged "check C3".
-
-36
-00:03:02.796 --> 00:03:07.802
-Step 2 · Look at the errors · 4/4: Found: hospital-wide campaign, its components not described.
-
-37
-00:03:07.802 --> 00:03:12.809
-Step 2 · Look at the errors · 4/4: Then contact precautions and chlorhexidine bathing were added.
-
-38
-00:03:12.809 --> 00:03:18.416
-Step 2 · Look at the errors · 4/4: Decide: C3 is in doubt, so "unsure" fits the prompt better.
-
-39
-00:03:18.416 --> 00:03:24.029
-Step 2 · Look at the errors · 4/4: Either way it goes to full text, where the review excluded it.
-
-40
-00:03:24.029 --> 00:03:27.633
-Step 2 done: 4 false includes: excluded by the review only after the full text; 3 excludes stricter than the human screeners; Read the abstract, not only the AI's reason.
-
-41
-00:03:28.971 --> 00:03:34.176
-Step 3 · Short extraction · 1/3: Open the Papers page. Yours is Phan2020; here, Mestre2012.
-
-42
-00:03:34.176 --> 00:03:39.581
-Step 3 · Short extraction · 1/3: Click "Copy prompt + this paper": form and paper together.
-
-43
-00:03:39.581 --> 00:03:44.965
-Step 3 · Short extraction · 1/3: Paste it into a new temporary chat, web search off.
-
-44
-00:03:44.965 --> 00:03:49.370
-Step 3 · Short extraction · 2/3: This is the AI's real answer, unedited.
-
-45
-00:03:49.370 --> 00:03:54.580
-Step 3 · Short extraction · 2/3: Every value comes with a quote and where it is.
-
-46
-00:03:54.580 --> 00:04:01.486
-Step 3 · Short extraction · 2/3: Two rows for intervention components: one per phase, as the prompt allows.
-
-47
-00:04:01.486 --> 00:04:06.906
-Step 3 · Short extraction · 3/3: Click "Show text", then find 2 quotes, word for word.
-
-48
-00:04:06.906 --> 00:04:11.911
-Step 3 · Short extraction · 3/3: Quote 1, country Spain: found, word for word.
-
-49
-00:04:11.911 --> 00:04:17.731
-Step 3 · Short extraction · 3/3: It is the affiliation, labelled "author affiliations", as the form allows.
-
-50
-00:04:17.731 --> 00:04:22.938
-Step 3 · Short extraction · 3/3: Quote 2, phase 2 components: found, word for word.
-
-51
-00:04:22.938 --> 00:04:28.756
-Step 3 · Short extraction · 3/3: But "3 days every 3 weeks" in the value is not in this quote.
-
-52
-00:04:28.756 --> 00:04:34.360
-Step 3 · Short extraction · 3/3: It is in Table 1 (Methods), a few lines up: check every number.
-
-53
-00:04:34.360 --> 00:04:40.772
-Step 3 · Short extraction · 3/3: The quote-check script agrees: 6 of 6 quotes verbatim, but 2 rows have numbers not in their quote.
-
-54
-00:04:40.772 --> 00:04:44.377
-Step 3 done: Every value with a quote and its location; 2 quotes found, word for word; Intervention components: some numbers are not in the quote.
-
-55
-00:04:45.002 --> 00:04:52.806
-Your turn: batch 1 and Phan2020. AI drafts. You check. You decide.
+00:02:05.849 --> 00:02:13.552
+Your turn: batch 1 and Phan2020. Your AI, your way.

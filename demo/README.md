@@ -1,76 +1,77 @@
-# The demo video
+# The demo video: one repository, your AI, your way
 
-A silent video, about 5 minutes (4:53), 1280×720, with captions burned in: the three steps of the exercise done
-once on demo material, with **real AI answers**: a human opens two records and checks two quotes in the paper, and
-the scorer and a quote-check script check the rest. It is the
-demo of the EPH 2026 seminar M.8 (Bilbao, 12 November 2026, 16:55-17:05), commented live in the room: Francesco
-Baglivo narrates, Patrick Boudreau speaks for the verifier. The live demo in four hands is the fallback (see the
+A silent video of 2:14, 1280×720, with captions burned in. Its message: **the repository holds the materials. Bring
+your own AI. Work your way. Then check it against the human review.** It shows three ways to bring the same materials
+to an AI, then the checks that follow whatever the route. It is the demo of the EPH 2026 seminar M.8 (Bilbao,
+12 November 2026, 16:55-17:05), commented live in the room; the live demo in four hands is the fallback (see the
 [facilitator guide](../activity/facilitator_guide.md#demo-script)).
 
 - Watch it on the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#demo) or in the
   [activity guide](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/activity.html#the-demo).
 - Files: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (H.264), the poster
   [`demo_poster.png`](../docs/assets/demo/demo_poster.png) and the captions as text,
-  [`demo.vtt`](../docs/assets/demo/demo.vtt) (WebVTT, the same captions as in the video, with the step of each one).
+  [`demo.vtt`](../docs/assets/demo/demo.vtt) (WebVTT, the same captions as in the video).
 
 **Demo material, not yours.** The video uses records **batch 3 (R041-R060)** and the paper **Mestre2012**. In the
-exercise you do the same steps on **batch 1 (R001-R020)** and **Phan2020**: nothing of your material, and none of its
-answers, is shown. The scorer's list of records not screened marks the batch 1 reference answers, so that line is
-covered in the video.
+exercise you do the same on **batch 1 (R001-R020)** and **Phan2020**: none of their answers is shown. The scorer's
+list of records not screened marks the batch 1 reference answers, so that line is covered in the video.
 
-## How the AI answers were produced
+## What the video shows, and what is real in it
 
-- **Tool:** an AI chat assistant (Claude), a general-purpose assistant, as a participant would use it.
-- **Date:** 6 November 2026. **Settings:** a new temporary chat, **web search off**, no files or project knowledge.
-- **Prompts:** copied from the live site, unchanged: the screening prompt of the
-  [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening) (criteria C1-C6
-  pasted in) followed by batch 3 as copied from the
-  [Records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) (abstracts fetched from PubMed);
-  for the extraction, **Copy prompt + this paper** on the Mestre2012 card of the
-  [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#Mestre2012) (the 5 fields of the
-  short extraction and the full text, CC BY 4.0).
-- **No answer key** was consulted to produce the answers. One run each; no second run.
-- **Shown unedited.** The video shows each answer exactly as returned. The CSV files here are the CSV blocks of the two
-  answers, copied verbatim; only the code fences (```` ```csv ````) were removed, and in the screening answer the
-  line written after the CSV, `Records received: 20. Rows returned: 20.`
-- The batch text and the extraction prompt with the paper are not stored here: the abstracts are copyrighted, and the
-  prompt and the paper are on the site.
+| Time | Scene | Caption(s) | What is real |
+|---|---|---|---|
+| 0:00 | Title card | The repository holds the materials. Bring your own AI. | |
+| 0:11 | The repository | Everything you need is here. Use it with any AI. / Data, prompts, agent instructions, website: the same materials. | The repository page on github.com, as it is |
+| 0:23 | Pick your route | Pick your route: A, B or C. | |
+| 0:27 | **Route A · Copy and paste** (any chat assistant) | Click "Copy the screening prompt" on the Start page. / Records page: batch, "Copy batch", paste both into a chat. / The AI answers: check 20 records in, 20 rows out. | The live website; the AI's answer is the real answer of an AI chat assistant (below), on a neutral panel that imitates no chat product |
+| 0:52 | **Route B · Attach the files** (any assistant that accepts files) | Download the prompt from GitHub: prompts/03_screening.md. / And the paper: "Download raw file". / Records with abstracts: "Download as .txt" on the Records page. / Attach the files to any assistant, then ask. | github.com pages and the website, as they are (the paper is really downloaded). No answer is shown for this route: it is the same task, followed by the same checks |
+| 1:14 | **Route C · Connect an agent** (Claude Code, Codex CLI, Gemini CLI, Cursor…) | Clone it: the agent reads AGENTS.md and the skills. / A real agent run: two screenings, then compared. / Runs agree on 19 of 20; a human resolves R044. / Chat assistants with a GitHub connector can read it too. | The commands and their output come from the log of a real run (below), abridged with "…", never edited. The first lines (the `git clone` and the request in plain words) are labelled as an example of what you type |
+| 1:41 | **Whatever the route: check it** | Paste the AI's decisions into the scorer: coverage first. / 0 missed includes; open the flagged records yourself. / Then find the AI's quote in the paper, word for word. / Found. But the value's "3 days every 3 weeks" is in Table 1. | The live scorer, with the Route A answer pasted; the Mestre2012 full text on the site, with a quote of the chat assistant's extraction and the sentence of Table 1 highlighted |
+| 2:06 | Your turn | Your turn: batch 1 and Phan2020. Your AI, your way. | |
 
-## Files in this folder
+## The real AI runs
 
-| File | What it is |
-|---|---|
-| [`screening_answer_batch3.csv`](screening_answer_batch3.csv) | The AI's screening decisions for R041-R060 (`record_id,decision,reason`), as returned |
-| [`screening_score_batch3.md`](screening_score_batch3.md) | `activity/tools/score_screening.py` on that answer, against the reference decisions for R041-R060 only (so that the report does not name batch 1 answers; the metrics are those the web scorer shows) |
-| [`extraction_answer_Mestre2012.csv`](extraction_answer_Mestre2012.csv) | The AI's short extraction of Mestre2012 (`study_id,field,value,source_quote,location`), as returned: 6 rows, intervention components in two rows, one per phase |
-| [`extraction_score_Mestre2012.md`](extraction_score_Mestre2012.md) | `activity/tools/score_extraction.py` on that answer, the 5 fields of the short extraction (the scorer keeps the last of the two intervention-components rows) |
-| [`quote_verification_Mestre2012.csv`](quote_verification_Mestre2012.csv) | `.claude/skills/quote-verifier/scripts/verify_quotes.py` against the full text: every quote found verbatim; the two intervention-components rows hold numbers that are not in their quote |
+**Route A, chat assistant** (also used in the final check):
 
-## What the video shows
+- **Tool:** an AI chat assistant (Claude), as a participant would use it. **Date:** 6 November 2026. **Settings:** a
+  new temporary chat, **web search off**.
+- **Prompts:** copied from the live site, unchanged: the screening prompt of the Start page (criteria C1-C6 pasted in)
+  followed by batch 3 from the Records page; for the extraction, **Copy prompt + this paper** on the Mestre2012 card of
+  the Papers page (the 5 fields of the short extraction and the full text, CC BY 4.0). No answer key was consulted.
+- Files: [`screening_answer_batch3.csv`](screening_answer_batch3.csv) and
+  [`extraction_answer_Mestre2012.csv`](extraction_answer_Mestre2012.csv), the CSV blocks of the two answers copied
+  verbatim (only the code fences and, in the screening answer, the line `Records received: 20. Rows returned: 20.` were
+  removed). Scores: [`screening_score_batch3.md`](screening_score_batch3.md) (`score_screening.py` against the
+  reference decisions for R041-R060 only, so that the report names no batch 1 answer),
+  [`extraction_score_Mestre2012.md`](extraction_score_Mestre2012.md) (`score_extraction.py`, the 5 short fields) and
+  [`quote_verification_Mestre2012.csv`](quote_verification_Mestre2012.csv) (`verify_quotes.py`: 6 of 6 quotes verbatim;
+  the two intervention-components rows hold numbers that are not in their quote).
 
-The step names and numbers are those of the Start page. Each caption names the button to press.
+**Route C, AI coding agent** (folder [`agent_route/`](agent_route/)):
 
-| Time | Scene | What it shows |
-|---|---|---|
-| 0:00 | Title and the three steps | Batch 3 and Mestre2012, not your material; real AI answers. You will do the same on batch 1 and Phan2020 |
-| 0:18 | Step 1 · Screening · 1/4 | Start page, **Open the records**, batch **41-60**, wait for "20 records ready" (abstracts from PubMed), **Copy batch** |
-| 0:43 | Step 1 · 2/4 | **Copy the screening prompt**, **Show the screening prompt**: criteria C1-C6 already in it |
-| 0:58 | Step 1 · 3/4 | Paste the prompt, then the records where it says `[PASTE THE RECORDS HERE]`, in a new temporary chat, web search off. The AI's answer, unedited: check the count first, 20 records in, 20 rows out |
-| 1:26 | Step 1 · 4/4 | Scorer: paste the whole answer, **Score my screening**. Coverage 20 of 60 (one batch); sensitivity 100% (3 of 3 includes), none missed; 4 false includes. Recap card |
-| 1:50 | Step 2 · Look at the errors · 1/4 | The 4 false includes (R044, R050, R058, R059) were all excluded by the review only after reading the full text: not errors at this stage |
-| 2:05 | Step 2 · 2/4 | **Going further**, title/abstract-stage view: sensitivity 70% (7 of 10); the AI excluded R043, R046 and R054, which the human screeners had sent to full text (all three excluded in the end) |
-| 2:25 | Step 2 · 3/4 and 4/4 | Open 2 of the 4 false includes on the Records page, the sentences highlighted. **R050** (AI: unsure, C2): a hospital-wide campaign, but infections measured only in the ICU; "unsure" was fair. **R058** (AI: include, "check C3"): a hospital-wide campaign whose components are not described, then contact precautions and chlorhexidine bathing; C3 is in doubt, so "unsure" fits the prompt better. Either way both go to full text, where the review excluded them. Recap card |
-| 3:28 | Step 3 · Short extraction · 1/3 | Papers page, Mestre2012, **Copy prompt + this paper**; paste into a new temporary chat, web search off |
-| 3:44 | Step 3 · 2/3 | The AI's answer, unedited: every value with a quote and its location; intervention components in two rows, one per phase, as the prompt allows |
-| 4:01 | Step 3 · 3/3 | **Show text**, find 2 quotes. **Quote 1**, country = Spain: found word for word, in the authors' affiliations, labelled "author affiliations" as the form allows. **Quote 2**, intervention components of phase 2: found word for word, but "3 days every 3 weeks" in the value is not in the quote; it is in Table 1 (Methods), a few lines up. The quote-check script agrees: 6 of 6 quotes verbatim, but 2 rows have numbers not in their quote. Recap card |
-| 4:43 | Your turn | The three steps on batch 1 and Phan2020, 30 minutes; open the Start page (QR on the next slide). AI drafts. You check. You decide |
+- **Tool:** an AI coding agent (Claude Code) on a fresh clone of this repository (commit 5d3430a), 6 November 2026,
+  **no web search and no web fetch**; it followed `AGENTS.md` and the skills `title-abstract-screening`,
+  `full-text-extraction` and `quote-verifier`, and did not open `activity/answers/` or run the scorers.
+- [`agent_route/log.md`](agent_route/log.md): every command it ran and its full output. One change in this copy: the
+  model identifier in the header line was removed, because this repository names no model versions. Nothing else was
+  changed.
+- [`screening_run1.csv`](agent_route/screening_run1.csv), [`screening_run2.csv`](agent_route/screening_run2.csv),
+  [`screening_merged.csv`](agent_route/screening_merged.csv): two screening passes and their conservative merge
+  (`compare_runs.py`: raw agreement 19/20, Cohen's kappa 0.90, PABAK 0.92; merged 4 include, 13 exclude, 3 unsure; the
+  one disagreement, R044, became unsure). **Run 2 is a second pass by the same model in the same session** (records in
+  reverse order, run 1 not reopened), **not an independent reviewer**: two runs of one model share blind spots, as the
+  log says.
+- [`extraction.csv`](agent_route/extraction.csv) and [`verification.csv`](agent_route/verification.csv): the short
+  extraction of Mestre2012 (5 fields) and the quote check (5 of 5 quotes found, with the agent's semantic-check columns).
+  One AI pass, no second extractor.
+- Not copied: the records files with the abstracts the agent fetched from PubMed (publisher copyright) and its helper
+  script. The copied files were checked for abstract text: none.
 
 ## How it was made
 
-Recorded on the live site with Playwright (`recordVideo`, Chromium, 1280×720): the captions, the step counter, the
-cursor dot, the yellow highlights and a 1.2× zoom of the site pages (for a projector) were injected into the page;
-the AI answers were shown as plain text on a neutral page that imitates no chat product. Encoded with ffmpeg (H.264,
-CRF 28, yuv420p, faststart). The highlights mark sentences of the real abstract or paper on the site; nothing else
-on the pages was changed.
+Recorded with Playwright (`recordVideo`, Chromium, 1280×720) on the live website and on github.com: the captions,
+the route label, the cursor dot, the yellow outlines and highlights and a 1.2× zoom of the website pages were
+injected into the page; the AI answer and the agent's terminal output were shown on neutral local pages that imitate
+no product. Encoded with ffmpeg (H.264, CRF 28, yuv420p, faststart).
 
-*For learning only.* One run of one assistant on 20 records and one paper says nothing about how good a tool is.
+*For learning only.* One run of each tool on 20 records and one paper says nothing about how good a tool is.
