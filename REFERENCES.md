@@ -135,7 +135,7 @@ Where to go next. Every tool here is a draft-maker: the human checks remain your
   doi:[10.1162/tacl_a_00638](https://doi.org/10.1162/tacl_a_00638)
 
 - <a href="https://doi.org/10.3390/jcm15103882"><img src="assets/badges/exercise.svg" height="18" alt="Exercise"></a> Pruna ED, Davidescu L, Sorop-Florea M, et al. Multimodal hand hygiene interventions and clinical healthcare-associated infection outcomes in acute care hospitals: a systematic review of quasi-experimental studies. *J Clin Med*. 2026;15(10):3882.  
-  **Why useful:** The reference review of the exercise (provisional choice): a systematic review of quasi-experimental studies with 12 included studies, screening, extraction and risk of bias by two independent human reviewers. Details and limits in activity/data/README.md. Open it after the exercise, not before.  
+  **Why useful:** The reference review of the exercise (confirmed by the workshop team): a systematic review of quasi-experimental studies with 12 included studies, screening, extraction and risk of bias by two independent human reviewers. Details and limits in activity/data/README.md. Open it after the exercise, not before.  
   doi:[10.3390/jcm15103882](https://doi.org/10.3390/jcm15103882) · PMID [42194842](https://pubmed.ncbi.nlm.nih.gov/42194842/)
 
 ---

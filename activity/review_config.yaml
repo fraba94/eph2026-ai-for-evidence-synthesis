@@ -1,6 +1,6 @@
 # Reference review used as the comparison standard of the hands-on exercise.
 #
-# PROVISIONAL: the workshop team may replace this review before the session. To swap it, edit this file
+# Confirmed by the workshop team on 6 November 2026. To adapt the exercise to another review, edit this file
 # and activity/answers/reference_key.yaml, then rebuild the data:
 #     python3 activity/tools/build_screening_set.py
 #     python3 activity/tools/build_extraction_gold.py tables
@@ -14,7 +14,7 @@
 question: "Are hand hygiene interventions effective in reducing healthcare-associated infections?"
 
 review:
-  status: provisional
+  status: confirmed
   citation: "Multimodal Hand Hygiene Interventions and Clinical Healthcare-Associated Infection Outcomes in Acute Care Hospitals: A Systematic Review of Quasi-Experimental Studies. J Clin Med. 2026;15(10):3882."
   doi: "10.3390/jcm15103882"
   pmid: "42194842"

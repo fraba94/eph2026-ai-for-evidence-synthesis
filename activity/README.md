@@ -7,7 +7,7 @@ screens abstracts and extracts data, where it fails, and how you would notice. Y
 **the reference review**: Pruna et al., *J Clin Med* 2026, a systematic review of quasi-experimental studies in acute
 care hospitals with **12 included studies**, in which two independent human reviewers did the screening, extraction,
 risk of bias and synthesis without AI (the authors declare ChatGPT for English-language editing only). Its decisions
-are the answers you compare with. The choice is **provisional**; citation, reasons and limits are in
+are the answers you compare with. The choice was confirmed by the workshop team on 6 November 2026; citation, reasons and limits are in
 [`data/README.md`](data/README.md). **Open the review after the exercise, not before:** it names the included studies.
 
 This page is the guide for the live session (EPH 2026, Bilbao) **and** for anyone doing the exercise alone, months

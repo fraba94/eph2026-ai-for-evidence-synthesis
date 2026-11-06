@@ -854,7 +854,7 @@ def build_answers():
     </div>
     <div class="callout info" style="margin-top:14px">
       {svg(ICONS["note"])}
-      <div>{critical}<p>How the reference was built and its limits: <a href="activity-data.html#the-reference-review-provisional">the data of the exercise</a>.</p></div>
+      <div>{critical}<p>How the reference was built and its limits: <a href="activity-data.html#the-reference-review">the data of the exercise</a>.</p></div>
     </div>
 
     <section class="tool-sec" id="screening" aria-labelledby="h-scr">

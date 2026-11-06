@@ -34,7 +34,7 @@
   <div class="wrap">
     <div class="eyebrow"><a href="activity.html">Hands-on activity</a> · the data</div>
     <h1 id="data-of-the-exercise-how-they-were-built-and-their-limits">Data of the exercise: how they were built, and their limits</h1>
-    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/README.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-03">3 November 2026</time></span></p>
+    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/README.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-06">6 November 2026</time></span></p>
   </div>
 </div>
 
@@ -43,7 +43,7 @@
     <details class="toc" open>
       <summary>On this page</summary>
       <ol>
-        <li><a href="#the-reference-review-provisional">The reference review (PROVISIONAL)</a></li>
+        <li><a href="#the-reference-review">The reference review</a></li>
         <li><a href="#screening-set-screening_recordscsv-60-records">Screening set: screening_records.csv (60 records)</a></li>
         <li><a href="#extraction-set-paperscsv-extraction_formcsv-fulltext">Extraction set: papers.csv, extraction_form.csv, fulltext/</a></li>
         <li><a href="#how-to-replace-the-reference-review">How to replace the reference review</a></li>
@@ -56,7 +56,7 @@
 and its limits; the other pages introduce it briefly as Pruna et al., <em>J Clin Med</em> 2026.</p>
 <blockquote><p><strong>Doing the exercise?</strong> This page describes the reference review but does not list its decisions. The review itself
 (and <a href="answers.html"><code>../answers/</code></a>) names the included studies: open them only after step 3.</p></blockquote>
-<h2 id="the-reference-review-provisional">The reference review (PROVISIONAL)<a class="anchor" href="#the-reference-review-provisional" aria-label="Link to this section">#</a></h2>
+<h2 id="the-reference-review">The reference review<a class="anchor" href="#the-reference-review" aria-label="Link to this section">#</a></h2>
 <blockquote><p>Pruna ED, Davidescu L, Sorop-Florea M, Demeter I, Iurciuc S, Varga NI, David VL, Buleu F, Horhat FG.
 Multimodal Hand Hygiene Interventions and Clinical Healthcare-Associated Infection Outcomes in Acute Care Hospitals:
 A Systematic Review of Quasi-Experimental Studies. <em>J Clin Med</em> 2026;15(10):3882.
@@ -64,7 +64,7 @@ doi:<a href="https://doi.org/10.3390/jcm15103882">10.3390/jcm15103882</a> · PMI
 PROSPERO CRD420261339769. Metadata and full text from PubMed / PubMed Central.</p></blockquote>
 <p><strong>In short.</strong> A systematic review of quasi-experimental studies (interrupted time series, controlled and uncontrolled
 before-after) in acute care hospitals; <strong>12 included studies</strong>; screening, extraction, risk of bias (ROBINS-I) and
-synthesis by two independent human reviewers without AI. <strong>Provisional</strong>: the workshop team may replace it (see
+synthesis by two independent human reviewers without AI. <strong>Confirmed</strong> by the workshop team on 6 November 2026 (to adapt the exercise to another review, see
 <a href="#how-to-replace-the-reference-review">How to replace</a>).</p>
 <p><strong>Why this one (for now).</strong> Its question is exactly the exercise question; it is open access under CC BY, so its
 criteria, tables and included-study list can be reused here; its full text in PMC lists the <strong>12 included studies</strong>
@@ -107,7 +107,7 @@ was also checked: CC BY and pre-AI, but it covers compliance trials without synt
 <p><strong>What would make the reference authoritative.</strong> A review team's own records: (1) the export of the original
 title/abstract screening (one row per record with PMID and include/exclude), which turns the gold standard into
 real title/abstract decisions (see "How to replace" below); (2) the review's own extraction sheet, to replace the
-provisional extraction values; (3) confirmation of the included-study list. If the workshop team adopts another
+provisional extraction values; (3) the authors' confirmation of the included-study list. If the workshop team adopts another
 review (for example one of its own reviews conducted without AI), the same three files are needed.</p>
 <h2 id="screening-set-screening_recordscsv-60-records">Screening set: <code>screening_records.csv</code> (60 records)<a class="anchor" href="#screening-set-screening_recordscsv-60-records" aria-label="Link to this section">#</a></h2>
 <p>Columns: <code>record_id,pmid,doi,title,abstract,year,journal,license</code>. Order shuffled with a fixed seed (2026);

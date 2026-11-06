@@ -31,7 +31,7 @@ The steps are those of the live session at EPH 2026 in Bilbao, where each person
 
 Study design: quasi-experimental (interrupted time series, controlled or uncontrolled before-after). The full criteria C1–C6 are in [`activity/README.md`](../activity/README.md).
 
-The **reference review** is Pruna et al., *J Clin Med* 2026: a systematic review of quasi-experimental studies in acute care hospitals, with 12 included studies, in which two independent human reviewers did the screening and extraction **without AI**. Its decisions are the answers you compare with. The choice is provisional; the full reference, and why it was chosen, are in [`activity/data/README.md`](../activity/data/README.md). **Open it after the exercise, not before**: it names the included studies.
+The **reference review** is Pruna et al., *J Clin Med* 2026: a systematic review of quasi-experimental studies in acute care hospitals, with 12 included studies, in which two independent human reviewers did the screening and extraction **without AI**. Its decisions are the answers you compare with. The choice was confirmed by the workshop team on 6 November 2026; the full reference, and why it was chosen, are in [`activity/data/README.md`](../activity/data/README.md). **Open it after the exercise, not before**: it names the included studies.
 
 ---
 
