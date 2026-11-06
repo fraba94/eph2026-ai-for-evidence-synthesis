@@ -37,12 +37,103 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 | Min | Clock | Block | Facilitator cue |
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
-| 10-20 | 16:55-17:05 | Demo of open-access tools | Show one screening prompt and one extraction prompt on the same question, including one visible error |
+| 10-20 | 16:55-17:05 | Demo in four hands: **Francesco Baglivo** drives the AI, **Patrick Boudreau** checks the source | Follow the [demo script](#demo-script-four-hands): one screening batch, one extraction, then the errors the verifier caught |
 | 18-20 | 17:03-17:05 | (end of demo) Groups and tracks already assigned by table; roles confirmed; the repository and records page open | "Driver, prompter, verifier, recorder: check your role card" |
 | 20-30 | 17:05-17:15 | **Step 1 screening** | At minute 25: "Did you count the rows that came back?" At 29: "Save the file, even if incomplete" |
 | 30-42 | 17:15-17:27 | **Step 2 extraction** (chat track: optional if screening ran late; then compare screening only) | At 30: "Read the form for one minute before uploading." At 37: "Verifier: search three quotes now" |
 | 42-50 | 17:27-17:35 | **Step 3 compare** | "Open the scorer. Read the coverage line, missed includes and QUOTE NOT FOUND first. Log three discrepancies" |
 | 50-60 | 17:35-17:45 | Structured discussion | Use the prompts below; collect one sentence per group |
+
+## Demo script (four hands)
+
+Ten minutes, 16:55-17:05, **Francesco Baglivo** and **Patrick Boudreau** together. The demo stages the message of the
+workshop: **one drives the AI, one checks the source.**
+
+- **Francesco = driver.** At the keyboard. Runs the AI with exactly the pages and prompts the participants will use,
+  and says aloud what he clicks.
+- **Patrick = verifier.** Never touches the AI. Asks "show me where it says that" and checks the answers against the
+  abstract or the paper. He decides what is accepted.
+
+Participants then do the same steps in the same roles (driver and verifier of the [group roles](README.md#group-roles)).
+The point to land at the end: **the errors were caught by the verifier, not by the AI.**
+
+**Pages used** (published site; same pages on `http://localhost:8000/` if you serve `docs/` from a laptop):
+
+| What | Link |
+|---|---|
+| Start page (screening prompt with C1-C6 already pasted in, Copy button) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html) |
+| Records page (batches, abstracts filled from PubMed in the browser) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) |
+| Extraction prompt (11 core fields) and the verification prompt | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late) |
+| Extraction form (the 11 rows with `core = yes`) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/data/extraction_form.csv](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/data/extraction_form.csv) |
+| Prompt library (screening 3.1, extraction 4.2) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) |
+| Scorer (paste the CSV, nothing is uploaded) | [https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) |
+| Phan2020 full text (CC BY 4.0) | [`data/fulltext/Phan2020.txt`](data/fulltext/Phan2020.txt), plain text: <https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Phan2020.txt> |
+
+> [!IMPORTANT]
+> **Demo on batch 3 (R041-R060), not batch 1.** The chat-track groups screen batch 1 (R001-R020) right after the
+> demo: projecting the scorer on batch 1 would show them its missed includes. Batch 3 keeps the same steps without
+> the spoiler (agent-track groups, who screen all 60, see 20 of their answers: tell them so). Likewise, do **not**
+> run the extraction scorer on Phan2020 in the demo: the groups extract the same paper.
+
+### Minute by minute
+
+| Time | Francesco (driver) | Patrick (verifier) | On screen |
+|---|---|---|---|
+| **A. Screening** | | | |
+| 0:00-0:30 (16:55) | Opens the Start page: "This is the page you will use in five minutes." | Announces the roles: "Francesco drives the AI, I check the source. Nothing goes into our table until I have seen it in the abstract." | `start.html`, sections 1 and 3 |
+| 0:30-1:15 | Records page: batch size **20**, **batch 3 (R041-R060)**; waits until the status says the abstracts are filled; **Copy batch** | "Why batch 3? You will screen batch 1, and we do not want to spoil it." | `batch.html` |
+| 1:15-1:45 | Back on the Start page: **Copy the screening prompt** (C1-C6 already in it); new temporary chat; pastes the prompt, replaces `[PASTE THE RECORDS HERE]` with the batch; sends | Reads one rule aloud: "Exclude only if the abstract clearly shows that a criterion is not met. When in doubt, unsure." | Chat assistant |
+| 1:45-2:30 | Scrolls the answer to the last line, "Records received: N. Rows returned: N." | "That line is the AI talking about itself. We count." Counts the IDs R041 to R060: any missing, repeated or renamed? | The CSV block in the chat |
+| 2:30-3:45 | Switches to the records tab, Ctrl+F on the record Patrick names | Picks **two decisions**, preferably one exclude and one include or unsure: "Show me where it says that." Reads the sentence of the abstract and says aloud: supported, or not | `batch.html` (the abstract) next to the chat |
+| 3:45-5:00 | Copies the CSV block; Scorer, screening tab; pastes it; leaves "I was meant to screen all records" **unticked**; compares | "Coverage line first: Screened 20 of 60 is expected, fewer means rows were dropped." Then: "Missed includes: the costly error at this stage." | `scorer.html` |
+| **B. Extraction** | | | |
+| 5:00-5:45 (17:00) | New chat; pastes the extraction prompt with the 11 core fields (prepared the day before), `study_id = Phan2020`, then the full text of Phan2020 (or attaches the file); sends | States the rule: "Every value has a verbatim quote and a location, or says not reported. A value without a quote is not a value." | Chat assistant |
+| 5:45-6:30 | Opens `Phan2020.txt` in the second tab while the answer arrives | Chooses **two quotes** from the answer: one with a number, and a `not reported` if there is one | Chat, then `Phan2020.txt` |
+| 6:30-7:30 | Ctrl+F on six to eight words of each quote, then on a synonym for the `not reported` field | "Is it there word for word, in the section it says?" Then **one number**: "Is the number in the value also in the quote?" | `Phan2020.txt` with the match highlighted |
+| 7:30-8:00 | "We do not score the extraction now: that is your job in step 2." | Sums up aloud what passed and what did not | Chat |
+| **C. What we just saw** | | | |
+| 8:00-9:15 (17:03) | Switches to the whiteboard slide and writes each error found: record ID or field, what was wrong | For each error: "Who caught it? Not the AI. The verifier, with the source open." If none: "No visible error today. That is also a result: here is what our rehearsal produced." | Whiteboard slide |
+| 9:15-10:00 | Back to the Start page, section 2 (tracks) | Hands over: "Your turn. Same steps, same roles: driver at the keyboard, verifier with the source open. Chat track: batch 1 and Phan2020. Check your role card." | `start.html#choose-your-track` |
+
+### What to watch for
+
+| Part | Patrick looks for | What it shows |
+|---|---|---|
+| A. Screening | **Missing or renamed rows**: fewer than 20 rows, an ID skipped or repeated, `R41` instead of `R041`, rows out of order | Chat assistants drop rows silently; the self-reported count can be wrong |
+| A. Screening | **A reason that cites no criterion** (no C1-C6 code), or a rule that is not in the criteria ("small sample", "low quality", "not in Europe") | The model adds its own criteria |
+| A. Screening | **Exclude when the abstract is silent** (the reason says "not mentioned", "unclear", "no information") | At this stage that is `unsure`, not `exclude`: a possible missed include |
+| B. Extraction | **A quote that is not in the paper** (Ctrl+F finds nothing, or finds a near-identical sentence) | Invented or paraphrased quote: the value is unverified |
+| B. Extraction | **A number that is not in its quote** (the value says one figure, the quote another or none) | The value came from somewhere else, or was computed or rounded |
+| B. Extraction | **A false "not reported"** (Ctrl+F on a synonym finds it, often in a table) | Missed information: "not reported" must be checked like any other value |
+
+### The day before
+
+- [ ] **Network.** Open `start.html`, `batch.html` (batch 3 fills its abstracts) and `scorer.html` on the venue Wi-Fi,
+      or on the phone hotspot you will use as a fallback.
+- [ ] **Chat assistant.** Logged in on the demo laptop; **memory off or a temporary chat**; no project knowledge or
+      custom instructions that could leak earlier runs.
+- [ ] **Readable from the back of the room.** Browser zoom 150%, large font in the chat; dark mode off if the
+      projector washes it out.
+- [ ] **Two tabs open:** `start.html` and the chat. Keep `batch.html`, `scorer.html` and `Phan2020.txt` one click
+      away (a local copy of `Phan2020.txt` works without network).
+- [ ] **Extraction prompt ready:** the prompt of the beginners walkthrough, step 5, with the 11 core fields of the
+      extraction form pasted in and `study_id = Phan2020`, saved in a text file on the laptop.
+- [ ] **Rehearsal run saved locally as backup**, in case the live run shows no error or the network fails: the
+      screening CSV, the extraction CSV and screenshots of the chat and of the scorer, with one error marked.
+      Keep it on the laptop only (outside the repository or in the git-ignored `activity/data/local/`): **do not
+      commit or post outputs that contain copyrighted abstracts**.
+- [ ] **AI use record.** Note the model name, version and date of the rehearsal, and again on the day, in the
+      [AI use record](worksheets/ai_use_record.md): the demo models what the recorder does.
+- [ ] **Rehearse once in four hands** with a timer: who speaks when, and where the hand-over at 9:15 happens.
+
+### If something fails
+
+| Problem | What to do |
+|---|---|
+| No network (records page, chat or scorer do not load) | Show the saved rehearsal run: screenshots of the chat, the CSV and the scorer. Say it is a rehearsal and when it was run. Then point to the [fallbacks](#if-things-go-wrong) for the groups |
+| The AI makes no visible error | Say so: it is also a result, and it does not prove the next run will be clean. Show the rehearsal's error and who caught it |
+| Records page does not fill the abstracts | Use the records shipped with abstracts (see [If things go wrong](#if-things-go-wrong)) or the rehearsal run |
+| Time overrun | Skip part B (extraction). **Always keep part C**: the errors on the whiteboard and the hand-over |
 
 ## What to expect in screening
 
