@@ -545,3 +545,68 @@ button.copy.copied, .btn-copy.copied { background: var(--green-bg); border-color
   .md .md-table.stack td:first-child::before { display: none !important; }
   .md .md-table.stack td:empty { display: none; }
 }
+
+/* =====================================================================
+   Papers, answers, ready-to-paste prompts, worksheet templates, scorer paste box
+   ===================================================================== */
+.tool-wrap { max-width: 900px; padding-top: 24px; padding-bottom: 56px; }
+.tool-sec { padding: 26px 0 4px; }
+.tool-sec + .tool-sec { border-top: 1px solid var(--border); margin-top: 22px; }
+.tool-sec > h2 { font-size: clamp(1.3rem, 1.15rem + .7vw, 1.6rem); scroll-margin-top: 84px; }
+@media (max-width: 860px) { .tool-sec > h2 { scroll-margin-top: 12px; } }
+.who-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.who-list li { border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; background: var(--surface); font-size: 14.5px; }
+.who-list li span { color: var(--muted); margin-left: 4px; }
+.mini-steps { margin: 0 0 14px; padding-left: 1.3em; }
+.mini-steps li { margin: .3em 0; }
+.paper { margin-top: 16px; scroll-margin-top: 84px; }
+@media (max-width: 860px) { .paper { scroll-margin-top: 12px; } }
+.paper h2 { font-size: 1.2rem; margin: 8px 0 6px; }
+.paper .cite { color: var(--muted); font-size: 15px; margin-bottom: 8px; overflow-wrap: anywhere; }
+.paper .why { margin-bottom: 12px; }
+.paper-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 14px; color: var(--muted); margin: 0; }
+.paper .row { gap: 8px; }
+.paper .hint { margin: 12px 0 0; }
+.paper details.fulltext { margin-top: 12px; }
+.paper details.fulltext summary { display: flex; align-items: center; gap: 8px; }
+.paper details.fulltext summary svg { width: 18px; height: 18px; }
+.paper details.fulltext pre { margin: 10px 0 4px; max-height: 60vh; overflow: auto; font-size: 13px; }
+.btn-link { font: inherit; background: none; border: 0; padding: 0; color: var(--link); font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; display: inline; }
+.btn-link svg { width: 15px; height: 15px; vertical-align: -2px; margin-right: 3px; }
+.btn-link.copied { color: var(--green-tx); text-decoration: none; }
+.attribution { margin-top: 16px; }
+.ready-prompt { border: 1px solid var(--blue-ln); background: var(--blue-bg); border-radius: 14px; padding: 14px 16px; margin: 0 0 1.2em; }
+.ready-prompt .ready-title { margin: 0 0 10px; }
+.ready-prompt .row { gap: 8px; }
+.ready-prompt details { margin: 10px 0 0; border: 0; padding: 0; background: none; }
+.ready-prompt details > summary { cursor: pointer; font-weight: 650; color: var(--link); margin: 0; padding: 4px 0; border: 0 !important; }
+.ready-prompt pre { margin: 8px 0 0; max-height: 360px; overflow: auto; font-size: 12.5px; background: var(--surface); }
+.worksheet-tools { border: 1px solid var(--border); background: var(--surface-2); border-radius: 14px; padding: 14px 16px; margin: 0 0 1.4em; }
+.worksheet-tools p { margin: 0 0 10px; }
+.worksheet-tools .row { gap: 8px; }
+.gate { border: 1px dashed var(--blue-ln); border-radius: 14px; padding: 18px; text-align: center; background: var(--surface-2); margin: 10px 0 6px; }
+.gate .hint { margin: 10px 0 0; }
+.btn-reveal { white-space: normal; text-align: left; font-size: 16px; padding: 12px 18px; min-height: 48px; }
+.answers .md-table { margin-top: 8px; }
+.answers table q { quotes: "\201C" "\201D"; }
+.paste-box { min-height: 220px; }
+details.more-options > summary { cursor: pointer; }
+details.more-options[open] > summary { margin-bottom: 4px; }
+.step-card .phase { display: inline-block; font-size: 12.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.step-card ol.do { margin: 6px 0 12px; padding-left: 1.25em; color: var(--muted); font-size: 15px; }
+.step-card ol.do li { margin: .3em 0; }
+.step-card ol.do b { color: var(--ink); }
+.going-further { margin-top: 18px; }
+.going-further summary { cursor: pointer; font-weight: 750; }
+.going-further ul { margin: 10px 0 0; padding-left: 1.2em; color: var(--muted); font-size: 15px; }
+.going-further li { margin: .35em 0; }
+.tool-page .md { max-width: none; font-size: 15.5px; }
+.tool-page .md td code { white-space: normal; overflow-wrap: anywhere; }
+@media (min-width: 641px) {
+  #extraction-answers table, #screening-answers table { table-layout: fixed; }
+  #screening-answers th:nth-child(1) { width: 10%; } #screening-answers th:nth-child(2) { width: 17%; }
+  #screening-answers th:nth-child(3) { width: 38%; }
+  #extraction-answers th:nth-child(1) { width: 19%; } #extraction-answers th:nth-child(2) { width: 10%; }
+  #extraction-answers th:nth-child(3) { width: 16%; } #extraction-answers th:nth-child(4) { width: 24%; }
+  #extraction-answers th:nth-child(5) { width: 11%; }
+}

@@ -60,6 +60,24 @@ Reminder: verbatim quotes only; "not reported" is better than a guess.
 **Check afterwards.** Rows first (is any field missing?), then numbers (open the paper at each location), then every "not reported" (search the paper for the keyword and its synonyms).
 **Failure modes.** Quotes that look verbatim but are reconstructed; values from the wrong row of a scrambled table; one ward or period chosen silently; compliance reported as if it were an infection outcome; confidence intervals dropped; "not reported" for values that are in a table, a figure or the supplement.
 
+### Workshop variant: the short extraction (5 fields)
+
+Step 3 of the [exercise](../activity/README.md#step-3--short-extraction-10-min) uses prompt 4.2 with only **5 fields**
+of the workshop form and `study_id = Phan2020`. Ready to paste, with the paper slot left for you, on the
+[Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt). To fill prompt 4.2 by hand, paste these lines where it says
+`[PASTE FORM: field | definition | allowed values]`:
+
+```text
+- country: Country where the study was conducted. Take it from Methods/Results; if the paper gives it only in the affiliation of the study hospital, report it with 'author affiliations' as location. Do not infer it from city or campaign names alone; if it is not stated anywhere, write not reported. Allowed values: free text.
+- study_design: Design of the evaluation, as you would classify it (not only the authors' label). Allowed values: interrupted time series | controlled before-after | uncontrolled before-after | randomised trial | other.
+- intervention_components: Components of the hand hygiene intervention. Allowed values: list, separated by ';': education/training; alcohol-based hand rub at point of care; reminders/posters; audit and feedback; leadership/institutional safety climate; patient participation; other (specify).
+- primary_hai_outcome: The main clinical healthcare-associated infection outcome reported (name it as the authors do). Allowed values: free text.
+- direction_of_effect: Direction of the effect on the primary HAI outcome. Allowed values: favourable | no clear effect | mixed | unfavourable.
+```
+
+Going further: the 11 core fields (column `core = yes` of the form) are on the
+[Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#going-further).
+
 ---
 
 ## 4.3 Table check

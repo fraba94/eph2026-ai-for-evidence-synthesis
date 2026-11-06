@@ -11,8 +11,10 @@ the website:
     skills/README.md          -> docs/skills.html,  skills/EXTERNAL.md -> docs/skills-external.html
     and a few pages linked from the activity guide (data, worksheets, quick card, facilitator guide)
 
-It also keeps the navigation bar of the hand-written pages (index, start, batch, scorer, references) identical,
-and writes the ready-to-paste screening prompt into start.html.
+It also writes two pages from the workshop data (papers.html: the full texts, the extraction prompt and the form;
+answers.html: the reference answers behind a button), keeps the navigation bar of the hand-written pages (index,
+start, batch, scorer, references) identical, and writes the ready-to-paste screening and extraction prompts into
+start.html.
 
     pip install -r docs/requirements.txt   # python-markdown, the only dependency
     python3 docs/build_pages.py            # write the pages
@@ -23,6 +25,7 @@ Rendering follows GitHub: heading ids are GitHub's slugs (the slides' QR codes l
 supported, and relative links point to the site page when there is one, otherwise to the file on GitHub.
 """
 import argparse
+import csv
 import datetime as dt
 import html
 import posixpath
@@ -49,7 +52,7 @@ SITE = "https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/"
 # source (repository path) -> output (docs path), navigation item, eyebrow, short description
 PAGES = [
     ("activity/README.md", "activity.html", "Activity", "Hands-on activity · step by step",
-     "The guide to the hands-on exercise: timing, group roles, tracks, eligibility criteria, the three steps and the self-paced path."),
+     "The guide to the hands-on exercise: timing, working on your own, tracks, eligibility criteria, the three steps, going further and the self-paced path."),
     ("beginners/README.md", "beginners.html", "Beginners", "Chat track · learning only",
      "A copy-and-paste walkthrough of the exercise for anyone with a chat assistant. For learning only."),
     ("prompts/README.md", "prompts.html", "Prompts", "Prompt library",
@@ -89,6 +92,17 @@ EXTRA_MAP = {"README.md": "index.html", "REFERENCES.md": "references.html", "REA
              "activity/data/fulltext": "papers.html", "activity/data/extraction_form.csv": "papers.html#extraction-form",
              "activity/answers/README.md": "answers.html", "activity/answers": "answers.html",
              "activity/worksheets/discrepancy_log.csv": "data/worksheets/discrepancy_log.csv"}
+
+
+def read_csv(rel):
+    with open(ROOT / rel, encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+PAPERS = read_csv("activity/data/papers.csv")
+for _p in PAPERS:  # links to a full text go to its card on the Papers page
+    EXTRA_MAP[_p["fulltext_file"]] = f"papers.html#{_p['study_id']}"
+
 # the prompt stages, for the previous / next links
 PROMPT_STAGES = [p for p in PAGES if p[0].startswith("prompts/0")]
 
@@ -476,8 +490,9 @@ GITHUB_ICON = '<path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8
 def build_page(src_rel, out_rel, nav_item, eyebrow, description):
     text = (ROOT / src_rel).read_text(encoding="utf-8")
     r = Renderer(src_rel, out_rel)
-    body = r.render(text)
     root = "../" * out_rel.count("/")
+    body = inject_blocks(r.render(text), root)
+    body = worksheet_tools(src_rel, root) + body
     hid, title_html, title_text = r.title or ("", html.escape(Path(src_rel).stem), Path(src_rel).stem)
 
     if src_rel.startswith("prompts/0"):
@@ -563,6 +578,334 @@ def build_page(src_rel, out_rel, nav_item, eyebrow, description):
 """
 
 
+# ---------------------------------------------------------------- the extraction prompt, the Papers and Answers pages
+# The short extraction of step 3: five of the core fields of activity/data/extraction_form.csv (the same list is in
+# docs/scorer.js, SHORT_FIELDS, and in the Markdown guides). The 11 core fields are the "going further" version.
+SHORT_FIELDS = ["country", "study_design", "intervention_components", "primary_hai_outcome", "direction_of_effect"]
+COPY_BTN_ICON = svg(COPY_ICON)
+LINK_ICON = '<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'
+DOWN_ICON = '<path d="M12 4v12M7 11l5 5 5-5M4 20h16"/>'
+EYE_ICON = '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>'
+STOP_ICON = '<path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/>'
+LICENCE_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
+               "CC BY-NC 3.0": "https://creativecommons.org/licenses/by-nc/3.0/"}
+# who works on which paper (not a column of papers.csv: the plan of the session)
+AUDIENCE = {
+    "Phan2020": ("Chat track · step 3", "The paper of the short extraction in the live session (step 3). Agent track: one of its three papers."),
+    "Mestre2012": ("Live demo, then practice at home", "Used in the live demo. After the session it is free for practice on your own: same prompt, study_id Mestre2012."),
+    "AlKuwaiti2017": ("Agent track · going further", "Not on this site: its licence (CC BY-NC) does not allow redistribution. The agent track downloads it to the computer with the command below, or reads it in PubMed Central."),
+}
+
+
+def form_rows():
+    return read_csv("activity/data/extraction_form.csv")
+
+
+def field_lines(fields):
+    rows = {r["field"]: r for r in form_rows()}
+    out = []
+    for f in fields:
+        if f not in rows:
+            raise SystemExit(f"field {f} is not in activity/data/extraction_form.csv")
+        r = rows[f]
+        d = r["definition"].strip()
+        d = d if d.endswith(".") else d + "."
+        out.append(f"- {f}: {d} Allowed values: {r['allowed_values'].strip()}.")
+    return "\n".join(out)
+
+
+def core_fields():
+    core = [r["field"] for r in form_rows() if r.get("core", "").strip().lower() == "yes"]
+    if len(core) != 11:
+        raise SystemExit(f"expected 11 core fields in extraction_form.csv, found {len(core)}: update the guides")
+    return core
+
+
+PAPER_PLACEHOLDER_RE = re.compile(r"\[PASTE THE TEXT OF THE PAPER[^\]]*\]")
+
+
+def extraction_prompt(study_id="Phan2020", which="short"):
+    """The extraction prompt of the beginners walkthrough with the form fields and the study_id filled in."""
+    beg = (ROOT / "beginners/README.md").read_text(encoding="utf-8")
+    m = re.search(r"```text\n((?:(?!```).)*?EXTRACTION FORM.*?)\n```", beg, re.S)
+    if not m:
+        raise SystemExit("could not find the extraction prompt (```text block with EXTRACTION FORM) in beginners/README.md")
+    prompt = m.group(1)
+    fields = SHORT_FIELDS if which == "short" else core_fields()
+    ph = re.search(r"\[PASTE THE [^\]]*FIELDS[^\]]*\]", prompt)
+    if not ph:
+        raise SystemExit("the extraction prompt in beginners/README.md has no [PASTE THE ... FIELDS ...] placeholder")
+    prompt = prompt.replace(ph.group(0), field_lines(fields))
+    prompt = re.sub(r"\[[^\]\n]*Phan2020[^\]\n]*\]", study_id, prompt)
+    if not PAPER_PLACEHOLDER_RE.search(prompt):
+        raise SystemExit("the extraction prompt in beginners/README.md has no [PASTE THE TEXT OF THE PAPER ...] placeholder")
+    return prompt
+
+
+def paper_placeholder():
+    return PAPER_PLACEHOLDER_RE.search(extraction_prompt()).group(0)
+
+
+def copy_button(target, label, cls="btn-copy", extra=""):
+    return (f'<button class="{cls}" type="button" data-copy="{target}"{extra}>{COPY_BTN_ICON}'
+            f'<span>{html.escape(label)}</span></button>')
+
+
+def pre_block(pid, text, hidden=False):
+    h = " hidden" if hidden else ""
+    return f'<pre id="{pid}"{h}><code>{html.escape(text)}</code></pre>'
+
+
+def ready_prompt_html(root, pid="extraction-prompt-text", which="short", paper_button=True, intro=True):
+    n = len(SHORT_FIELDS) if which == "short" else len(core_fields())
+    names = ", ".join(f"<code>{f}</code>" for f in (SHORT_FIELDS if which == "short" else core_fields()))
+    ph = html.escape(paper_placeholder())
+    title = (f'<p class="ready-title"><b>Ready to paste: the extraction prompt</b> with the {n} fields '
+             f'({names}) and <code>study_id = Phan2020</code> already filled in. In a new chat, paste it, then paste '
+             f'the paper where it says <code>{ph}</code>.</p>') if intro else ""
+    paper = (f'<a class="btn btn-plain" href="{root}papers.html#Phan2020">Open the paper (Phan2020)</a>'
+             if paper_button else "")
+    return (f'<div class="ready-prompt">{title}<div class="row">{copy_button("#" + pid, "Copy the extraction prompt")}{paper}</div>'
+            f'<details><summary>Show the prompt</summary>{pre_block(pid, extraction_prompt(which=which))}</details></div>')
+
+
+def inject_blocks(body, root):
+    """<!-- build_pages:extraction-prompt --> in a Markdown guide becomes the ready-to-paste prompt."""
+    return re.sub(r"(?:<p>)?\s*<!-- build_pages:extraction-prompt -->\s*(?:</p>)?",
+                  lambda m: ready_prompt_html(root), body)
+
+
+WORKSHEETS = {  # worksheet page source -> the templates copied into docs/data/worksheets/ by sync_data.py
+    "activity/worksheets/discrepancy_log.md": ["discrepancy_log.md", "discrepancy_log.csv"],
+    "activity/worksheets/ai_use_record.md": ["ai_use_record.md"],
+}
+
+
+def worksheet_tools(src_rel, root):
+    files = WORKSHEETS.get(src_rel)
+    if not files:
+        return ""
+    md_name = files[0]
+    text = (ROOT / "activity/worksheets" / md_name).read_text(encoding="utf-8")
+    btns = []
+    for f in files:
+        ext = f.rsplit(".", 1)[1]
+        btns.append(f'<a class="btn btn-plain" href="{root}data/worksheets/{f}" download="{f}">{svg(DOWN_ICON)}'
+                    f'Download template (.{ext})</a>')
+    btns.insert(0, copy_button("#worksheet-template", "Copy template"))
+    return (f'<div class="worksheet-tools"><p><b>Optional, going further.</b> Fill it on paper, in a text editor or a '
+            f'spreadsheet: copy the template or download it.</p><div class="row">{"".join(btns)}</div>'
+            f'{pre_block("worksheet-template", text, hidden=True)}</div>\n')
+
+
+def page_shell(out_rel, nav_item, title, description, eyebrow_html, lede_html, body, robots=False, scripts=()):
+    root = "../" * out_rel.count("/")
+    rob = '\n  <meta name="robots" content="noindex">' if robots else ""
+    js = "\n".join(f'<script src="{root}{s}"></script>' for s in ("assets/pages.js",) + tuple(scripts))
+    return f"""<!doctype html>
+<!-- Generated by docs/build_pages.py. Do not edit: change the sources it names and run the script. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{html.escape(title)} · AI for evidence synthesis</title>
+  <meta name="description" content="{html.escape(description, quote=True)}">{rob}
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="{root}assets/eupha-dhai-logo.png">
+  <link rel="stylesheet" href="{root}assets/site.css">
+</head>
+<body class="doc-page tool-page">
+{header_html(nav_item, root)}
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">{eyebrow_html}</div>
+    <h1>{html.escape(title)}</h1>
+    {lede_html}
+  </div>
+</div>
+
+<main id="main">
+  <div class="wrap tool-wrap">
+{body}
+  </div>
+</main>
+
+{footer_html(root)}
+{js}
+</body>
+</html>
+"""
+
+
+def md_snippet(src_rel, out_rel, text):
+    return Renderer(src_rel, out_rel).render(text)
+
+
+def split_citation(cit):
+    parts = [x.strip() for x in cit.split(". ")]
+    authors, journal, vol = parts[0], parts[-2], parts[-1].rstrip(".")
+    title = ". ".join(parts[1:-2])
+    names = [a.strip() for a in authors.split(",") if a.strip()]
+    first = names[0] + (" et al." if len(names) > 1 else "")
+    return first, title, journal, vol
+
+
+def build_papers():
+    out = "papers.html"
+    form = form_rows()
+    cards, who = [], []
+    for p in PAPERS:
+        sid = p["study_id"]
+        first, title, journal, vol = split_citation(p["citation"])
+        badge, why = AUDIENCE.get(sid, ("", ""))
+        lic = p["licence"].strip()
+        lic_html = f'<a href="{LICENCE_URL[lic]}">{html.escape(lic)}</a>' if lic in LICENCE_URL else html.escape(lic)
+        shipped = p.get("shipped", "").strip().lower() == "yes"
+        who.append(f'<li><a href="#{sid}"><b>{sid}</b></a> <span>{html.escape(badge)}</span></li>')
+        cite = (f'<p class="cite">{html.escape(first)} <i>{html.escape(journal)}</i> {html.escape(vol)}. '
+                f'doi:<a href="{html.escape(p["doi_url"])}">{html.escape(p["doi"])}</a> · '
+                f'PMID <a href="{html.escape(p["pubmed_url"])}">{html.escape(p["pmid"])}</a> · {html.escape(p["pmcid"])}</p>')
+        meta = (f'<p class="paper-meta"><span class="pill">{html.escape(badge)}</span> <span>Licence {lic_html}</span> '
+                f'<span><code>study_id = {sid}</code></span></p>')
+        open_btn = (f'<a class="btn btn-plain" href="{html.escape(p["pmc_url"])}" target="_blank" rel="noopener">'
+                    f'{svg(LINK_ICON)}Open original (PMC)</a>')
+        if shipped:
+            text = (ROOT / p["fulltext_file"]).read_text(encoding="utf-8")
+            words = len(text.split())
+            combo_id = f"prompt-{sid}"
+            fill = f' data-fill="#text-{sid}" data-placeholder="{html.escape(paper_placeholder(), quote=True)}"'
+            body = (f'<div class="row">{copy_button("#text-" + sid, "Copy full text")}'
+                    f'<a class="btn btn-plain" href="data/fulltext/{sid}.txt" download="{sid}.txt">{svg(DOWN_ICON)}Download .txt</a>'
+                    f'{open_btn}</div>'
+                    f'<p class="hint">{words:,} words, plain text from PubMed Central (tables flattened, figures as captions only). '
+                    f'One tap for the whole step: '
+                    f'{copy_button("#" + combo_id, "Copy prompt + this paper", "btn-link", fill)}'
+                    f' (the short extraction prompt with the paper already pasted in).</p>'
+                    f'{pre_block(combo_id, extraction_prompt(study_id=sid), hidden=True)}'
+                    f'<details class="box fulltext"><summary>{svg(EYE_ICON)}Show text</summary>'
+                    f'<pre id="text-{sid}"><code>{html.escape(text)}</code></pre></details>')
+        else:
+            body = (f'<div class="row">{open_btn}</div>'
+                    f'<div class="codeblock"><div class="codebar"><span class="lang">Terminal</span>'
+                    f'<button class="copy" type="button" data-label="Copy">{COPY_BTN_ICON}<span>Copy</span></button></div>'
+                    f'<pre><code>python3 activity/tools/fetch_fulltext.py</code></pre></div>')
+        cards.append(f'<article class="card paper" id="{sid}">{meta}<h2>{html.escape(title)}</h2>{cite}'
+                     f'<p class="why">{html.escape(why)}</p>{body}</article>')
+
+    rows = "".join(
+        f'<tr><td data-label="Field"><code>{html.escape(r["field"])}</code></td>'
+        f'<td data-label="Definition">{html.escape(r["definition"])}</td>'
+        f'<td data-label="Allowed values">{html.escape(r["allowed_values"])}</td>'
+        f'<td data-label="Used in">{"step 3 (short extraction)" if r["field"] in SHORT_FIELDS else ("core (going further)" if r.get("core") == "yes" else "all 19 (agent track)")}</td></tr>'
+        for r in form)
+    fulltext_readme = (ROOT / "activity/data/fulltext/README.md").read_text(encoding="utf-8")
+    m = re.search(r"\*\*Attribution and changes\.\*\*.*?(?=\n\n|\Z)", fulltext_readme, re.S)
+    attribution = md_snippet("activity/data/fulltext/README.md", out, m.group(0)) if m else ""
+
+    body = f"""    <ul class="who-list" aria-label="Who uses which paper">
+      {''.join(who)}
+    </ul>
+
+    <section class="tool-sec" id="extraction-prompt" aria-labelledby="h-prompt">
+      <h2 id="h-prompt">Step 3 · The extraction prompt</h2>
+      <p>The prompt of the <a href="beginners.html">walkthrough</a> with the {len(SHORT_FIELDS)} fields of the short extraction and their definitions already filled in.</p>
+      <ol class="mini-steps">
+        <li>Open a <b>new chat</b>, copy the prompt and paste it.</li>
+        <li>Copy the full text of <a href="#Phan2020">Phan2020</a> and paste it where it says <code>{html.escape(paper_placeholder())}</code>. Or use <b>Copy prompt + this paper</b> in the paper's card: one paste.</li>
+        <li>Check 2 quotes yourself with Ctrl+F in the paper (<b>Show text</b>, or the .txt file).</li>
+        <li>Compare with the reference values on the <a href="answers.html#extraction">answers page</a>, or paste the answer into the <a href="scorer.html#extraction">scorer</a>.</li>
+      </ol>
+      {ready_prompt_html("", paper_button=False, intro=False)}
+    </section>
+
+    <section class="tool-sec" id="papers" aria-labelledby="h-papers">
+      <h2 id="h-papers">The papers</h2>
+      {''.join(cards)}
+      <div class="attribution hint">{attribution}</div>
+    </section>
+
+    <section class="tool-sec" id="going-further" aria-labelledby="h-further">
+      <h2 id="h-further">Going further: the 11 core fields</h2>
+      <p>The longer version of the same prompt, with the 11 core fields of the form. Use it at home, or after the session.</p>
+      {ready_prompt_html("", pid="extraction-prompt-core", which="core", paper_button=False, intro=False)}
+    </section>
+
+    <section class="tool-sec" id="extraction-form" aria-labelledby="h-form">
+      <h2 id="h-form">The extraction form</h2>
+      <p>{len(form)} fields; the {len(SHORT_FIELDS)} of the short extraction are part of the {len(core_fields())} core fields. Read the definitions before you give the paper to the AI. <a href="data/extraction_form.csv" download="extraction_form.csv">Download the form (.csv)</a></p>
+      <div class="md"><div class="table-wrap md-table stack"><table><thead><tr><th>Field</th><th>Definition</th><th>Allowed values</th><th>Used in</th></tr></thead><tbody>{rows}</tbody></table></div></div>
+    </section>"""
+    lede = ('<p>The full texts for the extraction, ready to copy into your chat assistant or to download, and the '
+            'extraction prompt with the fields already filled in. Chat track: <a href="#Phan2020">Phan2020</a>.</p>')
+    return page_shell(out, "Papers", "Papers for data extraction",
+                      "The open-access full texts of the extraction exercise (copy, download, show), the ready-to-paste extraction prompt and the extraction form.",
+                      'Hands-on activity · <a href="activity.html#step-3--short-extraction-10-min">step 3</a>', lede, body)
+
+
+def build_answers():
+    out = "answers.html"
+    readme = (ROOT / "activity/answers/README.md").read_text(encoding="utf-8")
+    m = re.search(r"\*\*Reading the answers critically\.\*\*.*?(?=\n\n|\Z)", readme, re.S)
+    critical = md_snippet("activity/answers/README.md", out, m.group(0)) if m else ""
+    body = f"""    <div class="callout danger">
+      {svg(STOP_ICON)}
+      <div><p><b>Screening answers after step 1, extraction answers after step 3.</b> Open the screening answers only when your AI has screened its batch (step 1: you need them for step 2, look at the errors), and the extraction values only after your own short extraction (step 3). Looking earlier makes the comparison meaningless. The same goes for AI agents: do not let them read this page, or the <code>answers/</code> folder, before then.</p></div>
+    </div>
+    <div class="callout info" style="margin-top:14px">
+      {svg(ICONS["note"])}
+      <div>{critical}<p>How the reference was built and its limits: <a href="activity-data.html#the-reference-review-provisional">the data of the exercise</a>.</p></div>
+    </div>
+
+    <section class="tool-sec" id="screening" aria-labelledby="h-scr">
+      <h2 id="h-scr">Screening: the 60 reference decisions</h2>
+      <div class="gate" data-gate="screening">
+        <button class="btn btn-primary btn-reveal" type="button" data-reveal="screening">{svg(EYE_ICON)}I have finished my screening: show the screening answers</button>
+        <p class="hint">For steps 1 and 2. Nothing is loaded until you press the button.</p>
+      </div>
+      <div class="answers" id="screening-answers" hidden>
+        <p>The reference review's <b>final</b> decision for every record, and its basis (<code>gold_basis</code>). Records excluded by the review only after reading the full text passed its title/abstract stage: including them at that stage is not an error. One record is flagged as a <b>possible error in the reference standard</b>.</p>
+        <div class="filters" role="group" aria-label="Show records">
+          <button type="button" data-sf="all" aria-pressed="true">All</button>
+          <button type="button" data-sf="include" aria-pressed="false">Includes</button>
+          <button type="button" data-sf="batch1" aria-pressed="false">Batch 1 · R001–R020</button>
+        </div>
+        <p class="status" id="s-count" role="status"></p>
+        <div class="md"><div class="table-wrap md-table stack"><table><thead><tr><th>Record</th><th>Decision</th><th>Title</th><th>Basis of the reference decision</th></tr></thead><tbody id="s-body"></tbody></table></div></div>
+      </div>
+    </section>
+
+    <section class="tool-sec" id="extraction" aria-labelledby="h-ext">
+      <h2 id="h-ext">Extraction: the reference values</h2>
+      <div class="gate" data-gate="extraction">
+        <button class="btn btn-primary btn-reveal" type="button" data-reveal="extraction">{svg(EYE_ICON)}I have finished my extraction: show the reference values</button>
+        <p class="hint">For step 3. Nothing is loaded until you press the button.</p>
+      </div>
+      <div class="answers" id="extraction-answers" hidden>
+        <p>Provisional values prepared by the workshop team from the full texts, each with a verbatim quote, cross-checked with the reference review's own tables. Read the <b>notes</b>: some papers contradict themselves (text versus tables, abstract versus methods), and the review's table sometimes differs from the paper.</p>
+        <div class="filters" role="group" aria-label="Show study" id="e-studies"></div>
+        <div class="filters" role="group" aria-label="Show fields">
+          <button type="button" data-ef="short" aria-pressed="true">The {len(SHORT_FIELDS)} fields of step 3</button>
+          <button type="button" data-ef="core" aria-pressed="false">11 core fields</button>
+          <button type="button" data-ef="all" aria-pressed="false">All fields</button>
+        </div>
+        <p class="status" id="e-count" role="status"></p>
+        <div class="md"><div class="table-wrap md-table stack"><table><thead><tr><th>Field</th><th>Study</th><th>Value</th><th>Quote</th><th>Location</th><th>Notes</th></tr></thead><tbody id="e-body"></tbody></table></div></div>
+      </div>
+    </section>
+
+    <section class="tool-sec" id="next" aria-labelledby="h-next">
+      <h2 id="h-next">Next</h2>
+      <p>Bring <b>one error you found</b> to the discussion: what the AI said, what the source says, and why the AI got it wrong. Going further: <a href="scorer.html">score your answers</a>, log your discrepancies in the <a href="worksheet-discrepancy-log.html">discrepancy log</a>, and fill the <a href="worksheet-ai-use-record.html">AI use record</a>.</p>
+    </section>"""
+    lede = ('<p>The reference review\'s decisions for the 60 records and the reference extraction values, to compare '
+            'with what your AI did. Behind a button, so that nothing is shown before you have finished.</p>')
+    return page_shell(out, "Scorer", "Reference answers",
+                      "The reference answers of the exercise (screening decisions and extraction values). Open them only after your own screening and extraction.",
+                      'Hands-on activity · after <a href="activity.html#step-1--screening-10-min">step 1</a> and <a href="activity.html#step-3--short-extraction-10-min">step 3</a>', lede, body,
+                      robots=True, scripts=("answers.js",))
+
+
 # ---------------------------------------------------------------- hand-written pages: nav and generated regions
 def screening_prompt():
     """The beginners screening prompt with the criteria C1-C6 of activity/README.md pasted in, as the guide asks."""
@@ -589,6 +932,9 @@ def update_hand_written(name, current, text):
         block = f'<pre id="screening-prompt"><code>{html.escape(screening_prompt())}</code></pre>'
         text = re.sub(r"(<!-- build_pages:screening-prompt -->).*?(<!-- /build_pages:screening-prompt -->)",
                       lambda m: m.group(1) + block + m.group(2), text, count=1, flags=re.S)
+        block = pre_block("extraction-prompt", extraction_prompt())
+        text = re.sub(r"(<!-- build_pages:extraction-prompt -->).*?(<!-- /build_pages:extraction-prompt -->)",
+                      lambda m: m.group(1) + block + m.group(2), text, count=1, flags=re.S)
     return text
 
 
@@ -608,6 +954,8 @@ def main():
             print(f"skip     {src} (not in the repository)")
             continue
         outputs[out] = build_page(src, out, nav_item, eyebrow, desc)
+    outputs["papers.html"] = build_papers()
+    outputs["answers.html"] = build_answers()
     for name, current in HAND_WRITTEN.items():
         p = DOCS / name
         if p.exists():

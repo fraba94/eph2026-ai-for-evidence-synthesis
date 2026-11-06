@@ -15,7 +15,7 @@ The slides of the session will be added to this folder after the conference, und
 rest of the repository (CC BY 4.0, see [`LICENSE`](../../LICENSE)) unless stated otherwise on the slides.
 
 You do not need the slides to do the exercise: the [activity guide](../../activity/README.md) contains everything
-they show (task, criteria, roles, the three steps, the discussion questions), and its section
+they show (task, criteria, working on your own, the three steps, the discussion questions, going further), and its section
 [Doing it on your own (self-paced)](../../activity/README.md#doing-it-on-your-own-self-paced) replaces the
 facilitators.
 
@@ -25,6 +25,6 @@ facilitators.
 | Co-chair | Simon Bacon, Concordia University |
 | Expert discussion: limitations (about 5 min) | Patrick Boudreau, Montreal Behavioural Medicine Centre, Concordia University |
 | Expert discussion: benefits (about 5 min) | Francesco Baglivo, University of Pisa |
-| Demo (10 min): one drives the AI, one checks the source | Francesco Baglivo (driver) and Patrick Boudreau (verifier), together |
+| Demo (10 min): one drives the AI, one checks the source; then, on your own, each participant does both | Francesco Baglivo (driver) and Patrick Boudreau (verifier), together |
 
 [Back to the repository home](../../README.md)

@@ -1,13 +1,14 @@
 # AI use record
 
-A record of how AI was used in your run of the exercise, so that someone else could repeat it and judge it. The items
+**Optional (going further):** not needed for the 30 minutes of the live session. A record of how AI was used in your
+run of the exercise, so that someone else could repeat it and judge it. The items
 follow the reporting expected by the RAISE recommendations (Responsible use of AI in evidence SynthEsis,
 https://osf.io/fwaud/) and the position statement on AI use in evidence synthesis by Cochrane, the Campbell
 Collaboration, JBI and the Collaboration for Environmental Evidence (2025, doi:10.1186/s13750-025-00374-5): what was
 used, for what, how, how it was checked, and its limits. In a real review this information belongs in the protocol and
 in the methods section. The skill `.claude/skills/ai-use-reporting/` helps draft it.
 
-**Group (or your name, if alone):** ............ **Recorder:** ............
+**Your name:** ............
 
 ## 1. Tool
 

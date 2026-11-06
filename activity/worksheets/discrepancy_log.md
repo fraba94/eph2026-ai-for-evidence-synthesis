@@ -1,10 +1,11 @@
 # Discrepancy log
 
-Fill this in step 3, for at least three discrepancies between the AI output and the reference. Check the **source**
+**Optional (going further):** not needed for the 30 minutes of the live session, where each person brings one error
+to the discussion. Fill it after the exercise, for at least three discrepancies between the AI output and the reference. Check the **source**
 (abstract or paper) before deciding who is right: the reference can be wrong too. A CSV version with the same columns
 is in [`discrepancy_log.csv`](discrepancy_log.csv).
 
-**Group (or your name, if alone):** ............ **Track:** chat / agent **Tool and model:** ............ **Date:** ............
+**Your name:** ............ **Track:** chat / agent **Tool and model:** ............ **Date:** ............
 
 | # | Task | Record or study / field | AI said | Reference says | Source says (quote, location) | Who is right? | Error type | Would a human reviewer have caught it? How? |
 |---|---|---|---|---|---|---|---|---|

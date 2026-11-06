@@ -23,11 +23,11 @@ later, without a facilitator or the slides: if that is you, start with
 
 | | |
 |---|---|
-| **Time** | Live session: 30 minutes in small groups, inside a 60-minute session. On your own: 60 to 90 minutes ([self-paced path](#doing-it-on-your-own-self-paced)) |
-| **You need** | a laptop, any chat assistant (ChatGPT, Claude, Gemini, Copilot, Mistral...) or a coding agent |
-| **Group** | 3 to 4 people, one screen is enough; alone works too: you take the four roles in turn |
-| **Output** | screening decisions, one extraction table, a filled [discrepancy log](worksheets/discrepancy_log.md) |
-| **Not finishing** | is expected. A careful comparison of 10 records beats a fast run of 60 |
+| **Time** | Live session: 30 minutes on your own, inside a 60-minute session. On your own, later: 60 to 90 minutes ([self-paced path](#doing-it-on-your-own-self-paced)) |
+| **You need** | a laptop (a phone works for reading the pages), any chat assistant (ChatGPT, Claude, Gemini, Copilot, Mistral...) or a coding agent |
+| **How** | individually: each person on their own laptop. You drive the AI, then you verify it |
+| **Three moves** | 1 screen 20 records and paste the AI's answer into the scorer · 2 look at two of its errors · 3 extract 5 fields from one paper, with quotes |
+| **Not finishing** | is expected. Two errors you understand are worth more than twenty decisions you did not check |
 
 ## All materials at a glance
 
@@ -35,19 +35,19 @@ Everything for the hands-on part is on the workshop website, one tap away on a p
 
 | Material | Where |
 |---|---|
-| Start page: the 30 minutes in order, with every button | [Start](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html) |
+| Start page: the three steps in order, with every button | [Start](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html) |
 | Eligibility criteria C1-C6 | [On this page](#the-eligibility-criteria-from-the-reference-review) |
-| Records to screen, copy-ready (chat track: batch 1, R001-R020) | [Records](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) |
-| Screening prompt, criteria already pasted in | [Start, step 1](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#copy-screening-prompt) |
-| Full texts of the papers (Phan2020 for the chat track), copy or download | [Papers](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html) |
-| Extraction prompt, 11 core fields and `study_id` already filled in | [Papers, extraction prompt](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) |
-| Extraction form (19 fields, 11 core) | [Papers, extraction form](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-form) |
+| Step 1: records to screen, copy-ready (batch 1, R001-R020) | [Records](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) |
+| Step 1: screening prompt, criteria already pasted in | [Start, step 1](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening) |
+| Steps 1 and 2: scorer, paste the AI's answer (nothing is uploaded) | [Scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) |
+| Reference answers: **screening answers after step 1, extraction answers after step 3** | [Answers](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html) |
+| Step 3: full text of Phan2020, copy or download | [Papers](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#Phan2020) |
+| Step 3: extraction prompt, 5 fields and `study_id` already filled in | [Papers, extraction prompt](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) |
+| Extraction form (19 fields, 11 core, 5 for step 3) | [Papers, extraction form](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-form) |
 | Step-by-step walkthrough for chat assistants (learning only) | [Beginners](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/beginners.html) |
-| Scorer (your files stay in your browser) | [Scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) |
-| Reference answers, **step 3 only** | [Answers](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html) |
-| Discrepancy log and AI use record, with downloadable templates | [Discrepancy log](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/worksheet-discrepancy-log.html) · [AI use record](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/worksheet-ai-use-record.html) |
 | One-page card to print | [Quick card](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/quick-card.html) |
-| More prompts, agent skills | [Prompts](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) · [Skills](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/skills.html) |
+| Going further: discrepancy log and AI use record (templates to download) | [Discrepancy log](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/worksheet-discrepancy-log.html) · [AI use record](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/worksheet-ai-use-record.html) |
+| Going further: more prompts, agent skills | [Prompts](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/prompts.html) · [Skills](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/skills.html) |
 
 ---
 
@@ -59,8 +59,8 @@ The live session: EPH 2026, Bilbao, skills building seminar M.8, Thursday 12 Nov
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | **Expert discussion.** Limitations of AI in evidence reviews (Patrick Boudreau, about 5 min), then benefits (Francesco Baglivo, about 5 min) | speakers |
 | 10-20 | 16:55-17:05 | **Demo** of selected open-access AI tools on the same question ([what you will see](#the-demo)) | Francesco Baglivo and Patrick Boudreau |
-| 20-50 | 17:05-17:35 | **Small-group exercise** (this page): step 1 screening (10 min, 17:05-17:15), step 2 extraction (12 min, 17:15-17:27), step 3 compare with the reference (8 min, 17:27-17:35) | you |
-| 50-60 | 17:35-17:45 | **Structured discussion**: performance, transparency, bias, human oversight, reproducibility, and the reference itself | everyone |
+| 20-50 | 17:05-17:35 | **Exercise, on your own** (this page): step 1 screening (10 min, 17:05-17:15), step 2 look at the errors (10 min, 17:15-17:25), step 3 short extraction (10 min, 17:25-17:35) | you |
+| 50-60 | 17:35-17:45 | **Structured discussion**: each person brings one error they found; performance, transparency, bias, human oversight, reproducibility, and the reference itself | everyone |
 
 ### The demo
 
@@ -71,37 +71,33 @@ the AI, one checks the source.** Francesco is at the keyboard and uses the same 
 [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)); Patrick asks "show me where it
 says that" and checks the AI's answers against the abstract or the paper. Watch who catches the errors: the verifier,
 not the AI. The demo uses batch 3 (R041-R060) and the paper Mestre2012, so that nothing you will work on is shown
-in advance. Right after, your group does the same steps in the same roles (driver and verifier, see
-[Group roles](#group-roles)).
+in advance. **Today, on your own, you do both:** you drive the AI, then you verify it (see
+[Working on your own](#working-on-your-own)).
 
 Not at the session? The talks and the demo are not needed to do the exercise: the key message is above, and the
 [self-paced path](#doing-it-on-your-own-self-paced) below replaces the facilitators and the slides.
 
 ---
 
-## Group roles
+## Working on your own
 
-Agree on the roles in the first minute. Rotate if you like. Alone, you take all four in turn: see the
-[verifier checklist](#doing-it-on-your-own-self-paced).
-
-| Role | Does |
-|---|---|
-| **Driver** | types, uploads, runs the tool; one screen for the whole group |
-| **Prompter** | writes and refines the prompts; reads the criteria to the AI, not from memory |
-| **Verifier** | checks the AI against the source: opens the abstract or the paper and looks for every quote and number |
-| **Recorder** | fills the [AI use record](worksheets/ai_use_record.md) (model, version, date, prompts) and the [discrepancy log](worksheets/discrepancy_log.md) |
+Everyone works individually, on their own laptop: **you drive the AI, then you verify it.** First you paste the
+prompt and the records and let the AI answer; then you stop and check what it said against the source, the abstract
+or the paper, before you believe it. A laptop is recommended (copying, pasting and reading two windows side by side);
+a phone works for reading the pages and the answers. In the discussion each person brings one error they found.
 
 ---
 
 ## Choose your track
 
-| | **Chat track** | **Agent track** |
+| | **Chat track** (most participants) | **Agent track** (going further) |
 |---|---|---|
 | For | anyone with a chat assistant | people already using Claude Code, Codex CLI, Gemini CLI or similar |
-| Screening | **20 records**: R001-R020 (batch 1 of the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), which fills missing abstracts from PubMed) | all **60 records** in [`data/screening_records.csv`](data/screening_records.csv) |
-| Extraction | **1 paper**: [`Phan2020`](data/fulltext/Phan2020.txt) (`Mestre2012`, the paper of the demo, is for practice at home) | the **3 papers** in [`data/papers.csv`](data/papers.csv) |
+| Step 1 · Screening | **20 records**: R001-R020 (batch 1 of the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), which fills missing abstracts from PubMed); paste the AI's answer into the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) | all **60 records** in [`data/screening_records.csv`](data/screening_records.csv) |
+| Step 2 · Errors | open 2 missed or false includes in the scorer | the same, on all 60 records |
+| Step 3 · Extraction | **1 paper**: [`Phan2020`](data/fulltext/Phan2020.txt), **5 fields** (`Mestre2012`, the paper of the demo, is for practice at home) | the **3 papers** in [`data/papers.csv`](data/papers.csv), all fields |
 | Help | step-by-step walkthrough and ready prompts: [`../beginners/README.md`](../beginners/README.md), prompt library [`../prompts/README.md`](../prompts/README.md) | skills for screening, extraction, quote checking and discrepancy audit: [`../skills/README.md`](../skills/README.md) |
-| Scoring | [browser scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) | `python3 activity/tools/score_screening.py` and `score_extraction.py` |
+| Scoring | [browser scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): paste the answer | `python3 activity/tools/score_screening.py` and `score_extraction.py` |
 
 > ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.
 > If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,
@@ -109,9 +105,10 @@ Agree on the roles in the first minute. Rotate if you like. Alone, you take all 
 > checks, documentation of model and version), **do not use AI to conduct a real evidence review.** You stay
 > responsible for every decision: the AI does not.
 
-**Two rules for both tracks.** Do not open [`answers/`](answers/README.md) before step 3. Upload or paste only texts
-whose licence allows it (the `license` column of the records, the `licence` column of
-[`data/papers.csv`](data/papers.csv)), and never personal or confidential data.
+**Two rules for both tracks.** Screening answers after step 1, extraction answers after step 3: do not open the
+[reference answers](answers/README.md) earlier. Upload or paste only texts whose licence allows it (the `license`
+column of the records, the `licence` column of [`data/papers.csv`](data/papers.csv)), and never personal or
+confidential data.
 
 ---
 
@@ -139,94 +136,117 @@ At title/abstract stage, if the abstract does not let you decide, the answer is 
 
 ## Step 1 · Screening (10 min)
 
-1. **Load the records.** Chat track: open the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), copy **batch 1** (R001-R020). Agent
-   track: the full CSV. Some abstracts are empty in the repository because their licence does not allow
-   redistribution: the records page fetches them from PubMed in your browser; agents can run
-   `python3 activity/tools/fetch_abstracts.py` (writes a local copy in `activity/data/local/`). Records page not
-   available? See [If the website is not available](#doing-it-on-your-own-self-paced).
-2. **Prompt.** Give the AI the question, the criteria C1-C6 verbatim and the output format: one row per record,
-   `record_id,decision,reason`, decision `include | exclude | unsure`, reason naming the criterion (e.g. `C2: single
-   ICU`). Ask for **every** record back and for `unsure` when in doubt.
-3. **Check the count.** Did you get back exactly as many rows as you sent? Any record missing, duplicated or renamed?
-4. **Verifier:** pick 3 decisions and check them against the abstract yourself.
-5. **Save** the output (header `record_id,decision,reason`) as `screening_run1.csv` (same name in both tracks and in the
-   [beginners walkthrough](../beginners/README.md)).
+1. **Copy the records.** Open the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) and copy **batch 1** (R001-R020)
+   with one tap. Some abstracts are empty in the repository because their licence does not allow redistribution: the
+   records page fetches them from PubMed in your browser.
+2. **Copy the screening prompt** from the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening): the criteria
+   C1-C6 are already pasted in, with the output format (one row per record, `record_id,decision,reason`, decision
+   `include | exclude | unsure`, a reason naming the criterion).
+3. **Paste both** into a new chat with your AI assistant: the prompt first, the records where it says
+   `[PASTE THE RECORDS HERE]`.
+4. **Paste the AI's answer into the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)**, as it is: no file to save. The scorer
+   finds the table even with code fences, a sentence before or after it, or semicolons. Read the coverage line first:
+   "Screened 20 of 60 records" is expected; fewer than 20 means the AI dropped or renamed records.
 
 <details>
 <summary>Hints</summary>
 
 - A prompt that starts from the criteria gets better results than "is this relevant to hand hygiene?".
-- Ask the AI to quote the phrase of the abstract that decides each criterion: it makes the verifier's job faster.
-- Records without an abstract: decide on the title and mark `unsure` with reason `no abstract`.
-- Agent track: `.claude/skills/title-abstract-screening/` runs two independent passes and lists the disagreements.
-- If you have one spare minute, **run the same prompt again in a new chat** and save `screening_run2.csv`: you will measure reproducibility in step 3.
+- Records without an abstract: the AI should decide on the title and mark `unsure` with reason `no abstract`. Never let it write the abstract.
+- If the answer is cut off, type `continue from record [last record_id], same format`.
 
 </details>
 
-## Step 2 · Data extraction (12 min)
+## Step 2 · Look at the errors (10 min)
 
-*Chat track: optional if screening took longer. A careful screening comparison is worth more than a rushed
-extraction; you can do extraction at home with the same files.*
+The scorer lists the **missed includes** (records the reference review included and the AI excluded: the costly
+error) and the **false includes**. Now you are the verifier.
 
-1. **Look at the form first**, before uploading anything: [`data/extraction_form.csv`](data/extraction_form.csv)
-   (19 fields; the 11 marked `core = yes` are enough for the chat track). Discuss in 1 minute what each core field
-   means for this paper type.
-2. **One paper per conversation.** Chat track: paste or upload [`Phan2020.txt`](data/fulltext/Phan2020.txt) (the
-   [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html) has Copy and Download
-   buttons; [`Mestre2012.txt`](data/fulltext/Mestre2012.txt), the paper of the demo, is for practice at home). Agent track: the three papers of
-   [`data/papers.csv`](data/papers.csv) (the third, Al Kuwaiti 2017, is CC BY-NC: download it to your computer with
-   `python3 activity/tools/fetch_fulltext.py`).
-3. **Prompt.** Ask for a long table `study_id,field,value,source_quote,location`, a **verbatim quote** and a
-   location (section or table) for every value, and `not reported` when the paper does not say it. Use the
-   `study_id` from `papers.csv` (e.g. `Phan2020`). Chat track: the
-   [ready prompt](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) has the
-   11 core fields and `study_id = Phan2020` already filled in.
-4. **Verifier:** search 3 quotes in the paper (Ctrl+F). Then check every number against its quote.
-5. **Save** as `extraction.csv`.
+1. **Open 2 of them**: read the title and the abstract (the scorer links each record to PubMed).
+2. **Decide yourself why the AI got them wrong.** Which criterion did it use? Does the abstract say what its reason
+   claims? Was the criterion contradicted, or just not mentioned (that is *unsure*, not *exclude*)?
+3. **Check the reference too.** The [screening answers](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html#screening) give the basis of
+   every reference decision. A record that the review excluded only after reading the full text is not an error at
+   title/abstract stage, and one record is flagged as a possible error in the reference standard.
+4. **Keep one error** to bring to the discussion: what the AI said, what the source says, and why.
+
+## Step 3 · Short extraction (10 min)
+
+One paper, **Phan2020**, and **5 fields** of the [extraction form](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-form):
+`country`, `study_design`, `intervention_components`, `primary_hai_outcome`, `direction_of_effect`.
+
+1. **Copy the extraction prompt** ([Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) or Start page):
+   the 5 fields, their definitions and `study_id = Phan2020` are already filled in.
+2. **Copy the full text** of [`Phan2020.txt`](data/fulltext/Phan2020.txt) (Copy and Download buttons on the
+   [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#Phan2020)) and paste it into a **new chat** after the prompt.
+3. Every value must come with a **verbatim quote** and its location (section or table), or `not reported`.
+4. **Verify 2 quotes** yourself: Ctrl+F in the paper. Is the quote there, word for word? Does it support the value?
+5. **Compare** with the [reference values](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html#extraction) (extraction answers, after this
+   step), or paste the answer into the scorer (tab "Short extraction"). Read the notes: some papers contradict
+   themselves.
 
 <!-- build_pages:extraction-prompt -->
 
 <details>
 <summary>Hints</summary>
 
-- Ask the model to break its own table, not to improve it: *"For each value, find the reason why it could be wrong."*
 - Numbers live in tables, and tables are the hardest part to parse: check table values first.
 - "Not reported" is a valid answer. A value with no quote is not a value.
 - Retrieval tools (project knowledge, notebooks) answer from fragments: if a fragment is not retrieved, the AI says
   "not reported" instead of "I did not see it". For one paper, give the whole text.
-- Sampling: run one paper twice and compare the two tables.
 
 </details>
 
-## Step 3 · Compare with the reference (8 min)
+---
 
-Now you may open the reference answers: the
-[answers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html) of the website (behind a
-button) or the [`answers/`](answers/README.md) folder.
+## Discussion (last 10 minutes of the session)
 
-1. **Score.**
-   - Browser: [scorer page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): load your CSV files (they stay in your browser).
-   - Python (standard library only):
-     ```bash
-     # chat track
-     python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv
-     # agent track: every record should have been screened
-     python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv --expect-all
-     python3 activity/tools/score_extraction.py extraction.csv
-     ```
-2. **Read the coverage line first** ("Screened N of 60 records", records not screened), **then the misses**: missed includes (screening), `QUOTE NOT FOUND`, `unsupported` and `false absent`
-   (extraction). Then the notes of the
-   [reference values](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html#extraction): some
-   papers contradict themselves.
-3. **Fill the [discrepancy log](worksheets/discrepancy_log.md)** for at least 3 discrepancies: what the AI said,
-   what the reference says, who is right after checking the source, and the error type.
-4. **Finish the [AI use record](worksheets/ai_use_record.md)**.
+In the live session: **each person brings one error they found** (in step 2 or step 3) and how they caught it; the
+room collects them. On your own: answer each theme in writing, one or two sentences.
+
+| Theme | Questions |
+|---|---|
+| **Performance** | How many includes did the AI miss? Would you accept that sensitivity in a real review? Was the time saved worth the time spent checking? |
+| **Transparency** | Could you trace every decision and value to a sentence in the source? Which quotes were not in the paper? |
+| **Bias** | Which kinds of records or fields did the AI get wrong systematically (single units, bundles, values only in tables or figures, countries it inferred)? |
+| **Human oversight** | Where did you catch an error the AI presented with confidence? Would you sign this table? |
+| **Reproducibility** | Would the same prompt give the same answer twice? What would you report so that someone else can repeat what you did? |
+| **The reference** | Is the reference standard always right? What did you find when the AI and the review disagreed? |
+
+---
+
+## Going further
+
+Not needed for the 30 minutes. Do these at home, or if you finish early.
+
+- **A second run.** Paste the same prompt and the same batch in a **new** chat and paste both answers into the scorer
+  (Going further box): it reports how many decisions changed and Cohen's kappa. A result you cannot reproduce is not
+  a method.
+- **The 11 core fields.** The longer extraction, with the 11 core fields of the form: the prompt is on the
+  [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#going-further). Try the second paper, `Mestre2012` (the paper of the
+  demo), with the same prompt.
+- **Log the discrepancies** in the [discrepancy log](worksheets/discrepancy_log.md) (what the AI said, what the
+  reference says, who is right after checking the source, the error type) and fill the
+  [AI use record](worksheets/ai_use_record.md) (tool, model, version, date, prompts): both have templates to copy or
+  download.
+- **The agent track with skills.** With Claude Code or another coding agent: screen all 60 records and extract the 3
+  papers, with the skills of [`../skills/README.md`](../skills/README.md) (`title-abstract-screening` runs two
+  independent passes and lists the disagreements). The third paper, Al Kuwaiti 2017, is CC BY-NC: download it to
+  your computer with `python3 activity/tools/fetch_fulltext.py`. Score with Python (standard library only):
+  ```bash
+  python3 activity/tools/score_screening.py screening_run1.csv --compare screening_run2.csv --expect-all
+  python3 activity/tools/score_extraction.py extraction.csv
+  ```
+  Chat track with Python: the same commands without `--expect-all`, and
+  `--fields country,study_design,intervention_components,primary_hai_outcome,direction_of_effect` for the short
+  extraction.
+- **The title/abstract-stage view** and the other indicators of the scorer (specificity, precision, WSS): see below.
 
 <details>
 <summary>How to read the screening score</summary>
 
 **Coverage rule** (the same in the Python and the browser scorer): the metrics are computed on the records present
-in your file, and the report always says how many were screened ("Screened N of 60 records"), lists the records
+in your answer, and the report always says how many were screened ("Screened N of 60 records"), lists the records
 not screened, highlights any reference include among them, and gives the sensitivity *counting not-screened
 includes as missed*. In the chat track you screen 20 records, so 40 "not screened" is expected. With `--expect-all`
 (agent track) records not screened count as exclude in every metric. `unsure` counts as include.
@@ -240,89 +260,66 @@ One record is marked as a **possible error in the reference standard**: discuss 
 
 ---
 
-## Discussion (last 10 minutes of the session)
-
-In the live session: one answer per group, in the last 10 minutes. On your own: answer each theme in writing, one or
-two sentences, using your discrepancy log and AI use record as notes.
-
-| Theme | Questions |
-|---|---|
-| **Performance** | How many includes did the AI miss? Would you accept that sensitivity in a real review? Was the time saved worth the time spent checking? |
-| **Transparency** | Could you trace every decision and value to a sentence in the source? Which quotes were not in the paper? |
-| **Bias** | Which kinds of records or fields did the AI get wrong systematically (single units, bundles, values only in tables or figures, countries it inferred)? |
-| **Human oversight** | Where did a human catch an error the AI presented with confidence? Who in your group would sign this table? |
-| **Reproducibility** | Did two runs of the same prompt agree? What would you report so that someone else can repeat what you did (see the AI use record)? |
-| **The reference** | Is the reference standard always right? What did you find when the AI and the review disagreed? |
-
----
-
 ## Doing it on your own (self-paced)
 
-Everything you need is in this repository; no facilitator, slides or group are required. Allow **60 to 90 minutes**.
-Work through the same steps as the live session, with more time and one extra pause to verify before you look at
-the answers.
+Everything you need is on the website and in this repository; no facilitator, slides or group are required. Allow
+**60 to 90 minutes**: the same three steps as the live session, with more time to verify before you look at the
+answers.
 
 | Block | Live session | On your own | What to do |
 |---|---:|---:|---|
 | Get ready | demo | 10 min | Read the key message and the criteria on this page; pick a track. New to AI? Follow the [beginners walkthrough](../beginners/README.md) (chat track, for learning only) |
-| [Step 1 · Screening](#step-1--screening-10-min) | 10 min | 15-20 min | Batch 1 (R001-R020), then a second run in a new chat |
-| [Step 2 · Data extraction](#step-2--data-extraction-12-min) | 12 min | 15-20 min | One paper (`Phan2020`), the 11 core fields, a quote for every value |
-| Verify | (the verifier, during the steps) | 10 min | The verifier checklist below, **before** opening the answers |
-| [Step 3 · Compare](#step-3--compare-with-the-reference-8-min) | 8 min | 10-15 min | Score, read the result (see below), log at least 3 discrepancies |
+| [Step 1 · Screening](#step-1--screening-10-min) | 10 min | 15-20 min | Batch 1 (R001-R020); paste the AI's answer into the scorer |
+| [Step 2 · Look at the errors](#step-2--look-at-the-errors-10-min) | 10 min | 15-20 min | Open the missed and false includes; decide why the AI got them wrong |
+| [Step 3 · Short extraction](#step-3--short-extraction-10-min) | 10 min | 15-20 min | Phan2020, 5 fields, a quote for every value; verify the quotes before opening the extraction answers |
 | [Discussion](#discussion-last-10-minutes-of-the-session) | 10 min | 10 min | Write one or two sentences per theme |
+| [Going further](#going-further) | | as you like | Second run, 11 fields, discrepancy log, AI use record, agent track |
 
-**One person, four roles.** Take the [group roles](#group-roles) in turn, not at once: as *prompter*, paste the
-criteria and the form word for word; as *driver*, run the tool and save the files; then stop and become the
-*verifier*, which is the part this exercise is about; as *recorder*, fill the
-[AI use record](worksheets/ai_use_record.md) as you go. The verifier checklist:
+**You drive, then you verify.** Do not let the two jobs blur: first run the AI and keep its answer as it is; then
+stop and become the verifier, which is the part this exercise is about. The verifier checklist:
 
-- [ ] **Screening.** As many rows came back as you sent; no `record_id` missing, repeated or renamed.
-- [ ] At least 3 decisions (one of them an *exclude*) checked against the abstract: does the abstract say what the reason claims?
+- [ ] **Screening.** As many rows came back as you sent (the scorer's coverage line); no `record_id` missing, repeated or renamed.
+- [ ] At least 2 decisions (one of them an *exclude*) checked against the abstract: does the abstract say what the reason claims?
 - [ ] Every *exclude* names a criterion that the abstract clearly contradicts, not one it merely does not mention (that is *unsure*).
 - [ ] No reason uses a rule that is not in C1-C6 (country, "low quality", date...).
-- [ ] **Extraction.** At least 3 quotes found with Ctrl+F in the paper, character for character; every number in a value appears in its quote.
+- [ ] **Extraction.** At least 2 quotes found with Ctrl+F in the paper, character for character; every number in a value appears in its quote.
 - [ ] Every `not reported` searched in the paper with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days).
-- [ ] **Record.** Tool, model and version as displayed, date, the exact prompts: in the [AI use record](worksheets/ai_use_record.md).
 
-**When to open the answers.** Only after you have saved `screening_run1.csv` (and `screening_run2.csv`),
-`extraction.csv` and done the checklist. The same applies to the reference review itself and to the
-[facilitator guide](facilitator_guide.md): both name the included studies. If you use an agent, do not let it read
-`answers/` before step 3 either.
+**When to open the answers.** Screening answers after step 1, extraction answers after step 3. The scorer shows the
+screening reference as soon as you score, so screen first. The reference review itself and the
+[facilitator guide](facilitator_guide.md) name the included studies: open them only after the exercise. If you use an
+agent, do not let it read `answers/` before then either.
 
 **Reading the score without a facilitator.**
 
-1. **Coverage line first.** In the chat track, "Screened 20 of 60 records (40 not screened)" is expected. Fewer than
-   20 screened means the AI dropped or renamed records: that is already a finding.
+1. **Coverage line first.** "Screened 20 of 60 records (40 not screened)" is expected for batch 1. Fewer than 20
+   screened means the AI dropped or renamed records: that is already a finding.
 2. **Missed includes.** The costly error at this stage. For each one, open the abstract: which criterion did the AI
    use, and was it right to?
-3. **False includes.** Look at the "title/abstract-stage view" and the `gold_basis` column: a record excluded by the
-   review only after reading the full text is not an error at title/abstract stage.
-4. **Two runs.** Cohen's kappa between your runs: 1 means identical decisions; the lower it is, the more your result
-   depends on chance. Every record that changed is a reproducibility problem.
-5. **Extraction.** `QUOTE NOT FOUND`, `unsupported` and `false absent` matter more than small numeric differences;
+3. **False includes.** Look at the `gold_basis`: a record excluded by the review only after reading the full text is
+   not an error at title/abstract stage.
+4. **Extraction.** A quote that is not in the paper, a value where the paper reports nothing (`unsupported`) and a
+   `not reported` for something the paper does report (`false absent`) matter more than small wording differences;
    read the `notes` of the reference values, because some papers contradict themselves.
-6. **The reference can be wrong.** One record is flagged as a possible error in the reference standard. Check the
-   source before deciding who is right, and log at least 3 discrepancies in the
-   [discrepancy log](worksheets/discrepancy_log.md).
+5. **The reference can be wrong.** One record is flagged as a possible error in the reference standard. Check the
+   source before deciding who is right.
 
 After scoring, the sections "What to expect in screening", "What to expect in extraction" and "Interpreting the
 scores" of the [facilitator guide](facilitator_guide.md) are your debrief.
 
 **Discuss with yourself.** Answer the questions of the [discussion](#discussion-last-10-minutes-of-the-session) in
-writing, one or two sentences per theme: performance, transparency, bias, human oversight, reproducibility, and the
-reference itself. Then the one that matters most: *would you sign this screening and this table as they came out of
-the AI, and what would you need to check first?*
+writing. Then the one that matters most: *would you sign this screening and this table as they came out of the AI,
+and what would you need to check first?*
 
 **What next.**
 
-- Do more: run the extraction twice and compare; try the second paper (`Mestre2012`); with a coding agent and the
-  skills, screen all 60 records (agent track).
+- Do more: everything under [Going further](#going-further).
 - Read the [five starting references](../README.md#useful-references), especially the position statement of
   Cochrane, the Campbell Collaboration, JBI and CEE and the RAISE recommendations, which say how AI use should be
   overseen and reported.
 - Use the [prompt library](../prompts/README.md) for the other review stages, or the [agent skills](../skills/README.md)
   if you already work with coding agents.
-- Before using AI in a real review, be honest about your AI literacy and skills (see the warning below), and pilot any
+- Before using AI in a real review, be honest about your AI literacy and skills (see the warning above), and pilot any
   tool on a sample with known answers, as you just did.
 - Tell us what broke or what surprised you: [open an issue](https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/issues/new/choose).
 
@@ -342,8 +339,9 @@ The records page and the scorer are on GitHub Pages. If they do not open, everyt
   word. Never ask the AI to find or write an abstract: it may invent one.
 - **Both pages on your own computer:** `cd docs && python3 -m http.server 8000`, then open
   <http://localhost:8000/batch.html> and <http://localhost:8000/scorer.html> (the same pages, served locally).
-- **Score** with the Python scorers in step 3 (standard library only); without Python, after step 3 compare your 20
-  rows by hand with [`answers/screening_gold.csv`](answers/screening_gold.csv).
+- **Score** with the Python scorers (standard library only): save the AI's answer as a text file and run the commands
+  under [Going further](#going-further); without Python, after step 1 compare your 20 rows by hand with
+  [`answers/screening_gold.csv`](answers/screening_gold.csv).
 
 </details>
 
@@ -358,9 +356,9 @@ The records page and the scorer are on GitHub Pages. If they do not open, everyt
 | [`data/extraction_form.csv`](data/extraction_form.csv) | Extraction form (`field,definition,allowed_values,type,core`) |
 | [`data/papers.csv`](data/papers.csv), [`data/fulltext/`](data/fulltext/README.md) | The 3 extraction papers, links, licences, plain-text full texts |
 | [`data/README.md`](data/README.md) | How the data were built, the reference review, limits, how to replace it |
-| [`answers/`](answers/README.md) | Reference answers: **do not open before step 3** |
+| [`answers/`](answers/README.md) | Reference answers: **screening answers after step 1, extraction answers after step 3** |
 | [`tools/`](tools/) | Scorers and builders (Python 3, standard library only); every script has `--help` |
 | [`examples/`](examples/README.md) | Fake decisions and extraction files to try the scorers |
-| [`worksheets/`](worksheets/) | [Discrepancy log](worksheets/discrepancy_log.md) ([CSV](worksheets/discrepancy_log.csv)), [AI use record](worksheets/ai_use_record.md) |
+| [`worksheets/`](worksheets/) | Optional (going further): [discrepancy log](worksheets/discrepancy_log.md) ([CSV](worksheets/discrepancy_log.csv)), [AI use record](worksheets/ai_use_record.md) |
 | [`quick_card.md`](quick_card.md) | One-page printable card |
-| [`facilitator_guide.md`](facilitator_guide.md) | For facilitators (timing, pitfalls, debrief). **Contains answers: participants read it only after step 3** |
+| [`facilitator_guide.md`](facilitator_guide.md) | For facilitators (timing, pitfalls, debrief). **Contains answers: participants read it only after the exercise** |

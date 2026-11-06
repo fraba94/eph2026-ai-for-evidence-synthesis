@@ -326,14 +326,15 @@
 
     var html = '';
     // coverage block (same rule and wording as score_screening.py)
-    html += '<div class="callout ' + (missInc.length ? 'danger' : (missing.length ? 'warn' : 'info')) + '">' + (missing.length ? ICON_WARN : ICON_INFO) + '<div>' +
-      '<p><b>Screened ' + nScreened + ' of ' + nGold + ' records</b> (' + missing.length + ' not screened).</p>';
+    html += '<div class="callout ' + (expectAll && missInc.length ? 'danger' : (expectAll && missing.length ? 'warn' : 'info')) + '">' + (expectAll && missing.length ? ICON_WARN : ICON_INFO) + '<div>' +
+      '<p><b>Screened ' + nScreened + ' of ' + nGold + ' records</b> (' + missing.length + ' not screened).' +
+      (!expectAll && missing.length ? ' Expected if you screened one batch (batch 1 = R001-R020); fewer than you sent means the AI dropped or renamed records.' : '') + '</p>';
     if (missing.length) {
       html += '<p>Not screened: ' + missing.map(function (r) { return missInc.indexOf(r) >= 0 ? '<b>' + esc(r) + '</b>' : esc(r); }).join(', ') + '</p>';
       if (missInc.length) html += '<p><b>Not screened but INCLUDED in the reference: ' + missInc.map(esc).join(', ') + '</b></p>';
       html += '<p>Sensitivity counting not-screened includes as missed: <b>' + pct(ratio(tp, nInc)) + '</b> (' + tp + '/' + nInc + ')</p>';
       html += '<p class="hint">' + (expectAll ? 'Not-screened records are counted as exclude in all metrics below ("I was meant to screen all records" is ticked).' :
-        'Metrics below are computed on the screened records only. Tick "I was meant to screen all records" in step 2 to count not-screened records as exclude.') + '</p>';
+        'Metrics below are computed on the screened records only. Tick "I was meant to screen all records" (Going further box) to count not-screened records as exclude.') + '</p>';
     }
     html += '</div></div>';
 

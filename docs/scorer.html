@@ -20,6 +20,7 @@
       <a href="activity.html">Activity</a>
       <a href="beginners.html">Beginners</a>
       <a href="batch.html">Records</a>
+      <a href="papers.html">Papers</a>
       <a href="prompts.html">Prompts</a>
       <a href="skills.html">Skills</a>
       <a href="scorer.html" aria-current="page">Scorer</a>
@@ -32,10 +33,10 @@
   <div class="wrap">
     <div class="eyebrow">Hands-on activity · scoring</div>
     <h1>Score your results</h1>
-    <p>Compare your decisions with the reference review, which was conducted without AI. Everything runs in your browser: your files are not uploaded anywhere.</p>
+    <p>Paste the AI's answer straight from the chat and compare it with the reference review, which was conducted without AI. Everything runs in your browser: nothing is uploaded anywhere.</p>
     <div class="tabs" role="tablist" aria-label="Scorer">
-      <button role="tab" id="tab-screening" aria-controls="panel-screening" aria-selected="true">Screening</button>
-      <button role="tab" id="tab-extraction" aria-controls="panel-extraction" aria-selected="false">Data extraction</button>
+      <button role="tab" id="tab-screening" aria-controls="panel-screening" aria-selected="true">Screening (steps 1 and 2)</button>
+      <button role="tab" id="tab-extraction" aria-controls="panel-extraction" aria-selected="false">Short extraction (step 3)</button>
     </div>
   </div>
 </div>
@@ -51,49 +52,19 @@
       <div><p><b>Synthetic sample mode.</b> The reference data and the example answers on this page are invented, only to show how the scorer works. <a href="scorer.html">Switch to the workshop data</a>.</p></div>
     </div>
 
+    <p class="row" style="margin-top:16px"><a class="btn btn-plain" href="answers.html">See the reference answers</a> <a class="btn btn-plain" href="start.html#right-now">Back to the three steps</a></p>
+
+    <span id="screening"></span><span id="extraction"></span><!-- #screening and #extraction open the matching tab (scorer.js) -->
     <!-- ================================================================ SCREENING -->
     <section class="panel" id="panel-screening" role="tabpanel" aria-labelledby="tab-screening">
       <div class="steps">
         <div class="card">
-          <div class="step-title"><span class="n">1</span><h2>Add your screening decisions</h2></div>
-          <p class="hint">A CSV with the columns <code>record_id,decision,reason</code>; <code>decision</code> is <code>include</code>, <code>exclude</code> or <code>unsure</code>. Commas, semicolons or tabs all work, so you can paste straight from a spreadsheet or from the chat.</p>
-          <div class="row" style="margin-bottom:10px">
-            <label class="btn btn-plain file-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
-              Choose a CSV file<input type="file" id="s-file" accept=".csv,.tsv,.txt,text/csv">
-            </label>
-            <span id="s-file-status" class="status"></span>
-          </div>
-          <label for="s-text" class="visually-hidden">Your decisions</label>
-          <textarea id="s-text" spellcheck="false" placeholder="record_id,decision,reason&#10;R001,include,hospital-wide multimodal hand hygiene programme; HAI incidence reported&#10;R002,exclude,C5: outcome is hand hygiene compliance only, no infection outcome&#10;R003,unsure,C2: unclear whether the intervention covered more than one ward"></textarea>
-        </div>
-
-        <div class="card">
-          <div class="step-title"><span class="n">2</span><h2>Choose how to count</h2></div>
-          <div class="grid grid-2">
-            <label class="opt">Count <b>unsure</b> as
-              <select id="s-unsure"><option value="include" selected>include (go to full text)</option><option value="exclude">exclude</option></select>
-            </label>
-            <label class="opt"><input type="checkbox" id="s-all"> I was meant to screen <b>all</b> records <span class="hint">(not-screened records count as exclude, so a dropped include is a missed include)</span>
-            </label>
-          </div>
-          <p class="hint" style="margin-top:12px">Metrics are computed on the records in your file, and the coverage ("Screened N of 60") is always shown. If your group screened only part of the set (for example R001 to R020), leave the box unticked. At title and abstract stage, when in doubt, keep it: "unsure" counts as include.</p>
-          <details class="box" style="margin-top:12px">
-            <summary>Optional: add a second run to check reproducibility</summary>
-            <p class="hint" style="margin-top:8px">Run the same prompt again in a new chat (or with a fresh agent) and paste the second set of decisions. The scorer reports how many records changed.</p>
-            <div class="row" style="margin-bottom:10px">
-              <label class="btn btn-plain file-btn">Choose run 2<input type="file" id="s-file2" accept=".csv,.tsv,.txt,text/csv"></label>
-              <span id="s-file2-status" class="status"></span>
-            </div>
-            <label for="s-text2" class="visually-hidden">Run 2 decisions</label>
-            <textarea id="s-text2" spellcheck="false" placeholder="record_id,decision,reason"></textarea>
-          </details>
-        </div>
-
-        <div class="card">
-          <div class="step-title"><span class="n">3</span><h2>Compare with the reference review</h2></div>
-          <p id="ref-status-s" class="status">Loading the reference standard...</p>
-          <div class="row">
+          <div class="step-title"><span class="n">1</span><h2>Paste the AI's answer</h2></div>
+          <p class="hint">Copy the whole answer from the chat and paste it here as it is: no file to save. The scorer finds the table with <code>record_id,decision,reason</code> and ignores code fences (<code>```csv</code>), sentences before or after it, semicolons and Markdown tables.</p>
+          <label for="s-text" class="visually-hidden">The AI's answer</label>
+          <textarea id="s-text" class="paste-box" spellcheck="false" placeholder="Paste the AI's answer here, for example:&#10;&#10;Here are the decisions:&#10;```csv&#10;record_id,decision,reason&#10;R001,exclude,C3 not met: broad infection-control bundle&#10;R002,include,all criteria met or not contradicted&#10;```&#10;Records received: 20. Rows returned: 20."></textarea>
+          <p id="ref-status-s" class="status" style="margin-top:10px">Loading the reference standard...</p>
+          <div class="row" style="margin-top:6px">
             <button class="btn btn-primary" type="button" id="s-go">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
               Score my screening
@@ -101,12 +72,40 @@
             <span id="s-msg" class="status" role="status"></span>
           </div>
           <details class="box" style="margin-top:14px">
-            <summary>Use another reference file (facilitators)</summary>
-            <p class="hint" style="margin-top:8px">For example to score against your own group's decisions instead of the published review.</p>
-            <div class="row"><label class="btn btn-plain file-btn">Reference decisions (record_id,gold_decision,gold_basis)<input type="file" id="s-gold-file" accept=".csv,.tsv,.txt"></label><span id="s-gold-status" class="status"></span></div>
-            <div class="row" style="margin-top:8px"><label class="btn btn-plain file-btn">Records with titles (screening_records.csv)<input type="file" id="s-rec-file" accept=".csv,.tsv,.txt"></label><span id="s-rec-status" class="status"></span></div>
+            <summary>Or load a CSV file</summary>
+            <div class="row" style="margin-top:10px">
+              <label class="btn btn-plain file-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
+                Choose a CSV file<input type="file" id="s-file" accept=".csv,.tsv,.txt,text/csv">
+              </label>
+              <span id="s-file-status" class="status"></span>
+            </div>
           </details>
         </div>
+
+        <details class="card more-options">
+          <summary><b>Going further:</b> how to count, a second run, another reference file</summary>
+          <div class="grid grid-2" style="margin-top:14px">
+            <label class="opt">Count <b>unsure</b> as
+              <select id="s-unsure"><option value="include" selected>include (go to full text)</option><option value="exclude">exclude</option></select>
+            </label>
+            <label class="opt"><input type="checkbox" id="s-all"> I was meant to screen <b>all</b> records <span class="hint">(not-screened records count as exclude, so a dropped include is a missed include)</span>
+            </label>
+          </div>
+          <p class="hint" style="margin-top:12px">Metrics are computed on the records you pasted, and the coverage ("Screened N of 60") is always shown. If you screened only batch 1 (R001 to R020), leave the box unticked. At title and abstract stage, when in doubt, keep it: "unsure" counts as include.</p>
+          <h3 style="margin-top:16px">A second run, for reproducibility</h3>
+          <p class="hint">Run the same prompt again in a new chat (or with a fresh agent) and paste the second answer. The scorer reports how many records changed.</p>
+          <div class="row" style="margin-bottom:10px">
+            <label class="btn btn-plain file-btn">Choose run 2<input type="file" id="s-file2" accept=".csv,.tsv,.txt,text/csv"></label>
+            <span id="s-file2-status" class="status"></span>
+          </div>
+          <label for="s-text2" class="visually-hidden">Run 2 decisions</label>
+          <textarea id="s-text2" spellcheck="false" placeholder="Paste the answer of run 2 here"></textarea>
+          <h3 style="margin-top:16px">Another reference file (facilitators)</h3>
+          <p class="hint">For example to score against your own decisions instead of the published review.</p>
+          <div class="row"><label class="btn btn-plain file-btn">Reference decisions (record_id,gold_decision,gold_basis)<input type="file" id="s-gold-file" accept=".csv,.tsv,.txt"></label><span id="s-gold-status" class="status"></span></div>
+          <div class="row" style="margin-top:8px"><label class="btn btn-plain file-btn">Records with titles (screening_records.csv)<input type="file" id="s-rec-file" accept=".csv,.tsv,.txt"></label><span id="s-rec-status" class="status"></span></div>
+        </details>
 
         <div id="s-results" hidden aria-live="polite"></div>
       </div>
@@ -116,27 +115,34 @@
     <section class="panel" id="panel-extraction" role="tabpanel" aria-labelledby="tab-extraction" hidden>
       <div class="steps">
         <div class="card">
-          <div class="step-title"><span class="n">1</span><h2>Add your extraction</h2></div>
-          <p class="hint">Long format, one row per study and field: <code>study_id,field,value,source_quote,location</code>. Write <code>not reported</code> when the information is absent. Only the studies present in your file are scored, so you can extract one paper. The <code>source_quote</code> should be copied word for word from the paper.</p>
-          <div class="row" style="margin-bottom:10px">
-            <label class="btn btn-plain file-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
-              Choose a CSV file<input type="file" id="e-file" accept=".csv,.tsv,.txt,text/csv">
+          <div class="step-title"><span class="n">1</span><h2>Paste the AI's extraction</h2></div>
+          <p class="hint">Step 3, the short extraction: paste the whole answer from the chat, as it is. The scorer finds the table <code>study_id,field,value,source_quote,location</code> (one row per study and field; <code>not reported</code> when the information is absent). Only the studies in your answer are scored.</p>
+          <label for="e-text" class="visually-hidden">The AI's extraction</label>
+          <textarea id="e-text" class="paste-box" spellcheck="false" placeholder="Paste the AI's answer here, for example:&#10;&#10;```csv&#10;study_id,field,value,source_quote,location&#10;Phan2020,country,Vietnam,&quot;...a 900-bed maternity hospital in Ho-Chi-Minh-City, Vietnam.&quot;,Abstract&#10;Phan2020,hai_definition,not reported,,searched Methods and Tables&#10;```"></textarea>
+          <p id="ref-status-e" class="status" style="margin-top:10px">Loading the reference extraction...</p>
+          <div class="row" style="margin-top:6px">
+            <label class="opt">Fields to score
+              <select id="e-fields">
+                <option value="short" selected>the 5 fields of the short extraction</option>
+                <option value="core">the 11 core fields (going further)</option>
+                <option value="all">all 19 fields</option>
+                <option value="mine">only the fields in my answer</option>
+              </select>
             </label>
-            <span id="e-file-status" class="status"></span>
-          </div>
-          <label for="e-text" class="visually-hidden">Your extraction</label>
-          <textarea id="e-text" spellcheck="false" placeholder="study_id,field,value,source_quote,location&#10;Phan2020,country,Vietnam,&quot;...a 900-bed maternity hospital in Ho-Chi-Minh-City, Vietnam.&quot;,Abstract&#10;Phan2020,hai_definition,not reported,,searched Methods and Tables"></textarea>
-        </div>
-        <div class="card">
-          <div class="step-title"><span class="n">2</span><h2>Compare with the reference extraction</h2></div>
-          <p id="ref-status-e" class="status">Loading the reference extraction...</p>
-          <div class="row">
-            <label class="opt" style="margin-right:12px"><input type="checkbox" id="e-core"> Core fields only</label>
             <button class="btn btn-primary" type="button" id="e-go">Score my extraction</button>
             <span id="e-msg" class="status" role="status"></span>
           </div>
           <details class="box" style="margin-top:14px">
+            <summary>Or load a CSV file</summary>
+            <div class="row" style="margin-top:10px">
+              <label class="btn btn-plain file-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>
+                Choose a CSV file<input type="file" id="e-file" accept=".csv,.tsv,.txt,text/csv">
+              </label>
+              <span id="e-file-status" class="status"></span>
+            </div>
+          </details>
+          <details class="box" style="margin-top:10px">
             <summary>Use another reference file (facilitators)</summary>
             <div class="row" style="margin-top:8px"><label class="btn btn-plain file-btn">Reference extraction (study_id,field,value,source_quote,location)<input type="file" id="e-gold-file" accept=".csv,.tsv,.txt"></label><span id="e-gold-status" class="status"></span></div>
           </details>

@@ -21,6 +21,7 @@
       <a href="activity.html" aria-current="page">Activity</a>
       <a href="beginners.html">Beginners</a>
       <a href="batch.html">Records</a>
+      <a href="papers.html">Papers</a>
       <a href="prompts.html">Prompts</a>
       <a href="skills.html">Skills</a>
       <a href="scorer.html">Scorer</a>
@@ -33,7 +34,7 @@
   <div class="wrap">
     <div class="eyebrow"><a href="activity.html">Hands-on activity</a> · worksheet</div>
     <h1 id="discrepancy-log">Discrepancy log</h1>
-    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/worksheets/discrepancy_log.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-03">3 November 2026</time></span></p>
+    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/worksheets/discrepancy_log.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-06">6 November 2026</time></span></p>
   </div>
 </div>
 
@@ -41,11 +42,51 @@
   <div class="wrap doc-layout">
     
     <article class="md">
+<div class="worksheet-tools"><p><b>Optional, going further.</b> Fill it on paper, in a text editor or a spreadsheet: copy the template or download it.</p><div class="row"><button class="btn-copy" type="button" data-copy="#worksheet-template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy template</span></button><a class="btn btn-plain" href="data/worksheets/discrepancy_log.md" download="discrepancy_log.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></svg>Download template (.md)</a><a class="btn btn-plain" href="data/worksheets/discrepancy_log.csv" download="discrepancy_log.csv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></svg>Download template (.csv)</a></div><pre id="worksheet-template" hidden><code># Discrepancy log
 
-<p>Fill this in step 3, for at least three discrepancies between the AI output and the reference. Check the <strong>source</strong>
+**Optional (going further):** not needed for the 30 minutes of the live session, where each person brings one error
+to the discussion. Fill it after the exercise, for at least three discrepancies between the AI output and the reference. Check the **source**
 (abstract or paper) before deciding who is right: the reference can be wrong too. A CSV version with the same columns
-is in <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/worksheets/discrepancy_log.csv"><code>discrepancy_log.csv</code></a>.</p>
-<p><strong>Group (or your name, if alone):</strong> ............ <strong>Track:</strong> chat / agent <strong>Tool and model:</strong> ............ <strong>Date:</strong> ............</p>
+is in [`discrepancy_log.csv`](discrepancy_log.csv).
+
+**Your name:** ............ **Track:** chat / agent **Tool and model:** ............ **Date:** ............
+
+| # | Task | Record or study / field | AI said | Reference says | Source says (quote, location) | Who is right? | Error type | Would a human reviewer have caught it? How? |
+|---|---|---|---|---|---|---|---|---|
+| 1 | screening / extraction | | | | | AI / reference / both / unclear | | |
+| 2 | | | | | | | | |
+| 3 | | | | | | | | |
+| 4 | | | | | | | | |
+| 5 | | | | | | | | |
+
+## Error types
+
+| Code | Error type | Example in this exercise |
+|---|---|---|
+| **MI** | Missed include (screening false negative) | a hospital-wide programme excluded because the abstract also mentions an ICU |
+| **FI** | False include (screening false positive) | a single-NICU study, a randomised trial, a compliance-only study included |
+| **CR** | Criterion misapplied | C3 applied to any multi-component infection-control bundle |
+| **DR** | Dropped or renamed record | 19 rows returned for 20 records |
+| **WV** | Wrong value | a number from the wrong period, subgroup or outcome |
+| **HV** | Hallucinated or inferred value | a country, definition or confidence interval that the paper does not report |
+| **QF** | Quote not in the source | paraphrased, merged from two places, or invented quote |
+| **FA** | False absence (&quot;not reported&quot; but it is reported) | value only in a table or in another section |
+| **PE** | Parsing error | table columns shifted, numbers from a figure axis, two-column layout mixed |
+| **AM** | Ambiguous field or criterion | &quot;post-intervention compliance&quot;: last period or whole intervention period? |
+| **GE** | Error in the reference standard | the review&#x27;s table differs from the paper, or an eligible study was not included |
+| **RP** | Not reproducible | two runs of the same prompt disagree |
+
+## Summary (2 lines)
+
+- The most frequent error type in our run was: ............
+- The check that caught most errors was: ............
+</code></pre></div>
+
+<p><strong>Optional (going further):</strong> not needed for the 30 minutes of the live session, where each person brings one error
+to the discussion. Fill it after the exercise, for at least three discrepancies between the AI output and the reference. Check the <strong>source</strong>
+(abstract or paper) before deciding who is right: the reference can be wrong too. A CSV version with the same columns
+is in <a href="data/worksheets/discrepancy_log.csv"><code>discrepancy_log.csv</code></a>.</p>
+<p><strong>Your name:</strong> ............ <strong>Track:</strong> chat / agent <strong>Tool and model:</strong> ............ <strong>Date:</strong> ............</p>
 <div class="table-wrap md-table"><table>
 <thead>
 <tr>
