@@ -296,7 +296,7 @@ class Renderer:
         # task lists: a real checkbox (pages.js remembers ticks in this browser)
         def task(m):
             checked = " checked" if m.group(3).lower() == "x" else ""
-            return f'<li class="task-item">{m.group(2)}<input type="checkbox" class="task-box"{checked}> '
+            return f'<li class="task-item">{m.group(2) or ""}<input type="checkbox" class="task-box"{checked}> '
         h = re.sub(r'<li>((\s*<p>)?)\[([ xX])\]\s+', task, h)
         # tables: 3+ columns become stacked cards on phones (each cell labelled with its column header),
         # worksheets and 2-column tables scroll sideways inside their frame
@@ -661,7 +661,7 @@ def ready_prompt_html(root, pid="extraction-prompt-text", which="short", paper_b
     names = ", ".join(f"<code>{f}</code>" for f in (SHORT_FIELDS if which == "short" else core_fields()))
     ph = html.escape(paper_placeholder())
     title = (f'<p class="ready-title"><b>Ready to paste: the extraction prompt</b> with the {n} fields '
-             f'({names}) and <code>study_id = Phan2020</code> already filled in. In a new chat, paste it, then paste '
+             f'({names}) and <code>study_id = Phan2020</code> already filled in. In a new temporary chat with web search off, paste it, then paste '
              f'the paper where it says <code>{ph}</code>.</p>') if intro else ""
     paper = (f'<a class="btn btn-plain" href="{root}papers.html#Phan2020">Open the paper (Phan2020)</a>'
              if paper_button else "")
@@ -811,7 +811,7 @@ def build_papers():
       <h2 id="h-prompt">Step 3 · The extraction prompt</h2>
       <p>The prompt of the <a href="beginners.html">walkthrough</a> with the {len(SHORT_FIELDS)} fields of the short extraction and their definitions already filled in.</p>
       <ol class="mini-steps">
-        <li>Open a <b>new chat</b>, copy the prompt and paste it.</li>
+        <li>Open a <b>new temporary chat</b> (web search off), copy the prompt and paste it.</li>
         <li>Copy the full text of <a href="#Phan2020">Phan2020</a> and paste it where it says <code>{html.escape(paper_placeholder())}</code>. Or use <b>Copy prompt + this paper</b> in the paper's card: one paste.</li>
         <li>Check 2 quotes yourself with Ctrl+F in the paper (<b>Show text</b>, or the .txt file).</li>
         <li>Compare with the reference values on the <a href="answers.html#extraction">answers page</a>, or paste the answer into the <a href="scorer.html#extraction">scorer</a>.</li>

@@ -6,6 +6,9 @@
 
 **Work on your own**, on your own laptop: you drive the AI, then you verify it. Site: Start page, then one tap per material.
 
+**Turn off web search / browsing and use a temporary chat (memory off).** The reference review is published: an AI
+with web access may simply look up the answers (at a previous workshop in Berlin, one recognised the review and offered to repeat it).
+
 **Include only if ALL are met**
 
 | | |
@@ -19,7 +22,7 @@
 
 **Step 1 · Screening · 10 min**
 Copy batch 1 (R001-R020) from the Records page and the screening prompt from the Start page (criteria already in it).
-Paste both into a new chat. Then **paste the AI's answer into the Scorer** as it is: no file to save.
+Paste both into a new temporary chat, web search off. Then **paste the AI's answer into the Scorer** as it is: no file to save.
 Coverage line first: "Screened 20 of 60" is expected; fewer means records were dropped. In doubt or no abstract: **unsure**.
 
 **Step 2 · Look at the errors · 10 min** (screening answers: now)
@@ -38,7 +41,7 @@ Compare with the reference values on the Answers page. Read the notes: some pape
 agent track (all 60 records, 3 papers, skills, `python3 activity/tools/score_screening.py ... --expect-all`).
 
 **Ask yourself:** Performance: would I accept this sensitivity? Transparency: can I trace every value? Bias: whose
-errors, which studies? Oversight: would I sign the table? Reproducibility: would a second run agree? And the
+errors, which studies? Oversight: would I sign the table? Reproducibility: would a second run agree, and would two human reviewers? And the
 reference: is it always right?
 
 > ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.

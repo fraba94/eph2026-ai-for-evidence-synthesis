@@ -133,9 +133,10 @@ responsible for every decision: the AI does not.</p></div></div>
 <hr>
 <h2 id="step-0-get-ready">Step 0. Get ready<a class="anchor" href="#step-0-get-ready" aria-label="Link to this section">#</a></h2>
 <ul>
-<li class="task-item">None<input type="checkbox" class="task-box"> A laptop with a chat assistant open in the browser (a phone works for reading the pages). Any assistant works; if your tool has a "temporary chat" or lets you switch memory off, use that.</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> The workshop website open in another tab: the <a href="start.html">Start page</a> has every button you need, in order.</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> A note with: <strong>tool name, model name as displayed, date and time</strong>. You will need it in the discussion.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> A laptop with a chat assistant open in the browser (a phone works for reading the pages). Any assistant works.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> <strong>Turn off web search / browsing and use a temporary chat (memory off).</strong> If your tool has no temporary chat, switch memory off in its settings. Why: the reference review is published, so an assistant with web access may simply look up the answers. In the previous run of this workshop (Berlin, September 2026) one recognised the published reference review and offered to repeat it.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> The workshop website open in another tab: the <a href="start.html">Start page</a> has every button you need, in order.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> A note with: <strong>tool name, model name as displayed, date and time</strong>. You will need it in the discussion.</li>
 </ul>
 <div class="md-alert md-alert-caution"><p class="md-alert-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>Caution</p><p>Never paste personal, patient or confidential data into a chat assistant. The workshop records are published abstracts, so they are fine for this exercise.</p></div>
 <h2 id="step-1-read-the-question-and-the-criteria">Step 1. Read the question and the criteria<a class="anchor" href="#step-1-read-the-question-and-the-criteria" aria-label="Link to this section">#</a></h2>
@@ -168,7 +169,7 @@ python3 beginners/make_batches.py activity/data/local/screening_records_full.csv
 <p>Slower, but it works anywhere. Never ask the assistant to find or write a missing abstract.</p>
 </details>
 <div class="md-alert md-alert-note"><p class="md-alert-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M12 11v5.5M12 7.5v.01"/></svg>Note</p><p><strong>Why some abstracts are missing from the repository.</strong> The repository ships an abstract only when its licence allows redistribution; the others are fetched from PubMed by the records page (Option A) or by <code>fetch_abstracts.py</code> (Option B). If you still see an empty abstract, leave it: the prompt tells the assistant to mark it <em>unsure</em>. <strong>Do not</strong> ask the assistant to "find" or write the abstract: it may invent one.</p></div>
-<p><strong>Open a new chat</strong>, paste this prompt, replace the two parts in <code>[BRACKETS]</code>, and send. Ready to paste, with the criteria C1-C6 already filled in: the <a href="start.html#step-1-screening">Start page</a> (Copy button).</p>
+<p><strong>Open a new temporary chat</strong> (web search off), paste this prompt, replace the two parts in <code>[BRACKETS]</code>, and send. Ready to paste, with the criteria C1-C6 already filled in: the <a href="start.html#step-1-screening">Start page</a> (Copy button).</p>
 <div class="codeblock"><div class="codebar"><span class="lang">Prompt</span><button class="copy" type="button" data-label="Copy prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy prompt</span></button></div><pre><code class="language-text">You are a second reviewer screening titles and abstracts for a systematic review.
 
 ELIGIBILITY CRITERIA (apply exactly these, nothing else):
@@ -179,7 +180,7 @@ RULES
 - exclude ONLY if the title/abstract clearly shows that at least one criterion is NOT met. Name the criterion.
 - include if all criteria are met or not contradicted by the abstract.
 - unsure if information is missing or ambiguous. When in doubt, do not exclude.
-- Use only the text given. Do not use anything you may know about these studies.
+- Use only the text given. Do not search the web, and do not use anything you may know about these studies.
 - Return one row for EVERY record, in the same order. If the abstract is empty, decide on the title only and use unsure with reason &quot;no abstract&quot;.
 
 OUTPUT: only a CSV block with the header
@@ -234,9 +235,9 @@ Reminder: apply only the criteria above; one row per record; when in doubt, unsu
 <p>This is step 3 of <a href="activity.html"><code>activity/README.md</code></a>. Extraction is where AI errors are hardest to see, so the task is short: one paper, five fields, a quote for each.</p>
 <ol>
 <li><strong>Look at the form first</strong>, before giving the paper to the assistant: <a href="papers.html#extraction-form"><code>activity/data/extraction_form.csv</code></a>. Use only these <strong>5 fields</strong>: <code>country</code>, <code>study_design</code>, <code>intervention_components</code>, <code>primary_hai_outcome</code>, <code>direction_of_effect</code>.</li>
-<li>Open a <strong>new chat</strong> and paste (or upload) the plain text of the paper: <a href="papers.html#Phan2020"><code>activity/data/fulltext/Phan2020.txt</code></a> (the <a href="papers.html">Papers page</a> has <strong>Copy full text</strong> and <strong>Download .txt</strong> buttons). Use <code>study_id = Phan2020</code>. At home, for more practice: <a href="papers.html#Mestre2012"><code>Mestre2012.txt</code></a>, the paper of the live demo (<code>study_id = Mestre2012</code>).</li>
+<li>Open a <strong>new temporary chat</strong> (web search off) and paste (or upload) the plain text of the paper: <a href="papers.html#Phan2020"><code>activity/data/fulltext/Phan2020.txt</code></a> (the <a href="papers.html">Papers page</a> has <strong>Copy full text</strong> and <strong>Download .txt</strong> buttons). Use <code>study_id = Phan2020</code>. At home, for more practice: <a href="papers.html#Mestre2012"><code>Mestre2012.txt</code></a>, the paper of the live demo (<code>study_id = Mestre2012</code>).</li>
 <li>Paste the prompt below. Ready to paste: the <a href="papers.html#extraction-prompt">Papers page</a> has this prompt with the 5 fields, their definitions and <code>study_id = Phan2020</code> already filled in, with a Copy button. Otherwise fill the parts in <code>[BRACKETS]</code> yourself.</li>
-</ol><div class="ready-prompt"><p class="ready-title"><b>Ready to paste: the extraction prompt</b> with the 5 fields (<code>country</code>, <code>study_design</code>, <code>intervention_components</code>, <code>primary_hai_outcome</code>, <code>direction_of_effect</code>) and <code>study_id = Phan2020</code> already filled in. In a new chat, paste it, then paste the paper where it says <code>[PASTE THE TEXT OF THE PAPER, OR SAY &quot;attached&quot;]</code>.</p><div class="row"><button class="btn-copy" type="button" data-copy="#extraction-prompt-text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy the extraction prompt</span></button><a class="btn btn-plain" href="papers.html#Phan2020">Open the paper (Phan2020)</a></div><details><summary>Show the prompt</summary><pre id="extraction-prompt-text"><code>You are extracting data for a systematic review. Use ONLY the paper I give you. Do not use outside knowledge.
+</ol><div class="ready-prompt"><p class="ready-title"><b>Ready to paste: the extraction prompt</b> with the 5 fields (<code>country</code>, <code>study_design</code>, <code>intervention_components</code>, <code>primary_hai_outcome</code>, <code>direction_of_effect</code>) and <code>study_id = Phan2020</code> already filled in. In a new temporary chat with web search off, paste it, then paste the paper where it says <code>[PASTE THE TEXT OF THE PAPER, OR SAY &quot;attached&quot;]</code>.</p><div class="row"><button class="btn-copy" type="button" data-copy="#extraction-prompt-text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy the extraction prompt</span></button><a class="btn btn-plain" href="papers.html#Phan2020">Open the paper (Phan2020)</a></div><details><summary>Show the prompt</summary><pre id="extraction-prompt-text"><code>You are extracting data for a systematic review. Use ONLY the paper I give you. Do not search the web or use outside knowledge.
 
 EXTRACTION FORM (fill every field, do not add or change fields):
 - country: Country where the study was conducted. Take it from Methods/Results; if the paper gives it only in the affiliation of the study hospital, report it with &#x27;author affiliations&#x27; as location. Do not infer it from city or campaign names alone; if it is not stated anywhere, write not reported. Allowed values: free text.
@@ -255,7 +256,7 @@ study_id,field,value,source_quote,location
 Use study_id = Phan2020.
 
 PAPER:
-[PASTE THE TEXT OF THE PAPER, OR SAY &quot;attached&quot;]</code></pre></details></div><div class="codeblock"><div class="codebar"><span class="lang">Prompt</span><button class="copy" type="button" data-label="Copy prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy prompt</span></button></div><pre><code class="language-text">You are extracting data for a systematic review. Use ONLY the paper I give you. Do not use outside knowledge.
+[PASTE THE TEXT OF THE PAPER, OR SAY &quot;attached&quot;]</code></pre></details></div><div class="codeblock"><div class="codebar"><span class="lang">Prompt</span><button class="copy" type="button" data-label="Copy prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy prompt</span></button></div><pre><code class="language-text">You are extracting data for a systematic review. Use ONLY the paper I give you. Do not search the web or use outside knowledge.
 
 EXTRACTION FORM (fill every field, do not add or change fields):
 [PASTE THE 5 FIELDS: field, definition, allowed values]
@@ -277,7 +278,7 @@ PAPER:
 <p>In the live session, <strong>bring one error you found</strong> (in step 3 or step 4): what the AI said, what the source says, and why the AI got it wrong. On your own, answer each question in writing, in one or two sentences:</p>
 <ol>
 <li>How many records did the AI get wrong, and of which kind? Would any error have changed the review's conclusions?</li>
-<li>Would the same prompt give the same answer in a new chat? (Try it: <a href="#going-further">Going further</a>.)</li>
+<li>Would the same prompt give the same answer in a new chat? (Try it: <a href="#going-further">Going further</a>.) And how reproducible are human reviewers: would two of them agree?</li>
 <li>Which check caught the most problems?</li>
 <li>What would you need to write in a paper to report what you did? (Tool, model and version, date, prompt, what you checked: see <a href="prompts/06_synthesis_and_reporting.html#63-ai-use-statement">prompt 6.3</a>.)</li>
 <li>Would you trust this for a real review? What would you need to learn first?</li>
@@ -304,11 +305,11 @@ PAPER:
 [PASTE THE CSV ROWS]</code></pre></div>
 <p><strong>What to look for</strong></p>
 <ul>
-<li class="task-item">None<input type="checkbox" class="task-box"> Open the paper at every location given (Ctrl+F on the quote). Is the number really there, in the right row and column of the table?</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> Every <em>not reported</em>: search the paper yourself (Ctrl+F) with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days). Is it really absent?</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> Quotes that are "almost" the same as the paper: the model rewrote them. Treat the value as unverified.</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> If you ran it twice: which fields changed? Numbers usually change more than descriptions.</li>
-<li class="task-item">None<input type="checkbox" class="task-box"> Score it (scorer page or <code>python3 activity/tools/score_extraction.py extraction.csv</code>): read <code>QUOTE NOT FOUND</code>, <code>unsupported</code> and <code>false absent</code> first.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> Open the paper at every location given (Ctrl+F on the quote). Is the number really there, in the right row and column of the table?</li>
+<li class="task-item"><input type="checkbox" class="task-box"> Every <em>not reported</em>: search the paper yourself (Ctrl+F) with synonyms (infection rate, nosocomial, hospital-acquired, per 1000 patient-days). Is it really absent?</li>
+<li class="task-item"><input type="checkbox" class="task-box"> Quotes that are "almost" the same as the paper: the model rewrote them. Treat the value as unverified.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> If you ran it twice: which fields changed? Numbers usually change more than descriptions.</li>
+<li class="task-item"><input type="checkbox" class="task-box"> Score it (scorer page or <code>python3 activity/tools/score_extraction.py extraction.csv</code>): read <code>QUOTE NOT FOUND</code>, <code>unsupported</code> and <code>false absent</code> first.</li>
 </ul>
 <h3 id="score-with-python-and-record-what-you-did">Score with Python, and record what you did<a class="anchor" href="#score-with-python-and-record-what-you-did" aria-label="Link to this section">#</a></h3>
 <ul>

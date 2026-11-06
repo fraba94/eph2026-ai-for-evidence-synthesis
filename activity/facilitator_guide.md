@@ -16,6 +16,28 @@ preparation, the pitfalls you should expect, and how to run the debrief. Do not 
 > (`review_table_value`); they have not yet been validated against the review team's extraction sheet. Say so when
 > participants compare with them.
 
+## What we learned in Berlin (Sept 2026)
+
+A longer version of this workshop ran at the EUPHA DHAI annual meeting in Berlin on 10 September 2026 (27
+participants): building and critiquing a search strategy with an LLM, then data extraction. About half of the
+participants used ChatGPT and half Claude; a few used Gemini, Perplexity or Consensus. From the session notes and
+the Mentimeter poll:
+
+| What happened in Berlin | What we changed for Bilbao |
+|---|---|
+| A ChatGPT Pro chat with internet access recognised the recently published reference review and asked whether the participant wanted to repeat exactly that research | Rule 1 for everyone: web search / browsing off and a temporary chat (memory off); the prompts say "do not search the web". Pruna et al. 2026 is published too |
+| Most participants used zero-shot prompts without instructions (mainly those with an IT background added them) | Ready-to-paste prompts with the criteria C1-C6, the rules and the output format already filled in |
+| Not enough time to check the outputs themselves; the AI's search strategy "seems solid at first" | Fewer tasks (20 records, 1 paper, 5 fields) and a whole step (step 2) for verifying, with a verifier checklist |
+| The LLM's critique listed many possible errors; checking and ranking them meant reading the whole long answer | Prompts ask for short, ranked output: a CSV with reasons of at most 25 words; the top three risks in the search critique (prompt 2.2) |
+| Terms needed human context: which infections count as healthcare-associated? Which AI technologies are included? | Explicit criteria C1-C6 from the reference review; C5 lists the HAI outcomes that count |
+| Extraction: some found it useful; others said it made quite some assumptions and would use it only for straightforward categories | Step 3 uses 5 straightforward fields, each with a verbatim quote and its location, and `not reported` as an allowed answer |
+| The reproducibility of the LLM was discussed a lot, and also that of humans: how reproducible are human scientists? A study comparing the two was named as a need | A second run in a new chat (Going further, kappa in the scorer); "How reproducible are human reviewers?" in the discussion; the research idea under Going further |
+| What worked: the demonstration, step-by-step instructions, practical examples, the choice of individual or group work. One participant found it "too complicated for me" | The demo in four hands; the Start page with the three steps in order; individual work, comparing with a neighbour optional; the beginners track (learning only) |
+
+Confidence at the end (23 of 27 answered; the sliders have no numeric scale labels): 3.6 on the strongly
+disagree–strongly agree slider that their LLM-built search strategy would find the relevant literature, and 3 that
+their extraction form would hold up on a paper they had not seen yet.
+
 ## Before the session
 
 | When | Check |
@@ -24,8 +46,9 @@ preparation, the pitfalls you should expect, and how to run the debrief. Do not 
 | The day before | On each facilitator laptop: `python3 activity/tools/fetch_abstracts.py` and `python3 activity/tools/fetch_fulltext.py` (local copies in `activity/data/local/`, git-ignored: do not publish them). This is the fallback if the venue network blocks NCBI |
 | The day before | Run the scorers on the examples: `python3 activity/tools/score_screening.py activity/examples/decisions_example.csv` and `python3 activity/tools/score_extraction.py activity/examples/extraction_example.csv` |
 | The day before | Print a few copies of the [quick card](quick_card.md) |
-| Before the session | Nothing to assign: **each participant works alone, on their own laptop** (no groups, no roles). A laptop is recommended; a phone works for reading the pages |
-| On arrival | Write on a slide or board: the repository short link, "Chat track: batch 1 = R001-R020, paper Phan2020, 5 fields", "Screening answers after step 1, extraction answers after step 3" |
+| The day before | On the demo laptop: **web search / browsing off and a temporary chat (memory off)**. The reference review is published: with web access the AI may look up the answers (it happened in Berlin, see [below](#what-we-learned-in-berlin-sept-2026)) |
+| Before the session | Nothing to assign: **each participant works alone, on their own laptop** (no groups, no roles; comparing errors with a neighbour after step 2 is optional). A laptop is recommended; a phone works for reading the pages |
+| On arrival | Write on a slide or board: the repository short link, "Chat track: batch 1 = R001-R020, paper Phan2020, 5 fields", "Web search off, temporary chat", "Screening answers after step 1, extraction answers after step 3" |
 
 If the reference review has been replaced, rebuild first (see [`data/README.md`](data/README.md#how-to-replace-the-reference-review)) and re-read the record IDs below.
 
@@ -86,7 +109,7 @@ laptop):
 | **A. Screening** | | | |
 | 0:00-0:30 (16:55) | Opens the Start page: "This is the page you will use in five minutes." | Announces the roles: "Francesco drives the AI, I check the source. Nothing goes into our table until I have seen it in the abstract." | `start.html`, sections 1 and 3 |
 | 0:30-1:15 | Records page: batch size **20**, **batch 3 (R041-R060)**; waits until the status says the abstracts are filled; **Copy batch** | "Why batch 3? You will screen batch 1, and we do not want to spoil it." | `batch.html` |
-| 1:15-1:45 | Back on the Start page: **Copy the screening prompt** (C1-C6 already in it); new temporary chat; pastes the prompt, replaces `[PASTE THE RECORDS HERE]` with the batch; sends | Reads one rule aloud: "Exclude only if the abstract clearly shows that a criterion is not met. When in doubt, unsure." | Chat assistant |
+| 1:15-1:45 | Back on the Start page: **Copy the screening prompt** (C1-C6 already in it); new temporary chat, web search off; pastes the prompt, replaces `[PASTE THE RECORDS HERE]` with the batch; sends | Reads one rule aloud: "Exclude only if the abstract clearly shows that a criterion is not met. When in doubt, unsure." | Chat assistant |
 | 1:45-2:30 | Scrolls the answer to the last line, "Records received: N. Rows returned: N." | "That line is the AI talking about itself. We count." Counts the IDs R041 to R060: any missing, repeated or renamed? | The CSV block in the chat |
 | 2:30-3:45 | Switches to the records tab, Ctrl+F on the record Patrick names | Picks **two decisions**, preferably one exclude and one include or unsure: "Show me where it says that." Reads the sentence of the abstract and says aloud: supported, or not | `batch.html` (the abstract) next to the chat |
 | 3:45-5:00 | Copies the CSV block; Scorer, screening tab; pastes it; leaves "I was meant to screen all records" **unticked**; compares | "Coverage line first: Screened 20 of 60 is expected, fewer means rows were dropped." Then: "Missed includes: the costly error at this stage." | `scorer.html` |
@@ -114,8 +137,9 @@ laptop):
 
 - [ ] **Network.** Open `start.html`, `batch.html` (batch 3 fills its abstracts) and `scorer.html` on the venue Wi-Fi,
       or on the phone hotspot you will use as a fallback.
-- [ ] **Chat assistant.** Logged in on the demo laptop; **memory off or a temporary chat**; no project knowledge or
-      custom instructions that could leak earlier runs.
+- [ ] **Chat assistant.** Logged in on the demo laptop; **web search / browsing off and a temporary chat (memory
+      off)**; no project knowledge or custom instructions that could leak earlier runs. Show the participants where
+      you switched web search off: it is the first of their three rules.
 - [ ] **Readable from the back of the room.** Browser zoom 150%, large font in the chat; dark mode off if the
       projector washes it out.
 - [ ] **Two tabs open:** `start.html` and the chat. Keep `batch.html`, `scorer.html` and `Mestre2012.txt` one click
@@ -199,7 +223,7 @@ slide of the demo next to the errors the verifier caught. Then:
 3. **Bias.** Were the errors random, or always the same kind (single units, bundles, numbers in tables, inferred
    countries)?
 4. **Oversight.** Who would sign the extraction table as it came out of the AI? What would you need to check first?
-5. **Reproducibility.** Who tried a second run (going further)? Did it agree? What should go in a methods section so that someone can repeat it?
+5. **Reproducibility.** Who tried a second run (going further)? Did it agree? And how reproducible are human reviewers: would two of you agree on the same paper? What should go in a methods section so that someone can repeat it?
 6. **The reference.** Did anyone disagree with the reference after checking the source?
 
 Close with the repository's position: these tools can help people who understand how they work and verify them

@@ -34,7 +34,7 @@
   <div class="wrap">
     <div class="eyebrow"><a href="../prompts.html">Prompt library</a> · stage 3 of 6</div>
     <h1 id="3-titleabstract-screening">3. Title/abstract screening</h1>
-    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/03_screening.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-03">3 November 2026</time></span></p>
+    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/prompts/03_screening.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-06">6 November 2026</time></span></p>
   </div>
 </div>
 
@@ -55,7 +55,7 @@
 <hr>
 <h2 id="31-screen-a-batch-csv-output">3.1 Screen a batch (CSV output)<a class="anchor" href="#31-screen-a-batch-csv-output" aria-label="Link to this section">#</a></h2>
 <p><strong>Purpose.</strong> Include/exclude/unsure for each record, with the criterion behind each decision.
-<strong>When to use.</strong> With approved criteria, on batches of 10–20 records.</p>
+<strong>When to use.</strong> With approved criteria, on batches of 10–20 records, in a temporary chat with web search / browsing turned off (with web access the model may look up a published review instead of reading your records).</p>
 <div class="codeblock"><div class="codebar"><span class="lang">Prompt</span><button class="copy" type="button" data-label="Copy prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy prompt</span></button></div><pre><code class="language-text">You are a second reviewer screening titles and abstracts for a systematic review.
 
 ELIGIBILITY CRITERIA (apply exactly these, nothing else):
@@ -68,7 +68,7 @@ RULES
 - exclude ONLY if the title/abstract clearly shows that at least one criterion is NOT met. Name the criterion.
 - include if all criteria are met or not contradicted by the abstract.
 - unsure if information is missing or ambiguous. When in doubt, do not exclude.
-- Do not use any knowledge about these studies beyond the text given.
+- Do not search the web. Do not use any knowledge about these studies beyond the text given.
 - Return one row for EVERY record, in the same order. If the abstract is empty, decide on the title only and use unsure with reason &quot;no abstract&quot;.
 
 OUTPUT: only a CSV block with the header

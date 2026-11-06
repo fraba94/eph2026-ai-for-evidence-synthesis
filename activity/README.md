@@ -84,7 +84,8 @@ Not at the session? The talks and the demo are not needed to do the exercise: th
 Everyone works individually, on their own laptop: **you drive the AI, then you verify it.** First you paste the
 prompt and the records and let the AI answer; then you stop and check what it said against the source, the abstract
 or the paper, before you believe it. A laptop is recommended (copying, pasting and reading two windows side by side);
-a phone works for reading the pages and the answers. In the discussion each person brings one error they found.
+a phone works for reading the pages and the answers. If you like, compare your errors with your neighbour's
+after step 2 (optional). In the discussion each person brings one error they found.
 
 ---
 
@@ -105,10 +106,16 @@ a phone works for reading the pages and the answers. In the discussion each pers
 > checks, documentation of model and version), **do not use AI to conduct a real evidence review.** You stay
 > responsible for every decision: the AI does not.
 
-**Two rules for both tracks.** Screening answers after step 1, extraction answers after step 3: do not open the
-[reference answers](answers/README.md) earlier. Upload or paste only texts whose licence allows it (the `license`
-column of the records, the `licence` column of [`data/papers.csv`](data/papers.csv)), and never personal or
-confidential data.
+**Three rules for both tracks.**
+
+1. **Turn off web search / browsing and use a temporary chat (memory off).** In the previous run of this workshop
+   (Berlin, September 2026) a chat assistant with internet access recognised the published reference review and
+   offered to repeat it. The reference review here (Pruna et al. 2026) is published too: an AI with web access may
+   simply look up the answers. Agent track: do not allow web search or web fetch tools.
+2. **Screening answers after step 1, extraction answers after step 3**: do not open the
+   [reference answers](answers/README.md) earlier.
+3. **Upload or paste only texts whose licence allows it** (the `license` column of the records, the `licence` column
+   of [`data/papers.csv`](data/papers.csv)), and never personal or confidential data.
 
 ---
 
@@ -142,7 +149,7 @@ At title/abstract stage, if the abstract does not let you decide, the answer is 
 2. **Copy the screening prompt** from the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening): the criteria
    C1-C6 are already pasted in, with the output format (one row per record, `record_id,decision,reason`, decision
    `include | exclude | unsure`, a reason naming the criterion).
-3. **Paste both** into a new chat with your AI assistant: the prompt first, the records where it says
+3. **Paste both** into a new temporary chat with your AI assistant, web search off: the prompt first, the records where it says
    `[PASTE THE RECORDS HERE]`.
 4. **Paste the AI's answer into the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)**, as it is: no file to save. The scorer
    finds the table even with code fences, a sentence before or after it, or semicolons. Read the coverage line first:
@@ -178,7 +185,7 @@ One paper, **Phan2020**, and **5 fields** of the [extraction form](https://fraba
 1. **Copy the extraction prompt** ([Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) or Start page):
    the 5 fields, their definitions and `study_id = Phan2020` are already filled in.
 2. **Copy the full text** of [`Phan2020.txt`](data/fulltext/Phan2020.txt) (Copy and Download buttons on the
-   [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#Phan2020)) and paste it into a **new chat** after the prompt.
+   [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#Phan2020)) and paste it into a **new temporary chat** (web search off) after the prompt.
 3. Every value must come with a **verbatim quote** and its location (section or table), or `not reported`.
 4. **Verify 2 quotes** yourself: Ctrl+F in the paper. Is the quote there, word for word? Does it support the value?
 5. **Compare** with the [reference values](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/answers.html#extraction) (extraction answers, after this
@@ -210,7 +217,7 @@ room collects them. On your own: answer each theme in writing, one or two senten
 | **Transparency** | Could you trace every decision and value to a sentence in the source? Which quotes were not in the paper? |
 | **Bias** | Which kinds of records or fields did the AI get wrong systematically (single units, bundles, values only in tables or figures, countries it inferred)? |
 | **Human oversight** | Where did you catch an error the AI presented with confidence? Would you sign this table? |
-| **Reproducibility** | Would the same prompt give the same answer twice? What would you report so that someone else can repeat what you did? |
+| **Reproducibility** | Would the same prompt give the same answer twice? And how reproducible are human reviewers: would two of them, or the same one a month later, agree? What would you report so that someone else can repeat what you did? |
 | **The reference** | Is the reference standard always right? What did you find when the AI and the review disagreed? |
 
 ---
@@ -222,6 +229,7 @@ Not needed for the 30 minutes. Do these at home, or if you finish early.
 - **A second run.** Paste the same prompt and the same batch in a **new** chat and paste both answers into the scorer
   (Going further box): it reports how many decisions changed and Cohen's kappa. A result you cannot reproduce is not
   a method.
+- **Research idea from Berlin:** compare the reproducibility of human reviewers and AI on the same extraction task.
 - **The 11 core fields.** The longer extraction, with the 11 core fields of the form: the prompt is on the
   [Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#going-further). Try the second paper, `Mestre2012` (the paper of the
   demo), with the same prompt.
@@ -268,7 +276,7 @@ answers.
 
 | Block | Live session | On your own | What to do |
 |---|---:|---:|---|
-| Get ready | demo | 10 min | Read the key message and the criteria on this page; pick a track. New to AI? Follow the [beginners walkthrough](../beginners/README.md) (chat track, for learning only) |
+| Get ready | demo | 10 min | Read the key message and the criteria on this page; pick a track; turn off web search and use a temporary chat ([three rules](#choose-your-track)). New to AI? Follow the [beginners walkthrough](../beginners/README.md) (chat track, for learning only) |
 | [Step 1 · Screening](#step-1--screening-10-min) | 10 min | 15-20 min | Batch 1 (R001-R020); paste the AI's answer into the scorer |
 | [Step 2 · Look at the errors](#step-2--look-at-the-errors-10-min) | 10 min | 15-20 min | Open the missed and false includes; decide why the AI got them wrong |
 | [Step 3 · Short extraction](#step-3--short-extraction-10-min) | 10 min | 15-20 min | Phan2020, 5 fields, a quote for every value; verify the quotes before opening the extraction answers |

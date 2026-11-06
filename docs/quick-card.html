@@ -47,6 +47,8 @@
 <strong>Compare with:</strong> the reference review, Pruna et al., <em>J Clin Med</em> 2026 (12 included studies; screening and extraction by two human reviewers without AI). Screening answers after step 1, extraction answers after step 3.
 <strong>Full guide:</strong> <code>activity/README.md</code> (on your own: section "Doing it on your own (self-paced)", 60-90 min)</p>
 <p><strong>Work on your own</strong>, on your own laptop: you drive the AI, then you verify it. Site: Start page, then one tap per material.</p>
+<p><strong>Turn off web search / browsing and use a temporary chat (memory off).</strong> The reference review is published: an AI
+with web access may simply look up the answers (at a previous workshop in Berlin, one recognised the review and offered to repeat it).</p>
 <p><strong>Include only if ALL are met</strong></p>
 <div class="table-wrap md-table"><table>
 <thead>
@@ -84,7 +86,7 @@
 </table></div>
 <p><strong>Step 1 · Screening · 10 min</strong>
 Copy batch 1 (R001-R020) from the Records page and the screening prompt from the Start page (criteria already in it).
-Paste both into a new chat. Then <strong>paste the AI's answer into the Scorer</strong> as it is: no file to save.
+Paste both into a new temporary chat, web search off. Then <strong>paste the AI's answer into the Scorer</strong> as it is: no file to save.
 Coverage line first: "Screened 20 of 60" is expected; fewer means records were dropped. In doubt or no abstract: <strong>unsure</strong>.</p>
 <p><strong>Step 2 · Look at the errors · 10 min</strong> (screening answers: now)
 The Scorer lists the missed includes and the false includes. Open 2 of them (title and abstract, PubMed link) and
@@ -98,7 +100,7 @@ Compare with the reference values on the Answers page. Read the notes: some pape
 <p><strong>Going further:</strong> a second run in a new chat; the 11 core fields; the discrepancy log and the AI use record; the
 agent track (all 60 records, 3 papers, skills, <code>python3 activity/tools/score_screening.py ... --expect-all</code>).</p>
 <p><strong>Ask yourself:</strong> Performance: would I accept this sensitivity? Transparency: can I trace every value? Bias: whose
-errors, which studies? Oversight: would I sign the table? Reproducibility: would a second run agree? And the
+errors, which studies? Oversight: would I sign the table? Reproducibility: would a second run agree, and would two human reviewers? And the
 reference: is it always right?</p>
 <div class="md-alert md-alert-warning md-alert-plain"><svg class="md-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg><div><p><strong>For learning only.</strong> These prompts are teaching material for this workshop. They are not a validated method.
 If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,

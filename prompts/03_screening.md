@@ -9,7 +9,7 @@ The AI can be a second pair of eyes, not the reviewer. Ask it to be wrong in the
 ## 3.1 Screen a batch (CSV output)
 
 **Purpose.** Include/exclude/unsure for each record, with the criterion behind each decision.
-**When to use.** With approved criteria, on batches of 10–20 records.
+**When to use.** With approved criteria, on batches of 10–20 records, in a temporary chat with web search / browsing turned off (with web access the model may look up a published review instead of reading your records).
 
 ```text
 You are a second reviewer screening titles and abstracts for a systematic review.
@@ -24,7 +24,7 @@ RULES
 - exclude ONLY if the title/abstract clearly shows that at least one criterion is NOT met. Name the criterion.
 - include if all criteria are met or not contradicted by the abstract.
 - unsure if information is missing or ambiguous. When in doubt, do not exclude.
-- Do not use any knowledge about these studies beyond the text given.
+- Do not search the web. Do not use any knowledge about these studies beyond the text given.
 - Return one row for EVERY record, in the same order. If the abstract is empty, decide on the title only and use unsure with reason "no abstract".
 
 OUTPUT: only a CSV block with the header
