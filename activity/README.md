@@ -6,7 +6,7 @@ The topic is deliberately obvious and uncontroversial, so that your attention go
 screens abstracts and extracts data, where it fails, and how you would notice. You will compare what the AI does with
 **the reference review**: Pruna et al., *J Clin Med* 2026, a systematic review of quasi-experimental studies in acute
 care hospitals with **12 included studies**, in which two independent human reviewers did the screening, extraction,
-risk of bias and synthesis without AI (the authors declare ChatGPT for English-language editing only). Its decisions
+risk of bias and synthesis without generative AI (the authors declare Rayyan for duplicate detection and the screening workflow, and ChatGPT for English-language editing only). Its decisions
 are the answers you compare with. The choice was confirmed by the workshop team on 6 November 2026; citation, reasons and limits are in
 [`data/README.md`](data/README.md). **Open the review after the exercise, not before:** it names the included studies.
 
@@ -105,6 +105,22 @@ after step 2 (optional). In the discussion each person brings one error they fou
 | Step 3 · Extraction | **1 paper**: [`Phan2020`](data/fulltext/Phan2020.txt), **5 fields** (`Mestre2012`, the paper of the demo, is for practice at home) | the **3 papers** in [`data/papers.csv`](data/papers.csv), all fields |
 | Help | step-by-step walkthrough and ready prompts: [`../beginners/README.md`](../beginners/README.md), prompt library [`../prompts/README.md`](../prompts/README.md) | skills for screening, extraction, quote checking and discrepancy audit: [`../skills/README.md`](../skills/README.md) |
 | Scoring | [browser scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): paste the answer | `python3 activity/tools/score_screening.py` and `score_extraction.py` |
+
+**Your AI, your way.** The repository holds the materials; bring the AI you normally use and work the way you
+prefer, then check the result against the human review. Three routes, from simplest to most advanced:
+
+- **A · Copy and paste** (any chat assistant): the copy buttons of the
+  [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#right-now) and the
+  [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), pasted into a new temporary chat.
+- **B · Attach the files** (any assistant that accepts files): the batch with its abstracts from the records page
+  (**Download as .txt**; [`data/screening_records.csv`](data/screening_records.csv) has most abstracts empty for licence
+  reasons), the paper ([`data/fulltext/`](data/fulltext/README.md)) and the prompts ([`../prompts/`](../prompts/README.md)),
+  each downloaded from GitHub and attached with the prompt.
+- **C · Connect an agent** (Claude Code, Codex CLI, Gemini CLI, Cursor…): clone the repository; the agent reads
+  [`AGENTS.md`](../AGENTS.md) and the [skills](../skills/README.md) by itself; ask in plain words. Chat assistants with a
+  GitHub connector can read the repository too.
+
+The [demo video](#the-demo) shows the three routes and the checks that follow, whatever the route.
 
 > ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.
 > If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,

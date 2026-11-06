@@ -64,7 +64,7 @@
 screens abstracts and extracts data, where it fails, and how you would notice. You will compare what the AI does with
 <strong>the reference review</strong>: Pruna et al., <em>J Clin Med</em> 2026, a systematic review of quasi-experimental studies in acute
 care hospitals with <strong>12 included studies</strong>, in which two independent human reviewers did the screening, extraction,
-risk of bias and synthesis without AI (the authors declare ChatGPT for English-language editing only). Its decisions
+risk of bias and synthesis without generative AI (the authors declare Rayyan for duplicate detection and the screening workflow, and ChatGPT for English-language editing only). Its decisions
 are the answers you compare with. The choice was confirmed by the workshop team on 6 November 2026; citation, reasons and limits are in
 <a href="activity-data.html"><code>data/README.md</code></a>. <strong>Open the review after the exercise, not before:</strong> it names the included studies.</p>
 <p>This page is the guide for the live session (EPH 2026, Bilbao) <strong>and</strong> for anyone doing the exercise alone, months
@@ -273,6 +273,27 @@ after step 2 (optional). In the discussion each person brings one error they fou
 </tr>
 </tbody>
 </table></div>
+<p><strong>Your AI, your way.</strong> The repository holds the materials; bring the AI you normally use and work the way you
+prefer, then check the result against the human review. Three routes, from simplest to most advanced:</p>
+<ul>
+<li>
+<p><strong>A · Copy and paste</strong> (any chat assistant): the copy buttons of the
+    <a href="start.html#right-now">Start page</a> and the
+    <a href="batch.html">records page</a>, pasted into a new temporary chat.</p>
+</li>
+<li>
+<p><strong>B · Attach the files</strong> (any assistant that accepts files): the batch with its abstracts from the records page
+    (<strong>Download as .txt</strong>; <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/screening_records.csv"><code>data/screening_records.csv</code></a> has most abstracts empty for licence
+    reasons), the paper (<a href="papers.html"><code>data/fulltext/</code></a>) and the prompts (<a href="prompts.html"><code>../prompts/</code></a>),
+    each downloaded from GitHub and attached with the prompt.</p>
+</li>
+<li>
+<p><strong>C · Connect an agent</strong> (Claude Code, Codex CLI, Gemini CLI, Cursor…): clone the repository; the agent reads
+    <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/AGENTS.md"><code>AGENTS.md</code></a> and the <a href="skills.html">skills</a> by itself; ask in plain words. Chat assistants with a
+    GitHub connector can read the repository too.</p>
+</li>
+</ul>
+<p>The <a href="#the-demo">demo video</a> shows the three routes and the checks that follow, whatever the route.</p>
 <div class="md-alert md-alert-warning md-alert-plain"><svg class="md-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg><div><p><strong>For learning only.</strong> These prompts are teaching material for this workshop. They are not a validated method.
 If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,
 hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility

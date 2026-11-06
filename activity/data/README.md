@@ -17,7 +17,7 @@ and its limits; the other pages introduce it briefly as Pruna et al., *J Clin Me
 
 **In short.** A systematic review of quasi-experimental studies (interrupted time series, controlled and uncontrolled
 before-after) in acute care hospitals; **12 included studies**; screening, extraction, risk of bias (ROBINS-I) and
-synthesis by two independent human reviewers without AI. **Confirmed** by the workshop team on 6 November 2026 (to adapt the exercise to another review, see
+synthesis by two independent human reviewers without generative AI. **Confirmed** by the workshop team on 6 November 2026 (to adapt the exercise to another review, see
 [How to replace](#how-to-replace-the-reference-review)).
 
 **Why this one (for now).** Its question is exactly the exercise question; it is open access under CC BY, so its
@@ -45,7 +45,7 @@ was also checked: CC BY and pre-AI, but it covers compliance trials without synt
 title/abstract screening (one row per record with PMID and include/exclude), which turns the gold standard into
 real title/abstract decisions (see "How to replace" below); (2) the review's own extraction sheet, to replace the
 provisional extraction values; (3) the authors' confirmation of the included-study list. If the workshop team adopts another
-review (for example one of its own reviews conducted without AI), the same three files are needed.
+review (for example one of its own reviews conducted without generative AI), the same three files are needed.
 
 ## Screening set: `screening_records.csv` (60 records)
 

@@ -621,3 +621,9 @@ details.more-options[open] > summary { margin-bottom: 4px; }
   border: 1px solid var(--border); border-radius: 12px; }
 .demo-video figcaption { color: var(--muted); font-size: 14.5px; margin-top: 8px; max-width: 860px; overflow-wrap: anywhere; }
 .md .demo-video { margin: 18px 0 14px; }
+
+/* ---------- your AI, your way (start.html) ---------- */
+.routes-sec > h2 { font-size: clamp(1.3rem, 1.15rem + .7vw, 1.6rem); margin-bottom: 6px; }
+.routes { margin: 0 0 10px; padding-left: 1.2em; display: grid; gap: 8px; max-width: 860px; overflow-wrap: anywhere; }
+.routes code { white-space: normal; overflow-wrap: anywhere; }
+.routes-sec .hint { max-width: 860px; }
