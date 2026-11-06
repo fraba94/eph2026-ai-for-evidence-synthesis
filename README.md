@@ -48,7 +48,7 @@ AI can bring real advantages to evidence synthesis (speed, scale, consistency, l
 
 <a href="activity/README.md#the-60-minute-session" title="The 60-minute session in the activity guide"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/figures/session-dark.svg">
-  <img src="assets/figures/session-light.svg" width="100%" alt="How the session works: 60 minutes. Expert talks 10 min (limitations, with Patrick Boudreau, then benefits, with Francesco Baglivo), demo of open-access tools 10 min, small-group exercise 30 min, discussion 10 min. The exercise: 1 screen (10 min, 60 records, 20 in the chat track), 2 extract (12 min, a verbatim quote and location for every value), 3 score (8 min, compare with the human reference review, missed includes first), then 4 discuss (10 min).">
+  <img src="assets/figures/session-light.svg" width="100%" alt="How the session works: 60 minutes. Expert talks 10 min (limitations, with Patrick Boudreau, then benefits, with Francesco Baglivo), demo of open-access tools 10 min (Francesco Baglivo drives the AI, Patrick Boudreau checks the source), small-group exercise 30 min, discussion 10 min. The exercise: 1 screen (10 min, 60 records, 20 in the chat track), 2 extract (12 min, a verbatim quote and location for every value), 3 score (8 min, compare with the human reference review, missed includes first), then 4 discuss (10 min).">
 </picture></a>
 
 The live session took place on Thursday 12 November 2026, 16:45-17:45, at EPH 2026 in Bilbao (seminar M.8). **Not there?** You do not need the talks, the demo or a facilitator: allow 60 to 90 minutes and follow [Doing it on your own (self-paced)](activity/README.md#doing-it-on-your-own-self-paced), which says how to be your own verifier, when to open the answers and how to read the score.
@@ -210,9 +210,11 @@ Organised by the **EUPHA Digital Health and Artificial Intelligence (DHAI) Secti
 
 | Role | Person |
 |---|---|
-| Chair and contact | **Laura Maaß**, EUPHA Digital Health and Artificial Intelligence Section |
+| Chair and contact | **Laura Maaß**, SOCIUM, University of Bremen; EUPHA |
+| Co-chair | **Simon Bacon**, Concordia University |
 | Speaker, limitations | **Patrick Boudreau**, Montreal Behavioural Medicine Centre, Concordia University |
 | Speaker, benefits | **Francesco Baglivo**, University of Pisa |
+| Demo (16:55-17:05) | **Francesco Baglivo** (drives the AI) and **Patrick Boudreau** (checks the source), together |
 
 <p align="center"><a href="https://eupha.org/digital-health" title="EUPHA Digital Health and AI section"><img src="assets/logos/eupha-dhai.png" height="56" alt="EUPHA Digital Health and AI section"></a>&nbsp;&nbsp; <a href="https://www.concordia.ca" title="Concordia University"><img src="assets/logos/concordia.png" height="44" alt="Concordia University"></a>&nbsp;&nbsp; <a href="https://www.lsc-digital-public-health.de" title="Leibniz ScienceCampus Digital Public Health Bremen"><img src="assets/logos/lsc-diph.png" height="44" alt="Leibniz ScienceCampus Digital Public Health Bremen"></a>&nbsp;&nbsp; <a href="https://www.siiam.it" title="SIIAM"><img src="assets/logos/siiam.png" height="44" alt="SIIAM"></a>&nbsp;&nbsp; <a href="https://www.unipi.it" title="University of Pisa"><img src="assets/logos/unipi.png" height="44" alt="University of Pisa"></a>&nbsp;&nbsp;</p>
 

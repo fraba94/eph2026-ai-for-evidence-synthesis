@@ -34,7 +34,7 @@
   <div class="wrap">
     <div class="eyebrow"><a href="activity.html">Hands-on activity</a> · contains answers</div>
     <h1 id="facilitator-guide-for-facilitators-contains-answers">Facilitator guide (for facilitators: contains answers)</h1>
-    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/facilitator_guide.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-03">3 November 2026</time></span></p>
+    <p class="page-meta"><a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/facilitator_guide.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>View source on GitHub</a><span class="updated">Last updated <time datetime="2026-11-06">6 November 2026</time></span></p>
   </div>
 </div>
 
@@ -45,6 +45,7 @@
       <ol>
         <li><a href="#before-the-session">Before the session</a></li>
         <li><a href="#timing-60-minutes">Timing (60 minutes)</a></li>
+        <li><a href="#demo-script-four-hands">Demo script (four hands)</a></li>
         <li><a href="#what-to-expect-in-screening">What to expect in screening</a></li>
         <li><a href="#what-to-expect-in-extraction">What to expect in extraction</a></li>
         <li><a href="#interpreting-the-scores">Interpreting the scores</a></li>
@@ -124,8 +125,8 @@ groups compare with them.</p></blockquote>
 <tr>
 <td style="text-align: right;" data-label="Min">10-20</td>
 <td data-label="Clock">16:55-17:05</td>
-<td data-label="Block">Demo of open-access tools</td>
-<td data-label="Facilitator cue">Show one screening prompt and one extraction prompt on the same question, including one visible error</td>
+<td data-label="Block">Demo in four hands: <strong>Francesco Baglivo</strong> drives the AI, <strong>Patrick Boudreau</strong> checks the source</td>
+<td data-label="Facilitator cue">Follow the <a href="#demo-script-four-hands">demo script</a>: one screening batch, one extraction, then the errors the verifier caught</td>
 </tr>
 <tr>
 <td style="text-align: right;" data-label="Min">18-20</td>
@@ -156,6 +157,250 @@ groups compare with them.</p></blockquote>
 <td data-label="Clock">17:35-17:45</td>
 <td data-label="Block">Structured discussion</td>
 <td data-label="Facilitator cue">Use the prompts below; collect one sentence per group</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="demo-script-four-hands">Demo script (four hands)<a class="anchor" href="#demo-script-four-hands" aria-label="Link to this section">#</a></h2>
+<p>Ten minutes, 16:55-17:05, <strong>Francesco Baglivo</strong> and <strong>Patrick Boudreau</strong> together. The demo stages the message of the
+workshop: <strong>one drives the AI, one checks the source.</strong></p>
+<ul>
+<li>
+<p><strong>Francesco = driver.</strong> At the keyboard. Runs the AI with exactly the pages and prompts the participants will use,
+    and says aloud what he clicks.</p>
+</li>
+<li>
+<p><strong>Patrick = verifier.</strong> Never touches the AI. Asks "show me where it says that" and checks the answers against the
+    abstract or the paper. He decides what is accepted.</p>
+</li>
+</ul>
+<p>Participants then do the same steps in the same roles (driver and verifier of the <a href="activity.html#group-roles">group roles</a>).
+The point to land at the end: <strong>the errors were caught by the verifier, not by the AI.</strong></p>
+<p><strong>Pages used.</strong> All on the published site, <a href="index.html">https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/</a> (or on <code>http://localhost:8000/</code> if you serve <code>docs/</code> from a
+laptop):</p>
+<ul>
+<li><a href="start.html">Start page, <code>start.html</code></a>: the screening prompt with C1-C6 already pasted in, with a Copy button.</li>
+<li><a href="batch.html">Records page, <code>batch.html</code></a>: the batches; missing abstracts are filled from PubMed in the browser.</li>
+<li>
+<p><a href="beginners.html#step-5-extract-data-from-one-paper-with-quotes-12-min-optional-if-screening-ran-late">Beginners walkthrough, step 5</a>:
+    the extraction prompt and the verification prompt; the 11 core fields are the rows with <code>core = yes</code> of the
+    <a href="data/extraction_form.csv">extraction form</a>. Same prompts in the <a href="prompts.html">prompt library</a> (3.1, 4.2).</p>
+</li>
+<li>
+<p><a href="scorer.html">Scorer, <code>scorer.html</code></a>: paste the CSV; nothing is uploaded.</p>
+</li>
+<li>Mestre2012 full text (CC BY 4.0), the demo paper: <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/fulltext/Mestre2012.txt"><code>data/fulltext/Mestre2012.txt</code></a>, or
+    <a href="https://raw.githubusercontent.com/fraba94/eph2026-ai-for-evidence-synthesis/main/activity/data/fulltext/Mestre2012.txt">as plain text</a>
+    to select all and copy.</li>
+</ul>
+<div class="md-alert md-alert-important"><p class="md-alert-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/><path d="M12 8.5v4M12 15v.01"/></svg>Important</p><p><strong>Demo on batch 3 (R041-R060), not batch 1.</strong> The chat-track groups screen batch 1 (R001-R020) right after the
+demo: projecting the scorer on batch 1 would show them its missed includes. Batch 3 keeps the same steps without
+the spoiler (agent-track groups, who screen all 60, see 20 of their answers: tell them so). Likewise, the demo
+extracts <strong>Mestre2012</strong>, not Phan2020: the chat-track groups extract Phan2020 right after.</p></div>
+<h3 id="minute-by-minute">Minute by minute<a class="anchor" href="#minute-by-minute" aria-label="Link to this section">#</a></h3>
+<div class="table-wrap md-table stack"><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Francesco (driver)</th>
+<th>Patrick (verifier)</th>
+<th>On screen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Time"><strong>A. Screening</strong></td>
+<td data-label="Francesco (driver)"></td>
+<td data-label="Patrick (verifier)"></td>
+<td data-label="On screen"></td>
+</tr>
+<tr>
+<td data-label="Time">0:00-0:30 (16:55)</td>
+<td data-label="Francesco (driver)">Opens the Start page: "This is the page you will use in five minutes."</td>
+<td data-label="Patrick (verifier)">Announces the roles: "Francesco drives the AI, I check the source. Nothing goes into our table until I have seen it in the abstract."</td>
+<td data-label="On screen"><code>start.html</code>, sections 1 and 3</td>
+</tr>
+<tr>
+<td data-label="Time">0:30-1:15</td>
+<td data-label="Francesco (driver)">Records page: batch size <strong>20</strong>, <strong>batch 3 (R041-R060)</strong>; waits until the status says the abstracts are filled; <strong>Copy batch</strong></td>
+<td data-label="Patrick (verifier)">"Why batch 3? You will screen batch 1, and we do not want to spoil it."</td>
+<td data-label="On screen"><code>batch.html</code></td>
+</tr>
+<tr>
+<td data-label="Time">1:15-1:45</td>
+<td data-label="Francesco (driver)">Back on the Start page: <strong>Copy the screening prompt</strong> (C1-C6 already in it); new temporary chat; pastes the prompt, replaces <code>[PASTE THE RECORDS HERE]</code> with the batch; sends</td>
+<td data-label="Patrick (verifier)">Reads one rule aloud: "Exclude only if the abstract clearly shows that a criterion is not met. When in doubt, unsure."</td>
+<td data-label="On screen">Chat assistant</td>
+</tr>
+<tr>
+<td data-label="Time">1:45-2:30</td>
+<td data-label="Francesco (driver)">Scrolls the answer to the last line, "Records received: N. Rows returned: N."</td>
+<td data-label="Patrick (verifier)">"That line is the AI talking about itself. We count." Counts the IDs R041 to R060: any missing, repeated or renamed?</td>
+<td data-label="On screen">The CSV block in the chat</td>
+</tr>
+<tr>
+<td data-label="Time">2:30-3:45</td>
+<td data-label="Francesco (driver)">Switches to the records tab, Ctrl+F on the record Patrick names</td>
+<td data-label="Patrick (verifier)">Picks <strong>two decisions</strong>, preferably one exclude and one include or unsure: "Show me where it says that." Reads the sentence of the abstract and says aloud: supported, or not</td>
+<td data-label="On screen"><code>batch.html</code> (the abstract) next to the chat</td>
+</tr>
+<tr>
+<td data-label="Time">3:45-5:00</td>
+<td data-label="Francesco (driver)">Copies the CSV block; Scorer, screening tab; pastes it; leaves "I was meant to screen all records" <strong>unticked</strong>; compares</td>
+<td data-label="Patrick (verifier)">"Coverage line first: Screened 20 of 60 is expected, fewer means rows were dropped." Then: "Missed includes: the costly error at this stage."</td>
+<td data-label="On screen"><code>scorer.html</code></td>
+</tr>
+<tr>
+<td data-label="Time"><strong>B. Extraction</strong></td>
+<td data-label="Francesco (driver)"></td>
+<td data-label="Patrick (verifier)"></td>
+<td data-label="On screen"></td>
+</tr>
+<tr>
+<td data-label="Time">5:00-5:45 (17:00)</td>
+<td data-label="Francesco (driver)">New chat; pastes the extraction prompt with the 11 core fields (prepared the day before), <code>study_id = Mestre2012</code>, then the full text of Mestre2012 (or attaches the file); sends</td>
+<td data-label="Patrick (verifier)">States the rule: "Every value has a verbatim quote and a location, or says not reported. A value without a quote is not a value."</td>
+<td data-label="On screen">Chat assistant</td>
+</tr>
+<tr>
+<td data-label="Time">5:45-6:30</td>
+<td data-label="Francesco (driver)">Opens <code>Mestre2012.txt</code> in the second tab while the answer arrives</td>
+<td data-label="Patrick (verifier)">Chooses <strong>two quotes</strong> from the answer: one with a number, and a <code>not reported</code> if there is one</td>
+<td data-label="On screen">Chat, then <code>Mestre2012.txt</code></td>
+</tr>
+<tr>
+<td data-label="Time">6:30-7:30</td>
+<td data-label="Francesco (driver)">Ctrl+F on six to eight words of each quote, then on a synonym for the <code>not reported</code> field</td>
+<td data-label="Patrick (verifier)">"Is it there word for word, in the section it says?" Then <strong>one number</strong>: "Is the number in the value also in the quote?"</td>
+<td data-label="On screen"><code>Mestre2012.txt</code> with the match highlighted</td>
+</tr>
+<tr>
+<td data-label="Time">7:30-8:00</td>
+<td data-label="Francesco (driver)">"We do not score the extraction now: that is your job in step 2."</td>
+<td data-label="Patrick (verifier)">Sums up aloud what passed and what did not</td>
+<td data-label="On screen">Chat</td>
+</tr>
+<tr>
+<td data-label="Time"><strong>C. What we just saw</strong></td>
+<td data-label="Francesco (driver)"></td>
+<td data-label="Patrick (verifier)"></td>
+<td data-label="On screen"></td>
+</tr>
+<tr>
+<td data-label="Time">8:00-9:15 (17:03)</td>
+<td data-label="Francesco (driver)">Switches to the whiteboard slide and writes each error found: record ID or field, what was wrong</td>
+<td data-label="Patrick (verifier)">For each error: "Who caught it? Not the AI. The verifier, with the source open." If none: "No visible error today. That is also a result: here is what our rehearsal produced."</td>
+<td data-label="On screen">Whiteboard slide</td>
+</tr>
+<tr>
+<td data-label="Time">9:15-10:00</td>
+<td data-label="Francesco (driver)">Back to the Start page, section 2 (tracks)</td>
+<td data-label="Patrick (verifier)">Hands over: "Your turn. Same steps, same roles: driver at the keyboard, verifier with the source open. Chat track: batch 1 and Phan2020. Check your role card."</td>
+<td data-label="On screen"><code>start.html#choose-your-track</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="what-to-watch-for">What to watch for<a class="anchor" href="#what-to-watch-for" aria-label="Link to this section">#</a></h3>
+<div class="table-wrap md-table stack"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Patrick looks for</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Part">A. Screening</td>
+<td data-label="Patrick looks for"><strong>Missing or renamed rows</strong>: fewer than 20 rows, an ID skipped or repeated, <code>R41</code> instead of <code>R041</code>, rows out of order</td>
+<td data-label="What it shows">Chat assistants drop rows silently; the self-reported count can be wrong</td>
+</tr>
+<tr>
+<td data-label="Part">A. Screening</td>
+<td data-label="Patrick looks for"><strong>A reason that cites no criterion</strong> (no C1-C6 code), or a rule that is not in the criteria ("small sample", "low quality", "not in Europe")</td>
+<td data-label="What it shows">The model adds its own criteria</td>
+</tr>
+<tr>
+<td data-label="Part">A. Screening</td>
+<td data-label="Patrick looks for"><strong>Exclude when the abstract is silent</strong> (the reason says "not mentioned", "unclear", "no information")</td>
+<td data-label="What it shows">At this stage that is <code>unsure</code>, not <code>exclude</code>: a possible missed include</td>
+</tr>
+<tr>
+<td data-label="Part">B. Extraction</td>
+<td data-label="Patrick looks for"><strong>A quote that is not in the paper</strong> (Ctrl+F finds nothing, or finds a near-identical sentence)</td>
+<td data-label="What it shows">Invented or paraphrased quote: the value is unverified</td>
+</tr>
+<tr>
+<td data-label="Part">B. Extraction</td>
+<td data-label="Patrick looks for"><strong>A number that is not in its quote</strong> (the value says one figure, the quote another or none)</td>
+<td data-label="What it shows">The value came from somewhere else, or was computed or rounded</td>
+</tr>
+<tr>
+<td data-label="Part">B. Extraction</td>
+<td data-label="Patrick looks for"><strong>A false "not reported"</strong> (Ctrl+F on a synonym finds it, often in a table)</td>
+<td data-label="What it shows">Missed information: "not reported" must be checked like any other value</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="the-day-before">The day before<a class="anchor" href="#the-day-before" aria-label="Link to this section">#</a></h3>
+<ul>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>Network.</strong> Open <code>start.html</code>, <code>batch.html</code> (batch 3 fills its abstracts) and <code>scorer.html</code> on the venue Wi-Fi,
+    or on the phone hotspot you will use as a fallback.</p>
+</li>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>Chat assistant.</strong> Logged in on the demo laptop; <strong>memory off or a temporary chat</strong>; no project knowledge or
+    custom instructions that could leak earlier runs.</p>
+</li>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>Readable from the back of the room.</strong> Browser zoom 150%, large font in the chat; dark mode off if the
+    projector washes it out.</p>
+</li>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>Two tabs open:</strong> <code>start.html</code> and the chat. Keep <code>batch.html</code>, <code>scorer.html</code> and <code>Mestre2012.txt</code> one click
+    away (a local copy of <code>Mestre2012.txt</code> works without network).</p>
+</li>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>Extraction prompt ready:</strong> the prompt of the beginners walkthrough, step 5, with the 11 core fields of the
+    extraction form pasted in and <code>study_id = Mestre2012</code>, saved in a text file on the laptop.</p>
+</li>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>Rehearsal run saved locally as backup</strong>, in case the live run shows no error or the network fails: the
+    screening CSV, the extraction CSV and screenshots of the chat and of the scorer, with one error marked.
+    Keep it on the laptop only (outside the repository or in the git-ignored <code>activity/data/local/</code>): <strong>do not
+    commit or post outputs that contain copyrighted abstracts</strong>.</p>
+</li>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>AI use record.</strong> Note the model name, version and date of the rehearsal, and again on the day, in the
+    <a href="worksheet-ai-use-record.html">AI use record</a>: the demo models what the recorder does.</p>
+</li>
+<li class="task-item">
+<p><input type="checkbox" class="task-box"> <strong>Rehearse once in four hands</strong> with a timer: who speaks when, and where the hand-over at 9:15 happens.</p>
+</li>
+</ul>
+<h3 id="if-something-fails">If something fails<a class="anchor" href="#if-something-fails" aria-label="Link to this section">#</a></h3>
+<div class="table-wrap md-table"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No network (records page, chat or scorer do not load)</td>
+<td>Show the saved rehearsal run: screenshots of the chat, the CSV and the scorer. Say it is a rehearsal and when it was run. Then point to the <a href="#if-things-go-wrong">fallbacks</a> for the groups</td>
+</tr>
+<tr>
+<td>The AI makes no visible error</td>
+<td>Say so: it is also a result, and it does not prove the next run will be clean. Show the rehearsal's error and who caught it</td>
+</tr>
+<tr>
+<td>Records page does not fill the abstracts</td>
+<td>Use the records shipped with abstracts (see <a href="#if-things-go-wrong">If things go wrong</a>) or the rehearsal run</td>
+</tr>
+<tr>
+<td>Time overrun</td>
+<td>Skip part B (extraction). <strong>Always keep part C</strong>: the errors on the whiteboard and the hand-over</td>
 </tr>
 </tbody>
 </table></div>

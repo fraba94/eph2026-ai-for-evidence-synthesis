@@ -210,8 +210,9 @@ a.card:hover { border-color: var(--accent); }
   .figure .swipe { display: block; position: sticky; left: 0; font-size: 13px; }
 }
 
-.people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-@media (max-width: 760px) { .people { grid-template-columns: 1fr; } }
+.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+@media (max-width: 1000px) { .people { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .people { grid-template-columns: 1fr; } }
 .person .role { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .person h3 { margin: 6px 0 4px; }
 

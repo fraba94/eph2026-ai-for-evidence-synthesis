@@ -38,9 +38,21 @@ The live session: EPH 2026, Bilbao, skills building seminar M.8, Thursday 12 Nov
 | Min | Clock | Block | Who |
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | **Expert discussion.** Limitations of AI in evidence reviews (Patrick Boudreau, about 5 min), then benefits (Francesco Baglivo, about 5 min) | speakers |
-| 10-20 | 16:55-17:05 | **Demo** of selected open-access AI tools on the same question | speakers |
+| 10-20 | 16:55-17:05 | **Demo** of selected open-access AI tools on the same question ([what you will see](#the-demo)) | Francesco Baglivo and Patrick Boudreau |
 | 20-50 | 17:05-17:35 | **Small-group exercise** (this page): step 1 screening (10 min, 17:05-17:15), step 2 extraction (12 min, 17:15-17:27), step 3 compare with the reference (8 min, 17:27-17:35) | you |
 | 50-60 | 17:35-17:45 | **Structured discussion**: performance, transparency, bias, human oversight, reproducibility, and the reference itself | everyone |
+
+### The demo
+
+Before you start, Francesco Baglivo and Patrick Boudreau run the exercise in front of you, in four hands. **One drives
+the AI, one checks the source.** Francesco is at the keyboard and uses the same pages and prompts you will use (the
+[Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html), the
+[records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), the screening prompt, the
+[scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)); Patrick asks "show me where it
+says that" and checks the AI's answers against the abstract or the paper. Watch who catches the errors: the verifier,
+not the AI. The demo uses batch 3 (R041-R060) and the paper Mestre2012, so that nothing you will work on is shown
+in advance. Right after, your group does the same steps in the same roles (driver and verifier, see
+[Group roles](#group-roles)).
 
 Not at the session? The talks and the demo are not needed to do the exercise: the key message is above, and the
 [self-paced path](#doing-it-on-your-own-self-paced) below replaces the facilitators and the slides.

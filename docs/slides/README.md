@@ -21,8 +21,10 @@ facilitators.
 
 | Part | Speaker |
 |---|---|
+| Chair | Laura Maaß, SOCIUM, University of Bremen; EUPHA |
+| Co-chair | Simon Bacon, Concordia University |
 | Expert discussion: limitations (about 5 min) | Patrick Boudreau, Montreal Behavioural Medicine Centre, Concordia University |
 | Expert discussion: benefits (about 5 min) | Francesco Baglivo, University of Pisa |
-| Chair | Laura Maaß, EUPHA Digital Health and Artificial Intelligence Section |
+| Demo (10 min): one drives the AI, one checks the source | Francesco Baglivo (driver) and Patrick Boudreau (verifier), together |
 
 [Back to the repository home](../../README.md)
