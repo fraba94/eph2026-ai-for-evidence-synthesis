@@ -1,0 +1,3 @@
+# Only needed to rebuild the pages generated from the Markdown guides (python3 docs/build_pages.py).
+# The website itself has no build step and no dependencies.
+markdown==3.11.2

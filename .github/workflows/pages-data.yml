@@ -1,4 +1,9 @@
-name: Website data in sync
+name: Website in sync
+
+# Check-only: fails when docs/ is out of date with the repository, and says which command fixes it.
+# It never writes to the repository (no bot commits on main), so it works with protected branches.
+#   - data and images copied into docs/      -> python3 docs/sync_data.py
+#   - pages generated from the Markdown guides -> python3 docs/build_pages.py
 
 on:
   push:
@@ -18,3 +23,7 @@ jobs:
           python-version: "3.12"
       - name: Check that docs/ has the current data and images
         run: python3 docs/sync_data.py --check
+      - name: Install python-markdown
+        run: pip install -r docs/requirements.txt
+      - name: Check that the generated pages match the Markdown guides
+        run: python3 docs/build_pages.py --check
