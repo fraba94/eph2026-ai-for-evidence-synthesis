@@ -59,7 +59,7 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 | Min | Clock | Block | Facilitator cue |
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
-| 10-20 | 16:55-17:05 | **Demo video** (4:53), commented live: **Francesco Baglivo** narrates, **Patrick Boudreau** speaks for the verifier | Follow the [demo script](#demo-script): the video, then the errors the verifier caught. Fallback if the video cannot play: the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
+| 10-20 | 16:55-17:05 | **Demo video** (2:14), commented live, then the Start page block "Your AI, your way": **Francesco Baglivo** narrates, **Patrick Boudreau** speaks for the verifier | Follow the [demo script](#demo-script): the video, then the errors the verifier caught. Fallback if the video cannot play: the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
 | 16-20 | 17:01-17:05 | (after the video) Everyone opens the Start page on their own laptop | "Today, on your own, you do both: you drive the AI, then you verify it. Same steps, batch 1 and Phan2020" |
 | 20-30 | 17:05-17:15 | **Step 1 screening**: batch 1, the screening prompt, then the AI's answer pasted into the scorer | At minute 25: "Paste the answer into the scorer as soon as it arrives. Coverage line first: did all 20 come back?" |
 | 30-40 | 17:15-17:25 | **Step 2 look at the errors**: open two missed or false includes, decide why the AI got them wrong | At 30: "Read the abstract, not the AI's reason." At 38: "Keep one error for the discussion" |
@@ -69,37 +69,31 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 ## Demo script
 
 Ten minutes, 16:55-17:05, **Francesco Baglivo** and **Patrick Boudreau** together. **The demo is a video**, commented
-live: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (4:53, silent, captions burned in; also on the
+live: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (2:14, silent, captions burned in; also on the
 [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#demo) and embedded in the slides).
-It shows the three steps exactly as the participants will do them, with the same step names and button labels, on
-demo material (batch 3 and Mestre2012), with **real AI answers** recorded on 6 November 2026 (an AI chat assistant,
-the prompts of the site, web search off; details and the raw answers in [`demo/README.md`](../demo/README.md)).
-The message is the same as in the live version: **one drives the AI, one checks the source**, and the errors are
-caught by the verifier, not by the AI.
+Its message: **one repository, your AI, your way.** The repository holds the materials; participants bring the AI they
+normally use and work the way they prefer (route A copy and paste, route B attach the files, route C connect an agent),
+then check the result against the human review. Everything in it is real, on demo material (batch 3 and Mestre2012):
+a chat assistant's answers with the site's prompts, GitHub as it is, and an AI coding agent's run on a fresh clone
+(details and raw outputs in [`demo/README.md`](../demo/README.md)).
 
-- **Francesco narrates** what the AI is asked to do and what it answers ("the prompt already has C1-C6", "the AI
-  says 20 rows").
-- **Patrick speaks for the verifier**: "show me where it says that". He reads the highlighted sentence aloud and says
-  what is accepted.
-- Let the captions carry the instructions; do not read them out. Pause the video (space bar) only at the three recap
-  cards if the room needs it.
+- **Francesco narrates** the routes: what you give the AI and where the materials come from.
+- **Patrick speaks for the verifier** in the last part: coverage first, then "show me where it says that".
+- Let the captions carry the instructions; do not read them out.
 
 | Video | On screen | Francesco (narrates) | Patrick (verifier) |
 |---|---|---|---|
-| 0:00 | Title, the three steps | "Five minutes, then it is your turn: same steps, your own laptop." | "Batch 3 and Mestre2012 here; you get batch 1 and Phan2020." |
-| 0:18 | Step 1 · Screening: records, prompt, chat | "Records page, batch 3, Copy batch. Start page, Copy the screening prompt." | "Web search off, temporary chat. Exclude only when the abstract clearly says so." |
-| 1:09 | The AI's answer | "This is what the AI returned, unedited." | "Before reading a single decision: 20 records in, 20 rows out? We count." |
-| 1:26 | Scorer | "Paste it all, Score my screening." | "Coverage first. Then missed includes: zero here. That is the costly error." |
-| 1:50 | Step 2 · Look at the errors | "4 false includes, all excluded by the review only after reading the full text." | "Not errors at this stage. But look: the AI excluded 3 records the human screeners kept. Check its excludes too." |
-| 2:25 | R050 and R058 on the Records page | "The AI's reason is the blue box. We read the abstract instead." | R050: "Hospital-wide campaign, infections only in the ICU: unsure is fair." R058: "Components not described, then contact precautions and bathing: C3 in doubt." |
-| 3:28 | Step 3 · Short extraction | "Copy prompt + this paper: one paste." | "A value without a quote is not a value." |
-| 4:01 | Quotes in the full text | "Show text, then find the quote." | Quote 1: "Word for word, in the affiliations: the form allows it if the location says so." Quote 2: "Word for word, but the number in the value is not in the quote. Found it in Table 1, a few lines up. Check every number." |
-| 4:43 | Your turn | Hands over: "Your turn. Start page, step 1." | "Today, on your own, you do both: you drive the AI, then you verify it." |
+| 0:00 | Title, GitHub repository, map of what is where | "Everything is in one repository: records, papers, prompts, instructions for agents. The website shows the same materials with buttons." | |
+| 0:23 | Pick your route | "Use the AI you already use. Three ways in." | |
+| 0:27 | Route A · Copy and paste | "Copy the prompt, copy the batch, paste both into a temporary chat." | "First check: 20 records in, 20 rows out." |
+| 0:52 | Route B · Attach the files | "Download the files from GitHub and attach them. Abstracts: the Records page download, the CSV has most of them empty." | |
+| 1:14 | Route C · Connect an agent | "Clone it: the agent reads AGENTS.md and the skills. This run is real: two screenings, compared." | "19 of 20 agree; the one disagreement goes to a human, never to a coin toss." |
+| 1:41 | Whatever the route: check it | "Same scorer for every route." | "Coverage first, then missed includes. Then one quote: the value says 3 days every 3 weeks; the quote does not. It is in Table 1. Check every number." |
+| 2:06 | Your turn | Hands over: "Batch 1 and Phan2020, your AI, your way. Start page: QR on the next slide." | "Today, on your own, you do both: you drive the AI, then you verify it." |
 
-After the video (about 17:01): the participants open the Start page on their own laptop; Francesco switches to the
-whiteboard slide and writes the three points the verifier caught in the video (3 excludes stricter than the human
-screeners; R058 include with a doubt on C3; a number not in its quote), to be completed with the participants'
-errors in the discussion.
+After the video (about 16:58): show the Start page block **Your AI, your way** and the three rules (web search off,
+temporary chat, no confidential data); ask who will take route A, B or C (most will take A). At about 17:01 everyone
+opens the Start page on their own laptop.
 
 ### Fallback: the live demo in four hands
 

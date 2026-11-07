@@ -47,6 +47,7 @@ The AI is a second pair of eyes, not the reviewer. Its job is to sort records wi
    ```
    python3 ${CLAUDE_SKILL_DIR}/scripts/compare_runs.py RECORDS.csv screening_run1.csv screening_run2.csv --merged screening_merged.csv
    ```
+   `RECORDS.csv` is the set you screened: when you screen one batch of a larger file, filter the file to that batch first, or the records of the other batches are reported as missing.
    It reports missing, extra and duplicated records, invalid decisions, raw agreement, Cohen's kappa and PABAK (on the three decisions and on advance vs exclude), lists every disagreement, and writes a merged file where any disagreement becomes `unsure` (conservative). If any record is missing, fix that before going on: **never silently drop a record.** Add `--qc-sample 10` to list a reproducible random sample of records that **both** runs excluded: a shared misreading never appears as a disagreement, so a human re-reads these.
 6. **Report to the human**: counts per decision, agreement statistics (raw agreement first; kappa is deflated when nearly everything is excluded, which is why PABAK is shown too), the list of disagreements and of `unsure` records with their reasons, the QC sample of joint exclusions, and the criteria that produced the most ambiguity (these are the questions for the human).
 7. **Score only when asked.** If a gold file exists (workshop: `activity/answers/screening_gold.csv`) and the human asks to score, run:

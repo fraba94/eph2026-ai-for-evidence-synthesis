@@ -64,7 +64,7 @@
 screens abstracts and extracts data, where it fails, and how you would notice. You will compare what the AI does with
 <strong>the reference review</strong>: Pruna et al., <em>J Clin Med</em> 2026, a systematic review of quasi-experimental studies in acute
 care hospitals with <strong>12 included studies</strong>, in which two independent human reviewers did the screening, extraction,
-risk of bias and synthesis without AI (the authors declare ChatGPT for English-language editing only). Its decisions
+risk of bias and synthesis without generative AI (the authors declare Rayyan for duplicate detection and the screening workflow, and ChatGPT for English-language editing only). Its decisions
 are the answers you compare with. The choice was confirmed by the workshop team on 6 November 2026; citation, reasons and limits are in
 <a href="activity-data.html"><code>data/README.md</code></a>. <strong>Open the review after the exercise, not before:</strong> it names the included studies.</p>
 <p>This page is the guide for the live session (EPH 2026, Bilbao) <strong>and</strong> for anyone doing the exercise alone, months
@@ -192,7 +192,7 @@ in the loop.</p></blockquote>
 <tr>
 <td style="text-align: right;" data-label="Min">10-20</td>
 <td data-label="Clock">16:55-17:05</td>
-<td data-label="Block"><strong>Demo video</strong> (about 5 min, commented live) and your task (<a href="#the-demo">watch it</a>)</td>
+<td data-label="Block"><strong>Demo video</strong> (about 2 min, commented live) and your task (<a href="#the-demo">watch it</a>)</td>
 <td data-label="Who">Francesco Baglivo and Patrick Boudreau</td>
 </tr>
 <tr>
@@ -210,15 +210,15 @@ in the loop.</p></blockquote>
 </tbody>
 </table></div>
 <h3 id="the-demo">The demo<a class="anchor" href="#the-demo" aria-label="Link to this section">#</a></h3>
-<p>Before you start, watch the demo video: the three steps of this exercise, done once with an AI chat assistant, with
-captions that name every button you will click. A human opens two of the records in the abstract and checks two
-quotes in the paper; the scorer and a quote-check script check the rest. In the room, Francesco Baglivo comments it
-live and Patrick Boudreau speaks for the verifier, the person who checks the AI's answers against the abstract or the
-paper. The AI answers in the video are real: an AI chat assistant was run on 6 November 2026 with the prompts of this
-site, web search off, and its answers are shown unedited. The video uses batch 3 (R041-R060) and the paper Mestre2012,
-so that nothing you will work on is shown in advance: <strong>you do the same steps on batch 1 and Phan2020.</strong> Watch who
-catches the errors: the verifier, not the AI. <strong>Today, on your own, you do both:</strong> you drive the AI, then you verify
-it (see <a href="#working-on-your-own">Working on your own</a>).</p><figure class="demo-video" id="demo-video"><video controls preload="metadata" playsinline poster="assets/demo/demo_poster.png" width="1280" height="720"><source src="assets/demo/demo.mp4" type="video/mp4"><track kind="captions" src="assets/demo/demo.vtt" srclang="en" label="English">Your browser cannot play this video: <a href="assets/demo/demo.mp4">download it (MP4)</a>.</video><figcaption>Real answers of an AI chat assistant, recorded on 6 November 2026 with the prompts of this site (web search off), shown unedited. Demo material only: batch 3 (R041–R060) and Mestre2012; you work on batch 1 and Phan2020. <a href="assets/demo/demo.mp4" download>Download (MP4)</a> · <a href="assets/demo/demo.vtt" download>captions (WebVTT)</a> · <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/tree/main/demo">what it shows and the raw AI answers</a></figcaption></figure><p>On GitHub: <a href="assets/demo/demo.mp4">the video (MP4)</a>, its <a href="assets/demo/demo.vtt">captions (WebVTT)</a>, and
+<p>Before you start, watch the demo video (about 2 minutes, silent, with captions): <strong>one repository, your AI, your
+way.</strong> The repository holds the materials; the video shows three ways to bring them to an AI (copy and paste into a
+chat, attach the files, connect an AI agent to a clone of the repository) and then the same checks whatever the route:
+the scorer, and one quote found in the paper. The AI answers in it are real, recorded on 6 November 2026 (a chat
+assistant with the prompts of this site, and an AI coding agent on a fresh clone, web search off) and shown unedited.
+It uses batch 3 (R041-R060) and the paper Mestre2012, so that nothing you will work on is shown in advance: <strong>you do
+the same on batch 1 and Phan2020, in the way you prefer.</strong> In the room, Francesco Baglivo comments it live and Patrick
+Boudreau speaks for the verifier. <strong>Today, on your own, you do both:</strong> you drive the AI, then you verify it (see
+<a href="#working-on-your-own">Working on your own</a>).</p><figure class="demo-video" id="demo-video"><video controls preload="metadata" playsinline poster="assets/demo/demo_poster.png" width="1280" height="720"><source src="assets/demo/demo.mp4" type="video/mp4"><track kind="captions" src="assets/demo/demo.vtt" srclang="en" label="English">Your browser cannot play this video: <a href="assets/demo/demo.mp4">download it (MP4)</a>.</video><figcaption>Real AI answers recorded on 6 November 2026, shown unedited: a chat assistant with the prompts of this site, and an AI coding agent on a clone of the repository (web search off). Demo material only: batch 3 (R041–R060) and Mestre2012; you work on batch 1 and Phan2020. <a href="assets/demo/demo.mp4" download>Download (MP4)</a> · <a href="assets/demo/demo.vtt" download>captions (WebVTT)</a> · <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/tree/main/demo">what it shows and the raw AI answers</a></figcaption></figure><p>On GitHub: <a href="assets/demo/demo.mp4">the video (MP4)</a>, its <a href="assets/demo/demo.vtt">captions (WebVTT)</a>, and
 <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/demo/README.md">what it shows, with the raw AI answers</a>.</p>
 <p>Not at the session? Watch the video above: it shows the three steps without a facilitator. The talks are not needed
 to do the exercise: the key message is above, and the <a href="#doing-it-on-your-own-self-paced">self-paced path</a> below
@@ -273,6 +273,27 @@ after step 2 (optional). In the discussion each person brings one error they fou
 </tr>
 </tbody>
 </table></div>
+<p><strong>Your AI, your way.</strong> The repository holds the materials; bring the AI you normally use and work the way you
+prefer, then check the result against the human review. Three routes, from simplest to most advanced:</p>
+<ul>
+<li>
+<p><strong>A · Copy and paste</strong> (any chat assistant): the copy buttons of the
+    <a href="start.html#right-now">Start page</a> and the
+    <a href="batch.html">records page</a>, pasted into a new temporary chat.</p>
+</li>
+<li>
+<p><strong>B · Attach the files</strong> (any assistant that accepts files): the batch with its abstracts from the records page
+    (<strong>Download as .txt</strong>; <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/activity/data/screening_records.csv"><code>data/screening_records.csv</code></a> has most abstracts empty for licence
+    reasons), the paper (<a href="papers.html"><code>data/fulltext/</code></a>) and the prompts (<a href="prompts.html"><code>../prompts/</code></a>),
+    each downloaded from GitHub and attached with the prompt.</p>
+</li>
+<li>
+<p><strong>C · Connect an agent</strong> (Claude Code, Codex CLI, Gemini CLI, Cursor…): clone the repository; the agent reads
+    <a href="https://github.com/fraba94/eph2026-ai-for-evidence-synthesis/blob/main/AGENTS.md"><code>AGENTS.md</code></a> and the <a href="skills.html">skills</a> by itself; ask in plain words. Chat assistants with a
+    GitHub connector can read the repository too.</p>
+</li>
+</ul>
+<p>The <a href="#the-demo">demo video</a> shows the three routes and the checks that follow, whatever the route.</p>
 <div class="md-alert md-alert-warning md-alert-plain"><svg class="md-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg><div><p><strong>For learning only.</strong> These prompts are teaching material for this workshop. They are not a validated method.
 If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,
 hallucination) and with advanced techniques (structured outputs, verification against the source, reproducibility
@@ -554,7 +575,7 @@ answers.</p>
 <td data-label="Block">Get ready</td>
 <td style="text-align: right;" data-label="Live session">demo video</td>
 <td style="text-align: right;" data-label="On your own">10 min</td>
-<td data-label="What to do">Watch the <a href="#the-demo">demo video</a> (5 min); read the key message and the criteria on this page; pick a track; turn off web search and use a temporary chat (<a href="#choose-your-track">three rules</a>). New to AI? Follow the <a href="beginners.html">beginners walkthrough</a> (chat track, for learning only)</td>
+<td data-label="What to do">Watch the <a href="#the-demo">demo video</a> (2 min); read the key message and the criteria on this page; pick a track; turn off web search and use a temporary chat (<a href="#choose-your-track">three rules</a>). New to AI? Follow the <a href="beginners.html">beginners walkthrough</a> (chat track, for learning only)</td>
 </tr>
 <tr>
 <td data-label="Block"><a href="#step-1--screening-10-min">Step 1 · Screening</a></td>

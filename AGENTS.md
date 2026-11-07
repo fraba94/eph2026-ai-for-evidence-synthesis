@@ -8,7 +8,7 @@ Teaching material for the skills-building seminar **"Building skills in using AI
 
 Participants use AI to screen abstracts and extract data on a deliberately uncontroversial question, so that the focus stays on the AI method: **the effectiveness of hand hygiene interventions in preventing healthcare-associated infections (HAI)**. PICO of the reference review: *Population* patients and healthcare workers in acute care hospitals; *Intervention* multimodal hand hygiene intervention, hospital-wide or across more than one ward; *Comparator* pre-intervention period, standard practice or a contemporaneous comparator group; *Outcome* clinical HAI outcomes; quasi-experimental designs (criteria C1–C6 in `activity/review_config.yaml`).
 
-The AI output is compared with **the reference review**, a systematic review conducted **without AI**. Its citation, question and eligibility criteria are defined in `activity/review_config.yaml` (confirmed by the workshop team on 6 November 2026). Always read the criteria from there, from `activity/README.md`, or from the user; never reconstruct them from memory.
+The AI output is compared with **the reference review**, a systematic review conducted **without generative AI**. Its citation, question and eligibility criteria are defined in `activity/review_config.yaml` (confirmed by the workshop team on 6 November 2026). Always read the criteria from there, from `activity/README.md`, or from the user; never reconstruct them from memory.
 
 **Position of the repository:** AI can bring real advantages to evidence synthesis (speed, scale, consistency, living updates), but only for people with AI literacy and advanced skills. Users who do not understand how these systems work risk serious errors and losing control of the process. Human reviewers stay responsible for every decision.
 
@@ -71,6 +71,8 @@ python3 .claude/skills/quote-verifier/scripts/verify_quotes.py my_work/extractio
 python3 .claude/skills/discrepancy-audit/scripts/draft_discrepancy_log.py screening my_work/screening_merged.csv activity/answers/screening_gold.csv
 python3 .claude/skills/prisma-reporting-check/scripts/check_prisma_flow.py my_work/flow_counts.csv
 ```
+
+Screening one batch only (e.g. R041-R060)? Filter the records file to that batch first and give the filtered file to `compare_runs.py`: with the full 60-record file it reports the other 40 records as missing.
 
 ## Skills (task procedures)
 

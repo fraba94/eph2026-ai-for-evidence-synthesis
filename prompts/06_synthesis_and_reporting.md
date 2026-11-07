@@ -36,7 +36,7 @@ TABLE:
 **When to use.** After scoring, with the discrepancy list (see [`activity/README.md`](../activity/README.md) and the scorer at [`docs/scorer.html`](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html)).
 
 ```text
-Below are the records where the AI screening (or extraction) disagreed with a reference review conducted without AI.
+Below are the records where the AI screening (or extraction) disagreed with a reference review conducted without generative AI.
 For each row, classify the discrepancy as one of:
 missed include | false include | unsure | ambiguous criterion | wrong value | parsing error | hallucinated value | omission | unit or rounding | possible error in the reference.
 Give a one-line reason based only on the text provided.

@@ -1,0 +1,21 @@
+record_id,decision,reason
+R060,include,"No criterion contradicted: system-wide hand hygiene improvement with the Targeted Solutions Tool in 150 inpatient units of 12 hospitals (C1, C2); compliance measurement, causes of non-compliance and tested interventions (C3 to confirm at full text); baseline, improve and control phases (C4); adult ICU CLABSI and VAP (C5)"
+R059,unsure,"C1/C2 not reported: hospital type and number of units not stated; education plus positive reinforcement (C3 plausible), quasi-experimental with treatment and control groups (C4), infection rates compared (C5)"
+R058,include,"No criterion contradicted: university-affiliated hospital; hospital-wide hand hygiene campaign as phase 2 (C2, C3 multimodality to confirm at full text), later combined with contact precautions and chlorhexidine bathing; segmented Poisson interrupted time series (C4); hospital-acquired MRSA incidence (C5)"
+R057,exclude,C2 not met: single NICU outbreak investigation (also C4 not met: outbreak report with no evaluable intervention)
+R056,exclude,"C5 not met: outcomes are hand hygiene knowledge, perception, compliance and ABHR consumption only"
+R055,include,"Meets C1-C6 at abstract level: tertiary hospital, multimodal WHO HH campaign (handrub dispensers, education, reminders, feedback), before-and-after design, overall HAI rate and UTI/respiratory infection rates"
+R054,exclude,C5 not met: analysis of individual hand hygiene compliance in PROHIBIT ICUs; no infection outcome
+R053,exclude,C5 not met: outcomes are knowledge and hand hygiene compliance only
+R052,exclude,"C5 not met: outcomes are knowledge, perception and hand hygiene compliance only"
+R051,exclude,C2 not met: intervention confined to one neonatal intensive care unit
+R050,unsure,"C2 unclear: a hospital-wide HH campaign is mentioned, but the study population and the infection rates are those of one ICU; ask the human whether this counts as a single-unit study"
+R049,exclude,C2 not met: one neonatal intensive care unit (four 6-bed units of a single NICU); outcome also colonization rather than infection
+R048,exclude,"C3 not met: multifaceted CRE programme (screening, cohorting, contact precautions, cleaning, education and hand-washing, stewardship) in which hand hygiene is one component"
+R047,exclude,C4 not met: nonblinded pilot randomized trial (also C3: patient education as a single measure)
+R046,exclude,C5 not met: only hand hygiene compliance measured before and after the WHO strategy
+R045,exclude,C2 not met: single urology ward of Binh Dan Hospital
+R044,exclude,"C3 not met: the change evaluated is the hospital-wide COVID-19 infection prevention and control response, not a hand hygiene intervention; HAI rates are only correlated with compliance"
+R043,exclude,C3/C4 not met: descriptive surveillance of C. difficile infection with a correlation to hand hygiene compliance; no intervention evaluated
+R042,include,"No criterion contradicted: multi-component organisational climate intervention for all staff of one hospital aimed at handwashing, with a comparison hospital (C2, C4); MRSA and VRE nosocomial infections (C5). Confirm at full text that the intervention is hand hygiene-centred (C3)"
+R041,exclude,"C3 not met: multifaceted MDR A. baumannii programme (environmental decontamination, hand hygiene, stewardship, contact precautions, active surveillance) where hand hygiene is one component of a broad bundle"

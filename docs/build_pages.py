@@ -673,24 +673,24 @@ def ready_prompt_html(root, pid="extraction-prompt-text", which="short", paper_b
 
 # The demo video (docs/assets/demo/: video, poster, captions; what it shows and the raw AI answers in demo/ at the root)
 DEMO_DIR = "assets/demo/"
-DEMO_LENGTH = "5-minute"
+DEMO_LENGTH = "2-minute"
 
 
 def demo_video_html(root, heading=True):
     """The demo video block, the same on start.html and activity.html. The captions are burned into the video;
     the WebVTT track carries the same text for screen readers and search (off by default, to avoid double captions)."""
     d = root + DEMO_DIR
-    title = (f'<p class="demo-title"><b>Watch the {DEMO_LENGTH} demo first.</b> The three steps below, done once: an AI '
-             f'screens batch 3 and extracts Mestre2012; a human opens two records and checks two quotes in the paper, a script '
-             f'checks the rest. Silent, with captions that name every button.</p>') if heading else ""
+    title = (f'<p class="demo-title"><b>Watch the {DEMO_LENGTH} demo first.</b> One repository, your AI, your way: the '
+             f'same materials used three ways (copy and paste, attach the files, connect an agent), then the same checks '
+             f'(the scorer, one quote in the paper). Silent, with captions.</p>') if heading else ""
     return (f'<figure class="demo-video" id="demo-video">{title}'
             f'<video controls preload="metadata" playsinline poster="{d}demo_poster.png" width="1280" height="720">'
             f'<source src="{d}demo.mp4" type="video/mp4">'
             f'<track kind="captions" src="{d}demo.vtt" srclang="en" label="English">'
             f'Your browser cannot play this video: <a href="{d}demo.mp4">download it (MP4)</a>.</video>'
-            f'<figcaption>Real answers of an AI chat assistant, recorded on 6 November 2026 with the prompts of this site '
-            f'(web search off), shown unedited. Demo material only: batch 3 (R041–R060) and Mestre2012; you work on '
-            f'batch 1 and Phan2020. <a href="{d}demo.mp4" download>Download (MP4)</a> · '
+            f'<figcaption>Real AI answers recorded on 6 November 2026, shown unedited: a chat assistant with the prompts of '
+            f'this site, and an AI coding agent on a clone of the repository (web search off). Demo material only: batch 3 '
+            f'(R041–R060) and Mestre2012; you work on batch 1 and Phan2020. <a href="{d}demo.mp4" download>Download (MP4)</a> · '
             f'<a href="{d}demo.vtt" download>captions (WebVTT)</a> · '
             f'<a href="{GH_TREE}demo">what it shows and the raw AI answers</a></figcaption></figure>')
 

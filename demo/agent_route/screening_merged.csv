@@ -1,0 +1,21 @@
+record_id,decision,reason
+R041,exclude,"C3 not met: broad infection-control programme against MDR A. baumannii (environmental decontamination, hand hygiene, antimicrobial stewardship, contact precautions, active surveillance); hand hygiene is one component whose contribution cannot be interpreted"
+R042,include,C1-C6 not contradicted: quasi-experimental study with a comparison hospital; multi-component organisational culture intervention for all staff of one hospital to increase handwashing; outcomes nosocomial MRSA and VRE. Check at full text whether the components are hand hygiene-specific (C3)
+R043,exclude,C3 not met: no intervention evaluated; two-year surveillance of C. difficile infection correlated with hand hygiene compliance (also C4: observational correlation study)
+R044,unsure,"runs disagree or missing -> human check | run1 unsure: C3 unclear: the exposure is the hospital-wide increase in infection prevention and control measures during COVID-19, not described as a hand hygiene programme; C4 unclear: before-after comparison of compliance with correlation to HAI rates | run2 exclude: C3 not met: the change evaluated is the hospital-wide COVID-19 infection prevention and control response, not a hand hygiene intervention; HAI rates are only correlated with compliance"
+R045,exclude,C2 not met: intervention and outcome limited to a single urology ward
+R046,exclude,"C5 not met: only hand hygiene compliance reported (WHO multimodal strategy in 14 wards, no clinical HAI outcome)"
+R047,exclude,C3 not met: single educational patient hand hygiene intervention; C4 not met: pilot randomized trial; outcome is colonization acquisition
+R048,exclude,"C3 not met: broad CRE control bundle (rectal screening, cohorting, contact precautions, cleaning, education/hand-washing, antibiotic stewardship); hand hygiene contribution cannot be interpreted"
+R049,exclude,C2 not met: single neonatal intensive care unit (St. Petersburg)
+R050,unsure,"C2 ambiguous: abstract describes a hospital-wide HH campaign directed at all staff, but the study and the infection outcomes are confined to one ICU; human to decide how C2 applies"
+R051,exclude,C2 not met: single neonatal intensive care unit
+R052,exclude,"C5 not met: only knowledge, perception and hand hygiene compliance reported (no clinical HAI outcome)"
+R053,exclude,C5 not met: only knowledge and hand hygiene compliance reported (no clinical HAI outcome)
+R054,exclude,"C5 not met: individual healthcare worker hand hygiene compliance only (PROHIBIT ICUs), no clinical HAI outcome"
+R055,include,"C1-C6 met at abstract level: tertiary teaching hospital in Taiwan; WHO multimodal HH strategy (handrub at point of care, education, reminders, feedback); before-and-after study; overall HAI, UTI and respiratory infection rates"
+R056,exclude,"C5 not met: only knowledge, perception, compliance and hand rub consumption reported (no clinical HAI outcome)"
+R057,exclude,C2 not met: outbreak in a single neonatal intensive care unit; also C4 not met: outbreak investigation without evaluable intervention
+R058,include,C1-C6 not contradicted: university hospital; hospital-wide hand hygiene campaign (phase 2) before contact precautions and CHG bathing were added (phase 3); interrupted time series; hospital-acquired MRSA. Check at full text whether the campaign is multimodal (C3) and whether phase 2 can be separated from the phase 3 bundle
+R059,unsure,"C1 and C2 unclear: setting (hospital type) and number of wards not reported; quasi-experimental with treatment and control groups, education plus positive reinforcement, infection rates reported"
+R060,include,"C1-C6 not contradicted: 150 inpatient units in 12 hospitals; Targeted Solutions Tool hand hygiene improvement programme (measurement, barrier identification, tested interventions); before-after phases; ICU CLABSI and VAP rates. Check at full text whether the TST interventions are multimodal (C3)"
