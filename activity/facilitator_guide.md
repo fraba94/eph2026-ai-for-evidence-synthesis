@@ -59,8 +59,8 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 | Min | Clock | Block | Facilitator cue |
 |---:|---|---|---|
 | 0-10 | 16:45-16:55 | Expert discussion: **Patrick Boudreau** on limitations (about 5 min), then **Francesco Baglivo** on benefits (about 5 min) | End on the key message: advantages only with AI literacy; humans stay responsible |
-| 10-20 | 16:55-17:05 | **Demo video** (2:14), commented live, then the Start page block "Your AI, your way": **Francesco Baglivo** narrates, **Patrick Boudreau** speaks for the verifier | Follow the [demo script](#demo-script): the video, then the errors the verifier caught. Fallback if the video cannot play: the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
-| 16-20 | 17:01-17:05 | (after the video) Everyone opens the Start page on their own laptop | "Today, on your own, you do both: you drive the AI, then you verify it. Same steps, batch 1 and Phan2020" |
+| 10-20 | 16:55-17:05 | **Demo video** (1:40), commented live, then the Start page sections "The task" and "Pick one of two routes": **Francesco Baglivo** narrates, **Patrick Boudreau** speaks for the verifier | Follow the [demo script](#demo-script): the video, then the errors the verifier caught. Fallback if the video cannot play: the [live demo in four hands](#fallback-the-live-demo-in-four-hands) |
+| 16-20 | 17:01-17:05 | (after the video) Everyone opens the Start page on their own phone or laptop | "Today, on your own, you do both: you drive the AI, then you verify it. Same steps, batch 1 and Phan2020" |
 | 20-30 | 17:05-17:15 | **Step 1 screening**: batch 1, the screening prompt, then the AI's answer pasted into the scorer | At minute 25: "Paste the answer into the scorer as soon as it arrives. Coverage line first: did all 20 come back?" |
 | 30-40 | 17:15-17:25 | **Step 2 look at the errors**: open two missed or false includes, decide why the AI got them wrong | At 30: "Read the abstract, not the AI's reason." At 38: "Keep one error for the discussion" |
 | 40-50 | 17:25-17:35 | **Step 3 short extraction**: Phan2020, 5 fields, a quote for each | At 40: "Read the 5 definitions before you paste the paper." At 45: "Verify two quotes with Ctrl+F now" |
@@ -69,10 +69,10 @@ Clock times are those of the Bilbao session (start 16:45); for another run, add 
 ## Demo script
 
 Ten minutes, 16:55-17:05, **Francesco Baglivo** and **Patrick Boudreau** together. **The demo is a video**, commented
-live: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (2:14, silent, captions burned in; also on the
+live: [`docs/assets/demo/demo.mp4`](../docs/assets/demo/demo.mp4) (1:40, silent, captions burned in; also on the
 [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#demo) and embedded in the slides).
 Its message: **one repository, your AI, your way.** The repository holds the materials; participants bring the AI they
-normally use and work the way they prefer (route A copy and paste, route B attach the files, route C connect an agent),
+normally use and work the way they prefer (Route 1 phone copy and paste, Route 2 laptop connect an agent),
 then check the result against the human review. Everything in it is real, on demo material (batch 3 and Mestre2012):
 a chat assistant's answers with the site's prompts, GitHub as it is, and an AI coding agent's run on a fresh clone
 (details and raw outputs in [`demo/README.md`](../demo/README.md)).
@@ -84,16 +84,15 @@ a chat assistant's answers with the site's prompts, GitHub as it is, and an AI c
 | Video | On screen | Francesco (narrates) | Patrick (verifier) |
 |---|---|---|---|
 | 0:00 | Title, GitHub repository, map of what is where | "Everything is in one repository: records, papers, prompts, instructions for agents. The website shows the same materials with buttons." | |
-| 0:23 | Pick your route | "Use the AI you already use. Three ways in." | |
-| 0:27 | Route A · Copy and paste | "Copy the prompt, copy the batch, paste both into a temporary chat." | "First check: 20 records in, 20 rows out." |
-| 0:52 | Route B · Attach the files | "Download the files from GitHub and attach them. Abstracts: the Records page download, the CSV has most of them empty." | |
-| 1:14 | Route C · Connect an agent | "Clone it: the agent reads AGENTS.md and the skills. This run is real: two screenings, compared." | "19 of 20 agree; the one disagreement goes to a human, never to a coin toss." |
-| 1:41 | Whatever the route: check it | "Same scorer for every route." | "Coverage first, then missed includes. Then one quote: the value says 3 days every 3 weeks; the quote does not. It is in Table 1. Check every number." |
-| 2:06 | Your turn | Hands over: "Batch 1 and Phan2020, your AI, your way. Start page: QR on the next slide." | "Today, on your own, you do both: you drive the AI, then you verify it." |
+| 0:21 | Pick one of two routes | "Use any generative AI. Two ways in: the phone, copy and paste; or the laptop, connect an agent." | |
+| 0:26 | Route 1 · Phone · copy and paste | "One tap copies the prompt and the 20 records. Paste into a temporary chat." | "First check: 20 records in, 20 rows out." |
+| 0:49 | Route 2 · Laptop · connect an agent | "Clone it: the agent reads AGENTS.md and the skills. This run is real: two screenings, compared." | "19 of 20 agree; the one disagreement goes to a human, never to a coin toss." |
+| 1:07 | Whatever the route: check it | "Same scorer for every route." | "Coverage first, then missed includes. Then one quote: the value says 3 days every 3 weeks; the quote does not. It is in Table 1. Check every number." |
+| 1:32 | Your turn | Hands over: "Batch 1 and Phan2020, your AI, your way. Start page: QR on the next slide." | "Today, on your own, you do both: you drive the AI, then you verify it." |
 
-After the video (about 16:58): show the Start page block **Your AI, your way** and the three rules (web search off,
-temporary chat, no confidential data); ask who will take route A, B or C (most will take A). At about 17:01 everyone
-opens the Start page on their own laptop.
+After the video (about 16:58): show the Start page sections **The task** and **Pick one of two routes** and the three rules (web search off,
+temporary chat, no confidential data); ask who will take Route 1 or Route 2 (most will take Route 1). At about 17:01 everyone
+opens the Start page on their own phone or laptop.
 
 ### Fallback: the live demo in four hands
 

@@ -1,5 +1,7 @@
 # Hands-on exercise: AI for screening and data extraction
 
+## The task
+
 **Question.** *Are hand hygiene interventions effective in reducing healthcare-associated infections?*
 
 The topic is deliberately obvious and uncontroversial, so that your attention goes to the **method**: how an AI tool
@@ -9,6 +11,8 @@ care hospitals with **12 included studies**, in which two independent human revi
 risk of bias and synthesis without generative AI (the authors declare Rayyan for duplicate detection and the screening workflow, and ChatGPT for English-language editing only). Its decisions
 are the answers you compare with. The choice was confirmed by the workshop team on 6 November 2026; citation, reasons and limits are in
 [`data/README.md`](data/README.md). **Open the review after the exercise, not before:** it names the included studies.
+
+**What you do:** you screen 20 records and extract 5 fields from one paper with any generative AI, then compare with the human reviewers.
 
 This page is the guide for the live session (EPH 2026, Bilbao) **and** for anyone doing the exercise alone, months
 later, without a facilitator or the slides: if that is you, start with
@@ -24,8 +28,8 @@ later, without a facilitator or the slides: if that is you, start with
 | | |
 |---|---|
 | **Time** | Live session: 30 minutes on your own, inside a 60-minute session. On your own, later: 60 to 90 minutes ([self-paced path](#doing-it-on-your-own-self-paced)) |
-| **You need** | a laptop (a phone works for reading the pages), any chat assistant (ChatGPT, Claude, Gemini, Copilot, Mistral...) or a coding agent |
-| **How** | individually: each person on their own laptop. You drive the AI, then you verify it |
+| **You need** | a phone or a laptop and any generative AI: a chat app (ChatGPT, Claude, Gemini, Copilot, Mistral...) on Route 1, or a coding agent on Route 2 |
+| **How** | individually: each person on their own phone or laptop. You drive the AI, then you verify it |
 | **Three moves** | 1 screen 20 records and paste the AI's answer into the scorer · 2 look at two of its errors · 3 extract 5 fields from one paper, with quotes |
 | **Not finishing** | is expected. Two errors you understand are worth more than twenty decisions you did not check |
 
@@ -51,6 +55,23 @@ Everything for the hands-on part is on the workshop website, one tap away on a p
 
 ---
 
+## Choose your route
+
+Use **any generative AI you like**. There are two routes; the records, the human reference review and the checks are
+the same.
+
+| | **Route 1 · Phone · copy and paste** | **Route 2 · Laptop · connect an agent** |
+|---|---|---|
+| For | anyone with an AI chat app (ChatGPT, Claude, Gemini, Copilot, Mistral...), on a phone or a laptop. Demonstration and learning only | people already using Claude Code, Codex CLI, Gemini CLI, Cursor or similar, with AI literacy and advanced skills |
+| Step 1 · Screening | on the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening) tap **Copy prompt + 20 records**: the screening prompt with batch 1 (R001-R020) already inserted, missing abstracts fetched from PubMed in your browser. Paste into a new temporary chat, then paste the AI's answer into the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) | `git clone https://github.com/fraba94/eph2026-ai-for-evidence-synthesis`, open your agent in the folder and ask in plain words to screen the records against the criteria; it reads [`AGENTS.md`](../AGENTS.md) and the [skills](../skills/README.md) by itself. All **60 records** in [`data/screening_records.csv`](data/screening_records.csv); score its file with the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) or `python3 activity/tools/score_screening.py` |
+| Step 2 · Errors | open 2 missed or false includes in the scorer | the same, on all 60 records |
+| Step 3 · Extraction | on the Start page tap **Copy prompt + Phan2020 full text** (5 fields); `Mestre2012`, the paper of the demo, is for practice at home | the **3 papers** in [`data/papers.csv`](data/papers.csv), all fields; `python3 activity/tools/score_extraction.py` |
+| Help | step-by-step walkthrough and ready prompts: [`../beginners/README.md`](../beginners/README.md), prompt library [`../prompts/README.md`](../prompts/README.md) | skills for screening, extraction, quote checking and discrepancy audit: [`../skills/README.md`](../skills/README.md) |
+
+The [demo video](#the-demo) shows both routes and the checks that follow, whatever the route.
+
+---
+
 ## The 60-minute session
 
 The live session: EPH 2026, Bilbao, skills building seminar M.8, Thursday 12 November 2026, 16:45-17:45.
@@ -65,8 +86,8 @@ The live session: EPH 2026, Bilbao, skills building seminar M.8, Thursday 12 Nov
 ### The demo
 
 Before you start, watch the demo video (about 2 minutes, silent, with captions): **one repository, your AI, your
-way.** The repository holds the materials; the video shows three ways to bring them to an AI (copy and paste into a
-chat, attach the files, connect an AI agent to a clone of the repository) and then the same checks whatever the route:
+way.** The repository holds the materials; the video shows two ways to bring them to an AI (Route 1, copy and paste on a
+phone; Route 2, connect an AI agent to a clone of the repository on a laptop) and then the same checks whatever the route:
 the scorer, and one quote found in the paper. The AI answers in it are real, recorded on 6 November 2026 (a chat
 assistant with the prompts of this site, and an AI coding agent on a fresh clone, web search off) and shown unedited.
 It uses batch 3 (R041-R060) and the paper Mestre2012, so that nothing you will work on is shown in advance: **you do
@@ -94,33 +115,6 @@ a phone works for reading the pages and the answers. If you like, compare your e
 after step 2 (optional). In the discussion each person brings one error they found.
 
 ---
-
-## Choose your track
-
-| | **Chat track** (most participants) | **Agent track** (going further) |
-|---|---|---|
-| For | anyone with a chat assistant | people already using Claude Code, Codex CLI, Gemini CLI or similar |
-| Step 1 · Screening | **20 records**: R001-R020 (batch 1 of the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), which fills missing abstracts from PubMed); paste the AI's answer into the [scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html) | all **60 records** in [`data/screening_records.csv`](data/screening_records.csv) |
-| Step 2 · Errors | open 2 missed or false includes in the scorer | the same, on all 60 records |
-| Step 3 · Extraction | **1 paper**: [`Phan2020`](data/fulltext/Phan2020.txt), **5 fields** (`Mestre2012`, the paper of the demo, is for practice at home) | the **3 papers** in [`data/papers.csv`](data/papers.csv), all fields |
-| Help | step-by-step walkthrough and ready prompts: [`../beginners/README.md`](../beginners/README.md), prompt library [`../prompts/README.md`](../prompts/README.md) | skills for screening, extraction, quote checking and discrepancy audit: [`../skills/README.md`](../skills/README.md) |
-| Scoring | [browser scorer](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/scorer.html): paste the answer | `python3 activity/tools/score_screening.py` and `score_extraction.py` |
-
-**Your AI, your way.** The repository holds the materials; bring the AI you normally use and work the way you
-prefer, then check the result against the human review. Three routes, from simplest to most advanced:
-
-- **A · Copy and paste** (any chat assistant): the copy buttons of the
-  [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#right-now) and the
-  [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html), pasted into a new temporary chat.
-- **B · Attach the files** (any assistant that accepts files): the batch with its abstracts from the records page
-  (**Download as .txt**; [`data/screening_records.csv`](data/screening_records.csv) has most abstracts empty for licence
-  reasons), the paper ([`data/fulltext/`](data/fulltext/README.md)) and the prompts ([`../prompts/`](../prompts/README.md)),
-  each downloaded from GitHub and attached with the prompt.
-- **C · Connect an agent** (Claude Code, Codex CLI, Gemini CLI, Cursor…): clone the repository; the agent reads
-  [`AGENTS.md`](../AGENTS.md) and the [skills](../skills/README.md) by itself; ask in plain words. Chat assistants with a
-  GitHub connector can read the repository too.
-
-The [demo video](#the-demo) shows the three routes and the checks that follow, whatever the route.
 
 > ⚠️ **For learning only.** These prompts are teaching material for this workshop. They are not a validated method.
 > If you are not confident with how large language models work (context windows, parsing, sampling, retrieval,
@@ -165,7 +159,7 @@ At title/abstract stage, if the abstract does not let you decide, the answer is 
 
 ## Step 1 · Screening (10 min)
 
-1. **Copy the records.** Open the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) and copy **batch 1** (R001-R020)
+1. **Route 1: one tap.** On the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening) tap **Copy prompt + 20 records**: you get the screening prompt (the criteria C1-C6 are already in) with the 20 records of **batch 1** (R001-R020) inserted where it says `[PASTE THE RECORDS HERE]`. Paste it into a new temporary chat, web search off, and go to point 4. **Route 2:** ask your agent in plain words (see the table above). To copy the pieces separately instead, continue with points 2 and 3. **Copy the records:** open the [records page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/batch.html) and copy **batch 1** (R001-R020)
    with one tap. Some abstracts are empty in the repository because their licence does not allow redistribution: the
    records page fetches them from PubMed in your browser.
 2. **Copy the screening prompt** from the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-1-screening): the criteria
@@ -203,6 +197,8 @@ error) and the **false includes**. Now you are the verifier.
 
 One paper, **Phan2020**, and **5 fields** of the [extraction form](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-form):
 `country`, `study_design`, `intervention_components`, `primary_hai_outcome`, `direction_of_effect`.
+
+**Route 1: one tap.** On the [Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#step-3-extraction) tap **Copy prompt + Phan2020 full text**: the extraction prompt with the paper inserted, in one paste. Then go to point 3. To copy the pieces separately, use points 1 and 2.
 
 1. **Copy the extraction prompt** ([Papers page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/papers.html#extraction-prompt) or Start page):
    the 5 fields, their definitions and `study_id = Phan2020` are already filled in.
@@ -298,7 +294,7 @@ answers.
 
 | Block | Live session | On your own | What to do |
 |---|---:|---:|---|
-| Get ready | demo video | 10 min | Watch the [demo video](#the-demo) (2 min); read the key message and the criteria on this page; pick a track; turn off web search and use a temporary chat ([three rules](#choose-your-track)). New to AI? Follow the [beginners walkthrough](../beginners/README.md) (chat track, for learning only) |
+| Get ready | demo video | 10 min | Watch the [demo video](#the-demo) (2 min); read the key message and the criteria on this page; pick a route; turn off web search and use a temporary chat ([three rules](#choose-your-track)). New to AI? Follow the [beginners walkthrough](../beginners/README.md) (chat track, for learning only) |
 | [Step 1 · Screening](#step-1--screening-10-min) | 10 min | 15-20 min | Batch 1 (R001-R020); paste the AI's answer into the scorer |
 | [Step 2 · Look at the errors](#step-2--look-at-the-errors-10-min) | 10 min | 15-20 min | Open the missed and false includes; decide why the AI got them wrong |
 | [Step 3 · Short extraction](#step-3--short-extraction-10-min) | 10 min | 15-20 min | Phan2020, 5 fields, a quote for every value; verify the quotes before opening the extraction answers |

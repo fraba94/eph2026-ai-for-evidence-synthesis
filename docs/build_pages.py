@@ -681,14 +681,14 @@ def demo_video_html(root, heading=True):
     the WebVTT track carries the same text for screen readers and search (off by default, to avoid double captions)."""
     d = root + DEMO_DIR
     title = (f'<p class="demo-title"><b>Watch the {DEMO_LENGTH} demo first.</b> One repository, your AI, your way: the '
-             f'same materials used three ways (copy and paste, attach the files, connect an agent), then the same checks '
+             f'same materials used two ways (Route 1 on a phone, copy and paste; Route 2 on a laptop, connect an agent), then the same checks '
              f'(the scorer, one quote in the paper). Silent, with captions.</p>') if heading else ""
     return (f'<figure class="demo-video" id="demo-video">{title}'
             f'<video controls preload="metadata" playsinline poster="{d}demo_poster.png" width="1280" height="720">'
             f'<source src="{d}demo.mp4" type="video/mp4">'
             f'<track kind="captions" src="{d}demo.vtt" srclang="en" label="English">'
             f'Your browser cannot play this video: <a href="{d}demo.mp4">download it (MP4)</a>.</video>'
-            f'<figcaption>Real AI answers recorded on 6 November 2026, shown unedited: a chat assistant with the prompts of '
+            f'<figcaption>Real AI answers recorded on 6 November 2026, shown unedited: an AI chat app with the prompts of '
             f'this site, and an AI coding agent on a clone of the repository (web search off). Demo material only: batch 3 '
             f'(R041–R060) and Mestre2012; you work on batch 1 and Phan2020. <a href="{d}demo.mp4" download>Download (MP4)</a> · '
             f'<a href="{d}demo.vtt" download>captions (WebVTT)</a> · '

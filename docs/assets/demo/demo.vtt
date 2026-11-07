@@ -3,81 +3,61 @@ WEBVTT
 NOTE Demo video of the EPH 2026 workshop exercise (seminar M.8): one repository, your AI, your way. The same captions are burned into the video.
 
 1
-00:00:01.473 --> 00:00:11.389
+00:00:01.473 --> 00:00:10.556
 The repository holds the materials. Bring your own AI.
 
 2
-00:00:11.389 --> 00:00:16.194
+00:00:10.556 --> 00:00:15.360
 The repository: Everything you need is here. Use it with any AI.
 
 3
-00:00:16.194 --> 00:00:22.603
+00:00:15.360 --> 00:00:20.565
 The repository: Data, prompts, agent instructions, website: the same materials.
 
 4
-00:00:22.603 --> 00:00:27.212
-Pick your route: A, B or C.
+00:00:20.565 --> 00:00:25.570
+Pick one of two routes. Any generative AI.
 
 5
-00:00:27.212 --> 00:00:33.618
-Route A · Copy and paste: Click "Copy the screening prompt" on the Start page.
+00:00:25.570 --> 00:00:36.574
+Route 1 · Phone · copy and paste: Tap once: the prompt and the 20 records are copied.
 
 6
-00:00:33.618 --> 00:00:42.623
-Route A · Copy and paste: Records page: batch, "Copy batch", paste both into a chat.
+00:00:36.574 --> 00:00:41.782
+Route 1 · Phone · copy and paste: Paste it into your AI app: temporary chat, web search off.
 
 7
-00:00:42.623 --> 00:00:51.983
-Route A · Copy and paste: The AI answers: check 20 records in, 20 rows out.
+00:00:41.782 --> 00:00:48.992
+Route 1 · Phone · copy and paste: The AI answers: check 20 records in, 20 rows out.
 
 8
-00:00:51.983 --> 00:00:59.475
-Route B · Attach the files: Download the prompt from GitHub: prompts/03_screening.md.
+00:00:48.992 --> 00:00:54.996
+Route 2 · Laptop · connect an agent: Clone it: the agent reads AGENTS.md and the skills.
 
 9
-00:00:59.475 --> 00:01:04.081
-Route B · Attach the files: And the paper: "Download raw file".
+00:00:54.996 --> 00:01:01.006
+Route 2 · Laptop · connect an agent: A real agent run: two screenings, then compared.
 
 10
-00:01:04.081 --> 00:01:10.086
-Route B · Attach the files: Records with abstracts: "Download as .txt" on the Records page.
+00:01:01.006 --> 00:01:07.202
+Route 2 · Laptop · connect an agent: Runs agree on 19 of 20; a human resolves R044.
 
 11
-00:01:10.086 --> 00:01:14.495
-Route B · Attach the files: Attach the files to any assistant, then ask.
-
-12
-00:01:14.495 --> 00:01:20.901
-Route C · Connect an agent: Clone it: the agent reads AGENTS.md and the skills.
-
-13
-00:01:20.901 --> 00:01:27.311
-Route C · Connect an agent: A real agent run: two screenings, then compared.
-
-14
-00:01:27.311 --> 00:01:33.718
-Route C · Connect an agent: Runs agree on 19 of 20; a human resolves R044.
-
-15
-00:01:33.718 --> 00:01:41.018
-Route C · Connect an agent: Chat assistants with a GitHub connector can read it too.
-
-16
-00:01:41.018 --> 00:01:49.026
+00:01:07.202 --> 00:01:15.210
 Whatever the route: check it: Paste the AI's decisions into the scorer: coverage first.
 
-17
-00:01:49.026 --> 00:01:53.431
+12
+00:01:15.210 --> 00:01:19.615
 Whatever the route: check it: 0 missed includes; open the flagged records yourself.
 
-18
-00:01:53.431 --> 00:02:00.236
+13
+00:01:19.615 --> 00:01:26.421
 Whatever the route: check it: Then find the AI's quote in the paper, word for word.
 
-19
-00:02:00.236 --> 00:02:05.849
+14
+00:01:26.421 --> 00:01:32.035
 Whatever the route: check it: Found. But the value's "3 days every 3 weeks" is in Table 1.
 
-20
-00:02:05.849 --> 00:02:13.552
+15
+00:01:32.035 --> 00:01:39.739
 Your turn: batch 1 and Phan2020. Your AI, your way.

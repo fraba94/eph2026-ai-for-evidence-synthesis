@@ -1,8 +1,8 @@
 # The demo video: one repository, your AI, your way
 
-A silent video of 2:14, 1280×720, with captions burned in. Its message: **the repository holds the materials. Bring
-your own AI. Work your way. Then check it against the human review.** It shows three ways to bring the same materials
-to an AI, then the checks that follow whatever the route. It is the demo of the EPH 2026 seminar M.8 (Bilbao,
+A silent video of 1:40, 1280×720, with captions burned in. Its message: **the repository holds the materials. Bring
+your own AI. Work your way. Then check it against the human review.** It shows two routes to bring the same materials
+to an AI (Route 1 on a phone, Route 2 on a laptop), then the checks that follow whatever the route. It is the demo of the EPH 2026 seminar M.8 (Bilbao,
 12 November 2026, 16:55-17:05), commented live in the room; the live demo in four hands is the fallback (see the
 [facilitator guide](../activity/facilitator_guide.md#demo-script)).
 
@@ -22,21 +22,20 @@ list of records not screened marks the batch 1 reference answers, so that line i
 |---|---|---|---|
 | 0:00 | Title card | The repository holds the materials. Bring your own AI. | |
 | 0:11 | The repository | Everything you need is here. Use it with any AI. / Data, prompts, agent instructions, website: the same materials. | The repository page on github.com, as it is |
-| 0:23 | Pick your route | Pick your route: A, B or C. | |
-| 0:27 | **Route A · Copy and paste** (any chat assistant) | Click "Copy the screening prompt" on the Start page. / Records page: batch, "Copy batch", paste both into a chat. / The AI answers: check 20 records in, 20 rows out. | The live website; the AI's answer is the real answer of an AI chat assistant (below), on a neutral panel that imitates no chat product |
-| 0:52 | **Route B · Attach the files** (any assistant that accepts files) | Download the prompt from GitHub: prompts/03_screening.md. / And the paper: "Download raw file". / Records with abstracts: "Download as .txt" on the Records page. / Attach the files to any assistant, then ask. | github.com pages and the website, as they are (the paper is really downloaded). No answer is shown for this route: it is the same task, followed by the same checks |
-| 1:14 | **Route C · Connect an agent** (Claude Code, Codex CLI, Gemini CLI, Cursor…) | Clone it: the agent reads AGENTS.md and the skills. / A real agent run: two screenings, then compared. / Runs agree on 19 of 20; a human resolves R044. / Chat assistants with a GitHub connector can read it too. | The commands and their output come from the log of a real run (below), abridged with "…", never edited. The first lines (the `git clone` and the request in plain words) are labelled as an example of what you type |
-| 1:41 | **Whatever the route: check it** | Paste the AI's decisions into the scorer: coverage first. / 0 missed includes; open the flagged records yourself. / Then find the AI's quote in the paper, word for word. / Found. But the value's "3 days every 3 weeks" is in Table 1. | The live scorer, with the Route A answer pasted; the Mestre2012 full text on the site, with a quote of the chat assistant's extraction and the sentence of Table 1 highlighted |
-| 2:06 | Your turn | Your turn: batch 1 and Phan2020. Your AI, your way. | |
+| 0:21 | Pick one of two routes | Pick one of two routes. Any generative AI. | |
+| 0:26 | **Route 1 · Phone · copy and paste** (any AI chat app; for demonstration and learning only) | Tap once: the prompt and the 20 records are copied. / Paste it into your AI app: temporary chat, web search off. / The AI answers: check 20 records in, 20 rows out. | The live Start page in a 390 px wide phone window, with its one-tap button **Copy prompt + 20 records** (shown with `?batch=3`, the demo batch; the video reads the clipboard to check that it holds the prompt and 20 records). The AI's answer is the real answer of an AI chat assistant (below), on a neutral panel that imitates no chat product |
+| 0:49 | **Route 2 · Laptop · connect an agent** (Claude Code, Codex CLI, Gemini CLI, Cursor…) | Clone it: the agent reads AGENTS.md and the skills. / A real agent run: two screenings, then compared. / Runs agree on 19 of 20; a human resolves R044. | The commands and their output come from the log of a real run (below), abridged with "…", never edited. The first lines (the `git clone` and the request in plain words) are labelled as an example of what you type |
+| 1:07 | **Whatever the route: check it** | Paste the AI's decisions into the scorer: coverage first. / 0 missed includes; open the flagged records yourself. / Then find the AI's quote in the paper, word for word. / Found. But the value's "3 days every 3 weeks" is in Table 1. | The live scorer, with the Route 1 answer pasted; the Mestre2012 full text on the site, with a quote of the chat assistant's extraction and the sentence of Table 1 highlighted |
+| 1:32 | Your turn | Your turn: batch 1 and Phan2020. Your AI, your way. | The closing card shows the two routes and "Start page: QR on the slide" |
 
 ## The real AI runs
 
-**Route A, chat assistant** (also used in the final check):
+**Route 1, AI chat assistant** (also used in the final check):
 
 - **Tool:** an AI chat assistant (Claude), as a participant would use it. **Date:** 6 November 2026. **Settings:** a
   new temporary chat, **web search off**.
-- **Prompts:** copied from the live site, unchanged: the screening prompt of the Start page (criteria C1-C6 pasted in)
-  followed by batch 3 from the Records page; for the extraction, **Copy prompt + this paper** on the Mestre2012 card of
+- **Prompts:** copied from the site, unchanged: the screening prompt of the Start page (criteria C1-C6 pasted in)
+  followed by batch 3 from the Records page (the answer was recorded before the one-tap button existed; the button gives the same text in one copy); for the extraction, **Copy prompt + this paper** on the Mestre2012 card of
   the Papers page (the 5 fields of the short extraction and the full text, CC BY 4.0). No answer key was consulted.
 - Files: [`screening_answer_batch3.csv`](screening_answer_batch3.csv) and
   [`extraction_answer_Mestre2012.csv`](extraction_answer_Mestre2012.csv), the CSV blocks of the two answers copied
@@ -47,7 +46,7 @@ list of records not screened marks the batch 1 reference answers, so that line i
   [`quote_verification_Mestre2012.csv`](quote_verification_Mestre2012.csv) (`verify_quotes.py`: 6 of 6 quotes verbatim;
   the two intervention-components rows hold numbers that are not in their quote).
 
-**Route C, AI coding agent** (folder [`agent_route/`](agent_route/)):
+**Route 2, AI coding agent** (folder [`agent_route/`](agent_route/)):
 
 - **Tool:** an AI coding agent (Claude Code) on a fresh clone of this repository (commit 5d3430a), 6 November 2026,
   **no web search and no web fetch**; it followed `AGENTS.md` and the skills `title-abstract-screening`,
@@ -69,9 +68,9 @@ list of records not screened marks the batch 1 reference answers, so that line i
 
 ## How it was made
 
-Recorded with Playwright (`recordVideo`, Chromium, 1280×720) on the live website and on github.com: the captions,
+Recorded with Playwright (`recordVideo`, Chromium, 1280×720) on a local copy of the website (the version with the one-tap buttons) and on github.com: the captions,
 the route label, the cursor dot, the yellow outlines and highlights and a 1.2× zoom of the website pages were
-injected into the page; the AI answer and the agent's terminal output were shown on neutral local pages that imitate
+injected into the page; Route 1 is shown in a phone frame (an iframe 390 px wide); the AI answer and the agent's terminal output were shown on neutral local pages that imitate
 no product. Encoded with ffmpeg (H.264, CRF 28, yuv420p, faststart).
 
 *For learning only.* One run of each tool on 20 records and one paper says nothing about how good a tool is.
