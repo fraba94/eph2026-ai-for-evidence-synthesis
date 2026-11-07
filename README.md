@@ -51,7 +51,7 @@ AI can bring real advantages to evidence synthesis (speed, scale, consistency, l
   <img src="assets/figures/session-light.svg" width="100%" alt="How the session works: 60 minutes. Expert talks 10 min (limitations, with Patrick Boudreau, then benefits, with Francesco Baglivo), demo of open-access tools 10 min (Francesco Baglivo drives the AI, Patrick Boudreau checks the source), exercise on your own 30 min, discussion 10 min. The exercise: 1 screen (10 min, 20 records with your AI, then paste its answer into the scorer), 2 look at the errors (10 min, open 2 missed or false includes and decide why the AI got them wrong), 3 short extraction (10 min, one paper, 5 fields, a verbatim quote for each, check 2 with Ctrl+F), then 4 discuss (10 min, each person brings one error they found).">
 </picture></a>
 
-**Watch the demo video first** (about 2 minutes, silent, with captions): **one repository, your AI, your way.** The repository holds the materials; bring the AI you use (copy and paste, attach the files, or connect an agent), then check it against the human review. Real AI answers on demo material (batch 3 and Mestre2012). [On the Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#demo) · [MP4](docs/assets/demo/demo.mp4) · [what it shows and the raw AI answers](demo/README.md).
+**Watch the demo video first** (about 2 minutes, silent, with captions): **one repository, your AI, your way.** The repository holds the materials; bring the AI you use (copy and paste on a phone, or connect an agent on a laptop), then check it against the human review. Real AI answers on demo material (batch 3 and Mestre2012). [On the Start page](https://fraba94.github.io/eph2026-ai-for-evidence-synthesis/start.html#demo) · [MP4](docs/assets/demo/demo.mp4) · [what it shows and the raw AI answers](demo/README.md).
 
 The live session is on Thursday 12 November 2026, 16:45-17:45, at EPH 2026 in Bilbao (seminar M.8). **Not there?** You do not need the talks or a facilitator: watch the demo video, then allow 60 to 90 minutes and follow [Doing it on your own (self-paced)](activity/README.md#doing-it-on-your-own-self-paced), which says how to be your own verifier, when to open the answers and how to read the score.
 
@@ -88,7 +88,7 @@ The website gives the chat track everything without installing anything: the rec
 
 ## Choose your path
 
-<a href="activity/README.md#choose-your-track" title="Choose your track"><picture>
+<a href="activity/README.md#choose-your-route" title="Choose your route"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/figures/tracks-dark.svg">
   <img src="assets/figures/tracks-light.svg" width="100%" alt="Agent track, for Claude Code or another coding agent, needs AI literacy and advanced skills: clone the repository, skills load automatically, screen all 60 records and extract 3 papers, score against the reference. Chat track, any chat assistant, learning only: open the beginners guide, copy a batch and a prompt, paste the answer in the scorer, look at the errors. Both end the same way: compare with the human reference review, then discuss.">
 </picture></a>

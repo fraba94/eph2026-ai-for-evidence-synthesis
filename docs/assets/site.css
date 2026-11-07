@@ -627,3 +627,20 @@ details.more-options[open] > summary { margin-bottom: 4px; }
 .routes { margin: 0 0 10px; padding-left: 1.2em; display: grid; gap: 8px; max-width: 860px; overflow-wrap: anywhere; }
 .routes code { white-space: normal; overflow-wrap: anywhere; }
 .routes-sec .hint { max-width: 860px; }
+
+/* ---------- Start page: the task, routes, one-tap buttons ---------- */
+.pico { display: grid; gap: 6px; margin: 12px 0 14px; max-width: 860px; }
+.pico > div { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+.pico dt { font-weight: 800; color: var(--blue); margin: 0; }
+.pico dd { margin: 0; overflow-wrap: anywhere; }
+.task-do { font-size: 1.1rem; background: var(--yellow-bg); border: 1px solid var(--yellow-ln); border-radius: 12px; padding: 12px 16px; max-width: 860px; }
+.routes pre.clone { margin: 8px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.route-lbl { margin: 14px 0 6px; overflow-wrap: anywhere; }
+.btn-onetap { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; padding: 12px 18px;
+  font: inherit; font-size: 1.08rem; font-weight: 800; color: #fff; background: var(--blue); border: 2px solid var(--blue); border-radius: 14px; cursor: pointer; }
+.btn-onetap svg { width: 22px; height: 22px; flex: none; }
+.btn-onetap:hover { filter: brightness(.94); }
+.btn-onetap.is-busy { opacity: .85; cursor: progress; }
+.btn-onetap.is-done { background: #1D6A44; border-color: #1D6A44; }
+.onetap-status { margin: 8px 0 10px; color: var(--muted); font-size: 14.5px; overflow-wrap: anywhere; }
+@media (max-width: 560px) { .pico > div { grid-template-columns: 1fr; gap: 2px; } }
